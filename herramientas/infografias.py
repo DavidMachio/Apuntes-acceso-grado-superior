@@ -231,3 +231,196 @@ def tema10():
 
 def infografia(num):  # noqa: F811  (sustituye a la versión inicial)
     return {1: tema1, 2: tema2, 3: tema3, 4: tema4, 5: tema5, 6: tema6, 7: tema7, 8: tema8, 9: tema9, 10: tema10}.get(num, generica)()
+
+
+# ---------------------------------------------------------------- visuales de diapositivas de concepto
+import math as _m
+
+_P6, _P3, _P8 = "var(--color-primary-600)", "var(--color-primary-300)", "var(--color-primary-800)"
+_M4, _M2, _M7 = "var(--marron-400)", "var(--marron-200)", "var(--marron-700)"
+
+
+def _flecha(x1, y, x2, col=_M7):
+    return (f'<line x1="{x1}" y1="{y}" x2="{x2 - 8}" y2="{y}" stroke="{col}" stroke-width="4" stroke-linecap="round"/>'
+            f'<polygon points="{x2},{y} {x2 - 14},{y - 8} {x2 - 14},{y + 8}" fill="{col}"/>')
+
+
+def _caja(x, y, w, h, txt, col=_P6, tc="#fff", size=24):
+    return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="{col}"/>'
+            + _t(x + w / 2, y + h / 2 + size / 3, txt, size, 700, tc, "middle"))
+
+
+def v_tasas():
+    papelera = (f'<rect x="60" y="120" width="90" height="110" rx="10" fill="{_M4}"/>'
+                f'<rect x="50" y="100" width="110" height="16" rx="6" fill="{_M7}"/><rect x="90" y="86" width="30" height="14" rx="5" fill="{_M7}"/>'
+                + "".join(f'<rect x="{x}" y="132" width="8" height="86" rx="4" fill="{_M2}"/>' for x in (80, 101, 122)))
+    casa = (f'<polygon points="380,150 450,90 520,150" fill="{_P8}"/><rect x="395" y="150" width="110" height="80" fill="{_P6}"/>'
+            f'<rect x="436" y="180" width="28" height="50" rx="4" fill="#fff"/>')
+    return _svg(papelera + casa
+                + _t(105, 275, "Basura", 24, 700, anchor="middle") + _t(105, 305, "tasa fija", 22, 500, _M7, "middle")
+                + _t(105, 335, "siempre igual", 19, 500, _M7, "middle")
+                + _t(450, 275, "IBI", 24, 700, anchor="middle") + _t(450, 305, "porcentaje", 22, 500, _M7, "middle")
+                + _t(450, 335, "según el valor", 19, 500, _M7, "middle")
+                + f'<line x1="280" y1="90" x2="280" y2="340" stroke="{_M2}" stroke-width="3" stroke-dasharray="8 8"/>', "Tasa fija frente a porcentaje")
+
+
+def v_t1_empezar():
+    return _svg(_t(40, 70, "Precio", 22, 600, _M7) + f'<rect x="40" y="90" width="480" height="64" rx="12" fill="{_M2}"/>'
+                + _t(280, 132, "300 €", 28, 700, anchor="middle")
+                + _t(40, 215, "Pagas el 80 %", 22, 600, _M7) + f'<rect x="40" y="235" width="384" height="64" rx="12" fill="{_P6}"/>'
+                + f'<rect x="424" y="235" width="96" height="64" rx="12" fill="none" stroke="{_M4}" stroke-width="3" stroke-dasharray="7 6"/>'
+                + _t(232, 277, "240 €", 28, 700, "#fff", "middle") + _t(472, 277, "−20 %", 22, 700, _M7, "middle"),
+                "300 € con un 20 % de descuento son 240 €")
+
+
+def v_t2_empezar():
+    f1 = (_caja(20, 60, 130, 70, "Ci", _M4) + _flecha(160, 95, 280) + _t(220, 78, "× (1 + p)", 21, 700, _P8, "middle")
+          + _caja(290, 60, 130, 70, "Cf", _P6) + _t(470, 106, "sube", 24, 700, _P6, "middle"))
+    f2 = (_caja(20, 240, 130, 70, "Ci", _M4) + _flecha(160, 275, 280) + _t(220, 258, "× (1 − p)", 21, 700, _M7, "middle")
+          + _caja(290, 240, 130, 70, "Cf", _M7) + _t(470, 286, "baja", 24, 700, _M7, "middle"))
+    return _svg(f1 + f2 + f'<line x1="20" y1="185" x2="540" y2="185" stroke="{_M2}" stroke-width="3"/>', "Aumento y disminución porcentual")
+
+
+def v_t3_empezar():
+    return _svg(_t(40, 60, "Total (t) = 100 %", 22, 700, _M7) + f'<rect x="40" y="80" width="480" height="70" rx="14" fill="{_M2}"/>'
+                + f'<rect x="40" y="80" width="190" height="70" rx="14" fill="{_P6}"/>'
+                + _t(135, 125, "c", 30, 700, "#fff", "middle") + _t(380, 125, "resto", 22, 600, _M7, "middle")
+                + _t(280, 230, "p = c / t × 100", 34, 700, _P8, "middle")
+                + _t(280, 285, "¿qué parte del total es c?", 22, 500, _M7, "middle")
+                + f'<path d="M135 158 L135 190 M135 190 L280 190" stroke="{_P6}" stroke-width="0"/>', "Parte frente al total")
+
+
+def v_t4_empezar():
+    return _svg(_barras_v([("Ci", 120), ("Cf", 190)], x0=70, ancho=110, sep=90, vmax=190, alto=200,
+                          colores=[_M4, _P6], fmt=lambda v: "")
+                + f'<rect x="340" y="{300 - 200:.0f}" width="110" height="{70 / 190 * 200:.0f}" rx="10" fill="none" stroke="{_P8}" stroke-width="3" stroke-dasharray="7 6"/>'
+                + f'<rect x="340" y="100" width="110" height="74" rx="10" fill="{_P3}"/>'
+                + _t(395, 146, "VA", 28, 700, _P8, "middle") + _t(330, 80, "variación = Cf − Ci", 20, 600, _M7, "middle")
+                + _t(125, 285, "", 10), "Variación entre la cantidad inicial y la final")
+
+
+def v_t5_empezar():
+    out = ""
+    for i in range(4):
+        x = 30 + i * 125
+        out += (f'<rect x="{x}" y="170" width="100" height="130" rx="8" fill="{_M4}"/>'
+                f'<rect x="{x}" y="{170 - 38 * (i + 1) if i else 132}" width="100" height="{38 * (i + 1) if i else 38}" rx="8" fill="{_P6}"/>'
+                + _t(x + 50, 322, f"Año {i + 1}", 18, 500, _M7, "middle"))
+    out = ""
+    for i in range(4):
+        x = 30 + i * 125
+        out += f'<rect x="{x}" y="210" width="100" height="90" rx="8" fill="{_M4}"/>'
+        for k in range(i + 1):
+            out += f'<rect x="{x}" y="{210 - (k + 1) * 34}" width="100" height="30" rx="6" fill="{_P6}"/>'
+        out += _t(x + 50, 326, f"Año {i + 1}", 18, 500, _M7, "middle")
+    return _svg(out + _t(280, 36, "Cada año se suma el mismo interés", 22, 700, _P8, "middle")
+                + _t(80, 262, "capital", 18, 700, "#fff", "middle") + _t(60, 175, "", 10), "Interés simple: crece igual cada año")
+
+
+def v_t5_unidades():
+    cx, cy, r = 150, 190, 100
+    sector = f'<path d="M{cx} {cy} L{cx} {cy - r} A{r} {r} 0 0 1 {cx} {cy + r} Z" fill="{_P6}"/>'
+    marcas = "".join(f'<line x1="{cx + (r - 8) * _m.sin(_m.radians(a)):.1f}" y1="{cy - (r - 8) * _m.cos(_m.radians(a)):.1f}" '
+                     f'x2="{cx + r * _m.sin(_m.radians(a)):.1f}" y2="{cy - r * _m.cos(_m.radians(a)):.1f}" stroke="{_M7}" stroke-width="3"/>'
+                     for a in range(0, 360, 30))
+    return _svg(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{_M2}" stroke="{_M7}" stroke-width="4"/>{sector}{marcas}'
+                + _t(cx, 330, "6 de 12 meses", 22, 700, _M7, "middle")
+                + _t(400, 160, "6 meses", 26, 600, _M7, "middle") + _t(400, 205, "= 6 / 12", 28, 700, _M7, "middle")
+                + _t(400, 260, "= 0,5 años", 32, 700, _P8, "middle"), "Seis meses son medio año")
+
+
+def v_t6_empezar():
+    ci, out = 100, ""
+    for i in range(5):
+        x = 30 + i * 100
+        cf = 100 * 1.25 ** i
+        h = cf * 1.0
+        ih = 25 * 1.25 ** (i - 1) if i else 0
+        out += f'<rect x="{x}" y="{300 - 100:.0f}" width="80" height="100" rx="8" fill="{_M4}"/>'
+        if i:
+            out += f'<rect x="{x}" y="{300 - h:.0f}" width="80" height="{h - 100:.0f}" rx="8" fill="{_P6}"/>'
+        out += _t(x + 40, 326, f"Año {i}", 20, 500, _M7, "middle")
+    return _svg(out + _t(280, 40, "El interés también genera interés", 22, 700, _P8, "middle")
+                + _t(70, 292, "Ci", 24, 700, "#fff", "middle"), "Interés compuesto: crece cada vez más")
+
+
+def v_t7_numerica():
+    return _svg(_t(140, 120, "3", 54, 700, _P8, "middle") + f'<line x1="100" y1="140" x2="180" y2="140" stroke="{_M7}" stroke-width="5"/>'
+                + _t(140, 205, "5", 54, 700, _P8, "middle") + _t(280, 175, "=", 56, 700, _M7, "middle")
+                + _t(420, 120, "6", 54, 700, _P8, "middle") + f'<line x1="380" y1="140" x2="460" y2="140" stroke="{_M7}" stroke-width="5"/>'
+                + _t(420, 205, "10", 54, 700, _P8, "middle")
+                + f'<path d="M175 100 L385 195" stroke="{_P6}" stroke-width="4" stroke-linecap="round" fill="none"/>'
+                + f'<path d="M175 195 L385 100" stroke="{_P6}" stroke-width="4" stroke-linecap="round" fill="none"/>'
+                + _t(280, 290, "3 · 10 = 5 · 6", 32, 700, _P8, "middle") + _t(280, 328, "productos cruzados iguales", 20, 500, _M7, "middle"),
+                "Productos cruzados")
+
+
+def _ejes(extra, etx="", ety=""):
+    return (f'<line x1="60" y1="320" x2="530" y2="320" stroke="{_M7}" stroke-width="4"/><line x1="60" y1="320" x2="60" y2="40" stroke="{_M7}" stroke-width="4"/>'
+            + extra + _t(530, 350, etx, 18, 600, _M7, "end") + _t(70, 40, ety, 18, 600, _M7))
+
+
+def v_t7_directa():
+    pts = [(1, 300), (2, 600), (3, 900), (4, 1200)]
+    px = [(60 + x * 100, 320 - y / 1200 * 260) for x, y in pts]
+    s = f'<polyline points="60,320 {" ".join(f"{a},{b:.0f}" for a, b in px)}" fill="none" stroke="{_P6}" stroke-width="5" stroke-linecap="round"/>'
+    s += "".join(f'<circle cx="{a}" cy="{b:.0f}" r="9" fill="{_P8}"/>' for a, b in px)
+    return _svg(_ejes(s, "kg", "€") + _t(90, 80, "si uno se duplica,", 22, 600, _M7) + _t(90, 108, "el otro también", 22, 600, _M7), "Proporcionalidad directa: recta")
+
+
+def v_t7_inversa():
+    pts = [(1, 12), (2, 6), (3, 4), (4, 3), (6, 2), (12, 1)]
+    px = [(60 + x * 38, 320 - y / 12 * 250) for x, y in pts]
+    curva = " ".join(f"{60 + x * 38:.0f},{320 - (12 / x) / 12 * 250:.0f}" for x in [i / 4 for i in range(4, 49)])
+    s = f'<polyline points="{curva}" fill="none" stroke="{_P6}" stroke-width="5" stroke-linecap="round"/>'
+    s += "".join(f'<circle cx="{a:.0f}" cy="{b:.0f}" r="9" fill="{_P8}"/>' for a, b in px[:4])
+    return _svg(_ejes(s, "obreros", "días") + _t(250, 150, "si uno se duplica,", 22, 600, _M7) + _t(250, 178, "el otro se reduce a la mitad", 22, 600, _M7), "Proporcionalidad inversa: curva")
+
+
+def v_t9_empezar():
+    celdas = ""
+    for r in range(4):
+        for c in range(4):
+            col = _P6 if r == 0 else (_M2 if c else _P3)
+            celdas += f'<rect x="{140 + c * 100}" y="{70 + r * 52}" width="96" height="48" rx="8" fill="{col}"/>'
+    celdas += f'<rect x="{140 + 100}" y="{70 + 52}" width="96" height="48" rx="8" fill="{_M4}" stroke="{_P8}" stroke-width="4"/>'
+    return _svg(celdas + _t(290, 40, "Título de la tabla", 22, 700, _P8, "middle")
+                + _t(190, 62, "", 10) + _t(20, 190, "filas", 20, 700, _M7) + _t(300, 300, "columnas", 20, 700, _M7, "middle")
+                + _t(440, 340, "celda", 20, 700, _P8, "middle") + _t(330, 340, "", 10)
+                + _t(190, 330, "encabezado", 20, 700, _P8, "middle")
+                + f'<path d="M345 232 L420 322" stroke="{_P8}" stroke-width="2" fill="none"/>'
+                + f'<path d="M190 105 L190 310" stroke="{_P8}" stroke-width="0" fill="none"/>', "Partes de una tabla")
+
+
+def v_t10_sectores():
+    datos = [(40, _P6), (25, _P3), (20, _M4), (15, _M7)]
+    cx, cy, r, a0, out = 170, 190, 135, 0, ""
+    for v, col in datos:
+        a1 = a0 + v * 3.6
+        x0, y0 = cx + r * _m.sin(_m.radians(a0)), cy - r * _m.cos(_m.radians(a0))
+        x1, y1 = cx + r * _m.sin(_m.radians(a1)), cy - r * _m.cos(_m.radians(a1))
+        out += f'<path d="M{cx} {cy} L{x0:.1f} {y0:.1f} A{r} {r} 0 {1 if v > 50 else 0} 1 {x1:.1f} {y1:.1f} Z" fill="{col}" stroke="#fff" stroke-width="4"/>'
+        am = _m.radians((a0 + a1) / 2)
+        out += _t(cx + 0.62 * r * _m.sin(am), cy - 0.62 * r * _m.cos(am) + 8, f"{v} %", 22, 700, "#fff" if col != _P3 else _P8, "middle")
+        a0 = a1
+    return _svg(out + _t(430, 160, "Las partes", 26, 700, _M7, "middle") + _t(430, 200, "suman", 26, 700, _M7, "middle")
+                + _t(430, 258, "100 %", 44, 700, _P8, "middle"), "Gráfica de sectores")
+
+
+def v_t10_lineas():
+    ys = [250, 215, 225, 150, 120, 70]
+    xs = [70 + i * 88 for i in range(6)]
+    s = "".join(f'<line x1="60" y1="{y}" x2="530" y2="{y}" stroke="{_M2}" stroke-width="2"/>' for y in (80, 140, 200, 260))
+    s += f'<polyline points="{" ".join(f"{x},{y}" for x, y in zip(xs, ys))}" fill="none" stroke="{_P6}" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>'
+    s += "".join(f'<circle cx="{x}" cy="{y}" r="9" fill="{_P8}"/>' for x, y in zip(xs, ys))
+    s += "".join(_t(x, 345, m, 18, 500, _M7, "middle") for x, m in zip(xs, ["Ene", "Feb", "Mar", "Abr", "May", "Jun"]))
+    return _svg(s + _t(60, 40, "Evolución en el tiempo", 22, 700, _P8) + f'<line x1="60" y1="300" x2="530" y2="300" stroke="{_M7}" stroke-width="4"/>', "Gráfica de líneas")
+
+
+VISUALES.update({
+    (1, "Tasas"): v_tasas, (1, "Para empezar"): v_t1_empezar, (2, "Para empezar"): v_t2_empezar,
+    (3, "Para empezar"): v_t3_empezar, (4, "Para empezar"): v_t4_empezar, (5, "Para empezar"): v_t5_empezar,
+    (5, "¡Ojo"): v_t5_unidades, (6, "Para empezar"): v_t6_empezar, (7, "Proporcionalidad numérica"): v_t7_numerica,
+    (7, "Proporcionalidad directa"): v_t7_directa, (7, "Proporcionalidad inversa"): v_t7_inversa,
+    (9, "Para empezar"): v_t9_empezar, (10, "Gráfica de sectores"): v_t10_sectores, (10, "Gráfica de líneas"): v_t10_lineas,
+})

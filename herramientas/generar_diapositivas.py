@@ -95,7 +95,7 @@ figcaption{font-size:.62em;color:var(--marron-600)}
 .paso>.c{flex:1;min-width:0}.paso .mf{margin:6px 0}
 .enun{font-size:1.1em;font-weight:500}
 .rec2{margin:0 0 18px;color:var(--marron-700);font-size:.88em}
-.vis{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:center;margin:auto 0}
+.vis{display:grid;grid-template-columns:1fr 1.1fr;gap:32px;align-items:center;margin:auto 0}
 .vis .card svg{width:100%;max-height:330px;height:auto;display:block}
 /* ejemplos y resumen como explicación */
 .lbl{font-size:.62em;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--marron-600);margin:0 0 14px}
