@@ -9,6 +9,7 @@ const SITIO = {
   etiqueta: "Prueba de acceso a grado superior", // texto pequeño sobre el título de la portada
   titulo: "Prepara tu acceso a grado superior",
   subtitulo: "Apuntes en PDF y exámenes para imprimir, materia por materia.",
+  curso: "Promoción CEPA 2026/2027",             // se muestra en los carteles de cada materia
   pie: "Última actualización: octubre de 2026. Contacto: tu-correo@ejemplo.com",
 
   materias: [
