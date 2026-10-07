@@ -180,3 +180,10 @@ body[data-materia] .ds-label { color: var(--color-text-brand); }
 .cartel__texto strong { font-family: var(--font-family-heading); font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.05; font-weight: 600; }
 .cartel__texto span:last-child { opacity: .85; font-size: var(--font-size-body-sm, .95rem); }
 .cartel__pill { align-self: flex-start; border: 1px solid rgba(255, 255, 255, .55); border-radius: 999px; padding: 4px 12px; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: auto; }
+
+/* ---- Tipografía: sans-serif del sistema, titulares en negrita (como la web de referencia) ---- */
+:root {
+  --font-family-heading: -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-body: -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+h1, h2, h3, h4, .ds-display, .ds-logo, .cartel__texto strong { font-weight: 800; letter-spacing: -0.01em; }
