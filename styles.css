@@ -27,7 +27,7 @@ html { scroll-padding-top: 88px; }
   border-top: var(--border-hairline) solid var(--color-border-default);
 }
 .pdf-fila__texto { flex: 1; min-width: 0; }
-.pdf-fila__acciones { gap: var(--space-2); flex-wrap: nowrap; }
+.pdf-fila__acciones { gap: var(--space-2); flex-wrap: wrap; justify-content: flex-end; }
 
 /* Tarjeta de tema clicable: el enlace del título cubre toda la tarjeta; los botones quedan por encima */
 .modulo { position: relative; transition: border-color var(--motion-duration-fast); }
@@ -93,3 +93,9 @@ a.ds-tab[aria-current="page"] { color: var(--color-text-brand); border-bottom-co
 
 /* El atributo "hidden" debe ganar siempre a los estilos de los componentes */
 [hidden] { display: none !important; }
+
+@media (max-width: 560px) {
+  .pdf-fila { flex-wrap: wrap; }
+  .pdf-fila__acciones { flex-basis: 100%; justify-content: flex-start; }
+  .pdf-fila__acciones .ds-btn { flex: 1; }
+}

@@ -19,8 +19,8 @@
       '<div class="ds-pdf pdf-fila"><div class="ds-pdf__ico">PDF</div>' +
       '<div class="pdf-fila__texto"><b>' + esc(p.nombre) + "</b>" + (p.detalle ? '<div class="ds-caption">' + esc(p.detalle) + "</div>" : "") + "</div>" +
       '<div class="ds-row pdf-fila__acciones">' +
-      '<a class="ds-btn ds-btn--secondary ds-btn--sm" href="tema.html?n=' + num + '" aria-label="Ver ' + esc(p.nombre) + '">' +
-      ic("i-eye", "ds-icon--sm") + "Ver</a>" +
+      '<a class="ds-btn ds-btn--primary ds-btn--sm" href="tema.html?n=' + num + '" aria-label="Ver ' + esc(p.nombre) + '">' +
+      ic("i-eye", "ds-icon--sm") + "Ver contenido</a>" +
       '<a class="ds-btn ds-btn--secondary ds-btn--sm" href="' + esc(p.archivo) + '" download aria-label="Descargar ' + esc(p.nombre) + ' (PDF)">' +
       ic("i-download", "ds-icon--sm") + "Descargar</a></div></div>").join("");
 
