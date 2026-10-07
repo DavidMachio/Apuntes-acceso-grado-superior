@@ -217,4 +217,13 @@ h1, h2, h3, h4, .ds-display, .ds-logo, .cartel__texto strong { font-weight: 800;
 .vp__luz-canvas.is-zoom { cursor: zoom-out; }
 .vp__cerrar { position: fixed; top: 16px; right: 16px; z-index: 301; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .3); color: #fff; cursor: pointer; }
 .vp__pista { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); margin: 0; font-size: .8rem; color: var(--marron-200); background: rgba(0, 0, 0, .45); padding: 8px 16px; border-radius: 999px; pointer-events: none; text-align: center; max-width: 92vw; }
-@media (max-width: 640px) { .vp__stage { padding: var(--space-4) 8px 64px; } .vp__flecha { top: auto; bottom: 14px; transform: none; width: 40px; height: 40px; } .vp__flecha--prev { left: 12px; } .vp__flecha--next { left: 60px; right: auto; } .vp__mini { width: 84px; } }
+.vp__ayuda { display: none; margin: -6px 0 var(--space-3); text-align: center; font-size: .75rem; color: var(--marron-300); }
+.vp__stage, .vp__luz { touch-action: pan-y; }
+.vp__luz:has(.is-zoom) { touch-action: auto; }
+/* Pantallas táctiles o estrechas: sin flechas, se desliza con el dedo */
+@media (hover: none), (max-width: 640px) {
+  .vp__flecha { display: none; }
+  .vp__stage { padding: var(--space-4) 12px 64px; }
+  .vp__ayuda { display: block; }
+  .vp__mini { width: 84px; }
+}

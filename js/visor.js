@@ -16,7 +16,7 @@ const Visor = (function () {
       '<button class="vp__flecha vp__flecha--next" type="button" aria-label="Página siguiente">' + ic("i-chevron-right") + "</button>" +
       '<button class="vp__redondo vp__zoom" type="button" aria-label="Ampliar página">' + ic("i-eye") + "</button>" +
       '<a class="vp__redondo vp__desc" href="' + esc(opciones.archivo) + '" download aria-label="Descargar PDF">' + ic("i-download") + "</a></div>" +
-      '<div class="vp__pie"><p class="vp__contador" id="vpContador"></p><div class="vp__tira" role="list"></div></div></div>' +
+      '<div class="vp__pie"><p class="vp__contador" id="vpContador"></p><p class="vp__ayuda">Desliza para cambiar de diapositiva</p><div class="vp__tira" role="list"></div></div></div>' +
       '<div class="vp__luz" hidden><button class="vp__cerrar" type="button" aria-label="Cerrar">' + ic("i-close") + '</button><canvas class="vp__luz-canvas"></canvas>' +
       '<p class="vp__pista">Clic para ampliar o reducir · ← → para cambiar de página · Esc para cerrar</p></div>';
 
@@ -78,6 +78,20 @@ const Visor = (function () {
       else if (e.key === "Escape" && !luz.hidden) cerrarLuz();
     };
     document.addEventListener("keydown", teclas);
+    // Deslizar el dedo: izquierda = siguiente, derecha = anterior (en la hoja y en la vista ampliada, salvo con zoom)
+    function deslizar(el, activo) {
+      let x0 = null, y0 = 0;
+      el.addEventListener("touchstart", e => { if (e.touches.length === 1 && activo()) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; } else x0 = null; }, { passive: true });
+      el.addEventListener("touchend", e => {
+        if (x0 === null) return;
+        const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) { ir(pagina + (dx < 0 ? 1 : -1)); suprimir = Date.now(); }
+      }, { passive: true });
+    }
+    let suprimir = 0;
+    deslizar($(".vp__stage"), () => true);
+    deslizar(luz, () => !ampliado);
+    canvas.addEventListener("click", e => { if (Date.now() - suprimir < 400) e.stopImmediatePropagation(); }, true);
     let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => id === sesion && doc && ir(pagina), 200); });
 
     pdfjsLib.getDocument({ url: opciones.archivo }).promise.then(d => {
