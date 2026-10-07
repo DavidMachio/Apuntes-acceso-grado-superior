@@ -15,10 +15,26 @@
       }
     ],
     "recordar": [
-      "Un porcentaje es una fracción de 100: $21\\,\\% = \\frac{21}{100} = 0{,}21$.",
-      "Sumar un porcentaje es multiplicar por $1+\\frac{p}{100}$. Restarlo es multiplicar por $1-\\frac{p}{100}$.",
-      "Para deshacer una subida, divide entre el mismo número por el que multiplicaste.",
-      "Comisiones, retenciones e impuestos se calculan sobre la cantidad inicial."
+      {
+        "titulo": "Un porcentaje es una fracción de 100",
+        "formula": "21\\,\\% = \\dfrac{21}{100} = 0{,}21"
+      },
+      {
+        "titulo": "Sumar un porcentaje",
+        "formula": "\\text{Final}=\\text{Inicial}\\left(1+\\dfrac{p}{100}\\right)"
+      },
+      {
+        "titulo": "Restar un porcentaje",
+        "formula": "\\text{Final}=\\text{Inicial}\\left(1-\\dfrac{p}{100}\\right)"
+      },
+      {
+        "titulo": "Deshacer una subida: divide",
+        "formula": "\\text{Inicial}=\\dfrac{\\text{Final}}{1+\\frac{p}{100}}"
+      },
+      {
+        "titulo": "Se calcula sobre la cantidad inicial",
+        "formula": "\\text{Comisión}=\\text{Inicial}\\cdot\\dfrac{p}{100}"
+      }
     ],
     "ejemplos": [
       {

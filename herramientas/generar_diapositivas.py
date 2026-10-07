@@ -84,6 +84,13 @@ figcaption{font-size:.62em;color:var(--marron-600)}
 .big{border-top:10px solid var(--color-primary-500);padding:34px 36px}
 .big .mf{font-size:1.55em;margin:16px 0}
 .rec li{font-size:1em;margin-bottom:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:auto 0}
+.ic{background:#fff;border:2px solid var(--marron-200);border-top:8px solid var(--color-primary-500);border-radius:18px;padding:16px 20px 12px;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(56,46,38,.06)}
+.ic .ict{font-weight:700;font-size:.82em;line-height:1.25;margin:0 0 4px;color:var(--marron-800)}
+.ic .mf{margin:auto 0;flex:1;font-size:.95em}
+.ic.ex{background:var(--color-primary-50);border-color:var(--color-primary-300);border-top-color:var(--marron-400)}
+.ic.ex .exq{font-size:.72em;line-height:1.3;margin:0 0 4px}
+.ic.ex .mf{margin:2px 0;flex:none;font-size:.9em}
 .rcols{grid-template-columns:1.1fr 1fr;align-items:start}.rcols .bloque{margin:0}.rcols .bloque p{margin:0 0 6px}
 /* colores de la materia: menta y marrón (sin magenta) */
 .slide .ds-callout--definicion,.slide .ds-callout--important{background:var(--color-primary-100);border-color:var(--color-primary-600);color:var(--marron-900)}
@@ -322,16 +329,19 @@ def documento(num, titulo, resumen, total_t, siguiente, cuerpo, destacadas, nota
             paginas.append((f'<p class="eb">Resumen</p><h2 class="t">{escape(tit)}</h2><div class="main">{desc}{tarjeta}</div>', ""))
     rec = meta.get("recordar") or notas
     if rec:
-        li = "".join(f"<li>{G.texto(x)}</li>" for x in rec)
+        cards = ""
+        for x in rec:
+            if isinstance(x, dict):
+                cards += (f'<div class="ic"><p class="ict">{G.texto(x["titulo"])}</p>'
+                          + (G.formula_bloque(x["formula"]) if x.get("formula") else "") + "</div>")
+            else:
+                cards += f'<div class="ic"><p class="ict">{G.texto(x)}</p></div>'
         ej = meta.get("recordar_ejemplo")
         if ej:
-            tarjeta = ('<div class="bloque apl"><p class="lbl">Un ejemplo rápido</p>'
-                       f'<p>{G.texto(ej["pregunta"])}</p>'
-                       + "".join(G.formula_bloque(t) for t in ej["pasos"]) + "</div>")
-            cuerpo_r = f'<div class="cols rcols"><ul class="rec">{li}</ul>{tarjeta}</div>'
-        else:
-            cuerpo_r = f'<ul class="rec">{li}</ul>'
-        paginas.append((f'<p class="eb">Para llevarte</p><h2 class="t">Ideas para recordar</h2><div class="main">{cuerpo_r}</div>', ""))
+            cards += ('<div class="ic ex"><p class="ict">Un ejemplo rápido</p>'
+                      f'<p class="exq">{G.texto(ej["pregunta"])}</p>'
+                      + "".join(G.formula_bloque(t) for t in ej["pasos"]) + "</div>")
+        paginas.append((f'<p class="eb">Para llevarte</p><h2 class="t">Ideas para recordar</h2><div class="main"><div class="g3">{cards}</div></div>', ""))
     paginas.append(("END", ""))
     return paginas
 
