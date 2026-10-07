@@ -2,6 +2,12 @@
 
 Web sencilla en HTML, CSS y JavaScript, sin dependencias ni instalación.
 
+## Diseño
+La web usa el Design System «Curso de Matemáticas» v1.1 (carpeta `css/` e `iconos/`).
+- `css/variables.css` y `css/componentes.css` son del design system: no se editan a mano.
+- `styles.css` contiene solo los pocos ajustes propios de esta web.
+- Modo claro y oscuro automático, con selector (Auto / Claro / Oscuro) arriba a la derecha.
+
 ## Qué editar
 - **Todo el contenido** (título, ficha, módulos y enlaces a PDFs) está al principio de `script.js`.
 - **Los PDFs** van en la carpeta `pdfs/`. Los que hay ahora son de ejemplo: sustitúyelos por los tuyos.

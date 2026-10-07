@@ -4,6 +4,7 @@
    sus textos. Los PDFs se guardan en la carpeta /pdfs y se enlazan aquí.
    ===================================================================== */
 const PROGRAMA = {
+  marca: "Programa formativo",             // nombre corto: aparece arriba a la izquierda y en el pie
   titulo: "Nombre del programa formativo",
   subtitulo: "Una frase que explique qué aprenderá la persona que lo complete.",
 
@@ -54,6 +55,8 @@ const PROGRAMA = {
 /* ---------------------------------------------------------------------
    A partir de aquí no hace falta tocar nada.
    --------------------------------------------------------------------- */
+const SVG_NS = "http://www.w3.org/2000/svg";
+
 function crear(etiqueta, clase, texto) {
   const nodo = document.createElement(etiqueta);
   if (clase) nodo.className = clase;
@@ -61,92 +64,150 @@ function crear(etiqueta, clase, texto) {
   return nodo;
 }
 
+// Icono del sprite incluido en index.html (por ejemplo "i-download")
+function icono(id, clase) {
+  const svg = document.createElementNS(SVG_NS, "svg");
+  svg.setAttribute("class", "ds-icon" + (clase ? " " + clase : ""));
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("focusable", "false");
+  const uso = document.createElementNS(SVG_NS, "use");
+  uso.setAttribute("href", "#" + id);
+  svg.appendChild(uso);
+  return svg;
+}
+
 function pintar() {
+  const marca = PROGRAMA.marca || PROGRAMA.titulo;
+  document.title = PROGRAMA.titulo;
+  document.querySelectorAll("[data-marca]").forEach(n => { n.textContent = marca; });
   document.getElementById("titulo").textContent = PROGRAMA.titulo;
   document.getElementById("subtitulo").textContent = PROGRAMA.subtitulo;
   document.getElementById("pie").textContent = PROGRAMA.pie;
-  document.title = PROGRAMA.titulo;
 
   const descripcion = document.getElementById("descripcion");
   PROGRAMA.descripcion.forEach(p => descripcion.appendChild(crear("p", "", p)));
 
   const ficha = document.getElementById("ficha");
   PROGRAMA.ficha.forEach(dato => {
-    const fila = crear("div", "ficha__fila");
-    fila.appendChild(crear("dt", "", dato.etiqueta));
-    fila.appendChild(crear("dd", "", dato.valor));
-    ficha.appendChild(fila);
+    const item = crear("div", "ficha__item");
+    item.appendChild(crear("dt", "", dato.etiqueta));
+    item.appendChild(crear("dd", "", dato.valor));
+    ficha.appendChild(item);
   });
 
   const indice = document.getElementById("indice");
-  const modulos = document.getElementById("modulos");
+  indice.appendChild(crear("div", "ds-sidebar__title", "Módulos"));
+  const lista = document.getElementById("lista-modulos");
 
   PROGRAMA.modulos.forEach((m, i) => {
     const id = "modulo-" + (i + 1);
 
-    // Entrada del índice lateral
-    const li = crear("li");
-    const enlace = crear("a", "", m.titulo);
+    // Enlace del menú lateral
+    const enlace = crear("a");
     enlace.href = "#" + id;
-    li.appendChild(enlace);
-    indice.appendChild(li);
+    enlace.appendChild(icono("i-book-open"));
+    enlace.appendChild(document.createTextNode(m.titulo));
+    indice.appendChild(enlace);
 
-    // Bloque del módulo
-    const sec = crear("section", "modulo");
-    sec.id = id;
-    sec.setAttribute("aria-labelledby", id + "-titulo");
+    // Tarjeta del módulo
+    const tarjeta = crear("section", "ds-card modulo");
+    tarjeta.id = id;
+    tarjeta.setAttribute("aria-labelledby", id + "-titulo");
 
-    const numero = crear("p", "modulo__numero", String(i + 1));
-    numero.setAttribute("aria-hidden", "true");
+    const cabecera = crear("div", "ds-row ds-row--between");
+    const izquierda = crear("div");
+    izquierda.appendChild(crear("span", "ds-label", "Módulo " + (i + 1)));
+    const h2 = crear("h2", "modulo__titulo", m.titulo);
+    h2.id = id + "-titulo";
+    izquierda.appendChild(h2);
+    cabecera.appendChild(izquierda);
 
-    const info = crear("div", "modulo__info");
-    const h3 = crear("h3", "", m.titulo);
-    h3.id = id + "-titulo";
-    info.appendChild(h3);
-    info.appendChild(crear("p", "modulo__resumen", m.resumen));
-    info.appendChild(crear("p", "modulo__horas", "Duración: " + m.horas));
+    const duracion = crear("span", "ds-badge");
+    duracion.appendChild(icono("i-clock"));
+    duracion.appendChild(document.createTextNode(m.horas));
+    cabecera.appendChild(duracion);
 
-    const materiales = crear("div", "modulo__materiales");
-    const h4 = crear("h4", "", "Materiales");
-    materiales.appendChild(h4);
-    const lista = crear("ul", "pdfs");
+    tarjeta.appendChild(cabecera);
+    tarjeta.appendChild(crear("p", "", m.resumen));
+
     m.pdfs.forEach(pdf => {
-      const item = crear("li");
-      const a = crear("a", "pdf");
-      a.href = pdf.archivo;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.appendChild(crear("span", "pdf__marca", "PDF"));
-      const textos = crear("span", "pdf__textos");
-      textos.appendChild(crear("span", "pdf__nombre", pdf.nombre));
-      if (pdf.detalle) textos.appendChild(crear("span", "pdf__detalle", pdf.detalle));
-      a.appendChild(textos);
-      item.appendChild(a);
-      lista.appendChild(item);
-    });
-    materiales.appendChild(lista);
+      const fila = crear("div", "ds-pdf pdf-fila");
+      fila.appendChild(crear("div", "ds-pdf__ico", "PDF"));
 
-    sec.append(numero, info, materiales);
-    modulos.appendChild(sec);
+      const textos = crear("div", "pdf-fila__texto");
+      textos.appendChild(crear("b", "", pdf.nombre));
+      if (pdf.detalle) textos.appendChild(crear("div", "ds-caption", pdf.detalle));
+      fila.appendChild(textos);
+
+      const boton = crear("a", "ds-btn ds-btn--secondary ds-btn--sm");
+      boton.href = pdf.archivo;
+      boton.setAttribute("download", "");
+      boton.setAttribute("aria-label", "Descargar " + pdf.nombre + " (PDF)");
+      boton.appendChild(icono("i-download", "ds-icon--sm"));
+      boton.appendChild(document.createTextNode("Descargar"));
+      fila.appendChild(boton);
+
+      tarjeta.appendChild(fila);
+    });
+
+    lista.appendChild(tarjeta);
   });
 
   marcarModuloActivo();
 }
 
-/* Resalta en el índice el módulo que se está leyendo */
+/* Resalta en el menú lateral el módulo que se está leyendo */
 function marcarModuloActivo() {
   if (!("IntersectionObserver" in window)) return;
-  const enlaces = document.querySelectorAll(".indice a");
+  const enlaces = document.querySelectorAll("#indice a");
   const observador = new IntersectionObserver(entradas => {
     entradas.forEach(e => {
       if (e.isIntersecting) {
         enlaces.forEach(a => a.removeAttribute("aria-current"));
-        const activo = document.querySelector('.indice a[href="#' + e.target.id + '"]');
-        if (activo) activo.setAttribute("aria-current", "true");
+        const activo = document.querySelector('#indice a[href="#' + e.target.id + '"]');
+        if (activo) activo.setAttribute("aria-current", "page");
       }
     });
   }, { rootMargin: "-20% 0px -70% 0px" });
   document.querySelectorAll(".modulo").forEach(s => observador.observe(s));
 }
 
+/* Selector de tema (Auto / Claro / Oscuro) y menú del móvil */
+function iniciarInterfaz() {
+  const raiz = document.documentElement;
+  const botones = document.querySelectorAll("[data-theme-set]");
+
+  function aplicarTema(t) {
+    const modo = (t === "light" || t === "dark") ? t : "auto";
+    if (modo === "auto") raiz.removeAttribute("data-theme");
+    else raiz.setAttribute("data-theme", modo);
+    botones.forEach(b => b.setAttribute("aria-pressed", String(b.getAttribute("data-theme-set") === modo)));
+  }
+
+  let guardado = "auto";
+  try { guardado = localStorage.getItem("theme") || "auto"; } catch (e) {}
+  aplicarTema(guardado);
+
+  botones.forEach(b => b.addEventListener("click", () => {
+    const t = b.getAttribute("data-theme-set");
+    aplicarTema(t);
+    try { localStorage.setItem("theme", t); } catch (e) {}
+  }));
+
+  const toggle = document.querySelector(".ds-menu-toggle");
+  const menu = document.querySelector(".ds-mobile-menu");
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      const abierto = menu.getAttribute("data-open") === "true";
+      menu.setAttribute("data-open", String(!abierto));
+      toggle.setAttribute("aria-expanded", String(!abierto));
+    });
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      menu.setAttribute("data-open", "false");
+      toggle.setAttribute("aria-expanded", "false");
+    }));
+  }
+}
+
 pintar();
+iniciarInterfaz();

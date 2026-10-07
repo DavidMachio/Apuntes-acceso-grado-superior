@@ -1,156 +1,32 @@
-:root {
-  --pizarra: #1e3b36;
-  --pizarra-clara: #2c534b;
-  --papel: #f7f8f6;
-  --tinta: #1b2421;
-  --tinta-suave: #4d5a55;
-  --linea: #c9d3cd;
-  --tiza: #e8eeea;
-  --marcador: #f4ce3b;
+/* Ajustes propios de esta web. Todo lo demás viene del design system (css/variables.css y css/componentes.css).
+   Aquí solo se usan variables del sistema, nunca colores escritos a mano. */
 
-  --fuente-titulos: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
-  --fuente-texto: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-
-html { scroll-padding-top: 1.5rem; }
+html { scroll-padding-top: 88px; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
-body {
-  margin: 0;
-  background: var(--papel);
-  color: var(--tinta);
-  font-family: var(--fuente-texto);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-}
+.portada h1 { max-width: 22ch; }
+.portada .ds-lead { max-width: 60ch; margin-top: var(--space-3); }
 
-h1, h2, h3, h4 { font-family: var(--fuente-titulos); line-height: 1.15; margin: 0; }
-p { margin: 0; }
+.ficha {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-8) 0 0;
+}
+.ficha__item {
+  border-top: var(--border-accent) solid var(--color-action-primary-bg);
+  padding-top: var(--space-3);
+}
+.ficha dt { color: var(--color-text-secondary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
+.ficha dd { margin: var(--space-1) 0 0; font-weight: var(--font-weight-semibold); }
 
-a:focus-visible, .saltar:focus-visible {
-  outline: 3px solid var(--marcador);
-  outline-offset: 3px;
-}
+.presentacion { max-width: 70ch; margin-top: var(--space-4); }
+.presentacion p + p { margin-top: var(--space-4); }
 
-.saltar {
-  position: absolute; left: 1rem; top: -4rem;
-  background: var(--marcador); color: var(--tinta);
-  padding: .6rem 1rem; font-weight: 700; z-index: 10;
+.modulo { scroll-margin-top: 88px; }
+.modulo__titulo { margin: 0; }
+.pdf-fila {
+  padding: var(--space-3) 0;
+  border-top: var(--border-hairline) solid var(--color-border-default);
 }
-.saltar:focus { top: 1rem; }
-
-/* ---------- Cabecera ---------- */
-.cabecera { background: var(--pizarra); color: #fff; }
-.cabecera__in {
-  max-width: 72rem; margin: 0 auto;
-  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.25rem, 4vw, 2.5rem);
-  display: grid; gap: 2.5rem;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  align-items: end;
-}
-.cabecera h1 {
-  font-size: clamp(2.2rem, 5.5vw, 4rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-.cabecera__texto p {
-  margin-top: 1.1rem; max-width: 36rem;
-  font-size: 1.2rem; color: #d6e2dc;
-}
-
-.ficha { margin: 0; border-top: 2px solid var(--marcador); }
-.ficha__fila {
-  display: grid; grid-template-columns: 8rem 1fr; gap: 1rem;
-  padding: .7rem 0; border-bottom: 1px solid var(--pizarra-clara);
-}
-.ficha dt { color: #b9cbc3; }
-.ficha dd { margin: 0; font-weight: 700; }
-
-/* ---------- Cuerpo ---------- */
-.cuerpo {
-  max-width: 72rem; margin: 0 auto;
-  padding: 3rem clamp(1.25rem, 4vw, 2.5rem) 4rem;
-  display: grid; gap: 3.5rem;
-  grid-template-columns: 14rem minmax(0, 1fr);
-  align-items: start;
-}
-
-.indice { position: sticky; top: 1.5rem; }
-.indice h2 { font-size: 1rem; margin-bottom: .8rem; color: var(--tinta-suave); }
-.indice ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--linea); }
-.indice a {
-  display: block; padding: .45rem 0 .45rem 1rem; margin-left: -2px;
-  border-left: 4px solid transparent;
-  color: var(--tinta); text-decoration: none; line-height: 1.35;
-}
-.indice a:hover { background: var(--tiza); }
-.indice a[aria-current="true"] { border-left-color: var(--marcador); font-weight: 700; }
-
-main { min-width: 0; }
-
-.presentacion { max-width: 42rem; padding-bottom: 3rem; }
-.presentacion h2 { font-size: 1.8rem; margin-bottom: 1rem; }
-.presentacion p + p { margin-top: 1rem; }
-
-/* ---------- Módulos ---------- */
-.modulo {
-  display: grid; gap: 1.5rem 2rem;
-  grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 1.1fr);
-  padding: 2.25rem 0;
-  border-top: 2px solid var(--tinta);
-}
-.modulo__numero {
-  font-family: var(--fuente-titulos); font-weight: 800;
-  font-size: 3.5rem; line-height: 1; color: var(--pizarra);
-}
-.modulo h3 { font-size: 1.6rem; }
-.modulo__resumen { margin-top: .6rem; color: var(--tinta-suave); max-width: 32rem; }
-.modulo__horas { margin-top: .8rem; font-weight: 700; }
-
-.modulo__materiales h4 { font-size: 1rem; color: var(--tinta-suave); margin-bottom: .6rem; }
-.pdfs { list-style: none; margin: 0; padding: 0; }
-.pdfs li + li { margin-top: .5rem; }
-
-.pdf {
-  display: flex; align-items: center; gap: .9rem;
-  padding: .7rem .9rem;
-  background: #fff; border: 1px solid var(--linea);
-  color: var(--tinta); text-decoration: none;
-}
-.pdf:hover { border-color: var(--tinta); background: var(--tiza); }
-.pdf__marca {
-  flex: none; padding: .15rem .45rem;
-  background: var(--pizarra); color: #fff;
-  font-weight: 700; font-size: .85rem;
-}
-.pdf:hover .pdf__marca { background: var(--marcador); color: var(--tinta); }
-.pdf__textos { display: flex; flex-direction: column; line-height: 1.3; }
-.pdf__nombre { font-weight: 700; }
-.pdf__detalle { color: var(--tinta-suave); font-size: .95rem; }
-
-/* ---------- Pie ---------- */
-.pie { border-top: 1px solid var(--linea); }
-.pie p {
-  max-width: 72rem; margin: 0 auto;
-  padding: 1.5rem clamp(1.25rem, 4vw, 2.5rem);
-  color: var(--tinta-suave); font-size: .95rem;
-}
-
-/* ---------- Adaptación a pantallas pequeñas ---------- */
-@media (max-width: 62rem) {
-  .cuerpo { grid-template-columns: 1fr; gap: 2rem; }
-  .indice { position: static; }
-  .modulo { grid-template-columns: 3rem minmax(0, 1fr); }
-  .modulo__materiales { grid-column: 2; }
-}
-@media (max-width: 46rem) {
-  .cabecera__in { grid-template-columns: 1fr; gap: 2rem; }
-  .ficha__fila { grid-template-columns: 6.5rem 1fr; }
-}
-@media (max-width: 34rem) {
-  .modulo { grid-template-columns: 1fr; }
-  .modulo__materiales { grid-column: 1; }
-  .modulo__numero { font-size: 2.5rem; }
-}
+.pdf-fila__texto { flex: 1; min-width: 0; }

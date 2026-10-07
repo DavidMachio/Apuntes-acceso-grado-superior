@@ -1,48 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Programa formativo: nombre del curso</title>
-  <meta name="description" content="Programa formativo con el contenido de cada módulo y los materiales en PDF.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Programa formativo</title>
+<meta name="description" content="Programa formativo con el contenido de cada módulo y los materiales en PDF.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&family=Source+Serif+4:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/componentes.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="saltar" href="#contenido">Saltar al contenido</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol><symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></symbol><symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol><symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol><symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M20 12H4M10 6l-6 6 6 6"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7M6 10v10h12V10M10 20v-5h4v5"/></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 6c-2-1.5-5-2-8-2v14c3 0 6 .5 8 2 2-1.5 5-2 8-2V4c-3 0-6 .5-8 2zM12 6v14"/></symbol><symbol id="i-file-text" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6zM14 3v5h5M9 13h7M9 17h7"/></symbol><symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol><symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V5M7 9l5-5 5 5M5 20h14"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></symbol><symbol id="i-log-in" viewBox="0 0 24 24"><path d="M14 4h6v16h-6M4 12h11M11 8l4 4-4 4"/></symbol><symbol id="i-log-out" viewBox="0 0 24 24"><path d="M10 4H4v16h6M9 12h11M16 8l4 4-4 4"/></symbol><symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 17v-6a6 6 0 0112 0v6l2 2H4zM10 21h4"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></symbol><symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="M12 4l9 16H3zM12 10v4M12 17.5v.01"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></symbol><symbol id="i-x-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></symbol><symbol id="i-calculator" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></symbol><symbol id="i-bar-chart" viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z"/></symbol><symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M7 4h10v16l-5-4-5 4z"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol><symbol id="i-external-link" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6L7 7M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol><symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 5h16l-6 8v6l-4-2v-4z"/></symbol><symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol><symbol id="i-graduation-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5zM6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5M22 9v6"/></symbol><symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></symbol><symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1"/></symbol><symbol id="i-help-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 015 .5c0 1.5-2.5 2-2.5 3.5M12 17v.01"/></symbol><symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></symbol><symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></symbol><symbol id="i-sigma" viewBox="0 0 24 24"><path d="M18 5H6l7 7-7 7h12"/></symbol><symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v3a3 3 0 01-3 3A15 15 0 013 6a3 3 0 013-3z"/></symbol><symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol></defs></svg>
+<a class="ds-skip" href="#main">Saltar al contenido</a>
 
-  <header class="cabecera">
-    <div class="cabecera__in">
-      <div class="cabecera__texto">
-        <h1 id="titulo"></h1>
-        <p id="subtitulo"></p>
+<header class="ds-navbar">
+  <div class="ds-container">
+    <div class="ds-navbar__in">
+      <a class="ds-logo" href="#"><span class="ds-logo__ph"><svg class="ds-icon ds-icon--sm" aria-hidden="true" focusable="false"><use href="#i-graduation-cap"/></svg></span><span data-marca></span></a>
+      <nav aria-label="Principal">
+        <ul class="ds-nav">
+          <li><a href="#presentacion">Presentación</a></li>
+          <li><a href="#modulos">Módulos</a></li>
+        </ul>
+      </nav>
+      <div class="ds-navbar__actions">
+        <div class="ds-btn-group" role="group" aria-label="Tema de color">
+          <button class="ds-btn ds-btn--secondary ds-btn--sm" type="button" data-theme-set="auto" aria-pressed="true">Auto</button>
+          <button class="ds-btn ds-btn--secondary ds-btn--sm" type="button" data-theme-set="light" aria-pressed="false"><svg class="ds-icon ds-icon--sm" aria-hidden="true" focusable="false"><use href="#i-sun"/></svg><span class="ds-sr-only">Claro</span></button>
+          <button class="ds-btn ds-btn--secondary ds-btn--sm" type="button" data-theme-set="dark" aria-pressed="false"><svg class="ds-icon ds-icon--sm" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg><span class="ds-sr-only">Oscuro</span></button>
+        </div>
+        <button class="ds-btn ds-btn--ghost ds-btn--icon ds-menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menú"><svg class="ds-icon" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg></button>
       </div>
-      <dl id="ficha" class="ficha"></dl>
     </div>
-  </header>
-
-  <div class="cuerpo">
-    <nav class="indice" aria-label="Módulos del programa">
-      <h2>Módulos</h2>
-      <ol id="indice"></ol>
+    <nav class="ds-mobile-menu" aria-label="Menú móvil">
+      <a href="#presentacion"><svg class="ds-icon" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>Presentación</a>
+      <a href="#modulos"><svg class="ds-icon" aria-hidden="true" focusable="false"><use href="#i-book-open"/></svg>Módulos</a>
     </nav>
-
-    <main id="contenido">
-      <section class="presentacion" aria-labelledby="h-presentacion">
-        <h2 id="h-presentacion">Presentación</h2>
-        <div id="descripcion"></div>
-      </section>
-      <div id="modulos"></div>
-      <noscript><p>Esta página necesita JavaScript para mostrar el programa.</p></noscript>
-    </main>
   </div>
+</header>
 
-  <footer class="pie">
-    <p id="pie"></p>
-  </footer>
+<main id="main">
+  <section class="ds-section portada">
+    <div class="ds-container">
+      <h1 id="titulo"></h1>
+      <p class="ds-lead" id="subtitulo"></p>
+      <dl class="ficha" id="ficha"></dl>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <section class="ds-section ds-section--alt" id="presentacion" aria-labelledby="h-presentacion">
+    <div class="ds-container">
+      <h2 id="h-presentacion">Presentación</h2>
+      <div class="presentacion" id="descripcion"></div>
+    </div>
+  </section>
+
+  <section class="ds-section" id="modulos" aria-label="Módulos del programa">
+    <div class="ds-container">
+      <div class="ds-layout">
+        <aside class="ds-layout__aside">
+          <nav class="ds-sidebar" id="indice" aria-label="Módulos del programa"></nav>
+        </aside>
+        <div class="ds-stack" id="lista-modulos"></div>
+      </div>
+    </div>
+  </section>
+  <noscript><div class="ds-container"><p>Esta página necesita JavaScript para mostrar el programa.</p></div></noscript>
+</main>
+
+<footer class="ds-footer">
+  <div class="ds-container">
+    <div class="ds-row ds-row--between">
+      <a class="ds-logo" href="#"><span class="ds-logo__ph"><svg class="ds-icon ds-icon--sm" aria-hidden="true" focusable="false"><use href="#i-graduation-cap"/></svg></span><span data-marca></span></a>
+      <p class="ds-small ds-muted" id="pie"></p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
