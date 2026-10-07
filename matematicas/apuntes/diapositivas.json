@@ -1,0 +1,109 @@
+{
+  "1": {
+    "formulas": [
+      {
+        "titulo": "Añadir el IVA",
+        "descripcion": "Para pasar del precio sin IVA al precio final, multiplica por 1,21: es lo mismo que sumar el 21 % de golpe."
+      },
+      {
+        "titulo": "Quitar el IVA",
+        "descripcion": "Para volver al precio sin IVA, divide entre 1,21. Si el IVA no fuera del 21 %, cambia 1,21 por 1 + IVA/100."
+      },
+      {
+        "titulo": "Sueldo neto",
+        "descripcion": "Al salario bruto se le restan la retención del IRPF y la cotización a la Seguridad Social. Lo que queda es lo que cobras."
+      }
+    ],
+    "recordar": [
+      "Un porcentaje es una fracción de 100: $21\\,\\% = \\frac{21}{100} = 0{,}21$.",
+      "Sumar un porcentaje es multiplicar por $1+\\frac{p}{100}$. Restarlo es multiplicar por $1-\\frac{p}{100}$.",
+      "Para deshacer una subida, divide entre el mismo número por el que multiplicaste.",
+      "Comisiones, retenciones e impuestos se calculan sobre la cantidad inicial."
+    ],
+    "ejemplos": [
+      {
+        "pregunta": "Un producto cuesta 200 € sin IVA. ¿Cuánto IVA hay que pagar y cuál es el precio final con el 21 % de IVA?",
+        "aplica": [
+          "\\text{IVA}=\\text{Precio sin IVA}\\cdot 0{,}21",
+          "\\text{Precio con IVA}=\\text{Precio sin IVA}+\\text{IVA}"
+        ]
+      },
+      {
+        "pregunta": "¿Por qué, para añadir el 21 % de IVA, basta con multiplicar el precio por 1,21?",
+        "aplica": [
+          "\\text{Cantidad final}=\\text{Cantidad inicial}\\,[\\,1+0{,}21\\,]"
+        ]
+      },
+      {
+        "pregunta": "Un artículo cuesta 300 € sin IVA. ¿Cuánto cuesta con el 21 % de IVA incluido?",
+        "aplica": [
+          "\\text{Precio con IVA}=\\text{Precio sin IVA}\\times 1{,}21"
+        ],
+        "pasos": [
+          "300\\cdot1{,}21=363\\text{ € con IVA}"
+        ]
+      },
+      {
+        "pregunta": "Un artículo cuesta 363 € con el 21 % de IVA incluido. ¿Cuánto costaba sin IVA?",
+        "aplica": [
+          "\\text{Precio sin IVA}=\\dfrac{\\text{Precio con IVA}}{1{,}21}"
+        ],
+        "pasos": [
+          "\\dfrac{363}{1{,}21}=300\\text{ € sin IVA}"
+        ]
+      },
+      {
+        "pregunta": "En una óptica compramos unas gafas de 160 € (1 unidad), unas gafas de sol de 210 € (1 unidad) y dos fundas de 10 € cada una. El total ya lleva el 21 % de IVA. ¿Cuál es el precio sin IVA y cuánto IVA hemos pagado?",
+        "aplica": [
+          "\\text{Precio sin IVA}=\\dfrac{\\text{Precio con IVA}}{1{,}21}",
+          "\\text{IVA}=\\text{Precio con IVA}-\\text{Precio sin IVA}"
+        ]
+      },
+      {
+        "pregunta": "Una persona cobra 2.000 € brutos. Le retienen un 12 % de IRPF y paga un 6 % de cotización a la Seguridad Social. ¿Cuál es su sueldo neto?",
+        "aplica": [
+          "\\text{Retención}=\\text{Bruto}\\cdot\\dfrac{\\%}{100}",
+          "\\text{Neto}=\\text{Bruto}-\\text{Retención}-\\text{Cotización}"
+        ]
+      },
+      {
+        "pregunta": "Un producto cuesta 600 € y la inflación sube los precios un 2 %. ¿Cuánto cuesta ahora?",
+        "aplica": [
+          "\\text{Subida}=\\text{Precio}\\cdot\\dfrac{2}{100}",
+          "\\text{Precio nuevo}=\\text{Precio}+\\text{Subida}"
+        ],
+        "pasos": [
+          "600\\cdot\\dfrac{2}{100}=12\\text{ € de subida}",
+          "600+12=612\\text{ €}"
+        ],
+        "respuesta": "El nuevo precio es 612 €."
+      },
+      {
+        "pregunta": "Se vende una casa por 200.000 € y la inmobiliaria cobra una comisión del 5 %. ¿Cuánto se queda la inmobiliaria y cuánto recibe el vendedor?",
+        "aplica": [
+          "\\text{Comisión}=\\text{Precio}\\cdot\\dfrac{5}{100}",
+          "\\text{Vendedor}=\\text{Precio}\\cdot\\dfrac{100-5}{100}"
+        ]
+      },
+      {
+        "pregunta": "Un representante cobra una comisión del 9 % sobre una cantidad de 15.000 €. ¿Qué cantidad obtiene cada uno, el representante y la persona representada?",
+        "aplica": [
+          "\\text{Representado}=\\text{Cantidad}\\left(1-\\dfrac{9}{100}\\right)",
+          "\\text{Representante}=\\text{Cantidad}-\\text{Representado}"
+        ]
+      },
+      {
+        "pregunta": "Se compra una casa valorada en 150.000 € y hay que pagar un 8 % de ITP (Impuesto de Transmisiones Patrimoniales). ¿Cuánto es el impuesto y cuánto se paga en total?",
+        "aplica": [
+          "\\text{ITP}=\\text{Valor}\\cdot\\dfrac{8}{100}",
+          "\\text{Total}=\\text{Valor}+\\text{ITP}"
+        ],
+        "pasos": [
+          "150000\\cdot\\dfrac{8}{100}=12000\\text{ € de ITP}",
+          "150000+12000=162000\\text{ €}"
+        ],
+        "respuesta": "En total se pagan 162.000 €."
+      }
+    ]
+  }
+}

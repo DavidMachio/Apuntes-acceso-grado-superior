@@ -69,9 +69,21 @@ figcaption{font-size:.62em;color:var(--marron-600)}
 .paso>.n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--color-primary-500);color:var(--color-primary-900);display:grid;place-items:center;font-weight:700;font-size:.7em}
 .paso>.c{flex:1;min-width:0}.paso .mf{margin:2px 0}
 .enun{font-size:1.1em;font-weight:500}
-.rec2{margin:0 0 14px;color:var(--marron-600);font-size:.8em}
+.rec2{margin:0 0 18px;color:var(--marron-700);font-size:.88em}
 .vis{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:center;margin:auto 0}
 .vis .card svg{width:100%;max-height:330px;height:auto;display:block}
+/* ejemplos y resumen como explicación */
+.lbl{font-size:.62em;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--marron-600);margin:0 0 6px}
+.bloque{background:#fff;border:2px solid var(--marron-200);border-radius:18px;padding:14px 26px;margin:0 0 16px;box-shadow:0 4px 14px rgba(56,46,38,.06)}
+.bloque.preg{border-left:10px solid var(--color-primary-500);font-size:1.08em}
+.bloque.preg p{margin:0}
+.bloque.apl{background:var(--color-primary-50);border-color:var(--color-primary-300)}
+.bloque .mf{margin:6px 0}
+.rec2 b{color:var(--marron-800)}
+.desc{font-size:1.12em;color:var(--marron-700);margin:0 0 22px;max-width:1000px}
+.big{border-top:10px solid var(--color-primary-500);padding:34px 36px}
+.big .mf{font-size:1.55em;margin:16px 0}
+.rec li{font-size:1em;margin-bottom:16px}
 /* colores de la materia: menta y marrón (sin magenta) */
 .slide .ds-callout--definicion,.slide .ds-callout--important{background:var(--color-primary-100);border-color:var(--color-primary-600);color:var(--marron-900)}
 .slide .ds-callout--tip{background:var(--marron-100);border-color:var(--marron-400);color:var(--marron-900)}
@@ -93,8 +105,8 @@ JS = """
 const over=[];
 document.querySelectorAll('.slide').forEach((sl,i)=>{const b=sl.querySelector('.sl-body');if(!b)return;
  let s=1.05;sl.style.setProperty('--s',s);
- const bad=()=>Math.max(0,...[...b.querySelectorAll('.paso,.enun,.ds-callout,.card,.fc,.resp,figure,p,li,math,.mf,.chips,.rec2')].map(e=>e.getBoundingClientRect().bottom))>b.getBoundingClientRect().bottom-28||[...b.querySelectorAll('.mp,.ds-table,.fc')].some(e=>e.scrollWidth>e.clientWidth+1||e.getBoundingClientRect().right>b.getBoundingClientRect().right-40);
- while(bad()&&s>0.74){s-=0.04;sl.style.setProperty('--s',s.toFixed(2));}
+ const bad=()=>Math.max(0,...[...b.querySelectorAll('.paso,.enun,.ds-callout,.card,.fc,.resp,figure,p,li,math,.mf,.chips,.rec2')].map(e=>e.getBoundingClientRect().bottom))>b.getBoundingClientRect().bottom-28||[...b.querySelectorAll('.mp,.ds-table,.fc')].some(e=>e.scrollWidth>e.clientWidth+6||e.getBoundingClientRect().right>b.getBoundingClientRect().right-40);
+ while(bad()&&s>0.84){s-=0.04;sl.style.setProperty('--s',s.toFixed(2));}
  if(bad())over.push(i);});
 window.__over=over;
 """
@@ -106,7 +118,7 @@ class S:
         self.tipo, self.kw = tipo, kw
 
 
-def construir(nodos, num, titulo):
+def construir(nodos, num, titulo, meta=None):
     """Devuelve la lista de diapositivas de contenido y los datos para resumen."""
     cuerpo, destacadas, notas, subs = [], [], [], []
     sub, grupo, n_ej = None, [], 0
@@ -125,7 +137,13 @@ def construir(nodos, num, titulo):
             volcar(); sub = nd[1]; subs.append(sub)
         elif t == "ejemplo":
             volcar(); n_ej += 1
-            cuerpo.append(S("ejemplo", sub=sub, hijos=nd[1], n=n_ej))
+            em = (meta or {}).get("ejemplos", [])
+            e = S("ejemplo", sub=sub, hijos=nd[1], n=n_ej, meta=em[n_ej - 1] if n_ej <= len(em) else None)
+            if e.kw["meta"] and e.kw["meta"].get("pregunta") and len(e.kw["meta"].get("aplica", [])) + len(desarrollo_nodos(e)) >= 4:
+                cuerpo.append(S("ejemplo", **{**e.kw, "parte": "plan"}))
+                cuerpo.append(S("ejemplo", **{**e.kw, "parte": "desarrollo"}))
+            else:
+                cuerpo.append(e)
         else:
             if t == "destacada":
                 destacadas.append((sub, nd[1], nd[2]))
@@ -179,7 +197,48 @@ def pasos(nodos):
     return out
 
 
+def desarrollo_nodos(s):
+    meta = s.kw.get("meta") or {}
+    if meta.get("pasos"):
+        nodos = [("formula", t) for t in meta["pasos"]]
+        if meta.get("respuesta"):
+            nodos.append(("p", "R. " + meta["respuesta"]))
+        return nodos
+    h = s.kw["hijos"]
+    if h and h[0][0] == "p" and not re.search(r"(?:^|\s)R\.\s", h[0][1]):
+        return h[1:]
+    return h
+
+
 def html_ejemplo(s):
+    if (s.kw.get("meta") or {}).get("pregunta") and not s.kw.get("cont_old"):
+        return html_ejemplo_meta(s)
+    return html_ejemplo_old(s)
+
+
+def html_ejemplo_meta(s):
+    meta, n, parte = s.kw["meta"], s.kw["n"], s.kw.get("parte", "todo")
+    tit = f"Ejemplo {n}" + (" · desarrollo" if parte == "desarrollo" else "")
+    cab = f'<p class="eb">{escape(s.kw["sub"] or "")}</p><h2 class="t">{tit}</h2>'
+    preg = f'<div class="bloque preg"><p class="lbl">Planteamiento</p><p>{G.texto(meta["pregunta"])}</p></div>'
+    apl = ""
+    if meta.get("aplica"):
+        apl = ('<div class="bloque apl"><p class="lbl">Fórmulas que aplicamos</p>'
+               + "".join(G.formula_bloque(f) for f in meta["aplica"]) + "</div>")
+    dev = ""
+    nodos = s.kw["dev"] if s.kw.get("dev") is not None else desarrollo_nodos(s)
+    if nodos:
+        dev = '<p class="sol-t">Desarrollo</p>' + pasos(nodos)
+    if parte == "plan":
+        cuerpo = preg + apl
+    elif parte == "desarrollo":
+        cuerpo = f'<p class="rec2"><b>Planteamiento.</b> {G.texto(meta["pregunta"])}</p>' + dev
+    else:
+        cuerpo = preg + apl + dev
+    return cab + f'<div class="main">{cuerpo}</div>'
+
+
+def html_ejemplo_old(s):
     hijos, n = s.kw["hijos"], s.kw["n"]
     titulo = f"Ejemplo {n}"
     if hijos and hijos[0][0] == "p":
@@ -210,6 +269,17 @@ def html_concepto(s):
 
 
 def dividir(s):
+    if s.tipo == "ejemplo" and s.kw.get("meta") and s.kw["meta"].get("pregunta"):
+        parte = s.kw.get("parte", "todo")
+        if parte == "todo":
+            return [S("ejemplo", **{**s.kw, "parte": "plan"}), S("ejemplo", **{**s.kw, "parte": "desarrollo"})]
+        if parte == "desarrollo":
+            d = desarrollo_nodos(s) if s.kw.get("dev") is None else s.kw["dev"]
+            if len(d) < 2:
+                return [s]
+            m = max(1, len(d) // 2)
+            return [S("ejemplo", **{**s.kw, "dev": d[:m]}), S("ejemplo", **{**s.kw, "dev": d[m:]})]
+        return [s]
     if s.tipo == "ejemplo":
         h = s.kw["hijos"]; mid = max(1, len(h) // 2)
         if len(h) < 2:
@@ -240,11 +310,19 @@ def documento(num, titulo, resumen, total_t, siguiente, cuerpo, destacadas, nota
         paginas.append((html_formulas(tr, "Fórmulas clave" + suf, "Para tener a mano"), ""))
     for s in cuerpo:
         paginas.append((s, ""))
-    rec = "".join(f"<li>{G.texto(x)}</li>" for x in notas)
-    res = html_formulas(destacadas[:3], "Resumen del tema", "Recuerda") if destacadas else f'<p class="eb">Recuerda</p><h2 class="t">Resumen del tema</h2>'
+    meta = METAS.get(str(num), {})
+    fm = meta.get("formulas", [])
+    if destacadas:
+        for k, (sub, et, forms) in enumerate(destacadas):
+            info = fm[k] if k < len(fm) else {}
+            tit = info.get("titulo") or (et.strip("¡!") if et else (sub or "Fórmula"))
+            desc = f'<p class="desc">{G.texto(info["descripcion"])}</p>' if info.get("descripcion") else ""
+            tarjeta = '<div class="bloque big">' + "".join(G.formula_bloque(f) for f in forms) + "</div>"
+            paginas.append((f'<p class="eb">Resumen</p><h2 class="t">{escape(tit)}</h2><div class="main">{desc}{tarjeta}</div>', ""))
+    rec = meta.get("recordar") or notas
     if rec:
-        res += f'<ul class="rec">{rec}</ul>'
-    paginas.append((res, ""))
+        li = "".join(f"<li>{G.texto(x)}</li>" for x in rec)
+        paginas.append((f'<p class="eb">Para llevarte</p><h2 class="t">Ideas para recordar</h2><div class="main"><ul class="rec">{li}</ul></div>', ""))
     paginas.append(("END", ""))
     return paginas
 
@@ -265,7 +343,15 @@ def a_html(paginas, num, titulo, resumen, total_t, siguiente, n_ej, n_f):
             f'<style>{CSS}</style></head><body>{"".join(out)}<script>{JS}</script></body></html>')
 
 
+METAS = {}
+
+
 def main():
+    global METAS
+    jf = Path(sys.argv[1]).with_name("diapositivas.json") if len(sys.argv) > 1 else None
+    if jf and jf.exists():
+        import json
+        METAS = json.loads(jf.read_text(encoding="utf-8"))
     if len(sys.argv) < 3:
         sys.exit(__doc__)
     md, salida = Path(sys.argv[1]), Path(sys.argv[2])
@@ -291,13 +377,14 @@ def main():
         for num, titulo, nodos in temas:
             if solo and num not in solo:
                 continue
-            cuerpo, destacadas, notas, subs = construir(nodos, num, titulo)
+            meta = METAS.get(str(num), {})
+            cuerpo, destacadas, notas, subs = construir(nodos, num, titulo, meta)
             resumen = resumenes.get(titulo) or f"Apuntes del tema {num}"
             siguiente = temas[num][1] if num < total_t else None
             for _ in range(4):
                 USADOS.clear()
                 paginas = documento(num, titulo, resumen, total_t, siguiente, cuerpo, destacadas, notas, subs, 0, "")
-                n_ej = sum(1 for s in cuerpo if s.tipo == "ejemplo" and not s.kw.get("cont"))
+                n_ej = len({s.kw['n'] for s in cuerpo if s.tipo == 'ejemplo'})
                 html = a_html(paginas, num, titulo, resumen, total_t, siguiente, n_ej, len(destacadas))
                 nombre = f"tema-{num:02d}-{G.NOMBRES[num]}"
                 f = salida / f"{nombre}.html"
