@@ -36,15 +36,15 @@ body{font-family:var(--font-family-body);-webkit-print-color-adjust:exact;print-
 .sl-body>*{flex-shrink:0}
 .main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}.main>:first-child{margin-top:auto!important}.main>:last-child{margin-bottom:auto!important}
 .eb{font-size:18px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--color-primary-700);margin:0 0 6px}
-h2.t{font:700 calc(46px*var(--s))/1.1 var(--font-family-heading);margin:0 0 18px;color:var(--marron-900)}
+h2.t{font:700 calc(46px*var(--s))/1.1 var(--font-family-heading);margin:0 0 26px;color:var(--marron-900)}
 .sl-body p{margin:0 0 16px;max-width:none}
 .sl-body ul,.sl-body ol{margin:0 0 12px;padding-left:30px}.sl-body li{margin:0 0 8px}
-.mf{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 48px;margin:14px 0}
+.mf{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 48px;margin:22px 0}
 .mp{display:block}
 math{font-family:"Latin Modern Math","DejaVu Math TeX Gyre",var(--font-family-heading);font-size:1.02em}
 p math,li math,td math{font-size:1em}
 .cb{flex:1;min-width:0}
-.ds-callout{break-inside:avoid;margin:18px 0;font-size:1em;padding:18px 24px}
+.ds-callout{break-inside:avoid;margin:24px 0;font-size:1em;padding:24px 30px}
 .ds-callout .ds-callout__t{font-size:.7em;line-height:1.3;margin-bottom:6px}
 .ds-callout p:last-child{margin-bottom:0}
 .resp{display:inline-block;background:var(--color-primary-100);border:2px solid var(--color-primary-500);border-radius:12px;padding:6px 16px;margin-top:8px}
@@ -53,7 +53,7 @@ figcaption{font-size:.62em;color:var(--marron-600)}
 .ds-table{font-size:.85em}.ds-table th,.ds-table td{padding:8px 14px}
 .enun{background:#fff;border:2px solid var(--marron-200);border-left:10px solid var(--color-primary-500);border-radius:16px;padding:16px 24px;margin:0 0 18px;font-size:1.06em;box-shadow:0 6px 18px rgba(56,46,38,.07)}
 .enun p:last-child{margin:0}
-.sol-t{font-size:.66em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--marron-600);margin:4px 0 2px}
+.sol-t{font-size:.66em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--marron-600);margin:8px 0 14px}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;margin:auto 0}
 .card{background:#fff;border:2px solid var(--marron-200);border-radius:20px;padding:20px 26px;box-shadow:0 8px 22px rgba(56,46,38,.08)}
 .chips{list-style:none;padding:0;margin:0;counter-reset:c}
@@ -61,36 +61,36 @@ figcaption{font-size:.62em;color:var(--marron-600)}
 .chips li::before{content:counter(c);flex:none;width:40px;height:40px;border-radius:50%;background:var(--color-primary-500);color:var(--color-primary-900);display:grid;place-items:center;font-weight:700}
 .grid{display:grid;grid-template-columns:1fr;gap:16px;flex:1;align-content:center}
 .fc{background:#fff;border:2px solid var(--marron-200);border-top:8px solid var(--color-primary-500);border-radius:18px;padding:12px 22px 10px;display:flex;flex-direction:column;justify-content:center}
-.fc .eb{margin:0}
-.fc .mf{margin:6px 0 2px}
+.fc .eb{margin:0 0 6px}
+.fc .mf{margin:16px 0 8px}
 .rec li{font-size:.92em}
 /* pasos de una solución */
-.paso{display:flex;align-items:center;gap:20px;background:#fff;border:2px solid var(--marron-200);border-radius:16px;padding:10px 22px;margin:0 0 16px;box-shadow:0 4px 14px rgba(56,46,38,.06)}
+.paso{display:flex;align-items:center;gap:20px;background:#fff;border:2px solid var(--marron-200);border-radius:16px;padding:16px 26px;margin:0 0 20px;box-shadow:0 4px 14px rgba(56,46,38,.06)}
 .paso>.n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--color-primary-500);color:var(--color-primary-900);display:grid;place-items:center;font-weight:700;font-size:.7em}
-.paso>.c{flex:1;min-width:0}.paso .mf{margin:2px 0}
+.paso>.c{flex:1;min-width:0}.paso .mf{margin:6px 0}
 .enun{font-size:1.1em;font-weight:500}
 .rec2{margin:0 0 18px;color:var(--marron-700);font-size:.88em}
 .vis{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:center;margin:auto 0}
 .vis .card svg{width:100%;max-height:330px;height:auto;display:block}
 /* ejemplos y resumen como explicación */
-.lbl{font-size:.62em;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--marron-600);margin:0 0 6px}
-.bloque{background:#fff;border:2px solid var(--marron-200);border-radius:18px;padding:14px 26px;margin:0 0 16px;box-shadow:0 4px 14px rgba(56,46,38,.06)}
+.lbl{font-size:.62em;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--marron-600);margin:0 0 14px}
+.bloque{background:#fff;border:2px solid var(--marron-200);border-radius:18px;padding:22px 30px;margin:0 0 22px;box-shadow:0 4px 14px rgba(56,46,38,.06)}
 .bloque.preg{border-left:10px solid var(--color-primary-500);font-size:1.08em}
 .bloque.preg p{margin:0}
 .bloque.apl{background:var(--color-primary-50);border-color:var(--color-primary-300)}
-.bloque .mf{margin:6px 0}
+.bloque .mf{margin:14px 0 6px}
 .rec2 b{color:var(--marron-800)}
-.desc{font-size:1.12em;color:var(--marron-700);margin:0 0 22px;max-width:1000px}
-.big{border-top:10px solid var(--color-primary-500);padding:34px 36px}
+.desc{font-size:1.12em;color:var(--marron-700);margin:0 0 34px;max-width:1000px}
+.big{border-top:10px solid var(--color-primary-500);padding:40px 40px}
 .big .mf{font-size:1.55em;margin:16px 0}
 .rec li{font-size:1em;margin-bottom:16px}
-.g3{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;margin:auto 0}
-.ic{background:#fff;border:2px solid var(--marron-200);border-top:8px solid var(--color-primary-500);border-radius:18px;padding:16px 20px 12px;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(56,46,38,.06)}
-.ic .ict{font-weight:700;font-size:.82em;line-height:1.25;margin:0 0 4px;color:var(--marron-800)}
-.ic .mf{margin:auto 0;flex:1;font-size:.95em}
+.g3{display:grid;grid-template-columns:1fr;gap:26px;margin:auto 0}
+.ic{background:#fff;border:2px solid var(--marron-200);border-top:8px solid var(--color-primary-500);border-radius:18px;padding:26px 36px 24px;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(56,46,38,.06)}
+.ic .ict{font-weight:700;font-size:.95em;line-height:1.25;margin:0 0 22px;color:var(--marron-800)}
+.ic .mf{margin:6px 0;flex:none;font-size:1.15em}
 .ic.ex{background:var(--color-primary-50);border-color:var(--color-primary-300);border-top-color:var(--marron-400)}
-.ic.ex .exq{font-size:.72em;line-height:1.3;margin:0 0 4px}
-.ic.ex .mf{margin:2px 0;flex:none;font-size:.9em}
+.ic.ex .exq{font-size:.85em;line-height:1.35;margin:0 0 20px}
+.ic.ex .mf{margin:8px 0;flex:none;font-size:1em}
 .rcols{grid-template-columns:1.1fr 1fr;align-items:start}.rcols .bloque{margin:0}.rcols .bloque p{margin:0 0 6px}
 /* colores de la materia: menta y marrón (sin magenta) */
 .slide .ds-callout--definicion,.slide .ds-callout--important{background:var(--color-primary-100);border-color:var(--color-primary-600);color:var(--marron-900)}
@@ -329,19 +329,21 @@ def documento(num, titulo, resumen, total_t, siguiente, cuerpo, destacadas, nota
             paginas.append((f'<p class="eb">Resumen</p><h2 class="t">{escape(tit)}</h2><div class="main">{desc}{tarjeta}</div>', ""))
     rec = meta.get("recordar") or notas
     if rec:
-        cards = ""
+        tarjetas = []
         for x in rec:
             if isinstance(x, dict):
-                cards += (f'<div class="ic"><p class="ict">{G.texto(x["titulo"])}</p>'
-                          + (G.formula_bloque(x["formula"]) if x.get("formula") else "") + "</div>")
+                tarjetas.append(f'<div class="ic"><p class="ict">{G.texto(x["titulo"])}</p>'
+                                + (G.formula_bloque(x["formula"]) if x.get("formula") else "") + "</div>")
             else:
-                cards += f'<div class="ic"><p class="ict">{G.texto(x)}</p></div>'
+                tarjetas.append(f'<div class="ic"><p class="ict">{G.texto(x)}</p></div>')
         ej = meta.get("recordar_ejemplo")
         if ej:
-            cards += ('<div class="ic ex"><p class="ict">Un ejemplo rápido</p>'
-                      f'<p class="exq">{G.texto(ej["pregunta"])}</p>'
-                      + "".join(G.formula_bloque(t) for t in ej["pasos"]) + "</div>")
-        paginas.append((f'<p class="eb">Para llevarte</p><h2 class="t">Ideas para recordar</h2><div class="main"><div class="g3">{cards}</div></div>', ""))
+            tarjetas.append('<div class="ic ex"><p class="ict">Un ejemplo rápido</p>'
+                            f'<p class="exq">{G.texto(ej["pregunta"])}</p>'
+                            + "".join(G.formula_bloque(t) for t in ej["pasos"]) + "</div>")
+        for i in range(0, len(tarjetas), 2):
+            par = "".join(tarjetas[i:i + 2])
+            paginas.append((f'<p class="eb">Para llevarte</p><h2 class="t">Ideas para recordar</h2><div class="main"><div class="g3">{par}</div></div>', ""))
     paginas.append(("END", ""))
     return paginas
 
