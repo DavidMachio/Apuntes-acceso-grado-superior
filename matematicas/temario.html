@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&family=Source+Serif+4:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/componentes.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../styles.css">
 <title>Temario</title>
 <meta name="description" content="Temas del temario con sus apuntes en PDF.">
 </head>
-<body data-pagina="temario">
+<body data-pagina="temario" data-materia="matematicas" data-raiz="../">
 <a class="ds-skip" href="#main">Saltar al contenido</a>
 <div id="cabecera"></div>
 
 <main id="main">
   <section class="ds-section">
     <div class="ds-container">
-      <ol class="ds-breadcrumb" aria-label="Ruta"><li><a href="index.html">Inicio</a></li><li aria-current="page">Temario</li></ol>
+      <ol class="ds-breadcrumb" aria-label="Ruta"><li><a href="../index.html">Inicio</a></li><li><a href="index.html">Matemáticas</a></li><li aria-current="page">Temario</li></ol>
       <h1>Temario</h1>
       <p class="ds-lead" id="intro"></p>
       <div class="ds-layout" style="margin-top:var(--space-8)">
@@ -31,11 +31,12 @@
 
 <div id="pie"></div>
 
+<script src="../datos/sitio.js"></script>
 <script src="datos/curso.js"></script>
 <script src="datos/temario.js"></script>
 <script src="datos/preguntas.js"></script>
-<script src="js/iconos.js"></script>
-<script src="js/app.js"></script>
+<script src="../js/iconos.js"></script>
+<script src="../js/app.js"></script>
 <script src="js/temario.js"></script>
 </body>
 </html>

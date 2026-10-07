@@ -144,7 +144,7 @@
       '<div><span class="dato__et">Fecha</span><span class="dato__linea"></span></div>' +
       '<div class="dato--nota"><span class="dato__et">Nota (sobre 10)</span><span class="dato__linea"></span></div></div>';
     return '<header class="hoja__cab">' +
-      '<div class="hoja__fila"><span>' + esc(CURSO.marca) + '</span><span class="hoja__codigo">Código ' + esc(ex.codigo) + "</span></div>" +
+      '<div class="hoja__fila"><span>' + esc(SITIO.marca) + '</span><span class="hoja__codigo">Código ' + esc(ex.codigo) + "</span></div>" +
       '<h2 class="hoja__titulo">' + esc(CURSO.examenTitulo) + (soluciones ? ": soluciones" : "") + "</h2>" +
       '<p class="hoja__modulos">' + esc(modulos) + "</p>" + datos +
       '<ul class="hoja__info"><li>Tiempo recomendado: ' + ex.minutos + " minutos</li><li>Puntuación total: " + ex.puntos +

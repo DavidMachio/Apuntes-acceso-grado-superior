@@ -2,7 +2,7 @@
 """Convierte los apuntes transcritos (.md con etiquetas) en un PDF A4 por apartado.
 
 Uso:
-    python3 herramientas/generar_pdfs.py RUTA/Apuntes.md CARPETA_SALIDA
+    python3 herramientas/generar_pdfs.py matematicas/apuntes/apuntes-matematicas.md matematicas/pdfs
 
 Necesita: pandoc (fórmulas LaTeX -> MathML) y playwright con Chromium (HTML -> PDF).
 Estilo: design system «Curso de Matemáticas» v1.1 (css/variables.css y css/componentes.css).

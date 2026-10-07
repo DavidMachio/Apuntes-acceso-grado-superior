@@ -2,7 +2,7 @@
 (function () {
   const { esc, ic } = DS;
 
-  document.title = CURSO.marca;
+  document.title = CURSO.materia + " · " + SITIO.marca;
   document.getElementById("etiqueta").textContent = CURSO.etiqueta;
   document.getElementById("titulo").textContent = CURSO.titulo;
   document.getElementById("subtitulo").textContent = CURSO.subtitulo;

@@ -2,7 +2,7 @@
 (function () {
   const { esc, ic } = DS;
 
-  document.title = "Temario: " + CURSO.marca;
+  document.title = "Temario de " + CURSO.materia + " · " + SITIO.marca;
   document.getElementById("intro").textContent =
     "Descarga los apuntes de cada tema o genera un examen con sus preguntas.";
 

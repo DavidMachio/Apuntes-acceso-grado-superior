@@ -1,14 +1,13 @@
 /* =====================================================================
    PARTES COMUNES A TODAS LAS PÁGINAS: cabecera, pie, selector de tema,
-   menú del móvil y ayudas. Necesita datos/curso.js cargado antes.
+   menú del móvil y ayudas. Necesita datos/sitio.js cargado antes.
    ===================================================================== */
 (function () {
-  const PAGINAS = [
-    { id: "inicio",  href: "index.html",   texto: "Inicio",  icono: "i-home" },
-    { id: "temario", href: "temario.html", texto: "Temario", icono: "i-book-open" },
-    { id: "examen",  href: "examen.html",  texto: "Examen",  icono: "i-file-text" }
-  ];
-  const actual = document.body.getAttribute("data-pagina") || "";
+  const body = document.body;
+  const actual = body.getAttribute("data-pagina") || "";
+  const raiz = body.getAttribute("data-raiz") || "";        // ruta hasta la carpeta principal ("" o "../")
+  const materiaId = body.getAttribute("data-materia") || ""; // materia en la que estamos ("" en la portada)
+  const materia = SITIO.materias.find(m => m.id === materiaId) || null;
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -18,18 +17,37 @@
   }
   window.DS = { esc: esc, ic: ic };
 
+  // Menú principal: Inicio + una entrada por materia
+  const PRINCIPAL = [{ texto: "Inicio", href: raiz + "index.html", icono: "i-home", actual: materiaId === "" }]
+    .concat(SITIO.materias.map(m => ({
+      texto: m.titulo, href: raiz + m.id + "/index.html", icono: m.icono, actual: m.id === materiaId
+    })));
+  // Pestañas de la materia actual (Resumen / Temario / Examen…)
+  const PESTANAS = materia ? materia.paginas.map(p => ({
+    texto: p.texto, href: p.href, actual: p.id === actual
+  })) : [];
+
   function logo() {
-    return '<a class="ds-logo" href="index.html"><span class="ds-logo__ph">' + ic("i-graduation-cap", "ds-icon--sm") +
-      "</span>" + esc(CURSO.marca) + "</a>";
+    return '<a class="ds-logo" href="' + raiz + 'index.html"><span class="ds-logo__ph">' + ic("i-graduation-cap", "ds-icon--sm") +
+      "</span>" + esc(SITIO.marca) + "</a>";
   }
 
   function pintarCabecera() {
     const nodo = document.getElementById("cabecera");
     if (!nodo) return;
-    const enlaces = PAGINAS.map(p =>
-      '<li><a href="' + p.href + '"' + (p.id === actual ? ' aria-current="page"' : "") + ">" + p.texto + "</a></li>").join("");
-    const movil = PAGINAS.map(p =>
-      '<a href="' + p.href + '"' + (p.id === actual ? ' aria-current="page"' : "") + ">" + ic(p.icono) + p.texto + "</a>").join("");
+    const enlaces = PRINCIPAL.map(p =>
+      '<li><a href="' + p.href + '"' + (p.actual ? ' aria-current="page"' : "") + ">" + esc(p.texto) + "</a></li>").join("");
+    let movil = PRINCIPAL.map(p =>
+      '<a href="' + p.href + '"' + (p.actual ? ' aria-current="page"' : "") + ">" + ic(p.icono) + esc(p.texto) + "</a>").join("");
+    if (PESTANAS.length) {
+      movil += '<span class="ds-label menu-sub">' + esc(materia.titulo) + "</span>" + PESTANAS.map(p =>
+        '<a href="' + p.href + '"' + (p.actual ? ' aria-current="page"' : "") + ">" + esc(p.texto) + "</a>").join("");
+    }
+    const pestanas = PESTANAS.length
+      ? '<div class="subnav"><div class="ds-container"><nav class="ds-tabs" aria-label="Secciones de ' + esc(materia.titulo) + '">' +
+        PESTANAS.map(p => '<a class="ds-tab"' + (p.actual ? ' aria-current="page"' : "") + ' href="' + p.href + '">' + esc(p.texto) + "</a>").join("") +
+        "</nav></div></div>"
+      : "";
     nodo.outerHTML =
       '<header class="ds-navbar"><div class="ds-container"><div class="ds-navbar__in">' + logo() +
       '<nav aria-label="Principal"><ul class="ds-nav">' + enlaces + "</ul></nav>" +
@@ -41,18 +59,18 @@
       "</div>" +
       '<button class="ds-btn ds-btn--ghost ds-btn--icon ds-menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menú">' + ic("i-menu") + "</button>" +
       "</div></div>" +
-      '<nav class="ds-mobile-menu" aria-label="Menú móvil">' + movil + "</nav></div></header>";
+      '<nav class="ds-mobile-menu" aria-label="Menú móvil">' + movil + "</nav></div></header>" + pestanas;
   }
 
   function pintarPie() {
     const nodo = document.getElementById("pie");
     if (!nodo) return;
-    const enlaces = PAGINAS.map(p => '<li><a href="' + p.href + '">' + p.texto + "</a></li>").join("");
+    const enlaces = PRINCIPAL.map(p => '<li><a href="' + p.href + '">' + esc(p.texto) + "</a></li>").join("");
     nodo.outerHTML =
       '<footer class="ds-footer"><div class="ds-container"><div class="ds-grid">' +
-      "<div>" + logo() + '<p class="ds-small ds-muted" style="margin-top:12px">' + esc(CURSO.etiqueta) + "</p></div>" +
+      "<div>" + logo() + '<p class="ds-small ds-muted" style="margin-top:12px">' + esc(SITIO.etiqueta) + "</p></div>" +
       "<div><h6>Web</h6><ul>" + enlaces + "</ul></div>" +
-      "<div><h6>Contacto</h6><p class=\"ds-small ds-muted\">" + esc(CURSO.pie) + "</p></div>" +
+      "<div><h6>Contacto</h6><p class=\"ds-small ds-muted\">" + esc(SITIO.pie) + "</p></div>" +
       "</div></div></footer>";
   }
 

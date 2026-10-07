@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/temario.html", "destination": "/matematicas/temario.html", "permanent": true },
+    { "source": "/examen.html", "destination": "/matematicas/examen.html", "permanent": true }
+  ]
+}

@@ -9,79 +9,36 @@
 <link rel="stylesheet" href="css/componentes.css">
 <link rel="stylesheet" href="styles.css">
 <title>Acceso a grado superior</title>
-<meta name="description" content="Apuntes en PDF y exámenes para imprimir de matemáticas para el acceso a grado superior.">
+<meta name="description" content="Apuntes en PDF y exámenes para imprimir para preparar la prueba de acceso a grado superior.">
 </head>
 <body data-pagina="inicio">
 <a class="ds-skip" href="#main">Saltar al contenido</a>
 <div id="cabecera"></div>
 
 <main id="main">
-  <section class="ds-hero">
+  <section class="portada">
     <div class="ds-container">
-      <div class="ds-hero__grid">
-        <div>
-          <p class="ds-label" id="etiqueta"></p>
-          <h1 class="ds-display" id="titulo"></h1>
-          <p class="ds-lead" id="subtitulo"></p>
-          <div class="ds-row">
-            <a class="ds-btn ds-btn--lg" href="temario.html">Ver el temario <svg class="ds-icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
-            <a class="ds-btn ds-btn--secondary ds-btn--lg" href="examen.html">Generar un examen</a>
-          </div>
-        </div>
-        <div class="ds-hero__media" aria-hidden="true"><svg class="ds-icon ds-icon--xl" focusable="false"><use href="#i-graduation-cap"/></svg></div>
-      </div>
+      <p class="ds-label" id="etiqueta"></p>
+      <h1 id="titulo"></h1>
+      <p class="ds-lead" id="subtitulo"></p>
     </div>
   </section>
 
-  <section class="ds-section" aria-labelledby="h-presentacion">
+  <section class="ds-section portada__materias" aria-labelledby="h-materias">
     <div class="ds-container">
-      <div class="ds-two">
-        <div>
-          <h2 id="h-presentacion">Presentación</h2>
-          <div class="presentacion" id="descripcion"></div>
-        </div>
-        <dl class="ficha" id="ficha"></dl>
-      </div>
-    </div>
-  </section>
-
-  <section class="ds-section ds-section--alt" aria-labelledby="h-incluye">
-    <div class="ds-container">
-      <h2 id="h-incluye">Qué incluye</h2>
-      <div class="ds-grid">
-        <div class="ds-card"><svg class="ds-icon ds-icon--lg" aria-hidden="true" focusable="false"><use href="#i-book-open"/></svg><h3>Apuntes en PDF</h3><p>Un PDF por tema, para leer en pantalla o imprimir.</p></div>
-        <div class="ds-card"><svg class="ds-icon ds-icon--lg" aria-hidden="true" focusable="false"><use href="#i-file-text"/></svg><h3>Exámenes para imprimir</h3><p>Genera un examen distinto cada vez, con el contenido de los temas que elijas, y rellénalo a mano.</p></div>
-        <div class="ds-card"><svg class="ds-icon ds-icon--lg" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg><h3>Soluciones aparte</h3><p>Cada examen tiene su hoja de soluciones, con la explicación de cada respuesta.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ds-section" aria-labelledby="h-temario">
-    <div class="ds-container">
-      <div class="ds-row ds-row--between" style="margin-bottom:var(--space-6)">
-        <h2 id="h-temario" style="margin:0">Temario</h2>
-        <a class="ds-link-arrow" href="temario.html">Ver todos los temas <svg class="ds-icon ds-icon--sm" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg></a>
-      </div>
-      <div class="ds-grid" id="modulos"></div>
-    </div>
-  </section>
-
-  <section class="ds-section" style="padding-top:0">
-    <div class="ds-container">
-      <div class="ds-banner">
-        <div><h2 style="margin:0;font-size:24px;line-height:32px">¿Quieres ponerte a prueba?</h2><p style="margin:0">Elige los temas y genera un examen en PDF.</p></div>
-        <a class="ds-btn" href="examen.html">Generar un examen</a>
-      </div>
+      <h2 class="ds-sr-only" id="h-materias">Materias</h2>
+      <div class="materias" id="materias"></div>
     </div>
   </section>
 </main>
 
 <div id="pie"></div>
 
-<script src="datos/curso.js"></script>
-<script src="datos/temario.js"></script>
+<script src="datos/sitio.js"></script>
+<script src="matematicas/datos/temario.js"></script>
+<script src="matematicas/datos/preguntas.js"></script>
 <script src="js/iconos.js"></script>
 <script src="js/app.js"></script>
-<script src="js/inicio.js"></script>
+<script src="js/portada.js"></script>
 </body>
 </html>

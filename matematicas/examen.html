@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&family=Source+Serif+4:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/variables.css">
-<link rel="stylesheet" href="css/componentes.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="examen.css">
 <title>Generador de examen</title>
 <meta name="description" content="Genera un examen en PDF para imprimir y rellenar a mano, con su hoja de soluciones.">
 </head>
-<body data-pagina="examen">
+<body data-pagina="examen" data-materia="matematicas" data-raiz="../">
 <a class="ds-skip" href="#main">Saltar al contenido</a>
 <div id="cabecera"></div>
 
 <main id="main">
   <section class="ds-section no-print">
     <div class="ds-container">
-      <ol class="ds-breadcrumb" aria-label="Ruta"><li><a href="index.html">Inicio</a></li><li aria-current="page">Examen</li></ol>
+      <ol class="ds-breadcrumb" aria-label="Ruta"><li><a href="../index.html">Inicio</a></li><li><a href="index.html">Matemáticas</a></li><li aria-current="page">Examen</li></ol>
       <h1>Generador de examen</h1>
       <p class="ds-lead">Elige los temas y el número de preguntas. Obtendrás un examen distinto cada vez, para imprimir y rellenar a mano, y su hoja de soluciones aparte.</p>
 
@@ -101,12 +101,13 @@
 
 <div id="pie"></div>
 
+<script src="../datos/sitio.js"></script>
 <script src="datos/curso.js"></script>
 <script src="datos/temario.js"></script>
 <script src="datos/preguntas.js"></script>
-<script src="js/iconos.js"></script>
+<script src="../js/iconos.js"></script>
 <script src="js/mate.js"></script>
-<script src="js/app.js"></script>
+<script src="../js/app.js"></script>
 <script src="js/examen.js"></script>
 </body>
 </html>

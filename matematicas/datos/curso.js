@@ -1,9 +1,9 @@
 /* =====================================================================
    DATOS GENERALES DE LA WEB — textos de la portada, ficha y pie.
-   (El temario está en datos/temario.js y las preguntas en datos/preguntas.js)
+   (La marca y el pie comunes están en datos/sitio.js. El temario está en datos/temario.js y las preguntas en datos/preguntas.js)
    ===================================================================== */
 const CURSO = {
-  marca: "Acceso a grado superior",              // nombre corto: arriba a la izquierda y en el pie
+  materia: "Matemáticas",                         // nombre de la materia (título de las pestañas)
   etiqueta: "Prueba de acceso a grado superior", // texto pequeño sobre el título de la portada
   titulo: "Matemáticas aplicadas",
   subtitulo: "Apuntes en PDF y exámenes para imprimir, con las soluciones aparte.",
