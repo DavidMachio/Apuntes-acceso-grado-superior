@@ -70,7 +70,8 @@
       '<footer class="ds-footer"><div class="ds-container"><div class="ds-grid">' +
       "<div>" + logo() + '<p class="ds-small ds-muted" style="margin-top:12px">' + esc(SITIO.etiqueta) + "</p></div>" +
       "<div><h6>Web</h6><ul>" + enlaces + "</ul></div>" +
-      "<div><h6>Contacto</h6><p class=\"ds-small ds-muted\">" + esc(SITIO.pie) + "</p></div>" +
+      "<div><h6>Contacto</h6><p class=\"ds-small ds-muted\">" + esc(SITIO.actualizacion) + "</p>" +
+      '<p class="ds-small ds-muted">Contacto: <a href="mailto:' + esc(SITIO.email) + '">' + esc(SITIO.email) + "</a></p></div>" +
       "</div></div></footer>";
   }
 

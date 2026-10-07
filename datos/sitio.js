@@ -10,7 +10,8 @@ const SITIO = {
   titulo: "Prepara tu acceso a grado superior",
   subtitulo: "Apuntes en PDF y exámenes para imprimir, materia por materia.",
   curso: "Promoción CEPA 2026/2027",             // se muestra en los carteles de cada materia
-  pie: "Última actualización: octubre de 2026. Contacto: tu-correo@ejemplo.com",
+  actualizacion: "Última actualización: octubre de 2026",  // pie, primera fila
+  email: "dvmachio@gmail.com",                       // pie, fila de contacto
 
   materias: [
     {
