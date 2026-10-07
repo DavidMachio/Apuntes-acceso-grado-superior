@@ -104,6 +104,13 @@
         ],
         "respuesta": "En total se pagan 162.000 €."
       }
-    ]
+    ],
+    "recordar_ejemplo": {
+      "pregunta": "Un libro cuesta 10 € sin IVA. ¿Cuánto cuesta con el 21 % de IVA? ¿Y si queremos volver al precio sin IVA?",
+      "pasos": [
+        "10\\times 1{,}21=12{,}10\\text{ € con IVA}",
+        "\\dfrac{12{,}10}{1{,}21}=10\\text{ € sin IVA}"
+      ]
+    }
   }
 }
