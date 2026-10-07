@@ -19,6 +19,30 @@ import generar_pdfs as G  # noqa: E402
 import infografias  # noqa: E402
 
 RAIZ, CSS_DS = G.RAIZ, G.CSS_DS
+
+_formula_orig = G.formula_bloque
+G.formula_bloque = lambda tex: _formula_orig(re.sub(r"\\frac(?![a-z])", r"\\dfrac", tex))
+
+
+def _tabla(filas):
+    def num(c):
+        return bool(re.fullmatch(r"[\d.,\s%€−-]*\d[\d.,\s%€]*", c)) and c != ""
+    cab, cuerpo = filas[0], filas[1:]
+    h = "<tr>" + "".join(f'<th scope="col"{" class=n" if num(c) else ""}>{G.texto(c)}</th>' for c in cab) + "</tr>"
+    b = ""
+    for f in cuerpo:
+        celdas = ""
+        for k, c in enumerate(f):
+            if k == 0 and not num(c) and c:
+                celdas += f'<th scope="row">{G.texto(c)}</th>'
+            else:
+                celdas += f'<td{" class=n" if num(c) else ""}>{G.texto(c)}</td>'
+        b += f"<tr>{celdas}</tr>"
+    dens = " denso" if len(filas) > 8 else ""
+    return f'<div class="ds-table-wrap"><table class="ds-table ds-table--zebra{dens}"><thead>{h}</thead><tbody>{b}</tbody></table></div>'
+
+
+G.tabla = _tabla
 MARRONES = {50: "#faf7f4", 100: "#f3ede6", 200: "#e4d9cc", 300: "#cdbba7", 400: "#a8927c", 500: "#84705c",
             600: "#6a5846", 700: "#504236", 800: "#382e26", 900: "#231c17"}
 
@@ -33,7 +57,8 @@ body{font-family:var(--font-family-body);-webkit-print-color-adjust:exact;print-
 .sl-foot{height:46px;background:linear-gradient(90deg,var(--color-primary-300) 0%,var(--color-primary-700) 70%,var(--color-primary-800) 100%);color:var(--color-primary-900);font-size:17px}
 .sl-foot .r{color:#fff}
 .sl-body{flex:1;min-height:0;padding:26px 64px 30px;overflow:hidden;font-size:calc(27px*var(--s));line-height:1.38;position:relative;display:flex;flex-direction:column}
-.sl-body>*{flex-shrink:0}
+.sl-body>*,.main>*{flex-shrink:0}
+.ds-table-wrap{overflow:visible}
 .main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}.main>:first-child{margin-top:auto!important}.main>:last-child{margin-bottom:auto!important}
 .eb{font-size:18px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--color-primary-700);margin:0 0 6px}
 h2.t{font:700 calc(46px*var(--s))/1.1 var(--font-family-heading);margin:0 0 26px;color:var(--marron-900)}
@@ -48,9 +73,9 @@ p math,li math,td math{font-size:1em}
 .ds-callout .ds-callout__t{font-size:.7em;line-height:1.3;margin-bottom:6px}
 .ds-callout p:last-child{margin-bottom:0}
 .resp{display:inline-block;background:var(--color-primary-100);border:2px solid var(--color-primary-500);border-radius:12px;padding:6px 16px;margin-top:8px}
-figure{margin:8px 0;text-align:center}figure svg{max-height:290px;width:auto;max-width:100%}
+figure{margin:8px 0;text-align:center}figure svg{max-height:240px;width:auto;max-width:100%}
 figcaption{font-size:.62em;color:var(--marron-600)}
-.ds-table{font-size:.85em}.ds-table th,.ds-table td{padding:8px 14px}
+.ds-table{font-size:.95em;width:100%}.ds-table th,.ds-table td{padding:12px 18px}.ds-table th[scope=row]{background:transparent;font-weight:600}.ds-table .n{text-align:right}.ds-table.denso th,.ds-table.denso td{padding:3px 16px;font-size:.78em}
 .enun{background:#fff;border:2px solid var(--marron-200);border-left:10px solid var(--color-primary-500);border-radius:16px;padding:16px 24px;margin:0 0 18px;font-size:1.06em;box-shadow:0 6px 18px rgba(56,46,38,.07)}
 .enun p:last-child{margin:0}
 .sol-t{font-size:.66em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--marron-600);margin:8px 0 14px}
@@ -113,7 +138,7 @@ JS = """
 const over=[];
 document.querySelectorAll('.slide').forEach((sl,i)=>{const b=sl.querySelector('.sl-body');if(!b)return;
  let s=1.05;sl.style.setProperty('--s',s);
- const bad=()=>Math.max(0,...[...b.querySelectorAll('.paso,.enun,.ds-callout,.card,.fc,.resp,figure,p,li,math,.mf,.chips,.rec2')].map(e=>e.getBoundingClientRect().bottom))>b.getBoundingClientRect().bottom-28||[...b.querySelectorAll('.mp,.ds-table,.fc')].some(e=>e.scrollWidth>e.clientWidth+6||e.getBoundingClientRect().right>b.getBoundingClientRect().right-40);
+ const bad=()=>Math.max(0,...[...b.querySelectorAll('.paso,.enun,.ds-callout,.card,.fc,.resp,figure,p,li,math,.mf,.chips,.rec2,.ds-table-wrap,.bloque,.ic')].map(e=>e.getBoundingClientRect().bottom))>b.getBoundingClientRect().bottom-28||[...b.querySelectorAll('.mp,.ds-table,.fc')].some(e=>e.scrollWidth>e.clientWidth+6||e.getBoundingClientRect().right>b.getBoundingClientRect().right-40);
  while(bad()&&s>0.84){s-=0.04;sl.style.setProperty('--s',s.toFixed(2));}
  if(bad())over.push(i);});
 window.__over=over;
@@ -134,9 +159,14 @@ def construir(nodos, num, titulo, meta=None):
     def volcar():
         nonlocal grupo
         util = [g for g in grupo if g[0] != "destacada"] if grupo else []
-        if grupo and (util or True):
-            if util:
-                cuerpo.append(S("concepto", sub=sub or titulo, nodos=grupo, num=num))
+        if grupo and util:
+            trozo, k = [], 0
+            for g in grupo:
+                trozo.append(g)
+                if g[0] == "destacada":
+                    cuerpo.append(S("concepto", sub=sub or "Para empezar", nodos=trozo, num=num, cont=k > 0)); k += 1; trozo = []
+            if trozo:
+                cuerpo.append(S("concepto", sub=sub or "Para empezar", nodos=trozo, num=num, cont=k > 0))
         grupo = []
 
     for nd in nodos:
@@ -268,12 +298,13 @@ USADOS = set()
 
 
 def html_concepto(s):
+    titulo_c = escape(s.kw["sub"]) + (" <small>(sigue)</small>" if s.kw.get("cont") else "")
     v = infografias.visual(s.kw["num"], s.kw["sub"]) if (s.kw["num"], s.kw["sub"]) not in USADOS and not s.kw.get("cont") else None
     if v:
         USADOS.add((s.kw["num"], s.kw["sub"]))
-        return (f'<p class="eb">Concepto</p><h2 class="t">{escape(s.kw["sub"])}</h2><div class="main"><div class="vis"><div>'
+        return (f'<p class="eb">Concepto</p><h2 class="t">{titulo_c}</h2><div class="main"><div class="vis"><div>'
                 + G.render(s.kw["nodos"]) + f'</div><div class="card">{v}</div></div></div>')
-    return f'<p class="eb">Concepto</p><h2 class="t">{escape(s.kw["sub"])}</h2><div class="main">' + G.render(s.kw["nodos"]) + '</div>'
+    return f'<p class="eb">Concepto</p><h2 class="t">{titulo_c}</h2><div class="main">' + G.render(s.kw["nodos"]) + '</div>'
 
 
 def dividir(s):
@@ -307,9 +338,17 @@ def html_slide(s):
 
 
 def documento(num, titulo, resumen, total_t, siguiente, cuerpo, destacadas, notas, subs, n_ej, tit_doc):
-    trozos = [destacadas[i:i + 3] for i in range(0, len(destacadas), 3)] or []
+    trozos, act, peso = [], [], 0
+    for d_ in destacadas:
+        w = max(1, len(d_[2]))
+        if act and (peso + w > 3 or len(act) >= 3):
+            trozos.append(act); act, peso = [], 0
+        act.append(d_); peso += w
+    if act:
+        trozos.append(act)
     paginas = []  # (html, clase)
     paginas.append(("COVER", ""))
+    subs = METAS.get(str(num), {}).get("aprender") or subs
     idx = "".join(f"<li>{escape(x)}</li>" for x in subs) or f"<li>{escape(titulo)}</li>"
     paginas.append((f'<p class="eb">En este tema</p><h2 class="t">Qué vas a aprender</h2><div class="main"><div class="cols"><ol class="chips">{idx}</ol>'
                     f'<div class="card">{infografias.infografia(num)}</div></div></div>', ""))
@@ -380,11 +419,10 @@ def main():
     salida.mkdir(parents=True, exist_ok=True)
     secs = G.secciones(md.read_text(encoding="utf-8").splitlines())
     total_t = len(secs)
-    resumenes = {}
+    pares = []
     try:
         js = (RAIZ / "matematicas/datos/temario.js").read_text(encoding="utf-8")
-        for m in re.finditer(r'titulo:\s*"([^"]+)",\s*resumen:\s*"([^"]+)"', js):
-            resumenes[m.group(1)] = m.group(2)
+        pares = re.findall(r'titulo:\s*"([^"]+)",\s*resumen:\s*"([^"]+)"', js)
     except OSError:
         pass
     temas = []
@@ -400,7 +438,14 @@ def main():
                 continue
             meta = METAS.get(str(num), {})
             cuerpo, destacadas, notas, subs = construir(nodos, num, titulo, meta)
-            resumen = resumenes.get(titulo) or f"Apuntes del tema {num}"
+            if not destacadas and meta.get("claves"):
+                destacadas = [(c["titulo"], c["titulo"], [c["formula"]]) for c in meta["claves"]]
+                meta = {**meta, "formulas": meta["claves"]}
+                METAS[str(num)] = meta
+            if num <= len(pares):
+                titulo, resumen = pares[num - 1]
+            else:
+                resumen = ""
             siguiente = temas[num][1] if num < total_t else None
             for _ in range(4):
                 USADOS.clear()

@@ -1,132 +1,971 @@
 {
-  "1": {
-    "formulas": [
-      {
-        "titulo": "Añadir el IVA",
-        "descripcion": "Para pasar del precio sin IVA al precio final, multiplica por 1,21: es lo mismo que sumar el 21 % de golpe."
-      },
-      {
-        "titulo": "Quitar el IVA",
-        "descripcion": "Para volver al precio sin IVA, divide entre 1,21. Si el IVA no fuera del 21 %, cambia 1,21 por 1 + IVA/100."
-      },
-      {
-        "titulo": "Sueldo neto",
-        "descripcion": "Al salario bruto se le restan la retención del IRPF y la cotización a la Seguridad Social. Lo que queda es lo que cobras."
-      }
+ "1": {
+  "formulas": [
+   {
+    "titulo": "Añadir el IVA",
+    "descripcion": "Para pasar del precio sin IVA al precio final, multiplica por 1,21: es lo mismo que sumar el 21 % de golpe."
+   },
+   {
+    "titulo": "Quitar el IVA",
+    "descripcion": "Para volver al precio sin IVA, divide entre 1,21. Si el IVA no fuera del 21 %, cambia 1,21 por 1 + IVA/100."
+   },
+   {
+    "titulo": "Sueldo neto",
+    "descripcion": "Al salario bruto se le restan la retención del IRPF y la cotización a la Seguridad Social. Lo que queda es lo que cobras."
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Un porcentaje es una fracción de 100",
+    "formula": "21\\,\\% = \\dfrac{21}{100} = 0{,}21"
+   },
+   {
+    "titulo": "Sumar un porcentaje",
+    "formula": "\\text{Final}=\\text{Inicial}\\left(1+\\dfrac{p}{100}\\right)"
+   },
+   {
+    "titulo": "Restar un porcentaje",
+    "formula": "\\text{Final}=\\text{Inicial}\\left(1-\\dfrac{p}{100}\\right)"
+   },
+   {
+    "titulo": "Deshacer una subida: divide",
+    "formula": "\\text{Inicial}=\\dfrac{\\text{Final}}{1+\\dfrac{p}{100}}"
+   },
+   {
+    "titulo": "Se calcula sobre la cantidad inicial",
+    "formula": "\\text{Comisión}=\\text{Inicial}\\cdot\\dfrac{p}{100}"
+   }
+  ],
+  "ejemplos": [
+   {
+    "pregunta": "Un producto cuesta 200 € sin IVA. ¿Cuánto IVA hay que pagar y cuál es el precio final con el 21 % de IVA?",
+    "aplica": [
+     "\\text{IVA}=\\text{Precio sin IVA}\\cdot 0{,}21",
+     "\\text{Precio con IVA}=\\text{Precio sin IVA}+\\text{IVA}"
+    ]
+   },
+   {
+    "pregunta": "¿Por qué, para añadir el 21 % de IVA, basta con multiplicar el precio por 1,21?",
+    "aplica": [
+     "\\text{Cantidad final}=\\text{Cantidad inicial}\\,[\\,1+0{,}21\\,]"
+    ]
+   },
+   {
+    "pregunta": "Un artículo cuesta 300 € sin IVA. ¿Cuánto cuesta con el 21 % de IVA incluido?",
+    "aplica": [
+     "\\text{Precio con IVA}=\\text{Precio sin IVA}\\times 1{,}21"
     ],
-    "recordar": [
-      {
-        "titulo": "Un porcentaje es una fracción de 100",
-        "formula": "21\\,\\% = \\dfrac{21}{100} = 0{,}21"
-      },
-      {
-        "titulo": "Sumar un porcentaje",
-        "formula": "\\text{Final}=\\text{Inicial}\\left(1+\\dfrac{p}{100}\\right)"
-      },
-      {
-        "titulo": "Restar un porcentaje",
-        "formula": "\\text{Final}=\\text{Inicial}\\left(1-\\dfrac{p}{100}\\right)"
-      },
-      {
-        "titulo": "Deshacer una subida: divide",
-        "formula": "\\text{Inicial}=\\dfrac{\\text{Final}}{1+\\dfrac{p}{100}}"
-      },
-      {
-        "titulo": "Se calcula sobre la cantidad inicial",
-        "formula": "\\text{Comisión}=\\text{Inicial}\\cdot\\dfrac{p}{100}"
-      }
+    "pasos": [
+     "300\\cdot1{,}21=363\\text{ € con IVA}"
+    ]
+   },
+   {
+    "pregunta": "Un artículo cuesta 363 € con el 21 % de IVA incluido. ¿Cuánto costaba sin IVA?",
+    "aplica": [
+     "\\text{Precio sin IVA}=\\dfrac{\\text{Precio con IVA}}{1{,}21}"
     ],
-    "ejemplos": [
-      {
-        "pregunta": "Un producto cuesta 200 € sin IVA. ¿Cuánto IVA hay que pagar y cuál es el precio final con el 21 % de IVA?",
-        "aplica": [
-          "\\text{IVA}=\\text{Precio sin IVA}\\cdot 0{,}21",
-          "\\text{Precio con IVA}=\\text{Precio sin IVA}+\\text{IVA}"
-        ]
-      },
-      {
-        "pregunta": "¿Por qué, para añadir el 21 % de IVA, basta con multiplicar el precio por 1,21?",
-        "aplica": [
-          "\\text{Cantidad final}=\\text{Cantidad inicial}\\,[\\,1+0{,}21\\,]"
-        ]
-      },
-      {
-        "pregunta": "Un artículo cuesta 300 € sin IVA. ¿Cuánto cuesta con el 21 % de IVA incluido?",
-        "aplica": [
-          "\\text{Precio con IVA}=\\text{Precio sin IVA}\\times 1{,}21"
-        ],
-        "pasos": [
-          "300\\cdot1{,}21=363\\text{ € con IVA}"
-        ]
-      },
-      {
-        "pregunta": "Un artículo cuesta 363 € con el 21 % de IVA incluido. ¿Cuánto costaba sin IVA?",
-        "aplica": [
-          "\\text{Precio sin IVA}=\\dfrac{\\text{Precio con IVA}}{1{,}21}"
-        ],
-        "pasos": [
-          "\\dfrac{363}{1{,}21}=300\\text{ € sin IVA}"
-        ]
-      },
-      {
-        "pregunta": "En una óptica compramos unas gafas de 160 € (1 unidad), unas gafas de sol de 210 € (1 unidad) y dos fundas de 10 € cada una. El total ya lleva el 21 % de IVA. ¿Cuál es el precio sin IVA y cuánto IVA hemos pagado?",
-        "aplica": [
-          "\\text{Precio sin IVA}=\\dfrac{\\text{Precio con IVA}}{1{,}21}",
-          "\\text{IVA}=\\text{Precio con IVA}-\\text{Precio sin IVA}"
-        ]
-      },
-      {
-        "pregunta": "Una persona cobra 2.000 € brutos. Le retienen un 12 % de IRPF y paga un 6 % de cotización a la Seguridad Social. ¿Cuál es su sueldo neto?",
-        "aplica": [
-          "\\text{Retención}=\\text{Bruto}\\cdot\\dfrac{\\%}{100}",
-          "\\text{Neto}=\\text{Bruto}-\\text{Retención}-\\text{Cotización}"
-        ]
-      },
-      {
-        "pregunta": "Un producto cuesta 600 € y la inflación sube los precios un 2 %. ¿Cuánto cuesta ahora?",
-        "aplica": [
-          "\\text{Subida}=\\text{Precio}\\cdot\\dfrac{2}{100}",
-          "\\text{Precio nuevo}=\\text{Precio}+\\text{Subida}"
-        ],
-        "pasos": [
-          "600\\cdot\\dfrac{2}{100}=12\\text{ € de subida}",
-          "600+12=612\\text{ €}"
-        ],
-        "respuesta": "El nuevo precio es 612 €."
-      },
-      {
-        "pregunta": "Se vende una casa por 200.000 € y la inmobiliaria cobra una comisión del 5 %. ¿Cuánto se queda la inmobiliaria y cuánto recibe el vendedor?",
-        "aplica": [
-          "\\text{Comisión}=\\text{Precio}\\cdot\\dfrac{5}{100}",
-          "\\text{Vendedor}=\\text{Precio}\\cdot\\dfrac{100-5}{100}"
-        ]
-      },
-      {
-        "pregunta": "Un representante cobra una comisión del 9 % sobre una cantidad de 15.000 €. ¿Qué cantidad obtiene cada uno, el representante y la persona representada?",
-        "aplica": [
-          "\\text{Representado}=\\text{Cantidad}\\left(1-\\dfrac{9}{100}\\right)",
-          "\\text{Representante}=\\text{Cantidad}-\\text{Representado}"
-        ]
-      },
-      {
-        "pregunta": "Se compra una casa valorada en 150.000 € y hay que pagar un 8 % de ITP (Impuesto de Transmisiones Patrimoniales). ¿Cuánto es el impuesto y cuánto se paga en total?",
-        "aplica": [
-          "\\text{ITP}=\\text{Valor}\\cdot\\dfrac{8}{100}",
-          "\\text{Total}=\\text{Valor}+\\text{ITP}"
-        ],
-        "pasos": [
-          "150000\\cdot\\dfrac{8}{100}=12000\\text{ € de ITP}",
-          "150000+12000=162000\\text{ €}"
-        ],
-        "respuesta": "En total se pagan 162.000 €."
-      }
+    "pasos": [
+     "\\dfrac{363}{1{,}21}=300\\text{ € sin IVA}"
+    ]
+   },
+   {
+    "pregunta": "En una óptica compramos unas gafas de 160 € (1 unidad), unas gafas de sol de 210 € (1 unidad) y dos fundas de 10 € cada una. El total ya lleva el 21 % de IVA. ¿Cuál es el precio sin IVA y cuánto IVA hemos pagado?",
+    "aplica": [
+     "\\text{Precio sin IVA}=\\dfrac{\\text{Precio con IVA}}{1{,}21}",
+     "\\text{IVA}=\\text{Precio con IVA}-\\text{Precio sin IVA}"
+    ]
+   },
+   {
+    "pregunta": "Una persona cobra 2.000 € brutos. Le retienen un 12 % de IRPF y paga un 6 % de cotización a la Seguridad Social. ¿Cuál es su sueldo neto?",
+    "aplica": [
+     "\\text{Retención}=\\text{Bruto}\\cdot\\dfrac{\\%}{100}",
+     "\\text{Neto}=\\text{Bruto}-\\text{Retención}-\\text{Cotización}"
+    ]
+   },
+   {
+    "pregunta": "Un producto cuesta 600 € y la inflación sube los precios un 2 %. ¿Cuánto cuesta ahora?",
+    "aplica": [
+     "\\text{Subida}=\\text{Precio}\\cdot\\dfrac{2}{100}",
+     "\\text{Precio nuevo}=\\text{Precio}+\\text{Subida}"
     ],
-    "recordar_ejemplo": {
-      "pregunta": "Un libro cuesta 10 € sin IVA. ¿Cuánto cuesta con el 21 % de IVA? ¿Y si queremos volver al precio sin IVA?",
-      "pasos": [
-        "10\\times 1{,}21=12{,}10\\text{ € con IVA}",
-        "\\dfrac{12{,}10}{1{,}21}=10\\text{ € sin IVA}"
-      ]
-    }
+    "pasos": [
+     "600\\cdot\\dfrac{2}{100}=12\\text{ € de subida}",
+     "600+12=612\\text{ €}"
+    ],
+    "respuesta": "El nuevo precio es 612 €."
+   },
+   {
+    "pregunta": "Se vende una casa por 200.000 € y la inmobiliaria cobra una comisión del 5 %. ¿Cuánto se queda la inmobiliaria y cuánto recibe el vendedor?",
+    "aplica": [
+     "\\text{Comisión}=\\text{Precio}\\cdot\\dfrac{5}{100}",
+     "\\text{Vendedor}=\\text{Precio}\\cdot\\dfrac{100-5}{100}"
+    ]
+   },
+   {
+    "pregunta": "Un representante cobra una comisión del 9 % sobre una cantidad de 15.000 €. ¿Qué cantidad obtiene cada uno, el representante y la persona representada?",
+    "aplica": [
+     "\\text{Representado}=\\text{Cantidad}\\left(1-\\dfrac{9}{100}\\right)",
+     "\\text{Representante}=\\text{Cantidad}-\\text{Representado}"
+    ]
+   },
+   {
+    "pregunta": "Se compra una casa valorada en 150.000 € y hay que pagar un 8 % de ITP (Impuesto de Transmisiones Patrimoniales). ¿Cuánto es el impuesto y cuánto se paga en total?",
+    "aplica": [
+     "\\text{ITP}=\\text{Valor}\\cdot\\dfrac{8}{100}",
+     "\\text{Total}=\\text{Valor}+\\text{ITP}"
+    ],
+    "pasos": [
+     "150000\\cdot\\dfrac{8}{100}=12000\\text{ € de ITP}",
+     "150000+12000=162000\\text{ €}"
+    ],
+    "respuesta": "En total se pagan 162.000 €."
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "Un libro cuesta 10 € sin IVA. ¿Cuánto cuesta con el 21 % de IVA? ¿Y si queremos volver al precio sin IVA?",
+   "pasos": [
+    "10\\times 1{,}21=12{,}10\\text{ € con IVA}",
+    "\\dfrac{12{,}10}{1{,}21}=10\\text{ € sin IVA}"
+   ]
   }
+ },
+ "2": {
+  "formulas": [
+   {
+    "titulo": "Cuando aumenta",
+    "descripcion": "Para subir un porcentaje, multiplica la cantidad inicial por $1+\\frac{p}{100}$. Para volver al inicio, divide la final entre ese mismo número."
+   },
+   {
+    "titulo": "Cuando disminuye",
+    "descripcion": "Para bajar un porcentaje, multiplica por $1-\\frac{p}{100}$. Para volver al inicio, divide la cantidad final entre ese número."
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Subida: multiplica",
+    "formula": "C_f=C_i\\left(1+\\dfrac{p}{100}\\right)"
+   },
+   {
+    "titulo": "Bajada: multiplica",
+    "formula": "C_f=C_i\\left(1-\\dfrac{p}{100}\\right)"
+   },
+   {
+    "titulo": "Para volver atrás, divide",
+    "formula": "C_i=\\dfrac{C_f}{1\\pm\\dfrac{p}{100}}"
+   },
+   {
+    "titulo": "Varios cambios seguidos: se multiplican los factores",
+    "formula": "C_f=C_i\\cdot1{,}40\\cdot0{,}60"
+   },
+   {
+    "titulo": "Subir y bajar el mismo % no te deja donde estabas",
+    "formula": "200\\cdot1{,}40\\cdot0{,}60=168\\neq200"
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "Una camiseta de 20 € sube un 10 %. ¿Cuánto vale ahora? Si ahora vale 22 €, ¿cuánto valía antes?",
+   "pasos": [
+    "20\\times1{,}10=22\\text{ €}",
+    "\\dfrac{22}{1{,}10}=20\\text{ €}"
+   ]
+  },
+  "ejemplos": [
+   {
+    "pregunta": "Tienes 5.000 € invertidos en acciones y suben un 4 %. ¿Cuánto valen ahora?",
+    "aplica": [
+     "C_f=C_i\\left(1+\\dfrac{p}{100}\\right)"
+    ]
+   },
+   {
+    "pregunta": "Un pantalón costaba 60 € y está rebajado un 5 %. ¿Cuánto cuesta ahora?",
+    "aplica": [
+     "C_f=C_i\\left(1-\\dfrac{p}{100}\\right)"
+    ]
+   },
+   {
+    "pregunta": "Al inicio de la jornada bursátil una acción vale 500 €. Si baja un 6 %, ¿cuál será su nuevo precio?",
+    "aplica": [
+     "C_f=C_i\\left(1-\\dfrac{p}{100}\\right)"
+    ]
+   },
+   {
+    "pregunta": "Un producto de 100 € sube un 15 %. ¿Cuál es su precio final? ¿Y si en lugar de subir bajara un 15 %?",
+    "aplica": [
+     "C_f=C_i\\left(1+\\dfrac{p}{100}\\right)",
+     "C_f=C_i\\left(1-\\dfrac{p}{100}\\right)"
+    ]
+   },
+   {
+    "pregunta": "Un producto vale ahora 100 € después de subir un 15 %. ¿Cuánto costaba antes? ¿Y si hubiera bajado un 15 %?",
+    "aplica": [
+     "C_i=\\dfrac{C_f}{1+\\dfrac{p}{100}}",
+     "C_i=\\dfrac{C_f}{1-\\dfrac{p}{100}}"
+    ]
+   },
+   {
+    "pregunta": "Calcula cuánto vale un producto de 100 € si sube un 10 % y cuánto si baja un 10 %.",
+    "aplica": [
+     "C_f=C_i\\left(1\\pm\\dfrac{p}{100}\\right)"
+    ]
+   },
+   {
+    "pregunta": "Un producto de 200 € sube un 40 % y después baja un 40 %. ¿Cuánto vale al final? ¿Queda como al principio?",
+    "aplica": [
+     "C_f=C_i\\left(1+\\dfrac{p_1}{100}\\right)\\left(1-\\dfrac{p_2}{100}\\right)"
+    ]
+   },
+   {
+    "pregunta": "Después de aplicarle un descuento del 20 %, una chaqueta cuesta 72 €. ¿Cuánto costaba antes del descuento? El descuento disminuye y buscamos la cantidad inicial.",
+    "aplica": [
+     "C_i=\\dfrac{C_f}{1-\\dfrac{p}{100}}"
+    ]
+   },
+   {
+    "pregunta": "El kilo de tomates subió un 10 %, luego un 12 %, después un 11 % y finalmente un 15 %. Ahora vale 2,5 €/kg. ¿Cuánto valía antes de las subidas? ¿Con qué se relacionan estas subidas?",
+    "aplica": [
+     "C_i=\\dfrac{C_f}{\\left(1+\\frac{p_1}{100}\\right)\\left(1+\\frac{p_2}{100}\\right)\\cdots}"
+    ]
+   },
+   {
+    "pregunta": "Un perfume subió un 10 % y luego se rebajó un 10 %. Ahora cuesta 80 €. ¿Cuánto valía al inicio?",
+    "aplica": [
+     "C_i=\\dfrac{C_f}{1-\\dfrac{p}{100}}",
+     "C_i=\\dfrac{C_f}{1+\\dfrac{p}{100}}"
+    ]
+   },
+   {
+    "pregunta": "Una acción subió un 20 %, luego un 30 % y finalmente un 25 %. Si vale 195 € ahora, ¿cuánto valía al principio?",
+    "aplica": [
+     "C_i=\\dfrac{C_f}{\\left(1+\\frac{p_1}{100}\\right)\\left(1+\\frac{p_2}{100}\\right)\\left(1+\\frac{p_3}{100}\\right)}"
+    ]
+   },
+   {
+    "pregunta": "Un juguete subió un 25 % en Navidad y en la cuesta de enero se rebajó un 5 %. En enero cuesta 95 €. ¿Cuánto costaba antes de Navidad?",
+    "aplica": [
+     "C_i=\\dfrac{C_f}{1-\\dfrac{p}{100}}",
+     "C_i=\\dfrac{C_f}{1+\\dfrac{p}{100}}"
+    ]
+   }
+  ],
+  "aprender": [
+   "Subir o bajar un porcentaje",
+   "Calcular la cantidad inicial",
+   "Cambios encadenados",
+   "Tabla resumen: qué fórmula usar"
+  ]
+ },
+ "3": {
+  "formulas": [
+   {
+    "titulo": "Porcentaje que representa una parte",
+    "descripcion": "Divide la cantidad entre el total y multiplica por 100. El resultado te dice qué parte del total es, expresada en %."
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Porcentaje que representa una parte",
+    "formula": "p=\\dfrac{c}{t}\\times100"
+   },
+   {
+    "titulo": "Parte a partir del porcentaje",
+    "formula": "c=t\\cdot\\dfrac{p}{100}"
+   },
+   {
+    "titulo": "Total a partir de la parte y el porcentaje",
+    "formula": "t=\\dfrac{c\\cdot100}{p}"
+   },
+   {
+    "titulo": "Con regla de tres",
+    "formula": "\\dfrac{c}{t}=\\dfrac{p}{100}"
+   },
+   {
+    "titulo": "Una parte nunca supera el total",
+    "formula": "c\\le t\\;\\Rightarrow\\;p\\le100\\,\\%"
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "En una clase de 20 alumnos, 5 son zurdos. ¿Qué porcentaje de la clase es zurdo?",
+   "pasos": [
+    "\\dfrac{5}{20}\\times100=25\\,\\%"
+   ]
+  },
+  "ejemplos": [
+   {
+    "pregunta": "Estudiamos 10 horas y 4 de ellas son de matemáticas. ¿Qué porcentaje del tiempo dedicamos a matemáticas?",
+    "aplica": [
+     "p=\\dfrac{c}{t}\\times100"
+    ],
+    "pasos": [
+     "\\dfrac{4}{10}\\times100=40\\,\\%"
+    ],
+    "respuesta": "El 40 % del tiempo es de matemáticas."
+   },
+   {
+    "pregunta": "En una biblioteca hay 800 libros y 200 son de matemáticas. ¿Qué porcentaje de los libros es de matemáticas?",
+    "aplica": [
+     "p=\\dfrac{c}{t}\\times100"
+    ]
+   },
+   {
+    "pregunta": "En un cesto hay 15 manzanas y tomamos 3. ¿Qué porcentaje de las manzanas hemos tomado?",
+    "aplica": [
+     "p=\\dfrac{c}{t}\\times100"
+    ],
+    "pasos": [
+     "\\dfrac{3}{15}\\times100=20\\,\\%"
+    ],
+    "respuesta": "Hemos tomado el 20 % de las manzanas."
+   },
+   {
+    "pregunta": "En una bolsa hay 250 bolas y el 20 % son rojas. ¿Cuántas bolas rojas hay?",
+    "aplica": [
+     "c=t\\cdot\\dfrac{p}{100}"
+    ],
+    "pasos": [
+     "250\\cdot\\dfrac{20}{100}=250\\cdot0{,}2=50\\text{ bolas rojas}"
+    ],
+    "respuesta": "Hay 50 bolas rojas."
+   },
+   {
+    "pregunta": "En un frutero hay 36 frutas y 6 son plátanos. ¿Qué porcentaje de las frutas son plátanos?",
+    "aplica": [
+     "p=\\dfrac{c}{t}\\times100"
+    ],
+    "pasos": [
+     "\\dfrac{6}{36}\\times100=16{,}67\\,\\%"
+    ],
+    "respuesta": "El 16,67 % de las frutas son plátanos."
+   },
+   {
+    "pregunta": "El 15 % de las frutas de un almacén son plátanos y hay 120 plátanos. ¿Cuántas frutas hay en total?",
+    "aplica": [
+     "\\dfrac{c}{t}=\\dfrac{p}{100}",
+     "p=\\dfrac{c}{t}\\cdot100"
+    ]
+   }
+  ],
+  "aprender": [
+   "Qué porcentaje es una parte del total",
+   "Calcular la parte a partir del %",
+   "Calcular el total"
+  ]
+ },
+ "4": {
+  "formulas": [
+   {
+    "titulo": "Variación absoluta",
+    "descripcion": "Cuánto ha cambiado una cantidad en unidades: valor final menos valor inicial. Es positiva si sube y negativa si baja."
+   },
+   {
+    "titulo": "Variación porcentual",
+    "descripcion": "Cuánto ha cambiado en proporción a lo que había al principio: divide la variación absoluta entre la cantidad inicial y multiplica por 100."
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Variación absoluta",
+    "formula": "V_A=C_f-C_i"
+   },
+   {
+    "titulo": "Variación porcentual",
+    "formula": "V_P=\\dfrac{V_A}{C_i}\\times100"
+   },
+   {
+    "titulo": "El signo indica si sube o baja",
+    "formula": "C_f>C_i\\Rightarrow V>0\\qquad C_f<C_i\\Rightarrow V<0"
+   },
+   {
+    "titulo": "Siempre se divide entre el valor de partida",
+    "formula": "V_P=\\dfrac{C_f-C_i}{C_i}\\times100"
+   },
+   {
+    "titulo": "Subir un 100 % es duplicar",
+    "formula": "C_f=C_i(1+1)=2\\,C_i"
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "Un sueldo pasa de 1.000 € a 1.100 €. ¿Cuál es la variación absoluta y cuál la porcentual?",
+   "pasos": [
+    "V_A=1100-1000=100\\text{ €}",
+    "V_P=\\dfrac{100}{1000}\\times100=10\\,\\%"
+   ]
+  },
+  "ejemplos": [
+   {
+    "pregunta": "Al empezar el mes teníamos 7.000 € en el banco y a mitad de mes tenemos 6.200 €. ¿Cuánto ha variado nuestro dinero, en euros y en porcentaje?",
+    "aplica": [
+     "V_A=C_f-C_i",
+     "V_P=\\dfrac{V_A}{C_i}\\times100"
+    ]
+   },
+   {
+    "pregunta": "Los ahorros de una persona fueron 2.500 € en 2024, 2.000 € en 2025 y 4.000 € en 2026. Calcula la variación porcentual entre cada dos años consecutivos.",
+    "aplica": [
+     "V_P=\\dfrac{C_f-C_i}{C_i}\\times100"
+    ]
+   },
+   {
+    "pregunta": "Un trabajador autónomo gana 2.000 € un mes y 1.800 € el siguiente. ¿Cuál es la variación absoluta y cuál la porcentual?",
+    "aplica": [
+     "V_A=C_f-C_i",
+     "V_P=\\dfrac{V_A}{C_i}\\times100"
+    ]
+   },
+   {
+    "pregunta": "Una empresa descargó 100.000 camiones en 2019 y 125.000 en 2025. Calcula la variación absoluta y la porcentual.",
+    "aplica": [
+     "V_A=C_f-C_i",
+     "V_P=\\dfrac{V_A}{C_i}\\times100"
+    ]
+   },
+   {
+    "pregunta": "En la gráfica de barras del tema de representaciones gráficas, un valor pasa de 1.500 en 1980 a 1.750 en 1995. Calcula la variación absoluta y la porcentual.",
+    "aplica": [
+     "V_A=C_f-C_i",
+     "V_P=\\dfrac{V_A}{C_i}\\times100"
+    ]
+   }
+  ],
+  "aprender": [
+   "Variación absoluta",
+   "Variación porcentual",
+   "Variaciones entre varios años"
+  ]
+ },
+ "5": {
+  "formulas": [
+   {
+    "titulo": "Interés simple",
+    "descripcion": "El interés se calcula siempre sobre el capital inicial: capital por tasa por años. El capital final es el inicial más el interés. La tasa va en tanto por uno (3 % = 0,03)."
+   },
+   {
+    "titulo": "Despejar el capital inicial",
+    "descripcion": "Si conoces el interés, divídelo entre la tasa por los años. Si conoces el capital final, réstale el interés."
+   },
+   {
+    "titulo": "Despejar la tasa",
+    "descripcion": "Divide el interés entre el capital inicial por los años. Multiplica por 100 si la quieres en %."
+   },
+   {
+    "titulo": "Despejar los años",
+    "descripcion": "Divide el interés entre el capital inicial por la tasa. Si sale con decimales, pásalos a meses."
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Interés simple",
+    "formula": "I=C_i\\cdot\\text{tasa}\\cdot\\text{años}"
+   },
+   {
+    "titulo": "Capital final",
+    "formula": "C_f=C_i+I"
+   },
+   {
+    "titulo": "La tasa va en tanto por uno",
+    "formula": "3\\,\\%=\\dfrac{3}{100}=0{,}03"
+   },
+   {
+    "titulo": "Pasa los meses a años",
+    "formula": "6\\text{ meses}=\\dfrac{6}{12}=0{,}5\\text{ años}"
+   },
+   {
+    "titulo": "Despejar la tasa",
+    "formula": "\\text{tasa}=\\dfrac{I}{C_i\\cdot\\text{años}}"
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "Prestas 1.000 € al 2 % anual de interés simple durante 3 años. ¿Cuánto interés ganas y cuánto tendrás al final?",
+   "pasos": [
+    "I=1000\\cdot0{,}02\\cdot3=60\\text{ €}",
+    "C_f=1000+60=1060\\text{ €}"
+   ]
+  },
+  "ejemplos": [
+   {
+    "pregunta": "Invertimos 5.000 € al 3 % anual de interés simple durante 4 años. ¿Qué interés obtenemos en total?",
+    "aplica": [
+     "I=C_i\\cdot\\text{tasa}\\cdot\\text{años}"
+    ],
+    "pasos": [
+     "5000\\cdot\\dfrac{3}{100}=150\\text{ € cada año}",
+     "150\\cdot4=600\\text{ €}"
+    ],
+    "respuesta": "El interés total es de 600 €."
+   },
+   {
+    "pregunta": "Una renta a interés simple ha generado 500 € de interés. Al principio había 6.000 € y la tasa era del 1 %. ¿Cuántos años hemos necesitado?",
+    "aplica": [
+     "\\text{años}=\\dfrac{I}{C_i\\cdot\\text{tasa}}"
+    ]
+   },
+   {
+    "pregunta": "A interés simple invertimos 2.500 € y obtenemos 3.200 €. ¿Qué interés ha generado? Si mantuvimos la inversión 7 años, ¿a qué tasa ha rentado?",
+    "aplica": [
+     "I=C_f-C_i",
+     "\\text{tasa}=\\dfrac{I}{C_i\\cdot\\text{años}}"
+    ]
+   },
+   {
+    "pregunta": "Un interés simple a 18 meses, con un tipo anual del 2 %, ha dado un interés de 200 €. ¿Cuál es el capital final?",
+    "aplica": [
+     "I=C_i\\cdot p\\cdot t",
+     "C_f=C_i+I"
+    ]
+   }
+  ],
+  "aprender": [
+   "Interés simple y capital final",
+   "Pasar meses a años",
+   "Despejar capital, tasa y años"
+  ]
+ },
+ "6": {
+  "formulas": [
+   {
+    "titulo": "Interés compuesto",
+    "descripcion": "Los intereses se reinvierten y también generan interés: multiplica el capital por $(1+\\text{tasa})$ tantas veces como años. Para hallar el capital inicial, divide en lugar de multiplicar."
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Interés compuesto",
+    "formula": "C_f=C_i\\,(1+\\text{tasa})^{\\text{años}}"
+   },
+   {
+    "titulo": "Interés acumulado",
+    "formula": "I=C_f-C_i"
+   },
+   {
+    "titulo": "Capital inicial",
+    "formula": "C_i=\\dfrac{C_f}{(1+\\text{tasa})^{\\text{años}}}"
+   },
+   {
+    "titulo": "La tasa va en tanto por uno",
+    "formula": "5\\,\\%=0{,}05\\;\\Rightarrow\\;1+0{,}05=1{,}05"
+   },
+   {
+    "titulo": "Rinde más que el simple",
+    "formula": "1000\\cdot1{,}05^3=1157{,}63>1150"
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "Metes 100 € al 10 % anual durante 2 años con interés compuesto. ¿Cuánto tendrás y cuánto habrás ganado?",
+   "pasos": [
+    "100\\cdot1{,}10^2=121\\text{ €}",
+    "121-100=21\\text{ € de interés}"
+   ]
+  },
+  "ejemplos": [
+   {
+    "pregunta": "Invertimos 1.000 € al 5 % anual durante 3 años con interés compuesto. ¿Cuánto tendremos al final?",
+    "aplica": [
+     "C_f=C_i\\,(1+\\text{tasa})^{\\text{años}}"
+    ]
+   },
+   {
+    "pregunta": "Invertimos 2.000 € al 4 % anual durante dos años. ¿Cuánto tendremos al final?",
+    "aplica": [
+     "C_f=C_i\\,(1+\\text{tasa})^{\\text{años}}"
+    ],
+    "pasos": [
+     "2000\\cdot1{,}04^2=2163{,}2\\text{ €}"
+    ],
+    "respuesta": "Tendremos 2.163,20 €."
+   },
+   {
+    "pregunta": "Invertimos 5.000 € al 3 % anual durante 2 años. ¿Cuánto tendremos al final?",
+    "aplica": [
+     "C_f=C_i\\,(1+\\text{tasa})^{\\text{años}}"
+    ],
+    "pasos": [
+     "5000\\cdot1{,}03^2=5304{,}5\\text{ €}"
+    ],
+    "respuesta": "Tendremos 5.304,50 €."
+   },
+   {
+    "pregunta": "Invertimos 4.000 € al 5 % durante 2 años. ¿Cuánto tendremos al final?",
+    "aplica": [
+     "C_f=C_i\\,(1+\\text{tasa})^{\\text{años}}"
+    ],
+    "pasos": [
+     "4000\\cdot1{,}05^2=4410\\text{ €}"
+    ],
+    "respuesta": "Tendremos 4.410 €."
+   },
+   {
+    "pregunta": "Una empresa tenía 2.500 clientes. Durante un año aumentaron un 12 % y al año siguiente un 8 %. ¿Cuántos clientes tiene al final?",
+    "aplica": [
+     "\\text{Aumento}=\\text{Clientes}\\cdot\\dfrac{p}{100}"
+    ]
+   },
+   {
+    "pregunta": "Una acción se ha incrementado un 5 % cada uno de los 3 últimos años. Si inicialmente valía 120 €, ¿cuál es su valor actual?",
+    "aplica": [
+     "C_f=C_i\\,(1+\\text{tasa})^{\\text{años}}"
+    ]
+   },
+   {
+    "pregunta": "La inflación de un producto de estética es del 5 % un año y del 4 % el siguiente. ¿Qué precio cabe esperar si al principio valía 30 €?",
+    "aplica": [
+     "C_f=C_i\\left(1+\\dfrac{p_1}{100}\\right)\\left(1+\\dfrac{p_2}{100}\\right)"
+    ]
+   },
+   {
+    "pregunta": "Metemos en una cuenta de ahorro una cantidad que, tras 4 años y 6 meses al 2 %, llega a un capital final de 8.700 €. ¿Cuál ha sido el interés acumulado?",
+    "aplica": [
+     "C_i=\\dfrac{C_f}{(1+\\text{tasa})^{\\text{años}}}",
+     "I=C_f-C_i"
+    ]
+   },
+   {
+    "pregunta": "Metemos en una cuenta un capital que, tras 2 años y 3 meses con una tasa anual del 1,5 %, llega a 7.200 €. ¿Cuál ha sido el interés acumulado?",
+    "aplica": [
+     "C_i=\\dfrac{C_f}{(1+\\text{tasa})^{\\text{años}}}",
+     "I=C_f-C_i"
+    ]
+   }
+  ],
+  "aprender": [
+   "Interés compuesto año a año",
+   "La fórmula con potencias",
+   "Capital inicial e interés acumulado"
+  ]
+ },
+ "7": {
+  "formulas": [
+   {
+    "titulo": "Directa e inversa",
+    "descripcion": "En la proporcionalidad directa es constante el cociente $\\frac{y}{x}$. En la inversa es constante el producto $x\\cdot y$. Esa constante es la razón de proporcionalidad."
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Regla de tres",
+    "formula": "\\dfrac{a}{b}=\\dfrac{c}{x}\\;\\Rightarrow\\;x=\\dfrac{b\\cdot c}{a}"
+   },
+   {
+    "titulo": "Directa: si una sube, la otra sube",
+    "formula": "k=\\dfrac{y}{x}"
+   },
+   {
+    "titulo": "Inversa: si una sube, la otra baja",
+    "formula": "k=x\\cdot y"
+   },
+   {
+    "titulo": "Comprueba que la constante se mantiene",
+    "formula": "\\dfrac{300}{1}=\\dfrac{600}{2}=300"
+   },
+   {
+    "titulo": "Regla de tres inversa",
+    "formula": "x_1\\cdot y_1=x_2\\cdot y_2"
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "Si 2 cuadernos cuestan 6 €, ¿cuánto cuestan 5? Y si 2 pintores tardan 6 horas en pintar una pared, ¿cuánto tardan 3?",
+   "pasos": [
+    "\\dfrac{2}{6}=\\dfrac{5}{x}\\Rightarrow x=\\dfrac{6\\cdot5}{2}=15\\text{ €}",
+    "2\\cdot6=3\\cdot x\\Rightarrow x=4\\text{ horas}"
+   ]
+  },
+  "ejemplos": [
+   {
+    "pregunta": "Si 3 azucarillos tienen 21 gramos de azúcar, ¿cuántos gramos tienen 5 azucarillos?",
+    "aplica": [
+     "\\dfrac{a}{b}=\\dfrac{c}{x}\\;\\Rightarrow\\;x=\\dfrac{b\\cdot c}{a}"
+    ]
+   },
+   {
+    "pregunta": "Un coche va a velocidad constante. Mira la tabla de tiempo y distancia: ¿qué tipo de proporcionalidad es y cuál es su razón?",
+    "aplica": [
+     "k=\\dfrac{y}{x}"
+    ]
+   },
+   {
+    "pregunta": "Mira esta otra tabla de tiempo y distancia. ¿Es una proporcionalidad directa?",
+    "aplica": [
+     "k=\\dfrac{y}{x}"
+    ]
+   },
+   {
+    "pregunta": "Mira la tabla de velocidad y tiempo de un mismo trayecto. ¿Es una proporcionalidad inversa? ¿Cuál es la constante?",
+    "aplica": [
+     "k=x\\cdot y"
+    ]
+   },
+   {
+    "pregunta": "Identifica el tipo de proporcionalidad de cada tabla: kilómetros recorridos y gasolina gastada, y tiempo y velocidad.",
+    "aplica": [
+     "\\text{Directa: }k=\\dfrac{y}{x}",
+     "\\text{Inversa: }k=x\\cdot y"
+    ]
+   },
+   {
+    "pregunta": "¿Es una proporcionalidad inversa la siguiente tabla?",
+    "aplica": [
+     "k=x\\cdot y"
+    ]
+   },
+   {
+    "pregunta": "Dos personas recogen la mesa de una fiesta en 30 minutos. ¿Cuánto tardarían si fueran 5?",
+    "aplica": [
+     "x_1\\cdot y_1=x_2\\cdot y_2"
+    ]
+   },
+   {
+    "pregunta": "Un saco de arroz pesa 45 kg y por cada kilo se devuelven 5 gramos de arroz en mal estado. ¿Cuántos gramos en mal estado habrá en 3 sacos?",
+    "aplica": [
+     "\\text{kg totales}=\\text{kg por saco}\\cdot\\text{sacos}",
+     "\\text{gramos}=\\text{kg totales}\\cdot5"
+    ]
+   }
+  ],
+  "aprender": [
+   "Proporcionalidad numérica",
+   "Regla de tres",
+   "Proporcionalidad directa",
+   "Proporcionalidad inversa"
+  ]
+ },
+ "8": {
+  "claves": [
+   {
+    "titulo": "Lo que suma pasa restando",
+    "descripcion": "Para dejar la incógnita sola, pasa al otro lado lo que está sumando, pero restando.",
+    "formula": "x+a=b\\;\\Rightarrow\\;x=b-a"
+   },
+   {
+    "titulo": "Lo que multiplica pasa dividiendo",
+    "descripcion": "Lo que multiplica a la incógnita pasa al otro lado dividiendo.",
+    "formula": "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}"
+   },
+   {
+    "titulo": "Lo que divide pasa multiplicando",
+    "descripcion": "Lo que divide a la incógnita pasa al otro lado multiplicando.",
+    "formula": "\\dfrac{x}{a}=b\\;\\Rightarrow\\;x=a\\cdot b"
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Haz lo mismo en los dos lados",
+    "formula": "3x+1=4\\;\\Rightarrow\\;3x+1-1=4-1"
+   },
+   {
+    "titulo": "Suma ↔ resta",
+    "formula": "x+a=b\\;\\Rightarrow\\;x=b-a"
+   },
+   {
+    "titulo": "Multiplicación ↔ división",
+    "formula": "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}"
+   },
+   {
+    "titulo": "Empieza por lo que suma o resta",
+    "formula": "3x+1=4\\;\\Rightarrow\\;3x=3\\;\\Rightarrow\\;x=1"
+   },
+   {
+    "titulo": "Comprueba sustituyendo",
+    "formula": "3\\cdot1+1=4\\;\\checkmark"
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "Despeja la $x$ de $2x+4=10$.",
+   "pasos": [
+    "2x=10-4=6",
+    "x=\\dfrac{6}{2}=3"
+   ]
+  },
+  "ejemplos": [
+   {
+    "pregunta": "Despeja la velocidad $V$ en la fórmula del movimiento $E=V\\cdot t$ y la tensión $V$ en la ley de Ohm $I=\\frac{V}{R}$.",
+    "aplica": [
+     "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}",
+     "\\dfrac{x}{a}=b\\;\\Rightarrow\\;x=a\\cdot b"
+    ],
+    "pasos": [
+     "E=V\\cdot t\\;\\Rightarrow\\;V=\\dfrac{E}{t}",
+     "I=\\dfrac{V}{R}\\;\\Rightarrow\\;V=I\\cdot R"
+    ]
+   },
+   {
+    "pregunta": "Despeja la $x$ de la ecuación $3x+1=4$.",
+    "aplica": [
+     "x+a=b\\;\\Rightarrow\\;x=b-a",
+     "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}"
+    ]
+   }
+  ],
+  "aprender": [
+   "Despejar sumas y restas",
+   "Despejar productos y cocientes",
+   "Despejar en fórmulas"
+  ]
+ },
+ "9": {
+  "formulas": [
+   {
+    "titulo": "Frecuencias",
+    "descripcion": "Cuenta cuántas veces aparece cada dato (frecuencia absoluta), divide entre el total de datos (relativa) y multiplica por 100 para el porcentaje. Las relativas suman 1."
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Frecuencia absoluta",
+    "formula": "FA=\\text{nº de veces que aparece el dato}"
+   },
+   {
+    "titulo": "Frecuencia relativa",
+    "formula": "FR=\\dfrac{FA}{\\text{nº total de datos}}"
+   },
+   {
+    "titulo": "Porcentaje",
+    "formula": "P=FR\\times100"
+   },
+   {
+    "titulo": "Las frecuencias relativas suman 1",
+    "formula": "\\sum fr_i=1"
+   },
+   {
+    "titulo": "Las absolutas suman el total de datos",
+    "formula": "\\sum FA_i=n"
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "En una clase de 10 alumnos, 4 prefieren el fútbol. ¿Cuáles son su frecuencia absoluta, su relativa y su porcentaje?",
+   "pasos": [
+    "FA=4",
+    "FR=\\dfrac{4}{10}=0{,}4",
+    "P=0{,}4\\times100=40\\,\\%"
+   ]
+  },
+  "ejemplos": [
+   {
+    "pregunta": "Observa la tabla del gasto medio en los hogares españoles (€ al mes). ¿En qué concepto se gasta más y cómo ha cambiado el gasto en vivienda entre 2023 y 2026?"
+   },
+   {
+    "pregunta": "Observa la tabla de datos meteorológicos de tres localidades. ¿Qué columnas tiene, en qué unidades está cada dato y en qué localidad hace más calor?"
+   },
+   {
+    "pregunta": "Las calificaciones de una clase de 20 alumnos son: 4, 6, 7, 5, 8, 6, 9, 7, 5, 6, 10, 3, 0, 1, 8, 5, 4, 6, 5, 3. Construye una tabla con la frecuencia absoluta, la relativa y el porcentaje de cada calificación.",
+    "aplica": [
+     "FR=\\dfrac{FA}{\\text{nº total de datos}}",
+     "P=FR\\times100"
+    ]
+   },
+   {
+    "pregunta": "En un grupo de 40 personas preguntamos por su deporte favorito. Completa la tabla con la frecuencia relativa y el porcentaje de cada deporte.",
+    "aplica": [
+     "FR=\\dfrac{FA}{\\text{nº total de datos}}",
+     "P=FR\\times100"
+    ]
+   }
+  ],
+  "aprender": [
+   "Elementos de una tabla",
+   "Frecuencia absoluta y relativa",
+   "Porcentajes en una tabla"
+  ]
+ },
+ "10": {
+  "claves": [
+   {
+    "titulo": "Gráfica de barras",
+    "descripcion": "Sirve para comparar categorías: la altura de cada barra es la cantidad.",
+    "formula": "\\text{SEAT}=\\dfrac{7}{17}\\cdot100=41{,}18\\,\\%"
+   },
+   {
+    "titulo": "Gráfica de sectores",
+    "descripcion": "Muestra las partes de un total, que deben sumar el 100 %.",
+    "formula": "\\dfrac{5}{20}=25\\,\\%\\qquad\\dfrac{10}{20}=50\\,\\%\\qquad\\dfrac{5}{20}=25\\,\\%"
+   },
+   {
+    "titulo": "Gráfica de líneas",
+    "descripcion": "Muestra cómo evoluciona una cantidad a lo largo del tiempo.",
+    "formula": "V_P=\\dfrac{1750-1500}{1500}\\cdot100=16{,}67\\,\\%"
+   }
+  ],
+  "recordar": [
+   {
+    "titulo": "Barras: comparar categorías",
+    "formula": "\\text{Total}=7+4+1+5=17"
+   },
+   {
+    "titulo": "Sectores: partes de un total",
+    "formula": "\\sum p_i=100\\,\\%"
+   },
+   {
+    "titulo": "Líneas: evolución en el tiempo",
+    "formula": "V_A=C_f-C_i"
+   },
+   {
+    "titulo": "Porcentaje de cada parte",
+    "formula": "p=\\dfrac{c}{t}\\times100"
+   },
+   {
+    "titulo": "Elige el gráfico según lo que quieras mostrar",
+    "formula": "\\text{comparar}\\to\\text{barras}\\quad\\text{partes}\\to\\text{sectores}\\quad\\text{evolución}\\to\\text{líneas}"
+   }
+  ],
+  "recordar_ejemplo": {
+   "pregunta": "En una frutería hay 10 manzanas, 6 peras y 4 naranjas. ¿Qué porcentaje es cada fruta para un gráfico de sectores?",
+   "pasos": [
+    "\\text{Total}=10+6+4=20",
+    "\\dfrac{10}{20}=50\\,\\%\\qquad\\dfrac{6}{20}=30\\,\\%\\qquad\\dfrac{4}{20}=20\\,\\%"
+   ]
+  },
+  "ejemplos": [
+   {
+    "pregunta": "En un aparcamiento se cuentan los coches estacionados por marca en una gráfica de barras: 7 SEAT y otras tres marcas con 4, 1 y 5 coches. ¿Cuántos son SEAT y qué porcentaje del total representan?",
+    "aplica": [
+     "p=\\dfrac{c}{t}\\times100"
+    ]
+   },
+   {
+    "pregunta": "En una floristería hay 500 tulipanes, 1.500 gardenias y 2.000 rosas. Representa los datos en una gráfica de barras."
+   },
+   {
+    "pregunta": "Encuesta sobre comidas favoritas (solo se puede elegir una): 8 personas eligen macarrones, 10 cocido, 5 lubina, 7 pisto y 12 otra. ¿A cuántas personas les gusta la lubina o el pisto? ¿Cuántas han elegido algo distinto al cocido?"
+   },
+   {
+    "pregunta": "La gráfica de sectores muestra las calificaciones del alumnado en porcentaje. ¿Qué porcentaje representan los sectores IN y B?",
+    "aplica": [
+     "p=\\dfrac{\\text{parte del círculo}}{\\text{círculo}}\\cdot100"
+    ]
+   },
+   {
+    "pregunta": "Representa en un gráfico de sectores: 5 coches son negros, 10 blancos y 5 verdes.",
+    "aplica": [
+     "p=\\dfrac{c}{t}\\times100"
+    ]
+   },
+   {
+    "pregunta": "Representa en un gráfico de sectores este reparto: matemáticas 33,33 %, otros 16,67 % y suspensos 50 %.",
+    "aplica": [
+     "\\sum p_i=100\\,\\%"
+    ]
+   },
+   {
+    "pregunta": "Interpreta la gráfica de líneas de la temperatura por día."
+   },
+   {
+    "pregunta": "Interpreta la gráfica de líneas del cambio de peso (en kg) a lo largo de los años."
+   },
+   {
+    "pregunta": "Representa la evolución del precio medio mensual del alquiler de un piso entre 2021 y 2025: 650, 680, 750, 790 y 820 €."
+   },
+   {
+    "pregunta": "Representa en una gráfica de líneas, del mejor modo posible, los datos de 1980 y 1995 y calcula la variación absoluta y la porcentual entre ambos años.",
+    "aplica": [
+     "V_A=C_f-C_i",
+     "V_P=\\dfrac{V_A}{C_i}\\times100"
+    ]
+   },
+   {
+    "pregunta": "Los camiones descargados en un puerto cada año fueron 100.000 en 2019 y 125.000 en 2025, con subidas y bajadas entre medias. Representa la evolución en una gráfica de líneas."
+   }
+  ],
+  "aprender": [
+   "Gráfica de barras",
+   "Gráfica de sectores",
+   "Gráfica de líneas"
+  ]
+ }
 }

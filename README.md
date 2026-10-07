@@ -14,7 +14,7 @@ matematicas/            Materia de Matemáticas
   tema.html             Visor de PDF de un tema (tema.html?n=N)
   examen.html           Generador de exámenes
   datos/                curso.js (textos), temario.js (temas y PDFs), preguntas.js (examen)
-  pdfs/                 PDFs de los temas (los genera herramientas/generar_pdfs.py)
+  pdfs/                 PDFs de los temas (diapositivas generadas con herramientas/generar_diapositivas.py)
   apuntes/              Apuntes de origen (.md)
 lengua/                 Materia de Lengua (de momento, «Próximamente»)
 herramientas/           Scripts (generar PDFs a partir de los apuntes)
@@ -42,7 +42,8 @@ Para añadir un tema: nueva entrada en `temario.js`, su PDF en `matematicas/pdfs
 
 ## Generar los PDFs de los apuntes
 ```
-python3 herramientas/generar_pdfs.py matematicas/apuntes/apuntes-matematicas.md matematicas/pdfs
+python3 herramientas/generar_diapositivas.py matematicas/apuntes/apuntes-matematicas.md matematicas/pdfs
+# El texto didáctico (descripciones, ideas para recordar, ejemplos) está en matematicas/apuntes/diapositivas.json
 ```
 Crea un PDF A4 por apartado con el design system y las gráficas redibujadas (`herramientas/graficas.py`). Necesita `pandoc` y `playwright` con Chromium.
 
