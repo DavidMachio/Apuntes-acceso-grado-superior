@@ -15,7 +15,7 @@ const CURSO = {
 
   ficha: [
     { etiqueta: "Nivel",       valor: "Acceso a grado superior" },
-    { etiqueta: "Material",    valor: "12 temas en PDF" },
+    { etiqueta: "Material",    valor: "10 temas en PDF" },
     { etiqueta: "Exámenes",    valor: "Para imprimir y rellenar a mano" },
     { etiqueta: "Soluciones",  valor: "En una hoja aparte" }
   ],

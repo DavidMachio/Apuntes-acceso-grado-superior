@@ -9,7 +9,7 @@ const MODULOS = [
   {
     titulo: "Porcentajes",
     resumen: "IVA, IRPF, inflación, comisiones y tasas.",
-    paginas: "3 páginas",
+    paginas: "4 páginas",
     pdfs: [
       { nombre: "Apuntes del tema 1", detalle: "Porcentajes", archivo: "pdfs/tema-01-porcentajes.pdf" }
     ]
@@ -57,7 +57,7 @@ const MODULOS = [
   {
     titulo: "Proporcionalidad",
     resumen: "Regla de tres, proporcionalidad directa e inversa.",
-    paginas: "4 páginas",
+    paginas: "5 páginas",
     pdfs: [
       { nombre: "Apuntes del tema 7", detalle: "Proporcionalidad", archivo: "pdfs/tema-07-proporcionalidad.pdf" }
     ]
@@ -81,25 +81,9 @@ const MODULOS = [
   {
     titulo: "Representaciones gráficas",
     resumen: "Gráficas de barras, de sectores y de líneas.",
-    paginas: "6 páginas",
+    paginas: "7 páginas",
     pdfs: [
       { nombre: "Apuntes del tema 10", detalle: "Representaciones gráficas", archivo: "pdfs/tema-10-representaciones-graficas.pdf" }
-    ]
-  },
-  {
-    titulo: "Ejercicios para casa",
-    resumen: "Tres bloques de ejercicios resueltos.",
-    paginas: "5 páginas",
-    pdfs: [
-      { nombre: "Apuntes del tema 11", detalle: "Ejercicios para casa", archivo: "pdfs/tema-11-ejercicios-para-casa.pdf" }
-    ]
-  },
-  {
-    titulo: "Repaso del 6 de octubre",
-    resumen: "Resumen de los ejercicios rehechos en el cuaderno.",
-    paginas: "1 página",
-    pdfs: [
-      { nombre: "Apuntes del tema 12", detalle: "Repaso del 6 de octubre", archivo: "pdfs/tema-12-repaso-6-octubre.pdf" }
     ]
   }
 ];

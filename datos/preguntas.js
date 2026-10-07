@@ -1,6 +1,6 @@
 /* =====================================================================
    BANCO DE PREGUNTAS — de aquí sale el generador de examen.
-   (Preguntas basadas en los apuntes «Matemáticas aplicadas». Los temas 11 y 12 son de ejercicios y repaso, y no tienen preguntas propias.)
+   (Preguntas basadas en los apuntes «Matemáticas aplicadas». )
 
    · Las preguntas se agrupan por número de módulo (1, 2, 3…), el mismo que en datos/temario.js.
    · Hay dos tipos de pregunta:
@@ -28,7 +28,7 @@
      avisan de que ya no coinciden con el banco actual.
    ===================================================================== */
 const r = String.raw;
-const BANCO_VERSION = 2;
+const BANCO_VERSION = 3;
 
 const PREGUNTAS = {
 
@@ -73,7 +73,12 @@ const PREGUNTAS = {
       enunciado: "Se compra una casa valorada en 120.000 € y hay que pagar un 8 % de ITP (Impuesto de Transmisiones Patrimoniales). ¿Cuánto cuesta en total?",
       espacio: "s",
       solucion: [r`ITP: $120000\cdot\frac{8}{100}=9600$ €.`, r`Total: $120000+9600=129600$ €.`],
-      respuesta: "129.600 €" }
+      respuesta: "129.600 €" },
+    { tipo: "calculo",
+      enunciado: "Un representante cobra una comisión del 9 % sobre 15.000 €. ¿Qué cantidad obtiene cada uno, el representante y su representado?",
+      espacio: "s",
+      solucion: [r`Representante: $15000\cdot\frac{9}{100}=1350$ €.`, r`Representado: $15000-1350=13650$ €.`],
+      respuesta: "Representante: 1.350 €. Representado: 13.650 €." }
   ],
 
   /* ------------------------- Tema 2 · Cantidades iniciales y finales ------------------------- */
@@ -322,7 +327,17 @@ const PREGUNTAS = {
       enunciado: "6 obreros terminan una obra en 10 días. ¿Cuántos días tardarían 15 obreros trabajando al mismo ritmo?",
       espacio: "s",
       solucion: [r`Es inversa: $6\cdot 10=15\cdot x$.`, r`$x=\frac{60}{15}=4$ días.`],
-      respuesta: "4 días" }
+      respuesta: "4 días" },
+    { tipo: "test",
+      enunciado: "Una tabla tiene los valores 2, 4, 8 y 10 en la primera fila y 100, 50, 10 y 2 en la segunda. \u00bfEs una proporcionalidad inversa?",
+      opciones: ["S\u00ed: todos los productos valen 200", "No: los productos son 200, 200, 80 y 20", "S\u00ed: una variable sube y la otra baja", "No: es una proporcionalidad directa"],
+      correcta: 1,
+      explicacion: r`En la inversa el producto debe ser constante: $2\cdot 100=200$, $4\cdot 50=200$, pero $8\cdot 10=80$ y $10\cdot 2=20$.` },
+    { tipo: "calculo",
+      enunciado: "Un saco de arroz pesa 45 kg y en cada kilo hay 5 gramos de arroz en mal estado. \u00bfCu\u00e1ntos gramos en mal estado habr\u00e1 en 3 sacos?",
+      espacio: "s",
+      solucion: [r`Peso total: $45\cdot 3=135$ kg.`, r`Arroz en mal estado: $135\cdot 5=675$ g.`],
+      respuesta: "675 g" }
   ],
 
   /* ------------------------- Tema 8 · Despejar incógnitas ------------------------- */

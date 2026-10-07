@@ -26,7 +26,7 @@ Para añadir un tema: nueva entrada en `datos/temario.js`, su PDF en `pdfs/` y s
 - Las fórmulas usan un formato propio (`js/mate.js`) con sintaxis LaTeX básica: `$\frac{3}{4}$`, `x^2`, `\sqrt{9}`…
 
 ## Contenido
-Los 12 temas y sus PDFs salen de los apuntes «Matemáticas aplicadas». Hay 69 preguntas de examen (48 de test y 21 problemas) para los temas 1 a 10; los temas 11 y 12 son de ejercicios y repaso y no tienen preguntas propias.
+Los 10 temas y sus PDFs salen de los apuntes «Matemáticas aplicadas» (`apuntes/apuntes-matematicas.md`). Los ejercicios repetidos de los apuntes originales se han unificado en su tema. Todos los temas tienen preguntas de examen.
 
 ## Probarlo en local
 Basta con abrir `index.html` con doble clic.
@@ -35,6 +35,6 @@ Basta con abrir `index.html` con doble clic.
 `herramientas/generar_pdfs.py` convierte los apuntes transcritos (`.md` con etiquetas) en un PDF A4 por apartado, con el design system y las gráficas redibujadas (`herramientas/graficas.py`).
 
 ```
-python3 herramientas/generar_pdfs.py RUTA/Apuntes_matematicas.md CARPETA_SALIDA
+python3 herramientas/generar_pdfs.py apuntes/apuntes-matematicas.md pdfs
 ```
 Necesita `pandoc` y `playwright` con Chromium. Si cambias los apuntes, vuelve a ejecutarlo.

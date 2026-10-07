@@ -25,8 +25,8 @@ CSS_DS = RAIZ / "css"
 NOMBRES = {1: "porcentajes", 2: "cantidades-iniciales-y-finales", 3: "porcentaje-de-un-total",
            4: "variacion-absoluta-y-porcentual", 5: "interes-simple", 6: "interes-compuesto",
            7: "proporcionalidad", 8: "despejar-incognitas", 9: "tablas-y-frecuencias",
-           10: "representaciones-graficas", 11: "ejercicios-para-casa", 12: "repaso-6-octubre"}
-TOTAL_TEMAS = 12
+           10: "representaciones-graficas"}
+TOTAL_TEMAS = 10
 
 
 # ---------------------------------------------------------------- fórmulas
@@ -252,7 +252,7 @@ CSS_PDF = """
 html{background:var(--color-bg-page)}
 body{margin:0;font:400 11pt/16pt var(--font-family-body);color:var(--color-text-primary);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 h1{font:600 28pt/34pt var(--font-family-heading);margin:2mm 0 6mm}
-p:has(+ .ds-table-wrap),p:has(+ figure){break-after:avoid}
+p:has(+ .ds-table-wrap),p:has(+ figure),p:has(+ .ds-callout),h2:has(+ p + .ds-callout){break-after:avoid}
 h2{font:600 20pt/26pt var(--font-family-heading);margin:9mm 0 3mm;break-after:avoid}
 p{margin:0 0 3mm;max-width:none}
 ul,ol{margin:0 0 3mm;padding-left:6mm}li{margin:0 0 1.5mm}
@@ -298,6 +298,8 @@ def main():
     md, salida = Path(sys.argv[1]), Path(sys.argv[2])
     salida.mkdir(parents=True, exist_ok=True)
     secs = secciones(md.read_text(encoding="utf-8").splitlines())
+    global TOTAL_TEMAS
+    TOTAL_TEMAS = len(secs)
     tk = leer_tokens()
     cab = (f'<div style="font:8pt Inter,sans-serif;color:{tk["txt2"]};width:100%;padding:0 20mm;display:flex;justify-content:space-between;'
            f'box-sizing:border-box"><span>Matemáticas aplicadas · Apuntes</span><span>@@T@@</span></div>')
