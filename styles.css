@@ -99,3 +99,71 @@ a.ds-tab[aria-current="page"] { color: var(--color-text-brand); border-bottom-co
   .pdf-fila__acciones { flex-basis: 100%; justify-content: flex-start; }
   .pdf-fila__acciones .ds-btn { flex: 1; }
 }
+
+/* =====================================================================
+   PALETA DE LA WEB · neutro marrón + un color por materia
+   · Neutros: gama de marrones (en lugar del gris verdoso del sistema).
+   · Matemáticas: menta (los tokens del sistema ya son menta, no se tocan).
+   · Lengua: magenta (se remapean los tokens de marca dentro de body[data-materia="lengua"]).
+   ===================================================================== */
+:root {
+  --marron-50: #faf7f4; --marron-100: #f3ede6; --marron-200: #e4d9cc; --marron-300: #cdbba7; --marron-400: #a8927c;
+  --marron-500: #84705c; --marron-600: #6a5846; --marron-700: #504236; --marron-800: #382e26; --marron-900: #231c17;
+  --color-bg-page: var(--marron-50);
+  --color-bg-surface: var(--marron-100);
+  --color-bg-subtle: var(--marron-200);
+  --color-bg-inverse: var(--marron-900);
+  --color-text-primary: var(--marron-900);
+  --color-text-secondary: var(--marron-600);
+  --color-text-disabled: var(--marron-400);
+  --color-border-default: var(--marron-200);
+  --color-border-strong: var(--marron-500);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg-page: #171210; --color-bg-surface: #211a16; --color-bg-subtle: #2d241e; --color-bg-inverse: var(--marron-100);
+    --color-text-primary: var(--marron-100); --color-text-secondary: var(--marron-300); --color-text-disabled: var(--marron-500);
+    --color-border-default: #3d3229; --color-border-strong: var(--marron-500);
+  }
+}
+:root[data-theme="dark"] {
+  --color-bg-page: #171210; --color-bg-surface: #211a16; --color-bg-subtle: #2d241e; --color-bg-inverse: var(--marron-100);
+  --color-text-primary: var(--marron-100); --color-text-secondary: var(--marron-300); --color-text-disabled: var(--marron-500);
+  --color-border-default: #3d3229; --color-border-strong: var(--marron-500);
+}
+
+/* Lengua: la marca pasa de menta a magenta */
+body[data-materia="lengua"] {
+  --color-text-brand: var(--color-accent1-700); --color-text-link: var(--color-accent1-700); --color-text-link-hover: var(--color-accent1-800);
+  --color-action-primary-bg: var(--color-accent1-600); --color-action-primary-bg-hover: var(--color-accent1-700);
+  --color-action-primary-bg-active: var(--color-accent1-800); --color-action-primary-text: #fff;
+  --color-action-secondary-border: var(--color-accent1-700); --color-action-secondary-text: var(--color-accent1-700);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body[data-materia="lengua"] { --color-text-brand: var(--color-accent1-300); --color-text-link: var(--color-accent1-300); --color-action-secondary-border: var(--color-accent1-300); --color-action-secondary-text: var(--color-accent1-300); }
+}
+:root[data-theme="dark"] body[data-materia="lengua"] { --color-text-brand: var(--color-accent1-300); --color-text-link: var(--color-accent1-300); --color-action-secondary-border: var(--color-accent1-300); --color-action-secondary-text: var(--color-accent1-300); }
+
+/* Tarjetas de la portada: cada materia con su color */
+.materia { --mat-50: var(--color-primary-50); --mat-100: var(--color-primary-100); --mat-500: var(--color-primary-500); --mat-700: var(--color-primary-700); border-top: 6px solid var(--mat-500); background: linear-gradient(180deg, var(--mat-100), var(--color-bg-page) 70%); }
+.materia--lengua { --mat-50: var(--color-accent1-50); --mat-100: var(--color-accent1-100); --mat-500: var(--color-accent1-500); --mat-700: var(--color-accent1-700); }
+.materia__icono { background: var(--mat-500); border-color: transparent; color: var(--marron-900); }
+.materia--lengua .materia__icono { color: #fff; }
+.materia__entrar { color: var(--mat-700); }
+.materia:hover { border-color: var(--mat-500); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .materia { background: linear-gradient(180deg, var(--color-bg-subtle), var(--color-bg-page) 70%); }
+  :root:not([data-theme="light"]) .materia__entrar { color: var(--mat-500); }
+}
+:root[data-theme="dark"] .materia { background: linear-gradient(180deg, var(--color-bg-subtle), var(--color-bg-page) 70%); }
+:root[data-theme="dark"] .materia__entrar { color: var(--mat-500); }
+
+/* Navegación de la materia (pestañas y paso entre temas) con el color de la materia */
+.subnav { background: var(--color-bg-surface); }
+body[data-materia] a.ds-tab[aria-current="page"] { color: var(--color-text-brand); border-bottom-color: var(--color-action-primary-bg); border-bottom-width: 3px; }
+.tema-nav a.ds-btn { border-color: var(--color-action-primary-bg); }
+.ficha__item { border-top-color: var(--color-action-primary-bg); }
+
+/* Etiquetas pequeñas: color de la materia (en la portada, marrón) */
+body[data-materia] .ds-label { color: var(--color-text-brand); }
+.portada .ds-label { color: var(--color-text-secondary); }

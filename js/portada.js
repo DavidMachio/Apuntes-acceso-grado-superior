@@ -19,7 +19,7 @@
   document.getElementById("materias").innerHTML = SITIO.materias.map(m => {
     const meta = detalles(m).map(t => "<span>" + ic("i-check") + esc(t) + "</span>").join("");
     const estado = m.proximamente ? '<span class="ds-badge ds-badge--review">Próximamente</span>' : "";
-    return '<a class="ds-card ds-card--link ds-card--l materia" href="' + esc(m.id) + '/index.html">' +
+    return '<a class="ds-card ds-card--link ds-card--l materia materia--' + esc(m.id) + '" href="' + esc(m.id) + '/index.html">' +
       '<span class="materia__icono">' + ic(m.icono, "ds-icon--lg") + "</span>" +
       '<div class="materia__texto">' + estado +
       "<h2>" + esc(m.titulo) + "</h2><p>" + esc(m.resumen) + "</p></div>" +
