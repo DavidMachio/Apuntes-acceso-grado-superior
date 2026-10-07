@@ -1,0 +1,7 @@
+# Archivos que NO deben subirse a GitHub
+.env
+.env.*
+.DS_Store
+Thumbs.db
+node_modules/
+.vercel
