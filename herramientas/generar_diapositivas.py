@@ -49,6 +49,7 @@ MARRONES = {50: "#faf7f4", 100: "#f3ede6", 200: "#e4d9cc", 300: "#cdbba7", 400: 
 CSS = ":root{" + "".join(f"--marron-{k}:{v};" for k, v in MARRONES.items()) + """}
 @page{size:1280px 720px;margin:0}
 html,body{margin:0;background:var(--marron-50)}
+*{--font-family-heading:Inter,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
 body{font-family:var(--font-family-body);-webkit-print-color-adjust:exact;print-color-adjust:exact;color:var(--marron-900)}
 .slide{--s:1;width:1280px;height:720px;position:relative;overflow:hidden;break-after:page;display:flex;flex-direction:column;background:var(--marron-50)}
 .sl-head,.sl-foot{flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 64px;font-size:19px;font-weight:600}
@@ -61,7 +62,7 @@ body{font-family:var(--font-family-body);-webkit-print-color-adjust:exact;print-
 .ds-table-wrap{overflow:visible}
 .main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}.main>:first-child{margin-top:auto!important}.main>:last-child{margin-bottom:auto!important}
 .eb{font-size:18px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--color-primary-700);margin:0 0 6px}
-h2.t{font:700 calc(46px*var(--s))/1.1 var(--font-family-heading);margin:0 0 26px;color:var(--marron-900)}
+h2.t{font:800 calc(46px*var(--s))/1.1 var(--font-family-heading);margin:0 0 26px;color:var(--marron-900)}
 .sl-body p{margin:0 0 16px;max-width:none}
 .sl-body ul,.sl-body ol{margin:0 0 12px;padding-left:30px}.sl-body li{margin:0 0 8px}
 .mf{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 48px;margin:22px 0}
@@ -128,7 +129,7 @@ figcaption{font-size:.62em;color:var(--marron-600)}
 .cover .marca{position:absolute;right:0;top:0;height:100%;width:auto}
 .cover .in{position:relative;padding:0 96px;max-width:700px}
 .cover .tag{display:inline-block;border:2px solid var(--color-primary-400);color:var(--color-primary-200);border-radius:999px;padding:6px 20px;font-size:19px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:26px}
-.cover h1{font:700 76px/1.05 var(--font-family-heading);margin:0 0 22px;color:#fff}
+.cover h1{font:800 76px/1.05 var(--font-family-heading);margin:0 0 22px;color:#fff}
 .cover .lead{font-size:30px;line-height:1.35;color:var(--color-primary-200);margin:0 0 34px}
 .cover .pills{display:flex;gap:12px;flex-wrap:wrap}
 .cover .pill{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 20px;font-size:20px;color:#fff}
