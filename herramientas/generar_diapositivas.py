@@ -84,7 +84,7 @@ figcaption{font-size:.62em;color:var(--marron-600)}
 .big{border-top:10px solid var(--color-primary-500);padding:34px 36px}
 .big .mf{font-size:1.55em;margin:16px 0}
 .rec li{font-size:1em;margin-bottom:16px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:auto 0}
+.g3{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 24px;margin:auto 0}
 .ic{background:#fff;border:2px solid var(--marron-200);border-top:8px solid var(--color-primary-500);border-radius:18px;padding:16px 20px 12px;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(56,46,38,.06)}
 .ic .ict{font-weight:700;font-size:.82em;line-height:1.25;margin:0 0 4px;color:var(--marron-800)}
 .ic .mf{margin:auto 0;flex:1;font-size:.95em}
