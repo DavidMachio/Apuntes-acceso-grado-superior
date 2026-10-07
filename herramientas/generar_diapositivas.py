@@ -37,14 +37,14 @@ body{font-family:var(--font-family-body);-webkit-print-color-adjust:exact;print-
 .main{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}.main>:first-child{margin-top:auto!important}.main>:last-child{margin-bottom:auto!important}
 .eb{font-size:18px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--color-primary-700);margin:0 0 6px}
 h2.t{font:700 calc(46px*var(--s))/1.1 var(--font-family-heading);margin:0 0 18px;color:var(--marron-900)}
-.sl-body p{margin:0 0 12px;max-width:none}
+.sl-body p{margin:0 0 16px;max-width:none}
 .sl-body ul,.sl-body ol{margin:0 0 12px;padding-left:30px}.sl-body li{margin:0 0 8px}
-.mf{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 44px;margin:10px 0}
+.mf{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 48px;margin:14px 0}
 .mp{display:block}
-math{font-family:"Latin Modern Math","DejaVu Math TeX Gyre",var(--font-family-heading);font-size:1.28em}
-p math,li math,td math{font-size:1.12em}
+math{font-family:"Latin Modern Math","DejaVu Math TeX Gyre",var(--font-family-heading);font-size:1.02em}
+p math,li math,td math{font-size:1em}
 .cb{flex:1;min-width:0}
-.ds-callout{break-inside:avoid;margin:12px 0;font-size:1em}
+.ds-callout{break-inside:avoid;margin:18px 0;font-size:1em;padding:18px 24px}
 .ds-callout .ds-callout__t{font-size:.7em;line-height:1.3;margin-bottom:6px}
 .ds-callout p:last-child{margin-bottom:0}
 .resp{display:inline-block;background:var(--color-primary-100);border:2px solid var(--color-primary-500);border-radius:12px;padding:6px 16px;margin-top:8px}
@@ -64,6 +64,14 @@ figcaption{font-size:.62em;color:var(--marron-600)}
 .fc .eb{margin:0}
 .fc .mf{margin:6px 0 2px}
 .rec li{font-size:.92em}
+/* pasos de una solución */
+.paso{display:flex;align-items:center;gap:20px;background:#fff;border:2px solid var(--marron-200);border-radius:16px;padding:10px 22px;margin:0 0 16px;box-shadow:0 4px 14px rgba(56,46,38,.06)}
+.paso>.n{flex:none;width:38px;height:38px;border-radius:50%;background:var(--color-primary-500);color:var(--color-primary-900);display:grid;place-items:center;font-weight:700;font-size:.7em}
+.paso>.c{flex:1;min-width:0}.paso .mf{margin:2px 0}
+.enun{font-size:1.1em;font-weight:500}
+.rec2{margin:0 0 14px;color:var(--marron-600);font-size:.8em}
+.vis{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:center;margin:auto 0}
+.vis .card svg{width:100%;max-height:330px;height:auto;display:block}
 /* colores de la materia: menta y marrón (sin magenta) */
 .slide .ds-callout--definicion,.slide .ds-callout--important{background:var(--color-primary-100);border-color:var(--color-primary-600);color:var(--marron-900)}
 .slide .ds-callout--tip{background:var(--marron-100);border-color:var(--marron-400);color:var(--marron-900)}
@@ -84,9 +92,9 @@ figcaption{font-size:.62em;color:var(--marron-600)}
 JS = """
 const over=[];
 document.querySelectorAll('.slide').forEach((sl,i)=>{const b=sl.querySelector('.sl-body');if(!b)return;
- let s=1.5;sl.style.setProperty('--s',s);
- const bad=()=>b.scrollHeight>b.clientHeight+1||[...b.querySelectorAll('.mp,.ds-table,.fc')].some(e=>e.scrollWidth>e.clientWidth+1||e.getBoundingClientRect().right>b.getBoundingClientRect().right-40);
- while(bad()&&s>0.62){s-=0.04;sl.style.setProperty('--s',s.toFixed(2));}
+ let s=1.05;sl.style.setProperty('--s',s);
+ const bad=()=>Math.max(0,...[...b.querySelectorAll('.paso,.enun,.ds-callout,.card,.fc,.resp,figure,p,li,math,.mf,.chips,.rec2')].map(e=>e.getBoundingClientRect().bottom))>b.getBoundingClientRect().bottom-28||[...b.querySelectorAll('.mp,.ds-table,.fc')].some(e=>e.scrollWidth>e.clientWidth+1||e.getBoundingClientRect().right>b.getBoundingClientRect().right-40);
+ while(bad()&&s>0.74){s-=0.04;sl.style.setProperty('--s',s.toFixed(2));}
  if(bad())over.push(i);});
 window.__over=over;
 """
@@ -108,7 +116,7 @@ def construir(nodos, num, titulo):
         util = [g for g in grupo if g[0] != "destacada"] if grupo else []
         if grupo and (util or True):
             if util:
-                cuerpo.append(S("concepto", sub=sub or titulo, nodos=grupo))
+                cuerpo.append(S("concepto", sub=sub or titulo, nodos=grupo, num=num))
         grupo = []
 
     for nd in nodos:
@@ -129,23 +137,23 @@ def construir(nodos, num, titulo):
 
 
 def marco(i, total, num, titulo, cuerpo_html, clase=""):
-    return (f'<section class="slide {clase}"><header class="sl-head"><span>Matemáticas aplicadas · Tema {num}</span>'
+    return (f'<section class="slide {clase}"><header class="sl-head"><span>Matemáticas aplicadas</span>'
             f'<span class="r">{escape(titulo)}</span></header><div class="sl-body">{cuerpo_html}</div>'
-            f'<footer class="sl-foot"><span>Acceso a grado superior</span><span class="r">{i} / {total}</span></footer></section>')
+            '</section>')
 
 
 def portada(num, total_t, titulo, resumen, ejercicios, formulas):
     pills = "".join(f'<span class="pill">{escape(x)}</span>' for x in
-                    (f"Tema {num} de {total_t}", f"{ejercicios} ejemplos", f"{formulas} fórmulas clave"))
+                    (f"{ejercicios} ejemplos", f"{formulas} fórmulas clave"))
     return (f'<section class="slide cover">{infografias.marca_agua(num)}<div class="in"><span class="tag">Matemáticas aplicadas</span>'
             f'<h1>{escape(titulo)}</h1><p class="lead">{escape(resumen)}</p><div class="pills">{pills}</div></div></section>')
 
 
 def cierre(num, total_t, titulo, siguiente):
     sig = f"A continuación: tema {num + 1} · {siguiente}" if siguiente else "Has terminado el temario. ¡Ánimo con el examen!"
-    return (f'<section class="slide cover">{infografias.marca_agua(num)}<div class="in"><span class="tag">Fin del tema {num}</span>'
+    return (f'<section class="slide cover">{infografias.marca_agua(num)}<div class="in"><span class="tag">Fin del tema</span>'
             f'<h1>¡Ahora, a practicar!</h1><p class="lead">Genera un examen de «{escape(titulo)}» en la web y comprueba lo que has aprendido.</p>'
-            f'<div class="pills"><span class="pill">{escape(sig)}</span></div></div></section>')
+            f'</div></section>')
 
 
 def card_formula(sub, etiqueta, forms, una=False):
@@ -160,6 +168,17 @@ def html_formulas(destacadas, titulo_h, eb):
     return f'<p class="eb">{eb}</p><h2 class="t">{titulo_h}</h2><div class="grid">{cards}</div>'
 
 
+def pasos(nodos):
+    out, k = "", 0
+    for nd in nodos:
+        if nd[0] == "formula":
+            k += 1
+            out += f'<div class="paso"><span class="n">{k}</span><div class="c">{G.formula_bloque(nd[1])}</div></div>'
+        else:
+            out += G.render([nd], True)
+    return out
+
+
 def html_ejemplo(s):
     hijos, n = s.kw["hijos"], s.kw["n"]
     titulo = f"Ejemplo {n}"
@@ -172,11 +191,21 @@ def html_ejemplo(s):
     if s.kw.get("cont"):
         cab = cab.replace("</h2>", " <small>(sigue)</small></h2>")
     if len(hijos) > 1 and hijos[0][0] == "p" and not re.search(r"(?:^|\s)R\.\s", hijos[0][1]):
-        return cola(f'<div class="enun">{G.parrafo(hijos[0][1])}</div><p class="sol-t">Solución</p>' + G.render(hijos[1:], True))
-    return cola(G.render(hijos, True))
+        return cola(f'<div class="enun">{G.parrafo(hijos[0][1])}</div><p class="sol-t">Solución</p>' + pasos(hijos[1:]))
+    if s.kw.get("cont") and s.kw.get("enun"):
+        return cola(f'<p class="rec2">{G.texto(s.kw["enun"])}</p>' + pasos(hijos))
+    return cola(pasos(hijos))
+
+
+USADOS = set()
 
 
 def html_concepto(s):
+    v = infografias.visual(s.kw["num"], s.kw["sub"]) if (s.kw["num"], s.kw["sub"]) not in USADOS and not s.kw.get("cont") else None
+    if v:
+        USADOS.add((s.kw["num"], s.kw["sub"]))
+        return (f'<p class="eb">Concepto</p><h2 class="t">{escape(s.kw["sub"])}</h2><div class="main"><div class="vis"><div>'
+                + G.render(s.kw["nodos"]) + f'</div><div class="card">{v}</div></div></div>')
     return f'<p class="eb">Concepto</p><h2 class="t">{escape(s.kw["sub"])}</h2><div class="main">' + G.render(s.kw["nodos"]) + '</div>'
 
 
@@ -185,12 +214,14 @@ def dividir(s):
         h = s.kw["hijos"]; mid = max(1, len(h) // 2)
         if len(h) < 2:
             return [s]
-        return [S("ejemplo", **{**s.kw, "hijos": h[:mid]}), S("ejemplo", **{**s.kw, "hijos": h[mid:], "cont": True})]
+        enun = h[0][1] if h and h[0][0] == "p" else ""
+        enun = re.sub(r"^(EJ\.\s*|\d+\.\s*)", "", enun)
+        return [S("ejemplo", **{**s.kw, "hijos": h[:mid]}), S("ejemplo", **{**s.kw, "hijos": h[mid:], "cont": True, "enun": enun})]
     n = s.kw["nodos"]
     if len(n) < 2:
         return [s]
     mid = max(1, len(n) // 2)
-    return [S("concepto", **{**s.kw, "nodos": n[:mid]}), S("concepto", **{**s.kw, "nodos": n[mid:]})]
+    return [S("concepto", **{**s.kw, "nodos": n[:mid]}), S("concepto", **{**s.kw, "nodos": n[mid:], "cont": True})]
 
 
 def html_slide(s):
@@ -198,7 +229,7 @@ def html_slide(s):
 
 
 def documento(num, titulo, resumen, total_t, siguiente, cuerpo, destacadas, notas, subs, n_ej, tit_doc):
-    trozos = [destacadas[i:i + 2] for i in range(0, len(destacadas), 2)] or []
+    trozos = [destacadas[i:i + 3] for i in range(0, len(destacadas), 3)] or []
     paginas = []  # (html, clase)
     paginas.append(("COVER", ""))
     idx = "".join(f"<li>{escape(x)}</li>" for x in subs) or f"<li>{escape(titulo)}</li>"
@@ -264,6 +295,7 @@ def main():
             resumen = resumenes.get(titulo) or f"Apuntes del tema {num}"
             siguiente = temas[num][1] if num < total_t else None
             for _ in range(4):
+                USADOS.clear()
                 paginas = documento(num, titulo, resumen, total_t, siguiente, cuerpo, destacadas, notas, subs, 0, "")
                 n_ej = sum(1 for s in cuerpo if s.tipo == "ejemplo" and not s.kw.get("cont"))
                 html = a_html(paginas, num, titulo, resumen, total_t, siguiente, n_ej, len(destacadas))
@@ -273,9 +305,9 @@ def main():
                 pg = nav.new_page(viewport={"width": 1280, "height": 720})
                 pg.goto(f.as_uri()); pg.wait_for_timeout(300)
                 over = pg.evaluate("window.__over")
+                pg.close()
                 if not over:
                     break
-                pg.close()
                 nuevos = []
                 # los índices de `over` son posiciones de diapositiva; solo se dividen las de cuerpo
                 pos = {id(c): i for i, (c, _) in enumerate(paginas)}
@@ -284,6 +316,9 @@ def main():
                 if len(nuevos) == len(cuerpo):
                     break
                 cuerpo = nuevos
+            pg = nav.new_page(viewport={"width": 1280, "height": 720})
+            pg.goto(f.as_uri()); pg.wait_for_timeout(300)
+            over = pg.evaluate("window.__over")
             pg.pdf(path=str(salida / f"{nombre}.pdf"), width="1280px", height="720px", print_background=True,
                    prefer_css_page_size=True, tagged=True, outline=True)
             print("OK", nombre, len(paginas), "diapositivas", "· desbordan:", over)
