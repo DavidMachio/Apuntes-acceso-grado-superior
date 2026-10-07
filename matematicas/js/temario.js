@@ -4,7 +4,7 @@
 
   document.title = "Temario de " + CURSO.materia + " · " + SITIO.marca;
   document.getElementById("intro").textContent =
-    "Descarga los apuntes de cada tema o genera un examen con sus preguntas.";
+    "Abre los apuntes de cada tema para verlos, descárgalos o genera un examen con sus preguntas.";
 
   const indice = document.getElementById("indice");
   indice.innerHTML = '<div class="ds-sidebar__title">Temas</div>' + MODULOS.map((m, i) =>
@@ -18,8 +18,11 @@
     const pdfs = m.pdfs.map(p =>
       '<div class="ds-pdf pdf-fila"><div class="ds-pdf__ico">PDF</div>' +
       '<div class="pdf-fila__texto"><b>' + esc(p.nombre) + "</b>" + (p.detalle ? '<div class="ds-caption">' + esc(p.detalle) + "</div>" : "") + "</div>" +
+      '<div class="ds-row pdf-fila__acciones">' +
+      '<a class="ds-btn ds-btn--secondary ds-btn--sm" href="tema.html?n=' + num + '" aria-label="Ver ' + esc(p.nombre) + '">' +
+      ic("i-eye", "ds-icon--sm") + "Ver</a>" +
       '<a class="ds-btn ds-btn--secondary ds-btn--sm" href="' + esc(p.archivo) + '" download aria-label="Descargar ' + esc(p.nombre) + ' (PDF)">' +
-      ic("i-download", "ds-icon--sm") + "Descargar</a></div>").join("");
+      ic("i-download", "ds-icon--sm") + "Descargar</a></div></div>").join("");
 
     const examen = nPreguntas > 0
       ? '<div class="pdf-fila ds-row ds-row--between"><span class="ds-small ds-muted">' + nPreguntas +
@@ -29,7 +32,7 @@
 
     return '<section class="ds-card modulo" id="' + id + '" aria-labelledby="' + id + '-titulo">' +
       '<div class="ds-row ds-row--between"><div><span class="ds-label">Tema ' + num + "</span>" +
-      '<h2 class="modulo__titulo" id="' + id + '-titulo">' + esc(m.titulo) + "</h2></div>" +
+      '<h2 class="modulo__titulo" id="' + id + '-titulo"><a href="tema.html?n=' + num + '">' + esc(m.titulo) + "</a></h2></div>" +
       '<span class="ds-badge">' + ic("i-file-text") + esc(m.paginas) + "</span></div>" +
       "<p>" + esc(m.resumen) + "</p>" + pdfs + examen + "</section>";
   }).join("");

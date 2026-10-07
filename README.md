@@ -10,7 +10,7 @@ css/  iconos/  js/      Design system y código común (cabecera, pie, tema clar
 styles.css              Ajustes propios de la web
 matematicas/            Materia de Matemáticas
   index.html            Resumen
-  temario.html          Temas con su PDF
+  temario.html` y `tema.html` (visor de PDF: `tema.html?n=N`)          Temas con su PDF
   examen.html           Generador de exámenes
   datos/                curso.js (textos), temario.js (temas y PDFs), preguntas.js (examen)
   pdfs/                 PDFs de los temas (los genera herramientas/generar_pdfs.py)
