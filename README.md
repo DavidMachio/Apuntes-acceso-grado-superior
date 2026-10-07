@@ -30,3 +30,11 @@ Los módulos, los PDFs y las 26 preguntas actuales son de ejemplo y se sustituir
 
 ## Probarlo en local
 Basta con abrir `index.html` con doble clic.
+
+## Generar los PDFs de los apuntes
+`herramientas/generar_pdfs.py` convierte los apuntes transcritos (`.md` con etiquetas) en un PDF A4 por apartado, con el design system y las gráficas redibujadas (`herramientas/graficas.py`).
+
+```
+python3 herramientas/generar_pdfs.py RUTA/Apuntes_matematicas.md CARPETA_SALIDA
+```
+Necesita `pandoc` y `playwright` con Chromium. Si cambias los apuntes, vuelve a ejecutarlo.
