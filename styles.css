@@ -187,3 +187,34 @@ body[data-materia] .ds-label { color: var(--color-text-brand); }
   --font-family-body: -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 h1, h2, h3, h4, .ds-display, .ds-logo, .cartel__texto strong { font-weight: 800; letter-spacing: -0.01em; }
+
+/* ---- Visor de PDF página a página (js/visor.js): escenario oscuro, flechas, miniaturas ---- */
+.vp { border-radius: var(--radius-lg); overflow: hidden; background: var(--marron-900); color: #fff; border: var(--border-hairline) solid var(--marron-800); }
+.vp__stage { position: relative; display: flex; align-items: center; justify-content: center; padding: var(--space-6) 64px var(--space-6); min-height: 280px; }
+.vp__hoja { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; min-height: 200px; }
+.vp__canvas { display: block; max-width: 100%; border-radius: 8px; background: #fff; box-shadow: 0 20px 60px rgba(0, 0, 0, .45); cursor: zoom-in; }
+.vp__estado { position: absolute; margin: 0; color: var(--marron-200); }
+.vp__estado a { color: var(--color-primary-300); }
+.vp__flecha { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .22); color: #fff; cursor: pointer; transition: background .15s; }
+.vp__flecha:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
+.vp__flecha:disabled { opacity: .25; cursor: default; }
+.vp__flecha--prev { left: 10px; } .vp__flecha--next { right: 10px; }
+.vp__redondo { position: absolute; bottom: 14px; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .28); color: #fff; cursor: pointer; text-decoration: none; transition: background .15s, transform .15s; }
+.vp__redondo:hover { background: var(--color-primary-500); color: var(--marron-900); transform: translateY(-2px); }
+.vp__zoom { right: 70px; } .vp__desc { right: 18px; }
+.vp button:focus-visible, .vp a:focus-visible, .vp__luz button:focus-visible, .vp__canvas:focus-visible { outline: 2px solid var(--color-primary-300); outline-offset: 2px; }
+.vp__pie { padding: 0 var(--space-4) var(--space-4); }
+.vp__contador { margin: 0 0 var(--space-3); text-align: center; font-weight: 700; font-size: .85rem; letter-spacing: .03em; color: var(--color-primary-300); }
+.vp__tira { display: flex; gap: 10px; overflow-x: auto; padding: 4px 4px 8px; scrollbar-width: thin; }
+.vp__mini { position: relative; flex: 0 0 auto; width: 104px; aspect-ratio: 16 / 9; padding: 0; border-radius: 6px; overflow: hidden; border: 2px solid transparent; background: #000; opacity: .55; cursor: pointer; transition: opacity .15s, border-color .15s; }
+.vp__mini canvas { width: 100%; height: 100%; display: block; object-fit: cover; }
+.vp__mini span { position: absolute; left: 4px; bottom: 3px; font-size: .65rem; font-weight: 700; background: rgba(0, 0, 0, .6); color: #fff; border-radius: 4px; padding: 0 5px; }
+.vp__mini:hover, .vp__mini.is-active { opacity: 1; }
+.vp__mini.is-active { border-color: var(--color-primary-300); }
+.vp__luz { position: fixed; inset: 0; z-index: 300; background: rgba(23, 18, 16, .95); display: flex; align-items: center; justify-content: center; padding: 56px 24px; overflow: auto; }
+.vp__luz[hidden] { display: none !important; }
+.vp__luz-canvas { display: block; margin: auto; background: #fff; border-radius: 4px; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); cursor: zoom-in; max-width: none; flex: 0 0 auto; }
+.vp__luz-canvas.is-zoom { cursor: zoom-out; }
+.vp__cerrar { position: fixed; top: 16px; right: 16px; z-index: 301; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .3); color: #fff; cursor: pointer; }
+.vp__pista { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); margin: 0; font-size: .8rem; color: var(--marron-200); background: rgba(0, 0, 0, .45); padding: 8px 16px; border-radius: 999px; pointer-events: none; text-align: center; max-width: 92vw; }
+@media (max-width: 640px) { .vp__stage { padding: var(--space-4) 8px 64px; } .vp__flecha { top: auto; bottom: 14px; transform: none; width: 40px; height: 40px; } .vp__flecha--prev { left: 12px; } .vp__flecha--next { left: 60px; right: auto; } .vp__mini { width: 84px; } }

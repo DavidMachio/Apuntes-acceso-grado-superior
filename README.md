@@ -49,3 +49,6 @@ Crea un PDF A4 por apartado con el design system y las gráficas redibujadas (`h
 
 ## Probarlo en local
 Basta con abrir `index.html` con doble clic.
+
+## Visor de PDF
+`js/visor.js` muestra cada PDF página a página (flechas, teclado, miniaturas, ampliar y descargar) con pdf.js, guardado en `js/vendor/` (licencia Apache 2.0). No hay que generar imágenes: basta con sustituir el PDF.

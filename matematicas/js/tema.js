@@ -31,11 +31,7 @@
         '<button class="ds-tab" role="tab" type="button" data-i="' + i + '" aria-selected="' + (i === actual) + '">' + esc(q.nombre) + "</button>").join("") + "</div>"
       : "";
 
-    // Si el navegador no puede mostrar PDFs dentro de la página (algunos móviles), se ofrece abrirlo o descargarlo
-    document.getElementById("visor").innerHTML =
-      '<object class="visor" data="' + esc(p.archivo) + '" type="application/pdf" aria-label="' + esc(p.nombre) + '">' +
-      '<div class="visor__fallo"><p>Tu navegador no puede mostrar el PDF aquí.</p>' +
-      '<a class="ds-btn" href="' + esc(p.archivo) + '" target="_blank" rel="noopener">Abrir el PDF</a></div></object>';
+    Visor.abrir(document.getElementById("visor"), { archivo: p.archivo, nombre: p.nombre });
   }
 
   document.getElementById("selector").addEventListener("click", e => {
