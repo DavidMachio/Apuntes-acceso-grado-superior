@@ -2,13 +2,14 @@
    FÓRMULAS — convierte texto con fórmulas entre signos $ … $ en HTML.
    Entiende un subconjunto sencillo de LaTeX (el mismo que se usa en datos/preguntas.js):
      \frac{a}{b}   fracción        x^2  x^{10}  potencia       x_v  subíndice
-     \sqrt{…}      raíz            \cdot \times \pi \approx \le \ge \neq \pm …  símbolos
+     \sqrt{…}      raíz            \cdot \times \pi \approx \le \ge \neq \pm \sum …  símbolos
+     \text{…}      texto normal dentro de una fórmula
    No necesita ninguna librería externa y se imprime bien en PDF.
    ===================================================================== */
 const MATE = (function () {
   const SIMBOLOS = {
     cdot: "·", times: "×", div: "÷", pm: "±", pi: "π", approx: "≈", neq: "≠", le: "≤", ge: "≥",
-    infty: "∞", alpha: "α", beta: "β", theta: "θ", sigma: "σ", mu: "μ", Delta: "Δ", rightarrow: "→", degree: "°"
+    infty: "∞", alpha: "α", beta: "β", theta: "θ", sigma: "σ", mu: "μ", Delta: "Δ", rightarrow: "→", degree: "°", sum: "∑", Rightarrow: "⇒"
   };
 
   function esc(s) {
@@ -34,7 +35,11 @@ const MATE = (function () {
         let j = i + 1;
         while (j < s.length && /[a-zA-Z]/.test(s[j])) j++;
         const nombre = s.slice(i + 1, j);
-        if (nombre === "") { salida += esc(s[i + 1] || ""); i += 2; continue; }   // \% \{ \$ …
+        if (nombre === "") {                                                         // \% \{ \$ …  y espacios finos \, \;
+          const sig = s[i + 1] || "";
+          salida += /[,;:! ]/.test(sig) ? "\u2009" : esc(sig);
+          i += 2; continue;
+        }
         i = j;
         if (nombre === "frac") {
           const [a, k] = grupo(s, i); const [b, k2] = grupo(s, k); i = k2;
@@ -42,6 +47,9 @@ const MATE = (function () {
         } else if (nombre === "sqrt") {
           const [a, k] = grupo(s, i); i = k;
           salida += '<span class="rz"><span class="rz__s">√</span><span class="rz__c">' + formula(a) + "</span></span>";
+        } else if (nombre === "text") {
+          const [a, k] = grupo(s, i); i = k;
+          salida += esc(a);                                                          // texto normal, sin cursiva
         } else if (SIMBOLOS[nombre]) {
           salida += SIMBOLOS[nombre];
         } else {

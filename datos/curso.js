@@ -5,17 +5,17 @@
 const CURSO = {
   marca: "Acceso a grado superior",              // nombre corto: arriba a la izquierda y en el pie
   etiqueta: "Prueba de acceso a grado superior", // texto pequeño sobre el título de la portada
-  titulo: "Prepara las matemáticas a tu ritmo",
+  titulo: "Matemáticas aplicadas",
   subtitulo: "Apuntes en PDF y exámenes para imprimir, con las soluciones aparte.",
 
   descripcion: [
-    "Escribe aquí la presentación: a quién va dirigido el material, qué incluye y cómo se recomienda estudiarlo.",
-    "Puedes añadir tantos párrafos como necesites; cada texto entre comillas es un párrafo."
+    "Apuntes de matemáticas para preparar la prueba de acceso a grado superior: porcentajes, interés simple y compuesto, proporcionalidad, tablas de datos y gráficas.",
+    "Cada tema tiene su PDF con la teoría y ejemplos resueltos. Después puedes generar un examen con preguntas de los temas que elijas, imprimirlo, hacerlo a mano y corregirlo con la hoja de soluciones."
   ],
 
   ficha: [
     { etiqueta: "Nivel",       valor: "Acceso a grado superior" },
-    { etiqueta: "Material",    valor: "Apuntes en PDF" },
+    { etiqueta: "Material",    valor: "12 temas en PDF" },
     { etiqueta: "Exámenes",    valor: "Para imprimir y rellenar a mano" },
     { etiqueta: "Soluciones",  valor: "En una hoja aparte" }
   ],

@@ -1,6 +1,6 @@
 /* =====================================================================
    GENERADOR DE EXAMEN
-   · Elige preguntas del banco (datos/preguntas.js) según los módulos, el número y el tipo.
+   · Elige preguntas del banco (datos/preguntas.js) según los temas, el número y el tipo.
    · Cada examen tiene un CÓDIGO que contiene esa configuración y una semilla aleatoria:
      con el mismo código siempre sale el mismo examen (y sus soluciones).
    · Se imprime (o se guarda como PDF) desde el navegador, en tamaño A4.
@@ -13,7 +13,7 @@
   const MIN_TEST = 2, MIN_CALCULO = 8;                   // minutos orientativos por pregunta
   const REGEX_CODIGO = /^(\d+)-(\d+(?:\.\d+)*)-(\d+)-([MTP])-([A-Z0-9]{5})$/;
 
-  // Módulos que tienen preguntas en el banco
+  // Temas que tienen preguntas en el banco
   const disponibles = MODULOS
     .map((m, i) => ({ num: i + 1, titulo: m.titulo, preguntas: PREGUNTAS[i + 1] || [] }))
     .filter(m => m.preguntas.length > 0);
@@ -63,7 +63,7 @@
     if (!m) return { error: "El código no tiene el formato correcto. Cópialo tal como aparece en el examen." };
     const modulos = m[2].split(".").map(Number);
     const validos = disponibles.map(d => d.num);
-    if (modulos.some(n => validos.indexOf(n) === -1)) return { error: "El código incluye módulos que no existen en este temario." };
+    if (modulos.some(n => validos.indexOf(n) === -1)) return { error: "El código incluye temas que no existen en este temario." };
     const n = Number(m[3]);
     if (n < 1) return { error: "El código no es válido." };
     return { cfg: { version: Number(m[1]), modulos: modulos, n: n, tipo: m[4], semilla: m[5] } };
@@ -94,7 +94,7 @@
       if (falta > 0) nCalc = Math.min(nCalc + falta, pCalc.length);
     }
 
-    // Reparte las preguntas entre los módulos por turnos, para que todos estén representados
+    // Reparte las preguntas entre los temas por turnos, para que todos estén representados
     function elegir(pool, k) {
       const porModulo = {};
       pool.forEach(p => { (porModulo[p.modulo] = porModulo[p.modulo] || []).push(p); });
@@ -253,7 +253,7 @@
     const total = disponiblesPara(f.modulos, f.tipo);
     el("n").max = Math.max(total, 1);
     el("n-ayuda").textContent = f.modulos.length === 0
-      ? "Elige al menos un módulo."
+      ? "Elige al menos un tema."
       : "Hay " + total + (total === 1 ? " pregunta disponible" : " preguntas disponibles") + " con esta selección.";
     el("error-modulos").hidden = f.modulos.length > 0;
   }
@@ -274,7 +274,7 @@
       return;
     }
     const total = disponiblesPara(f.modulos, f.tipo);
-    if (total === 0) { el("n-ayuda").textContent = "No hay preguntas de este tipo en los módulos elegidos."; return; }
+    if (total === 0) { el("n-ayuda").textContent = "No hay preguntas de este tipo en los temas elegidos."; return; }
     let n = isNaN(f.n) || f.n < 1 ? 10 : f.n;
     n = Math.min(n, total);
     el("n").value = n;
@@ -314,7 +314,7 @@
       '<label class="ds-check"><input type="checkbox" name="modulo" value="' + m.num + '" checked><span>' + esc(m.titulo) +
       ' <span class="ds-caption">(' + m.preguntas.length + (m.preguntas.length === 1 ? " pregunta" : " preguntas") + ")</span></span></label>").join("");
 
-  // Si se llega desde el temario (examen.html?modulo=2), solo se marca ese módulo
+  // Si se llega desde el temario (examen.html?modulo=2), solo se marca ese tema
   const modulo = parseInt(new URLSearchParams(location.search).get("modulo"), 10);
   if (modulo && disponibles.some(d => d.num === modulo)) {
     document.querySelectorAll('input[name="modulo"]').forEach(i => { i.checked = Number(i.value) === modulo; });
