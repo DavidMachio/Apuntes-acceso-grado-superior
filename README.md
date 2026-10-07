@@ -1,34 +1,32 @@
-# Programa formativo (web estática)
+# Acceso a grado superior · Matemáticas
 
-Web sencilla en HTML, CSS y JavaScript, sin dependencias ni instalación.
+Web estática (HTML, CSS y JavaScript, sin instalar nada) para consultar y descargar los apuntes en PDF y generar exámenes para imprimir. Se publica en Vercel desde la rama `main`.
 
-## Diseño
-La web usa el Design System «Curso de Matemáticas» v1.1 (carpeta `css/` e `iconos/`).
-- `css/variables.css` y `css/componentes.css` son del design system: no se editan a mano.
-- `styles.css` contiene solo los pocos ajustes propios de esta web.
-- Modo claro y oscuro automático, con selector (Auto / Claro / Oscuro) arriba a la derecha.
+## Páginas
+- `index.html` · Inicio
+- `temario.html` · Módulos con sus PDFs y acceso al examen de cada módulo
+- `examen.html` · Generador de exámenes (se imprimen o guardan en PDF para rellenar a mano)
 
-## Qué editar
-- **Todo el contenido** (título, ficha, módulos y enlaces a PDFs) está al principio de `script.js`.
-- **Los PDFs** van en la carpeta `pdfs/`. Los que hay ahora son de ejemplo: sustitúyelos por los tuyos.
-- El título que aparece en la pestaña del navegador se cambia en `index.html` (etiqueta `<title>`).
+## Dónde se edita cada cosa
+| Qué | Archivo |
+|---|---|
+| Textos de portada, ficha y pie | `datos/curso.js` |
+| Módulos y PDFs | `datos/temario.js` (los PDFs van en `pdfs/`) |
+| Preguntas de examen | `datos/preguntas.js` (el formato está explicado al principio del archivo) |
+| Estilos propios | `styles.css` y `examen.css` |
+| Design system (no tocar) | `css/variables.css`, `css/componentes.css`, `iconos/` |
 
-## Probarla en tu ordenador
-Haz doble clic en `index.html`.
+Para añadir un módulo: nueva entrada en `datos/temario.js`, su PDF en `pdfs/` y sus preguntas en `datos/preguntas.js` con el mismo número.
 
-## Subirla a GitHub
-```bash
-git init
-git add .
-git commit -m "Primera versión del programa formativo"
-git branch -M main
-git remote add origin https://github.com/TU_USUARIO/programa-formativo.git
-git push -u origin main
-```
+## Exámenes
+- Eliges módulos, número de preguntas y tipo (test, problemas o mixto).
+- Cada examen tiene un **código** (por ejemplo `1-1.2.3-10-M-ABCDE`). Con el mismo código sale siempre el mismo examen, así que se puede recuperar o repartir.
+- Botones «Imprimir examen» e «Imprimir soluciones»: en el cuadro de impresión elige «Guardar como PDF» (A4, márgenes predeterminados).
+- Si cambias o quitas preguntas del banco, sube `BANCO_VERSION` en `datos/preguntas.js`.
+- Las fórmulas usan un formato propio (`js/mate.js`) con sintaxis LaTeX básica: `$\frac{3}{4}$`, `x^2`, `\sqrt{9}`…
 
-## Desplegarla en Vercel
-1. En vercel.com/new, importa el repositorio.
-2. Framework Preset: **Other**. No hay que poner comando de build ni carpeta de salida.
-3. Pulsa **Deploy**.
+## Contenido de ejemplo
+Los módulos, los PDFs y las 26 preguntas actuales son de ejemplo y se sustituirán por los generados a partir de tus apuntes.
 
-A partir de ahí, cada `git push` a `main` actualiza la web.
+## Probarlo en local
+Basta con abrir `index.html` con doble clic.

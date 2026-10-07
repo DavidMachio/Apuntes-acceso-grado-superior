@@ -1,0 +1,108 @@
+/* Página del generador de examen: formulario, hoja A4 en pantalla y reglas de impresión.
+   Solo usa variables del design system. */
+
+/* ---------- Formulario ---------- */
+.examen-panel { margin-top: var(--space-8); }
+.titulo-tarjeta { font: var(--font-weight-semibold) 20px/28px var(--font-family-heading); margin: 0; }
+.campo-modulos { border: 0; padding: 0; margin: 0 0 var(--space-4); min-width: 0; }
+.campo-modulos legend { padding: 0; margin-bottom: var(--space-2); }
+.campo-modulos .ds-check + .ds-check { margin-top: var(--space-2); }
+.campo-modulos .ds-error { margin-top: var(--space-2); }
+.hojas [role="tabpanel"][hidden] { display: none; }
+
+/* ---------- Fórmulas ---------- */
+.mate { font-family: var(--font-family-heading); font-size: 1.08em; }
+.mate i { font-style: italic; }
+.mate sup, .mate sub { font-size: 0.72em; line-height: 0; }
+.fr { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; margin: 0 0.12em; line-height: 1.2; white-space: nowrap; }
+.fr__n { padding: 0 0.25em; border-bottom: 1px solid currentColor; }
+.fr__d { padding: 0 0.25em; }
+.rz { display: inline-flex; align-items: stretch; white-space: nowrap; }
+.rz__c { border-top: 1px solid currentColor; padding: 0 0.12em; margin-top: 0.12em; }
+
+/* ---------- Hoja A4 (en pantalla se ve como una hoja de papel) ---------- */
+.hoja {
+  max-width: 210mm;
+  margin: var(--space-6) auto 0;
+  padding: 14mm 15mm;
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+  border: var(--border-hairline) solid var(--color-border-default);
+  font: 400 10.5pt/15pt var(--font-family-body);
+}
+.hoja p { max-width: none; margin: 0; }
+.hoja h2, .hoja h3 { margin: 0; }
+
+.hoja__cab { border-bottom: 2px solid var(--color-text-primary); padding-bottom: 5mm; margin-bottom: 5mm; }
+.hoja__fila { display: flex; justify-content: space-between; gap: 4mm; font-size: 9pt; line-height: 12pt; color: var(--color-text-secondary); }
+.hoja__codigo { font-family: var(--font-family-mono); }
+.hoja__titulo { font: 600 20pt/26pt var(--font-family-heading); margin-top: 3mm; }
+.hoja__modulos { color: var(--color-text-secondary); margin-bottom: 5mm; }
+.hoja__datos { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 6mm; margin-bottom: 4mm; }
+.dato__et { display: block; font-size: 8.5pt; line-height: 11pt; color: var(--color-text-secondary); }
+.dato__linea { display: block; height: 9mm; border-bottom: 1px solid var(--color-text-primary); }
+.dato--nota .dato__linea { border: 1px solid var(--color-text-primary); }
+.hoja__info { display: flex; flex-wrap: wrap; gap: 1mm 8mm; list-style: none; margin: 0; padding: 0; font-size: 9.5pt; line-height: 13pt; }
+.hoja__instr { margin-bottom: 1mm; font-size: 9.5pt; line-height: 13pt; }
+
+.parte { margin-top: 6mm; }
+.parte__titulo { font: 600 14pt/18pt var(--font-family-heading); break-after: avoid; }
+.parte__nota { margin-top: 1mm; margin-bottom: 4mm; font-size: 9.5pt; line-height: 13pt; color: var(--color-text-secondary); break-after: avoid; }
+
+.preguntas { list-style: none; margin: 0; padding: 0; counter-reset: q var(--n0, 0); }
+.pregunta { counter-increment: q; position: relative; padding-left: 9mm; margin-bottom: 6mm; break-inside: avoid; }
+.pregunta::before { content: counter(q) "."; position: absolute; left: 0; top: 0; font-weight: 600; }
+.pregunta__cab { display: flex; justify-content: space-between; align-items: flex-start; gap: 4mm; }
+.pregunta__enun { flex: 1; min-width: 0; }
+.pregunta__pts { flex: none; font-size: 8.5pt; line-height: 15pt; color: var(--color-text-secondary); }
+
+.opciones { list-style: none; margin: 2.5mm 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 6mm; }
+.opciones--largas { grid-template-columns: 1fr; }
+.opciones li { display: flex; align-items: flex-start; gap: 2mm; }
+.casilla { flex: none; width: 3.8mm; height: 3.8mm; margin-top: 0.9mm; border: 1.2px solid var(--color-text-primary); border-radius: 0.8mm; }
+.opciones b { flex: none; }
+
+.desarrollo {
+  margin-top: 3mm;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 1.5mm;
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent calc(8mm - 1px), var(--color-border-default) calc(8mm - 1px), var(--color-border-default) 8mm);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.desarrollo--s { height: 24mm; }
+.desarrollo--m { height: 40mm; }
+.desarrollo--l { height: 64mm; }
+.respuesta { display: flex; align-items: flex-end; gap: 3mm; margin-top: 3mm; font-weight: 600; }
+.respuesta i { flex: 1; height: 6mm; border-bottom: 1px solid var(--color-text-primary); }
+
+/* Hoja de soluciones */
+.claves { display: grid; grid-template-columns: repeat(auto-fill, minmax(22mm, 1fr)); gap: 2mm; margin-top: 3mm; }
+.clave { display: flex; justify-content: space-between; padding: 1.5mm 3mm; border: 1px solid var(--color-border-strong); border-radius: 1mm; }
+.soluciones { list-style: none; margin: 3mm 0 0; padding: 0; }
+.sol { padding: 3mm 0; border-top: 1px solid var(--color-border-default); break-inside: avoid; }
+.sol:first-child { border-top: 0; padding-top: 0; }
+.sol__cab { display: flex; justify-content: space-between; gap: 4mm; font-size: 9.5pt; color: var(--color-text-secondary); }
+.sol__cab b { color: var(--color-text-primary); }
+.sol__enun { margin: 1mm 0 2mm; }
+.sol p + p, .sol p + ol, .sol ol + p { margin-top: 1.5mm; }
+.pasos { margin: 1mm 0 0; padding-left: 6mm; }
+
+/* ---------- Pantallas pequeñas ---------- */
+@media (max-width: 40rem) {
+  .hoja { padding: 5mm 4mm; }
+  .hoja__datos { grid-template-columns: 1fr; gap: 3mm; }
+  .opciones { grid-template-columns: 1fr; }
+  .pregunta { padding-left: 7mm; }
+}
+
+/* ---------- Impresión (A4) ---------- */
+@page { size: A4; margin: 16mm 15mm 18mm; }
+@page { @bottom-right { content: "Página " counter(page) " de " counter(pages); font-size: 8.5pt; } }
+
+@media print {
+  html, body { background: #fff; }
+  .no-print { display: none !important; }
+  .ds-section { padding: 0 !important; background: none !important; border: 0 !important; }
+  .hojas .ds-container { max-width: none; padding: 0; }
+  .hoja { max-width: none; margin: 0; padding: 0; border: 0; }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400&family=Source+Serif+4:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/componentes.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="examen.css">
+<title>Generador de examen</title>
+<meta name="description" content="Genera un examen en PDF para imprimir y rellenar a mano, con su hoja de soluciones.">
+</head>
+<body data-pagina="examen">
+<a class="ds-skip" href="#main">Saltar al contenido</a>
+<div id="cabecera"></div>
+
+<main id="main">
+  <section class="ds-section no-print">
+    <div class="ds-container">
+      <ol class="ds-breadcrumb" aria-label="Ruta"><li><a href="index.html">Inicio</a></li><li aria-current="page">Examen</li></ol>
+      <h1>Generador de examen</h1>
+      <p class="ds-lead">Elige los módulos y el número de preguntas. Obtendrás un examen distinto cada vez, para imprimir y rellenar a mano, y su hoja de soluciones aparte.</p>
+
+      <div class="ds-two examen-panel">
+        <form class="ds-card ds-card--l" id="form-examen" novalidate>
+          <h2 class="titulo-tarjeta">Configura el examen</h2>
+          <fieldset class="campo-modulos">
+            <legend class="ds-legend">Módulos</legend>
+            <div id="lista-modulos"></div>
+            <span class="ds-error" id="error-modulos" role="alert" hidden><svg class="ds-icon ds-icon--sm" aria-hidden="true" focusable="false"><use href="#i-alert-triangle"/></svg>Elige al menos un módulo.</span>
+          </fieldset>
+          <div class="ds-field">
+            <label for="n">Número de preguntas</label>
+            <input class="ds-input" id="n" type="number" inputmode="numeric" min="1" value="10" aria-describedby="n-ayuda">
+            <span class="ds-hint" id="n-ayuda"></span>
+          </div>
+          <div class="ds-field">
+            <label for="tipo">Tipo de preguntas</label>
+            <select class="ds-select" id="tipo">
+              <option value="M">Mixto: test y problemas</option>
+              <option value="T">Solo test</option>
+              <option value="P">Solo problemas</option>
+            </select>
+          </div>
+          <button class="ds-btn" type="submit">Generar examen</button>
+        </form>
+
+        <div class="ds-stack">
+          <div class="ds-callout ds-callout--info">
+            <svg class="ds-icon" aria-hidden="true" focusable="false"><use href="#i-info"/></svg>
+            <div>
+              <span class="ds-callout__t">Cómo guardarlo en PDF</span>
+              <p>Pulsa «Imprimir examen» y, en la ventana que se abre, elige «Guardar como PDF», tamaño A4. Desactiva «Encabezados y pies de página» para que salga limpio.</p>
+            </div>
+          </div>
+          <form class="ds-card" id="form-codigo" novalidate>
+            <h2 class="titulo-tarjeta">¿Ya tienes un código?</h2>
+            <p>Cada examen lleva un código. Escríbelo aquí para recuperar el mismo examen y sus soluciones.</p>
+            <div class="ds-field">
+              <label for="codigo">Código del examen</label>
+              <input class="ds-input" id="codigo" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="1-1.2-10-M-K7Q2F" aria-describedby="codigo-error">
+              <span class="ds-error" id="codigo-error" role="alert" hidden><svg class="ds-icon ds-icon--sm" aria-hidden="true" focusable="false"><use href="#i-alert-triangle"/></svg><span id="codigo-error-texto"></span></span>
+            </div>
+            <button class="ds-btn ds-btn--secondary" type="submit">Recuperar examen</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-section--alt hojas" id="resultado" aria-labelledby="h-resultado" hidden>
+    <div class="ds-container">
+      <div class="ds-row ds-row--between no-print">
+        <div>
+          <h2 id="h-resultado" style="margin:0">Tu examen</h2>
+          <p class="ds-small ds-muted" id="resumen-examen" style="margin:var(--space-1) 0 0"></p>
+        </div>
+        <div class="ds-row">
+          <button class="ds-btn" type="button" id="btn-imprimir-examen"><svg class="ds-icon ds-icon--sm" aria-hidden="true" focusable="false"><use href="#i-download"/></svg>Imprimir examen</button>
+          <button class="ds-btn ds-btn--secondary" type="button" id="btn-imprimir-soluciones"><svg class="ds-icon ds-icon--sm" aria-hidden="true" focusable="false"><use href="#i-download"/></svg>Imprimir soluciones</button>
+          <button class="ds-btn ds-btn--ghost" type="button" id="btn-otro">Otro examen igual</button>
+        </div>
+      </div>
+
+      <div class="ds-alert ds-alert--warning no-print" id="aviso" role="status" hidden style="margin-top:var(--space-4)">
+        <svg class="ds-icon" aria-hidden="true" focusable="false"><use href="#i-alert-triangle"/></svg>
+        <div id="aviso-texto"></div>
+      </div>
+
+      <div class="ds-tabs no-print" role="tablist" aria-label="Hojas del examen" style="margin-top:var(--space-6)">
+        <button class="ds-tab" type="button" role="tab" id="tab-examen" aria-selected="true" aria-controls="panel-examen">Examen</button>
+        <button class="ds-tab" type="button" role="tab" id="tab-soluciones" aria-selected="false" aria-controls="panel-soluciones">Soluciones</button>
+      </div>
+      <div id="panel-examen" role="tabpanel" aria-labelledby="tab-examen"><article class="hoja" id="hoja-examen"></article></div>
+      <div id="panel-soluciones" role="tabpanel" aria-labelledby="tab-soluciones" hidden><article class="hoja" id="hoja-soluciones"></article></div>
+    </div>
+  </section>
+</main>
+
+<div id="pie"></div>
+
+<script src="datos/curso.js"></script>
+<script src="datos/temario.js"></script>
+<script src="datos/preguntas.js"></script>
+<script src="js/iconos.js"></script>
+<script src="js/mate.js"></script>
+<script src="js/app.js"></script>
+<script src="js/examen.js"></script>
+</body>
+</html>

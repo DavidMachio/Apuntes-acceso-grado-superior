@@ -4,14 +4,14 @@
 html { scroll-padding-top: 88px; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
-.portada h1 { max-width: 22ch; }
-.portada .ds-lead { max-width: 60ch; margin-top: var(--space-3); }
+.presentacion { max-width: 70ch; margin-top: var(--space-4); }
+.presentacion p + p { margin-top: var(--space-4); }
 
 .ficha {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
   gap: var(--space-4);
-  margin: var(--space-8) 0 0;
+  margin: 0;
 }
 .ficha__item {
   border-top: var(--border-accent) solid var(--color-action-primary-bg);
@@ -20,9 +20,6 @@ html { scroll-padding-top: 88px; }
 .ficha dt { color: var(--color-text-secondary); font-size: var(--font-size-caption); line-height: var(--line-height-caption); }
 .ficha dd { margin: var(--space-1) 0 0; font-weight: var(--font-weight-semibold); }
 
-.presentacion { max-width: 70ch; margin-top: var(--space-4); }
-.presentacion p + p { margin-top: var(--space-4); }
-
 .modulo { scroll-margin-top: 88px; }
 .modulo__titulo { margin: 0; }
 .pdf-fila {
@@ -30,3 +27,6 @@ html { scroll-padding-top: 88px; }
   border-top: var(--border-hairline) solid var(--color-border-default);
 }
 .pdf-fila__texto { flex: 1; min-width: 0; }
+
+/* El atributo "hidden" debe ganar siempre a los estilos de los componentes */
+[hidden] { display: none !important; }
