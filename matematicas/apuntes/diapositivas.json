@@ -29,7 +29,7 @@
       },
       {
         "titulo": "Deshacer una subida: divide",
-        "formula": "\\text{Inicial}=\\dfrac{\\text{Final}}{1+\\frac{p}{100}}"
+        "formula": "\\text{Inicial}=\\dfrac{\\text{Final}}{1+\\dfrac{p}{100}}"
       },
       {
         "titulo": "Se calcula sobre la cantidad inicial",
