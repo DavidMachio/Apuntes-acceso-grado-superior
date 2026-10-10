@@ -468,13 +468,13 @@
 
 /* Lengua: el acento de marca pasa de amarillo a coral (propuesta por aprobar) */
 [data-materia="lengua"] {
-  --color-action-primary-bg: var(--color-accent1-500);
-  --color-action-primary-bg-hover: var(--color-accent1-400);
-  --color-action-primary-bg-active: var(--color-accent1-600);
-  --color-important-bg: var(--color-accent1-100);
-  --color-important-bg-strong: var(--color-accent1-200);
-  --color-important-border: var(--color-accent1-700);
-  --color-important-text: var(--color-accent1-900);
+  --color-action-primary-bg: var(--color-rosa-500);
+  --color-action-primary-bg-hover: var(--color-rosa-300);
+  --color-action-primary-bg-active: var(--color-rosa-400);
+  --color-important-bg: var(--color-rosa-100);
+  --color-important-bg-strong: var(--color-rosa-200);
+  --color-important-border: var(--color-rosa-700);
+  --color-important-text: var(--color-rosa-900);
 }
 
 /* Impresión: siempre claro, colores exactos, sin sombras */
