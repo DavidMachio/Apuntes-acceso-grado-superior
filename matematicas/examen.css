@@ -3,7 +3,7 @@
 
 /* ---------- Formulario ---------- */
 .examen-panel { margin-top: var(--space-8); }
-.titulo-tarjeta { font: var(--font-weight-semibold) 20px/28px var(--font-family-heading); margin: 0; }
+.titulo-tarjeta { font: var(--font-weight-semibold) var(--font-size-h3)/var(--line-height-h3) var(--font-family-heading); margin: 0; }
 .campo-modulos { border: 0; padding: 0; margin: 0 0 var(--space-4); min-width: 0; }
 .campo-modulos legend { padding: 0; margin-bottom: var(--space-2); }
 .campo-modulos .ds-check + .ds-check { margin-top: var(--space-2); }

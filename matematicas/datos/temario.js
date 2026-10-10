@@ -3,7 +3,7 @@
    · El número de tema es su posición en la lista (1, 2, 3…).
    · Las preguntas del examen de cada tema se escriben en datos/preguntas.js
      con ese mismo número.
-   · Los PDFs se guardan en la carpeta /pdfs (los genera herramientas/generar_pdfs.py).
+   · Los PDFs se guardan en la carpeta /pdfs (los genera herramientas/generar_diapositivas.py).
    ===================================================================== */
 const MODULOS = [
   {

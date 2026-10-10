@@ -22,5 +22,5 @@ const CURSO = {
 
   examenTitulo: "Examen de matemáticas",         // título que sale en la hoja del examen
 
-  pie: "Última actualización: octubre de 2026. Contacto: tu-correo@ejemplo.com"
+  pie: "Última actualización: octubre de 2026. Contacto: dvmachio@gmail.com"
 };
