@@ -106,7 +106,7 @@ def datos(lista, cls=""):
 
 
 def tarjeta_formula(e):
-    return f'<div class="ds-slide__card2 ds-slide__card2--negra"><span class="ds-slide__cap">Fórmula a aplicar</span>{formulas(e["formula"])}</div>'
+    return f'<div class="ds-slide__card2 ds-slide__card2--formula"><span class="ds-slide__cap">Fórmula a aplicar</span>{formulas(e["formula"])}</div>'
 
 
 def tarjeta_desarrollo(e):
@@ -130,19 +130,16 @@ def construir(t):
             '<div class="ds-slide__formulas">' + "".join(f'<div class="ds-slide__card2 ds-slide__card2--menta"><div class="ds-slide__formula">{mate(x)}</div></div>' for x in f["formulas"]) + "</div>" +
             f'<p class="ds-slide__explica">{escape(f["explicacion"])}</p></div>')
     for i, e in enumerate(t["ejemplos"], 1):
-        add("", cabecera("Ejemplo · Planteamiento", e["titulo"], i) + '<div class="ds-slide__body">' +
-            '<div class="ds-slide__fila">' +
+        add("", cabecera("Ejemplo · Planteamiento", e["titulo"], i) + '<div class="ds-slide__body"><div class="ds-slide__fila">' +
             f'<div class="ds-slide__izq"><div class="ds-slide__card2 ds-slide__card2--menta"><span class="ds-slide__cap">Enunciado</span><div class="ds-slide__enun2">{resaltar(e["enunciado"])}</div></div>' +
             f'<span class="ds-slide__cap ds-slide__cap--suelto">Datos que da el enunciado</span>{datos(e["datos"])}</div>' +
-            f'<div class="ds-slide__card2 ds-slide__card2--info">{ICONOS[e["icono"]]}</div></div>' +
-            tarjeta_formula(e) + "</div>")
+            tarjeta_formula(e) + "</div></div>")
         add("", cabecera("Ejemplo · Desarrollo", e["titulo"], i) + '<div class="ds-slide__body">' + datos(e["datos"], "ds-slide__datos--fila") +
             '<div class="ds-slide__cols2">' + tarjeta_formula(e) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
     for i, e in enumerate(t["ejercicios"], 1):
         add("", cabecera("Ejercicio", e["titulo"], i) + '<div class="ds-slide__body"><div class="ds-slide__fila ds-slide__fila--ej">' +
-            f'<div class="ds-slide__izq"><div class="ds-slide__card2 ds-slide__card2--menta"><div class="ds-slide__enun2 ds-slide__enun2--grande">{resaltar(e["enunciado"])}</div></div>' +
-            f'<span class="ds-slide__cap ds-slide__cap--suelto">Datos</span>{datos(e["datos"])}</div>' +
-            f'<div class="ds-slide__card2 ds-slide__card2--info">{ICONOS[e["icono"]]}</div></div></div>')
+            f'<div class="ds-slide__card2 ds-slide__card2--menta"><div class="ds-slide__enun2 ds-slide__enun2--grande">{resaltar(e["enunciado"])}</div></div>' +
+            f'<div class="ds-slide__izq"><span class="ds-slide__cap ds-slide__cap--suelto">Datos</span>{datos(e["datos"])}</div></div></div>')
     add("ds-slide--negra", marca("✓") + '<span class="ds-slide__tag">Soluciones</span><h1>A continuación tienes las soluciones</h1><p class="ds-slide__lead">Intenta resolver los ejercicios antes de mirarlas.</p><span class="ds-slide__rayas"></span>', True)
     for i, e in enumerate(t["ejercicios"], 1):
         add("", cabecera("Solución · Ejercicio", e["titulo"], i) + '<div class="ds-slide__body">' + datos(e["datos"], "ds-slide__datos--fila") +
@@ -159,7 +156,7 @@ def main():
     print(verificar(t), "cálculos verificados")
     css = "\n".join((RAIZ / "css" / f).read_text(encoding="utf-8") for f in ("variables.css", "componentes.css", "diapositivas.css"))
     html = (f'<!doctype html><html lang="es" data-variante="{VARIANTE}"><head><meta charset="utf-8"><title>{escape(t["titulo"])}</title>'
-            f"<style>{css}</style></head><body class=\"ds-slides\">" + "\n".join(construir(t)) + "</body></html>")
+            f"<style>{css}</style></head><body class=\"ds-slides{' ds-slides--horiz' if '--horizontal' in sys.argv else ''}\">" + "\n".join(construir(t)) + "</body></html>")
     salida = Path(args[1])
     salida.parent.mkdir(parents=True, exist_ok=True)
     if "--html" in sys.argv:

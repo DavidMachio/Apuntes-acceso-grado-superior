@@ -186,3 +186,31 @@
 .ds-slide__cols2 .ds-slide__paso { font-size: 35px; }
 .ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__izq { gap: var(--space-2); } .ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__card2--info { padding: var(--space-2); }
 .ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__info { max-height: 190px; }
+
+/* ===== v2.2 · Más limpio: sin infografías ni tarjetas oscuras ===== */
+.ds-slide__card2--formula { background: var(--color-neutral-0); border: var(--border-strong) solid var(--slide-accent); color: var(--color-text-primary); }
+.ds-slide__card2--formula .ds-slide__cap { color: var(--color-text-secondary); }
+.ds-slide__card2--negra, .ds-slide__card2--info { display: none; }
+.ds-slide .ds-slide__dato { background: color-mix(in srgb, var(--slide-accent) 55%, var(--color-neutral-0)); color: var(--color-neutral-900); }
+.ds-slide .ds-slide__resultado { background: color-mix(in srgb, var(--slide-accent) 55%, var(--color-neutral-0)); }
+.ds-slide__fila, .ds-slide__fila:not(.ds-slide__fila--ej) { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+.ds-slide__fila--ej { align-content: center; }
+.ds-slide__fila--ej .ds-slide__enun2--grande { font-size: 46px; }
+.ds-slide__fila--ej .ds-slide__card2 { padding: var(--space-10); }
+.ds-slide__fila--ej .ds-slide__izq { flex-direction: column; align-items: flex-start; }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__enun2 { font-size: 32px; }
+.ds-slide__cols2 .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 36px; }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 38px; }
+.ds-slide__minicard { border-width: var(--border-hairline); border-left: var(--space-2) solid var(--slide-accent); }
+/* Variante horizontal (--horizontal): dos columnas */
+.ds-slides--horiz .ds-slide__fila, .ds-slides--horiz .ds-slide__fila:not(.ds-slide__fila--ej) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-6); align-items: stretch; }
+.ds-slides--horiz .ds-slide__fila--ej { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: center; }
+.ds-slides--horiz .ds-slide__fila--ej .ds-slide__datos { flex-direction: column; }
+.ds-slides--horiz .ds-slide__fila--ej .ds-slide__enun2--grande { font-size: 42px; }
+.ds-slides--horiz .ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__card2--formula { align-self: center; }
+.ds-slides--horiz .ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 32px; }
+.ds-slides--horiz .ds-slide__cols2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); flex: 1; align-items: stretch; }
+.ds-slides--horiz .ds-slide__cols2 .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 30px; }
+.ds-slides--horiz .ds-slide__cols2 .ds-slide__paso { font-size: 32px; }
+.ds-slides--horiz .ds-slide__cols2 .ds-slide__card2 { align-content: center; }
+.ds-slide__cols2 .ds-slide__card2 { padding-block: var(--space-3); } .ds-slide__cols2 .ds-slide__paso { padding-block: 0; }
