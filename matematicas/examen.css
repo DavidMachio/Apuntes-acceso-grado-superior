@@ -3,11 +3,8 @@
 
 /* ---------- Formulario ---------- */
 .examen-panel { margin-top: var(--space-8); }
-.titulo-tarjeta { font: var(--font-weight-semibold) var(--font-size-h3)/var(--line-height-h3) var(--font-family-heading); margin: 0; }
-.campo-modulos { border: 0; padding: 0; margin: 0 0 var(--space-4); min-width: 0; }
-.campo-modulos legend { padding: 0; margin-bottom: var(--space-2); }
-.campo-modulos .ds-check + .ds-check { margin-top: var(--space-2); }
-.campo-modulos .ds-error { margin-top: var(--space-2); }
+.ds-fieldset .ds-check + .ds-check { margin-top: var(--space-2); }
+.ds-fieldset .ds-error { margin-top: var(--space-2); }
 .hojas [role="tabpanel"][hidden] { display: none; }
 
 /* ---------- Fórmulas ---------- */
@@ -25,7 +22,7 @@
   max-width: 210mm;
   margin: var(--space-6) auto 0;
   padding: 14mm 15mm;
-  background: var(--color-bg-page);
+  background: var(--color-bg-surface);
   color: var(--color-text-primary);
   border: var(--border-hairline) solid var(--color-border-default);
   font: 400 10.5pt/15pt var(--font-family-body);
@@ -100,7 +97,7 @@
 @page { @bottom-right { content: "Página " counter(page) " de " counter(pages); font-size: 8.5pt; } }
 
 @media print {
-  html, body { background: #fff; }
+  html, body { background: var(--color-neutral-0); }
   .no-print { display: none !important; }
   .ds-section { padding: 0 !important; background: none !important; border: 0 !important; }
   .hojas .ds-container { max-width: none; padding: 0; }

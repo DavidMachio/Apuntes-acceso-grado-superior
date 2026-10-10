@@ -3,31 +3,36 @@
 Web estática (HTML, CSS y JavaScript, sin instalar nada) con apuntes en PDF y exámenes para imprimir, organizada por materias. Se publica en Vercel desde la rama `main`.
 
 ## Estructura
+La web tiene cuatro niveles: **portada → materia → tema → presentación**.
 ```
-index.html              Portada: una tarjeta grande por materia
+index.html              Portada: título y una tarjeta negra por materia
 datos/sitio.js          Marca, pie y lista de materias (común a toda la web)
-css/  iconos/  js/      Design system y código común (cabecera, pie, tema claro/oscuro)
-styles.css              Ajustes propios de la web
-matematicas/            Materia de Matemáticas
-  index.html            Resumen
-  temario.html          Temas con su PDF (botón Ver / Descargar)
-  tema.html             Visor de PDF de un tema (tema.html?n=N)
+css/  iconos/  js/      Design system v2 y código común (cabecera, pie, tema claro/oscuro)
+styles.css              Ajustes propios de la web (visor de PDF, portada)
+matematicas/            Materia de Matemáticas (color menta)
+  index.html            Lista de temas
+  tema.html             Presentaciones de un tema (tema.html?n=N)
+  presentacion.html     Visor de PDF (presentacion.html?n=N&pdf=M)
   examen.html           Generador de exámenes
+  temario.html          Redirige a index.html (antiguo enlace)
   datos/                curso.js (textos), temario.js (temas y PDFs), preguntas.js (examen)
   pdfs/                 PDFs de los temas (diapositivas generadas con herramientas/generar_diapositivas.py)
   apuntes/              Apuntes de origen (.md)
-lengua/                 Materia de Lengua (de momento, «Próximamente»)
+lengua/                 Materia de Lengua (rosa rojizo; de momento, «Próximamente»)
 herramientas/           Scripts (generar PDFs a partir de los apuntes)
 ```
 
+## Colores por página
+Se eligen con `data-variante` en la etiqueta `<html>`: `amarillo` (portada), `matematicas` (menta) y `lengua` (rosa rojizo). El menú y la banda superior toman ese color; los botones y etiquetas, también.
+
 ## Añadir una materia
 1. Crea su carpeta (por ejemplo `historia/`) con las páginas que necesite, copiando la estructura de `matematicas/`.
-2. Añádela a la lista `materias` de `datos/sitio.js` (título, resumen, icono y pestañas). La portada, el menú y el pie la muestran solos.
+2. Añádela a la lista `materias` de `datos/sitio.js` (título, resumen e icono). La portada, el menú y el pie la muestran solos. Si quieres un color propio, añade una variante en el design system.
 
 ## Matemáticas: dónde se edita cada cosa
 | Qué | Archivo |
 |---|---|
-| Textos del resumen y ficha | `matematicas/datos/curso.js` |
+| Título y subtítulo de la materia | `matematicas/datos/curso.js` |
 | Temas y PDFs | `matematicas/datos/temario.js` |
 | Preguntas de examen | `matematicas/datos/preguntas.js` (el formato está explicado al principio del archivo) |
 | Estilos del examen | `matematicas/examen.css` |

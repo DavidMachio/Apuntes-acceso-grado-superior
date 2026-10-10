@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" data-variante="matematicas">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../styles.css">
+<title>Presentación · Acceso a grado superior</title>
+<meta name="description" content="Presentación en PDF: ver página a página o descargar.">
+</head>
+<body data-pagina="temario" data-materia="matematicas" data-raiz="../">
+<a class="ds-skip" href="#contenido">Saltar al contenido</a>
+<div id="cabecera"></div>
+
+<main id="contenido">
+  <section class="ds-section ds-section--tight">
+    <div class="ds-container">
+      <ol class="ds-breadcrumb" aria-label="Ruta"><li><a href="../index.html">Inicio</a></li><li><a href="index.html">Matemáticas</a></li><li id="migas-tema"><a href="#">Tema</a></li><li aria-current="page" id="migas-pres">Presentación</li></ol>
+      <h1 class="ds-display" id="titulo" style="margin-top:var(--space-4)"></h1>
+      <div class="ds-row" id="acciones" style="margin-top:var(--space-5)"></div>
+    </div>
+  </section>
+
+  <section class="ds-section">
+    <div class="ds-container">
+      <div id="visor"></div>
+      <nav class="tema-nav" id="vecinos" aria-label="Otras presentaciones"></nav>
+    </div>
+  </section>
+</main>
+
+<div id="pie"></div>
+
+<script src="../datos/sitio.js"></script>
+<script src="datos/curso.js"></script>
+<script src="datos/temario.js"></script>
+<script src="../js/iconos.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/vendor/pdf.js"></script>
+<script src="../js/visor.js"></script>
+<script src="js/presentacion.js"></script>
+</body>
+</html>
