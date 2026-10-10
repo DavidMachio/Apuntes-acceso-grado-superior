@@ -1,4 +1,4 @@
-/* Design System · Curso de Matemáticas · v1.1 · aprobado · 2026-10-07 */
+/* Design System · Curso de Matemáticas · v1.2 · 2026-10-10 (v1.1 + marrones, medios, tamaños y capas; tipografía del sistema) */
 /* Generado a partir de colores.json. No edites a mano: cambia la paleta y vuelve a generar. */
 :root {
   /* Primitivos de color (el tono 500 es el color de partida) */
@@ -164,9 +164,9 @@
   --data-div-5-ink: #ffffff;
 
   /* Tipografía */
-  --font-family-heading: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-family-body: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  --font-family-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --font-family-heading: -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-body: -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --font-size-display: 56px;
   --font-size-h1: 40px;
   --font-size-h2: 28px;
@@ -193,6 +193,7 @@
   --line-height-label: 18px;
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
+  --font-weight-bold: 800;
   --tracking-normal: 0;
   --tracking-label: 0.08em;
   --tracking-tight: -0.01em;
@@ -231,6 +232,42 @@
   --container-max: 1080px;
   --overlay-scrim: rgba(22,26,24, 0.6);
   --overlay-image: linear-gradient(to top, rgba(22,26,24, 0.75), rgba(22,26,24, 0));
+
+  /* ---- v1.2 ---- */
+  /* Neutros marrones (sustituyen a los grises verdosos en la web) */
+  --color-brown-50: #faf7f4; --color-brown-100: #f3ede6; --color-brown-200: #e4d9cc; --color-brown-300: #cdbba7; --color-brown-400: #a8927c;
+  --color-brown-500: #84705c; --color-brown-600: #6a5846; --color-brown-700: #504236; --color-brown-800: #382e26; --color-brown-900: #231c17;
+  --color-brown-dark-page: #171210; --color-brown-dark-surface: #211a16; --color-brown-dark-subtle: #2d241e; --color-brown-dark-border: #3d3229;
+  --color-white: #ffffff;
+  /* Superficies sobre medios (visor de PDF, carteles): siempre oscuras, en claro y en oscuro */
+  --color-media-bg: var(--color-brown-900);
+  --color-media-fg: var(--color-white);
+  --color-media-muted: var(--color-brown-200);
+  --color-media-muted-strong: var(--color-brown-300);
+  --color-media-accent: var(--color-primary-300);
+  --color-media-accent-hover: var(--color-primary-500);
+  --color-media-accent-ink: var(--color-brown-900);
+  --color-media-scrim: color-mix(in srgb, var(--color-brown-dark-page) 95%, transparent);
+  --color-media-shade: color-mix(in srgb, var(--color-brown-dark-page) 60%, transparent);
+  --color-media-watermark: color-mix(in srgb, var(--color-media-fg) 13%, transparent);
+  --color-media-control-bg: color-mix(in srgb, var(--color-media-fg) 10%, transparent);
+  --color-media-control-bg-hover: color-mix(in srgb, var(--color-media-fg) 22%, transparent);
+  --color-media-control-border: color-mix(in srgb, var(--color-media-fg) 25%, transparent);
+  --color-media-outline: color-mix(in srgb, var(--color-media-fg) 55%, transparent);
+  --shadow-media: 0 20px 60px color-mix(in srgb, var(--color-brown-dark-page) 50%, transparent);
+  /* Tamaños de componentes y capas */
+  --border-heavy: 6px;
+  --size-touch: 44px;
+  --size-round-md: 42px;
+  --size-round-lg: 46px;
+  --size-tile: 72px;
+  --size-thumb: 104px;
+  --size-thumb-sm: 84px;
+  --size-nav-offset: 88px;
+  --size-viewer-gutter: 64px;
+  --size-card-min: 22rem;
+  --layer-modal: 300;
+  --layer-modal-control: 301;
   color-scheme: light dark;
 }
 
