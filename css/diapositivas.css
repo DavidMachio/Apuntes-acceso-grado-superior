@@ -214,3 +214,58 @@
 .ds-slides--horiz .ds-slide__cols2 .ds-slide__paso { font-size: 32px; }
 .ds-slides--horiz .ds-slide__cols2 .ds-slide__card2 { align-content: center; }
 .ds-slide__cols2 .ds-slide__card2 { padding-block: var(--space-3); } .ds-slide__cols2 .ds-slide__paso { padding-block: 0; }
+
+/* ===== v2.3 · Estilo de tarjetas «dashboard»: bloques redondeados blanco / negro / menta, cifras grandes con unidad ligera, etiquetas en píldora ===== */
+.ds-slide:not(.ds-slide--portada):not(.ds-slide--cierre):not(.ds-slide--negra) { background: var(--color-bg-subtle); }
+.ds-slide__card2 { border: 0; border-radius: var(--radius-xl); padding: var(--space-6) var(--space-8); }
+.ds-slide__card2--menta { background: var(--slide-accent); color: var(--color-neutral-900); }
+.ds-slide__card2--formula { background: var(--color-neutral-900); color: var(--color-neutral-50); border: 0; }
+.ds-slide__pildora { display: inline-block; align-self: flex-start; padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--color-neutral-900); color: var(--slide-accent); font: var(--font-weight-semibold) 15px/1.2 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; margin-bottom: var(--space-3); }
+.ds-slide__card2--menta .ds-slide__pildora { background: var(--color-neutral-900); color: var(--slide-accent); }
+.ds-slide__card2--formula .ds-slide__pildora { background: color-mix(in srgb, var(--slide-accent) 22%, var(--color-neutral-900)); }
+.ds-slide__pildora--clara { background: var(--color-bg-subtle); color: var(--color-text-secondary); }
+.ds-slide__head .ds-slide__tag { display: inline-block; padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--color-neutral-0); color: var(--color-text-secondary); margin-bottom: var(--space-2); }
+.ds-slide__num { border-radius: var(--radius-pill); background: var(--color-neutral-900); color: var(--slide-accent); }
+.ds-slide__valor { display: flex; align-items: baseline; gap: var(--space-2); }
+.ds-slide__valor b { font: var(--font-weight-bold) 64px/1 var(--font-family-heading); letter-spacing: var(--tracking-tight); }
+.ds-slide__valor i { font: var(--font-weight-regular) 38px/1 var(--font-family-heading); font-style: normal; opacity: .5; }
+.ds-slide__minicard { display: grid; gap: var(--space-2); align-content: space-between; padding: var(--space-5) var(--space-6); border: 0; border-radius: var(--radius-xl); background: var(--color-neutral-0); }
+.ds-slide__datos--col { display: grid; grid-auto-rows: 1fr; gap: var(--space-4); }
+.ds-slide__datos--col .ds-slide__minicard:nth-child(even) { background: var(--color-neutral-900); color: var(--color-neutral-50); }
+.ds-slide__datos--col .ds-slide__minicard:nth-child(even) span { color: var(--slide-accent); }
+.ds-slide__barra { height: var(--space-3); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--color-text-secondary) 25%, transparent); overflow: hidden; }
+.ds-slide__barra i { display: block; width: calc(var(--p) * 1%); height: 100%; border-radius: var(--radius-pill); background: var(--slide-accent); }
+.ds-slide__fila, .ds-slide__fila:not(.ds-slide__fila--ej) { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--space-4); align-items: stretch; }
+.ds-slide__fila--ej { flex: 1; }
+.ds-slide__fila .ds-slide__card2--menta { display: flex; flex-direction: column; justify-content: center; }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__enun2 { font-size: 32px; }
+.ds-slide__enun2--grande, .ds-slide__fila--ej .ds-slide__enun2--grande { font-size: 44px; }
+.ds-slide .ds-slide__dato { background: var(--color-neutral-900); color: var(--slide-accent); }
+.ds-slide__datos--fila .ds-slide__minicard { display: flex; align-items: baseline; gap: var(--space-3); padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); }
+.ds-slide__datos--fila .ds-slide__valor b { font-size: 28px; } .ds-slide__datos--fila .ds-slide__valor i { font-size: 22px; }
+.ds-slide__datos--fila .ds-slide__barra { display: none; }
+.ds-slide__card2--formula .ds-slide__formula--sm { font-size: 36px; }
+.ds-slide__fila:not(.ds-slide__fila--ej) + .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 36px; }
+.ds-slide .ds-slide__resultado { background: var(--slide-accent); color: var(--color-neutral-900); border-radius: var(--radius-xl); padding: var(--space-4) var(--space-8); align-items: center; justify-content: space-between; }
+.ds-slide__resultado span { font: var(--font-weight-semibold) 18px/1.2 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.ds-slide__resultado--uno .ds-slide__valor b { font-size: 60px; } .ds-slide__resultado--uno .ds-slide__valor i { font-size: 36px; }
+.ds-slide__cols2 .ds-slide__card2 { padding: var(--space-4) var(--space-8); }
+.ds-slide__explica { color: var(--color-text-primary); }
+.ds-slide__formulas > .ds-slide__card2 { background: var(--slide-accent); }
+.ds-slide__formulas > .ds-slide__card2:nth-child(2) { background: var(--color-neutral-900); color: var(--color-neutral-50); }
+.ds-slide .ds-slide__minicard .ds-slide__valor b { font-size: 64px; }
+.ds-slide .ds-slide__minicard .ds-slide__valor i { font-size: 36px; }
+.ds-slide .ds-slide__minicard span { font-size: 16px; color: var(--color-text-secondary); }
+.ds-slide .ds-slide__datos--col .ds-slide__minicard:nth-child(even) span { color: var(--slide-accent); }
+.ds-slide .ds-slide__datos--fila .ds-slide__minicard .ds-slide__valor b { font-size: 28px; }
+.ds-slide .ds-slide__datos--fila .ds-slide__minicard .ds-slide__valor i { font-size: 22px; }
+.ds-slide__resultado--varios { gap: var(--space-10); }
+.ds-slide__grupo { display: flex; align-items: center; gap: var(--space-4); }
+.ds-slide__resultado--varios .ds-slide__valor b { font-size: 44px; } .ds-slide__resultado--varios .ds-slide__valor i { font-size: 28px; }
+.ds-slide__datos--col .ds-slide__minicard { padding-block: var(--space-4); }
+.ds-slide .ds-slide__resultado--varios { padding-block: var(--space-2); }
+.ds-slide__resultado--varios .ds-slide__valor b { font-size: 38px; }
+.ds-slide .ds-slide__resultado--uno { padding-block: var(--space-2); }
+.ds-slide__cols2 .ds-slide__card2 { padding-block: var(--space-3); }
+.ds-slide__cols2 .ds-slide__paso { font-size: 34px; }
+.ds-slide__cols2 .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 32px; } .ds-slide__datos--fila .ds-slide__minicard { padding-block: var(--space-1); }
