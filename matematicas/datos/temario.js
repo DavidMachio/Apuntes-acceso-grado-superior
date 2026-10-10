@@ -9,7 +9,7 @@ const MODULOS = [
   {
     titulo: "Porcentajes",
     resumen: "IVA, IRPF, inflación, comisiones y tasas.",
-    paginas: "33 diapositivas",
+    paginas: "34 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 1", detalle: "Porcentajes", archivo: "pdfs/tema-01-porcentajes.pdf" }
     ]
