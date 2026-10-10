@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-variante="matematicas">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,22 +8,26 @@
 <link rel="stylesheet" href="../css/componentes.css">
 <link rel="stylesheet" href="../styles.css">
 <title>Tema · Acceso a grado superior</title>
-<meta name="description" content="Apuntes del tema en PDF: ver en pantalla o descargar.">
+<meta name="description" content="Presentaciones del tema en PDF: ver en pantalla o descargar.">
 </head>
 <body data-pagina="temario" data-materia="matematicas" data-raiz="../">
-<a class="ds-skip" href="#main">Saltar al contenido</a>
+<a class="ds-skip" href="#contenido">Saltar al contenido</a>
 <div id="cabecera"></div>
 
-<main id="main">
-  <section class="ds-section">
+<main id="contenido">
+  <section class="ds-section ds-section--tight">
     <div class="ds-container">
-      <ol class="ds-breadcrumb" aria-label="Ruta"><li><a href="../index.html">Inicio</a></li><li><a href="index.html">Matemáticas</a></li><li><a href="temario.html">Temario</a></li><li aria-current="page" id="migas-tema">Tema</li></ol>
-      <span class="ds-label" id="etiqueta"></span>
-      <h1 id="titulo" style="margin-top:var(--space-1)"></h1>
+      <ol class="ds-breadcrumb" aria-label="Ruta"><li><a href="../index.html">Inicio</a></li><li><a href="index.html">Matemáticas</a></li><li aria-current="page" id="migas-tema">Tema</li></ol>
+      <h1 class="ds-display" id="titulo" style="margin-top:var(--space-4)"></h1>
       <p class="ds-lead" id="resumen"></p>
-      <div class="ds-row" id="acciones" style="margin:var(--space-6) 0"></div>
-      <div id="selector"></div>
-      <div id="visor"></div>
+      <div class="ds-row" id="acciones" style="margin-top:var(--space-5)"></div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-section--surface" aria-labelledby="h-pres">
+    <div class="ds-container">
+      <div class="ds-section-head"><h2 id="h-pres">Presentaciones</h2></div>
+      <ol class="ds-index" id="presentaciones"></ol>
       <nav class="tema-nav" id="vecinos" aria-label="Otros temas"></nav>
     </div>
   </section>
@@ -37,8 +41,6 @@
 <script src="datos/preguntas.js"></script>
 <script src="../js/iconos.js"></script>
 <script src="../js/app.js"></script>
-<script src="../js/vendor/pdf.js"></script>
-<script src="../js/visor.js"></script>
 <script src="js/tema.js"></script>
 </body>
 </html>

@@ -18,21 +18,14 @@ const SITIO = {
       id: "matematicas",                         // nombre de la carpeta
       titulo: "Matemáticas",
       resumen: "Porcentajes, interés, proporcionalidad, tablas de datos y gráficas, con apuntes en PDF y exámenes para imprimir.",
-      icono: "i-sigma",
-      // pestañas de la materia (rutas dentro de su carpeta)
-      paginas: [
-        { id: "inicio",  texto: "Resumen", href: "index.html" },
-        { id: "temario", texto: "Temario", href: "temario.html" },
-        { id: "examen",  texto: "Examen",  href: "examen.html" }
-      ]
+      icono: "i-sigma"
     },
     {
       id: "lengua",
       titulo: "Lengua",
       resumen: "Apuntes y ejercicios de lengua para la prueba de acceso.",
       icono: "i-edit",
-      proximamente: true,
-      paginas: []
+      proximamente: true
     }
   ]
 };
