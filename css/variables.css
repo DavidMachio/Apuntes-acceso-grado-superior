@@ -23,16 +23,16 @@
   --color-accent1-700: #9c5643;
   --color-accent1-800: #764437;
   --color-accent1-900: #51322a;
-  --color-menta-50: #f5fbf9;
-  --color-menta-100: #eaf8f2;
-  --color-menta-200: #d5f1e6;
-  --color-menta-300: #bbe8d6;
-  --color-menta-400: #9cdec3;
-  --color-menta-500: #7dd3b0;
-  --color-menta-600: #6cb497;
-  --color-menta-700: #59927c;
-  --color-menta-800: #467060;
-  --color-menta-900: #334d44;
+  --color-menta-50: #f9fdf5;
+  --color-menta-100: #f2fbeb;
+  --color-menta-200: #e6f7d6;
+  --color-menta-300: #d6f1bc;
+  --color-menta-400: #c3eb9e;
+  --color-menta-500: #b0e57f;
+  --color-menta-600: #97c46e;
+  --color-menta-700: #7b9e5b;
+  --color-menta-800: #5e7848;
+  --color-menta-900: #425336;
   --color-rosa-50: #fdf1f3;
   --color-rosa-100: #fae4e8;
   --color-rosa-200: #f5c9d1;
@@ -55,6 +55,7 @@
   --color-neutral-750: #272424;
   --color-neutral-800: #1e1e1e;
   --color-neutral-900: #131416;
+  --color-neutral-lienzo: #ecefec;
 
   /* Roles semánticos · tema claro (los componentes usan solo estos) */
   --color-bg-page: var(--color-neutral-100);

@@ -75,8 +75,8 @@ def resultado(r):
 
 
 def resaltar(texto):
-    """Marca en el enunciado los datos numéricos (cantidades, euros y porcentajes)."""
-    return re.sub(r"(\d[\d.,]*(?:\s?[€%])?)", r'<span class="ds-slide__dato">\1</span>', escape(texto))
+    """Enunciado tal cual (sin subrayar cantidades)."""
+    return re.sub(r"(\d) ([€%])", "\\1\u00a0\\2", escape(texto))
 
 
 def slide(clase, interior, n=0, fondo_oscuro=False):
@@ -87,6 +87,10 @@ SIMBOLOS = ["+", "−", "×", "÷", "=", "%", "+", "−", "%", "÷", "p/100", "�
 
 
 def fondo(n, oscuro=False):
+    return ""  # sin marcas de agua (pedido del usuario); se conserva la función por si se vuelve a activar
+
+
+def fondo_simbolos(n, oscuro=False):
     """Marca de agua: símbolos matemáticos de distintos tamaños repartidos por los bordes (siempre igual para la misma diapositiva)."""
     r = random.Random(n * 7919 + 13)
     puestos = []
@@ -107,6 +111,10 @@ def cabecera(tag, titulo, num=None):
 
 
 def marca(simbolo):
+    return ""  # sin marca de agua
+
+
+def marca_svg(simbolo):
     return ('<svg class="ds-slide__marca" viewBox="0 0 560 560" aria-hidden="true">'
             f'<text x="50%" y="70%" text-anchor="middle" font-size="430" font-weight="800" font-family="sans-serif">{escape(simbolo)}</text></svg>')
 

@@ -269,3 +269,13 @@
 .ds-slide__cols2 .ds-slide__card2 { padding-block: var(--space-3); }
 .ds-slide__cols2 .ds-slide__paso { font-size: 34px; }
 .ds-slide__cols2 .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 32px; } .ds-slide__datos--fila .ds-slide__minicard { padding-block: var(--space-1); }
+
+/* ===== v2.4 · Paleta de Matemáticas = referencia (lima #b0e57f, negro, blanco, gris verdoso), sin marcas de agua, portada y cierre en color ===== */
+.ds-slide:not(.ds-slide--portada):not(.ds-slide--cierre):not(.ds-slide--negra) { --color-bg-subtle: var(--color-neutral-lienzo); background: var(--color-neutral-lienzo); }
+.ds-slides { background: var(--color-neutral-300); }
+.ds-slide--portada, .ds-slide--cierre { --color-bg-surface: var(--slide-accent); --color-text-primary: var(--color-neutral-900); --color-text-secondary: var(--color-neutral-900); background: var(--slide-accent); color: var(--color-neutral-900); }
+.ds-slide--portada h1, .ds-slide--cierre h1 { color: var(--color-neutral-900); }
+.ds-slide--portada .ds-slide__lead, .ds-slide--cierre .ds-slide__lead { color: var(--color-neutral-900); opacity: .75; }
+.ds-slide--portada .ds-slide__tag, .ds-slide--cierre .ds-slide__tag { background: var(--color-neutral-900); border: 0; color: var(--slide-accent); }
+.ds-slide--portada .ds-slide__rayas, .ds-slide--cierre .ds-slide__rayas { background: var(--color-neutral-900); }
+.ds-slide--negra { background: var(--color-neutral-900); }
