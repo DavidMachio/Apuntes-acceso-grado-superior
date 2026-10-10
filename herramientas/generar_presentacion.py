@@ -143,8 +143,9 @@ def tarjeta_desarrollo(e):
 def construir(t):
     S = []
     n = 0
-    sec_ej = len(t["formulas"]) + 1   # número de sección de los ejemplos (04) y de los ejercicios (05)
+    sec_ej = len(t["formulas"]) + 1   # secciones tras las fórmulas: ejemplos, ejercicios y soluciones
     sec_ejer = sec_ej + 1
+    sec_sol = sec_ej + 2
 
     def add(clase, interior, oscuro=False):
         nonlocal n
@@ -152,7 +153,7 @@ def construir(t):
         S.append(slide(clase, interior, n, oscuro))
 
     add("ds-slide--portada", marca(t["marca"]) + f'<span class="ds-slide__tag">{escape(t["materia"])}</span><h1>{escape(t["titulo"])}</h1><p class="ds-slide__lead">{escape(t["lead"])}</p><span class="ds-slide__rayas"></span>', True)
-    add("", cabecera("Antes de empezar", "Qué vas a ver") + '<div class="ds-slide__body"><ol class="ds-slide__lista">' + "".join(f"<li>{escape(x)}</li>" for x in t["vas_a_ver"] + ["Ejemplos resueltos paso a paso", "10 ejercicios para practicar y sus soluciones"]) + "</ol></div>")
+    add("", cabecera("Antes de empezar", "Qué vas a ver") + '<div class="ds-slide__body"><ol class="ds-slide__lista">' + "".join(f"<li>{escape(x)}</li>" for x in t["vas_a_ver"] + ["Ejemplos resueltos paso a paso", "10 ejercicios para practicar", "Soluciones de los ejercicios"]) + "</ol></div>")
     for i, f in enumerate(t["formulas"], 1):
         add("", cabecera("La fórmula", f["titulo"], i) + '<div class="ds-slide__body">' +
             '<div class="ds-slide__formulas">' + "".join(f'<div class="ds-slide__card2 ds-slide__card2--menta"><div class="ds-slide__formula">{mate(x)}</div></div>' for x in f["formulas"]) + "</div>" +
@@ -163,10 +164,10 @@ def construir(t):
             '<div class="ds-slide__cols2">' + tarjeta_formula(e) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
     add("ds-slide--portada", marca("?") + '<span class="ds-slide__tag">Ejercicios</span><h1>A practicar</h1><p class="ds-slide__lead">Ahora te toca a ti. Resuelve los 10 ejercicios.</p><span class="ds-slide__rayas"></span>', True)
     for i, e in enumerate(t["ejercicios"], 1):
-        add("ds-slide--ej", cabecera("Ejercicio", e["titulo"], f"{sec_ejer:02d}.{i}") + '<div class="ds-slide__body">' + par(e, True) + "</div>")
+        add("", cabecera("Ejercicio", e["titulo"], f"{sec_ejer:02d}.{i}") + '<div class="ds-slide__body">' + par(e, True) + "</div>")
     add("ds-slide--negra", marca("✓") + '<span class="ds-slide__tag">Soluciones</span><h1>A continuación tienes las soluciones</h1><p class="ds-slide__lead">Intenta resolver los ejercicios antes de mirarlas.</p><span class="ds-slide__rayas"></span>', True)
     for i, e in enumerate(t["ejercicios"], 1):
-        add("", cabecera("Solución · Ejercicio", e["titulo"], f"{sec_ejer:02d}.{i}") + '<div class="ds-slide__body">' + datos(e["datos"], "ds-slide__datos--fila") +
+        add("", cabecera("Solución · Ejercicio", e["titulo"], f"{sec_sol:02d}.{i}") + '<div class="ds-slide__body">' + datos(e["datos"], "ds-slide__datos--fila") +
             '<div class="ds-slide__cols2">' + tarjeta_formula(e) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
     add("ds-slide--cierre", marca(t["marca"]) + f'<span class="ds-slide__tag">{escape(t["materia"])}</span><h1>Tema completado</h1><p class="ds-slide__lead">Repasa la fórmula y vuelve a intentar los ejercicios.</p><span class="ds-slide__rayas"></span>', True)
     return S
