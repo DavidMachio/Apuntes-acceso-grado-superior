@@ -293,3 +293,10 @@
 .ds-slide:not(.ds-slide--portada):not(.ds-slide--cierre):not(.ds-slide--negra).ds-slide--ej { background: var(--slide-accent); --color-bg-subtle: var(--slide-accent); }
 .ds-slide--portada .ds-slide__lead, .ds-slide--cierre .ds-slide__lead { max-width: 26ch; }
 .ds-slide__cols2 .ds-slide__paso { line-height: 1.1; }
+/* Con 3 o 4 datos las minitarjetas se compactan para que quepan */
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__minicard { padding: var(--space-2) var(--space-5); gap: var(--space-1); }
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__valor b { font-size: 42px; } .ds-slide .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__valor i { font-size: 26px; }
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__minicard { padding: var(--space-2) var(--space-5); gap: var(--space-1); }
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__valor b { font-size: 36px; } .ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__valor i { font-size: 24px; }
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__barra, .ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__barra { height: var(--space-2); }
+.ds-slide__fila--ej .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__valor b { font-size: 52px; }

@@ -121,7 +121,7 @@ def datos(lista, cls=""):
         m = re.match(r"^([\d.,]+)\s*%$", b)
         barra = f'<div class="ds-slide__barra" style="--p:{m.group(1).replace(",", ".")}"><i></i></div>' if m else ""
         return f'<div class="ds-slide__minicard"><span>{escape(a)}</span><div class="ds-slide__valor">{valor(b)}</div>{barra}</div>'
-    return f'<div class="ds-slide__datos {cls}">' + "".join(una(a, b) for a, b in lista) + "</div>"
+    return f'<div class="ds-slide__datos {cls} ds-slide__datos--n{len(lista)}">' + "".join(una(a, b) for a, b in lista) + "</div>"
 
 
 def par(e, grande=False):

@@ -17,7 +17,7 @@ const MODULOS = [
   {
     titulo: "Cantidades iniciales y finales",
     resumen: "Aumentos, disminuciones y variaciones encadenadas.",
-    paginas: "31 diapositivas",
+    paginas: "35 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 2", detalle: "Cantidades iniciales y finales", archivo: "pdfs/tema-02-cantidades-iniciales-y-finales.pdf" }
     ]
