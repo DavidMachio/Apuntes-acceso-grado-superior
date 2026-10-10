@@ -285,12 +285,6 @@
 .ds-slide--portada .ds-slide__marca, .ds-slide--cierre .ds-slide__marca { color: var(--color-neutral-900); opacity: .9; }
 .ds-slide--negra .ds-slide__marca { color: var(--slide-accent); }
 .ds-slide__num { width: auto; min-width: 76px; padding-inline: var(--space-5); font-size: 30px; }
-.ds-slide--ej { background: var(--slide-accent); --color-bg-subtle: var(--slide-accent); }
-.ds-slide--ej .ds-slide__head .ds-slide__tag { background: var(--color-neutral-900); color: var(--slide-accent); }
-.ds-slide--ej .ds-slide__card2--menta { background: var(--color-neutral-0); }
-.ds-slide--ej .ds-slide__card2--menta .ds-slide__pildora { background: var(--color-neutral-900); color: var(--slide-accent); }
-.ds-slide--ej .ds-slide__num { background: var(--color-neutral-900); color: var(--slide-accent); }
-.ds-slide:not(.ds-slide--portada):not(.ds-slide--cierre):not(.ds-slide--negra).ds-slide--ej { background: var(--slide-accent); --color-bg-subtle: var(--slide-accent); }
 .ds-slide--portada .ds-slide__lead, .ds-slide--cierre .ds-slide__lead { max-width: 26ch; }
 .ds-slide__cols2 .ds-slide__paso { line-height: 1.1; }
 /* Con 3 o 4 datos las minitarjetas se compactan para que quepan */
