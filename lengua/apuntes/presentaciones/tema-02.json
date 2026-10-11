@@ -1,0 +1,679 @@
+{
+ "numero": 2,
+ "materia": "Lengua",
+ "titulo": "La comunicación",
+ "marca": "“",
+ "lead": "Elementos de la comunicación y funciones del lenguaje.",
+ "vas_a_ver": [
+  "Comunicación verbal y no verbal",
+  "Elementos de la comunicación",
+  "El lenguaje y sus funciones"
+ ],
+ "conceptos": [
+  {
+   "tipo": "regla",
+   "titulo": "Comunicación verbal y no verbal",
+   "enunciado": "La comunicación es el proceso mediante el cual las personas intercambiamos información, pensamientos, ideas…",
+   "puntos": [
+    {
+     "etiqueta": "Verbal",
+     "texto": "lenguaje hablado o escrito."
+    },
+    {
+     "etiqueta": "No verbal",
+     "texto": "gestos, expresiones faciales, posturas."
+    }
+   ]
+  },
+  {
+   "tipo": "definiciones",
+   "titulo": "Elementos de la comunicación",
+   "items": [
+    {
+     "t": "Emisor",
+     "d": "Es quien emite el mensaje."
+    },
+    {
+     "t": "Receptor",
+     "d": "Persona o entidad que recibe el mensaje transmitido por el emisor."
+    },
+    {
+     "t": "Mensaje",
+     "d": "Información, idea o concepto que el emisor intenta transmitir al receptor."
+    },
+    {
+     "t": "Código",
+     "d": "Conjunto de reglas y símbolos que el emisor y el receptor utilizan para entenderse (lenguaje)."
+    },
+    {
+     "t": "Canal",
+     "d": "El medio a través del cual se transmite el mensaje."
+    },
+    {
+     "t": "Contexto",
+     "d": "Entorno en el que se lleva a cabo la comunicación."
+    }
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Funciones del lenguaje",
+   "enunciado": "La función suprema del lenguaje es la comunicación.",
+   "chips_etiqueta": "Funciones",
+   "chips": [
+    "Referencial",
+    "Expresiva",
+    "Apelativa",
+    "Fática",
+    "Metalingüística",
+    "Poética"
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Función referencial",
+   "tag": "La función",
+   "etiqueta": "Qué hace",
+   "enunciado": "Transmite información objetiva sobre la realidad: datos y hechos.",
+   "puntos": [
+    {
+     "etiqueta": "Se centra en",
+     "texto": "el contexto (de lo que se habla)"
+    },
+    {
+     "etiqueta": "Ejemplo",
+     "texto": "Las abejas viven en colmenas."
+    }
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Función expresiva",
+   "tag": "La función",
+   "etiqueta": "Qué hace",
+   "enunciado": "El emisor expresa sus sentimientos, emociones o estados de ánimo.",
+   "puntos": [
+    {
+     "etiqueta": "Se centra en",
+     "texto": "el emisor"
+    },
+    {
+     "etiqueta": "Ejemplo",
+     "texto": "¡Estoy exhausto!"
+    }
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Función apelativa",
+   "tag": "La función",
+   "etiqueta": "Qué hace",
+   "enunciado": "Busca influir en el receptor: le da órdenes, le pide algo o le aconseja.",
+   "puntos": [
+    {
+     "etiqueta": "Se centra en",
+     "texto": "el receptor"
+    },
+    {
+     "etiqueta": "Ejemplo",
+     "texto": "Cállate de una vez."
+    }
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Función fática",
+   "tag": "La función",
+   "etiqueta": "Qué hace",
+   "enunciado": "Comprueba o mantiene abierto el canal de comunicación.",
+   "puntos": [
+    {
+     "etiqueta": "Se centra en",
+     "texto": "el canal"
+    },
+    {
+     "etiqueta": "Ejemplo",
+     "texto": "¿Sigues en línea?"
+    }
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Función metalingüística",
+   "tag": "La función",
+   "etiqueta": "Qué hace",
+   "enunciado": "Usa el lenguaje para hablar del propio lenguaje.",
+   "puntos": [
+    {
+     "etiqueta": "Se centra en",
+     "texto": "el código"
+    },
+    {
+     "etiqueta": "Ejemplo",
+     "texto": "“Sensacional” es un adjetivo."
+    }
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Función poética",
+   "tag": "La función",
+   "etiqueta": "Qué hace",
+   "enunciado": "Cuida la forma del mensaje para que resulte bello.",
+   "puntos": [
+    {
+     "etiqueta": "Se centra en",
+     "texto": "el mensaje"
+    },
+    {
+     "etiqueta": "Ejemplo",
+     "texto": "La magia de sus ojos me hipnotiza."
+    }
+   ]
+  }
+ ],
+ "ejemplos": [
+  {
+   "titulo": "Un concierto",
+   "cab": [
+    "Elemento",
+    "Respuesta"
+   ],
+   "filas": [
+    [
+     "Emisor",
+     "Cantante o grupo"
+    ],
+    [
+     "Receptor",
+     "Público"
+    ],
+    [
+     "Mensaje",
+     "Canción"
+    ],
+    [
+     "Código",
+     "Idioma"
+    ],
+    [
+     "Canal",
+     "Voz / aire"
+    ],
+    [
+     "Contexto",
+     "Concierto"
+    ]
+   ]
+  },
+  {
+   "titulo": "Un mensaje de texto",
+   "cab": [
+    "Elemento",
+    "Respuesta"
+   ],
+   "filas": [
+    [
+     "Emisor",
+     "Alberto"
+    ],
+    [
+     "Receptor",
+     "Carlos"
+    ],
+    [
+     "Mensaje",
+     "Invitación al cine"
+    ],
+    [
+     "Código",
+     "Idioma escrito"
+    ],
+    [
+     "Canal",
+     "WhatsApp o SMS"
+    ],
+    [
+     "Contexto",
+     "Mensaje por teléfono"
+    ]
+   ]
+  }
+ ],
+ "ejercicios": [
+  {
+   "tipo": "situacion",
+   "titulo": "Situación A",
+   "enunciado": "Rocío lee a sus compañeros en clase la historia sobre animales salvajes que le mandó hacer la profesora.",
+   "identifica": [
+    "Emisor",
+    "Receptor",
+    "Mensaje",
+    "Código",
+    "Canal",
+    "Contexto"
+   ],
+   "cab": [
+    "Elemento",
+    "Respuesta"
+   ],
+   "filas": [
+    [
+     "Emisor",
+     "Rocío"
+    ],
+    [
+     "Receptor",
+     "Sus compañeros"
+    ],
+    [
+     "Mensaje",
+     "Historia de animales salvajes"
+    ],
+    [
+     "Código",
+     "Idioma"
+    ],
+    [
+     "Canal",
+     "Voz / aire"
+    ],
+    [
+     "Contexto",
+     "Una alumna lee a sus compañeros en clase"
+    ]
+   ]
+  },
+  {
+   "tipo": "situacion",
+   "titulo": "Situación B",
+   "enunciado": "En el instituto suena el timbre a las 15:00 h.",
+   "identifica": [
+    "Emisor",
+    "Receptor",
+    "Mensaje",
+    "Código",
+    "Canal",
+    "Contexto"
+   ],
+   "cab": [
+    "Elemento",
+    "Respuesta"
+   ],
+   "filas": [
+    [
+     "Emisor",
+     "El que toca el timbre"
+    ],
+    [
+     "Receptor",
+     "El que lo escucha"
+    ],
+    [
+     "Mensaje",
+     "Terminan las clases"
+    ],
+    [
+     "Código",
+     "Sonido"
+    ],
+    [
+     "Canal",
+     "Aire"
+    ],
+    [
+     "Contexto",
+     "El instituto a las 15:00 h, a la hora del fin de clase"
+    ]
+   ]
+  },
+  {
+   "tipo": "situacion",
+   "titulo": "Situación C",
+   "enunciado": "En la radio anuncian un remedio infalible para librarse de los indeseables.",
+   "identifica": [
+    "Emisor",
+    "Receptor",
+    "Mensaje",
+    "Código",
+    "Canal",
+    "Contexto"
+   ],
+   "cab": [
+    "Elemento",
+    "Respuesta"
+   ],
+   "filas": [
+    [
+     "Emisor",
+     "Locutor"
+    ],
+    [
+     "Receptor",
+     "Oyentes"
+    ],
+    [
+     "Mensaje",
+     "Remedio para librarse de los indeseables"
+    ],
+    [
+     "Código",
+     "Idioma"
+    ],
+    [
+     "Canal",
+     "Voz a través de la radio"
+    ],
+    [
+     "Contexto",
+     "Un anuncio en la radio"
+    ]
+   ]
+  },
+  {
+   "tipo": "situacion",
+   "titulo": "Situación D",
+   "enunciado": "Un mitin político en un auditorio.",
+   "identifica": [
+    "Emisor",
+    "Receptor",
+    "Mensaje",
+    "Código",
+    "Canal",
+    "Contexto"
+   ],
+   "cab": [
+    "Elemento",
+    "Respuesta"
+   ],
+   "filas": [
+    [
+     "Emisor",
+     "El que da el mitin"
+    ],
+    [
+     "Receptor",
+     "Las personas del auditorio"
+    ],
+    [
+     "Mensaje",
+     "El mitin"
+    ],
+    [
+     "Código",
+     "Idioma"
+    ],
+    [
+     "Canal",
+     "Voz / aire"
+    ],
+    [
+     "Contexto",
+     "Un mitin político en un auditorio"
+    ]
+   ]
+  },
+  {
+   "tipo": "situacion",
+   "titulo": "Situación E",
+   "enunciado": "Lees una nota en un papel sujeto a la puerta del frigorífico que te informa de la necesidad de comprar leche.",
+   "identifica": [
+    "Emisor",
+    "Receptor",
+    "Mensaje",
+    "Código",
+    "Canal",
+    "Contexto"
+   ],
+   "cab": [
+    "Elemento",
+    "Respuesta"
+   ],
+   "filas": [
+    [
+     "Emisor",
+     "El que escribe la nota"
+    ],
+    [
+     "Receptor",
+     "El que la lee"
+    ],
+    [
+     "Mensaje",
+     "Comprar leche"
+    ],
+    [
+     "Código",
+     "Idioma"
+    ],
+    [
+     "Canal",
+     "Visual (papel)"
+    ],
+    [
+     "Contexto",
+     "Una nota en la puerta del frigorífico"
+    ]
+   ]
+  },
+  {
+   "tipo": "situacion",
+   "titulo": "Situación F",
+   "enunciado": "Un cartel en una valla publicitaria muestra un coche.",
+   "identifica": [
+    "Emisor",
+    "Receptor",
+    "Mensaje",
+    "Código",
+    "Canal",
+    "Contexto"
+   ],
+   "cab": [
+    "Elemento",
+    "Respuesta"
+   ],
+   "filas": [
+    [
+     "Emisor",
+     "La empresa"
+    ],
+    [
+     "Receptor",
+     "El que lo ve"
+    ],
+    [
+     "Mensaje",
+     "La compra del coche"
+    ],
+    [
+     "Código",
+     "Imagen"
+    ],
+    [
+     "Canal",
+     "Visual (valla)"
+    ],
+    [
+     "Contexto",
+     "Publicidad en una valla"
+    ]
+   ]
+  },
+  {
+   "tipo": "situacion",
+   "titulo": "Situación G",
+   "enunciado": "Ves un humo espeso que brota de una colina cercana.",
+   "identifica": [
+    "Emisor",
+    "Receptor",
+    "Mensaje",
+    "Código",
+    "Canal",
+    "Contexto"
+   ],
+   "cab": [
+    "Elemento",
+    "Respuesta"
+   ],
+   "filas": [
+    [
+     "Emisor",
+     "El fuego"
+    ],
+    [
+     "Receptor",
+     "El que lo ve"
+    ],
+    [
+     "Mensaje",
+     "Se está quemando algo"
+    ],
+    [
+     "Código",
+     "Humo (señal natural)"
+    ],
+    [
+     "Canal",
+     "Visual"
+    ],
+    [
+     "Contexto",
+     "Humo en una colina cercana"
+    ]
+   ]
+  },
+  {
+   "tipo": "frases",
+   "titulo": "Funciones del lenguaje (A–F)",
+   "enunciado": "Señala la función del lenguaje de cada frase.",
+   "items": [
+    [
+     "A",
+     "Tengo que aguantarme a ceder ante tus caprichos.",
+     "Expresiva"
+    ],
+    [
+     "B",
+     "Las abejas viven en colmenas.",
+     "Referencial"
+    ],
+    [
+     "C",
+     "El sujeto realiza la acción del verbo en las oraciones activas.",
+     "Metalingüística"
+    ],
+    [
+     "D",
+     "La luna destila su blancura de nata sobre nuestra noche feliz.",
+     "Poética"
+    ],
+    [
+     "E",
+     "¡Calla; ni me recuerdes siquiera lo del otro día!",
+     "Apelativa"
+    ],
+    [
+     "F",
+     "No sé si me oyes bien; hay mucho ruido.",
+     "Fática"
+    ]
+   ]
+  },
+  {
+   "tipo": "frases",
+   "titulo": "Funciones del lenguaje (G–K)",
+   "enunciado": "Señala la función del lenguaje de cada frase.",
+   "items": [
+    [
+     "G",
+     "¡Cómo me gusta viajar en tren!",
+     "Expresiva"
+    ],
+    [
+     "H",
+     "Tus ojos son un cruce de caminos, un enigma sin solución.",
+     "Poética"
+    ],
+    [
+     "I",
+     "En invierno nieva mucho en los pueblos de montaña.",
+     "Referencial"
+    ],
+    [
+     "J",
+     "Me tienes harto, ¿me entiendes?",
+     "Expresiva"
+    ],
+    [
+     "K",
+     "¿Qué dices?",
+     "Fática"
+    ]
+   ]
+  },
+  {
+   "tipo": "frases",
+   "titulo": "Funciones del lenguaje (L–O)",
+   "enunciado": "Señala la función del lenguaje de cada frase.",
+   "items": [
+    [
+     "L",
+     "¡Estoy muy orgulloso de ti!",
+     "Expresiva"
+    ],
+    [
+     "M",
+     "La magia de sus ojos me hipnotiza.",
+     "Poética"
+    ],
+    [
+     "N",
+     "¿Sigues en línea?",
+     "Fática"
+    ],
+    [
+     "Ñ",
+     "Mañana no lloverá.",
+     "Referencial"
+    ],
+    [
+     "O",
+     "¡Estoy exhausto!",
+     "Expresiva"
+    ]
+   ]
+  },
+  {
+   "tipo": "frases",
+   "titulo": "Funciones del lenguaje (P–T)",
+   "enunciado": "Señala la función del lenguaje de cada frase.",
+   "items": [
+    [
+     "P",
+     "No escucho bien… hay mucha interferencia.",
+     "Fática"
+    ],
+    [
+     "Q",
+     "“Sensacional” es un adjetivo.",
+     "Metalingüística"
+    ],
+    [
+     "R",
+     "¡Ay!",
+     "Expresiva"
+    ],
+    [
+     "S",
+     "Cállate de una vez.",
+     "Apelativa"
+    ],
+    [
+     "T",
+     "No habrá clase el próximo 12 de octubre.",
+     "Referencial"
+    ]
+   ]
+  }
+ ]
+}

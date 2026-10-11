@@ -1,0 +1,430 @@
+{
+ "numero": 1,
+ "materia": "Lengua",
+ "titulo": "Ortografía",
+ "marca": "á",
+ "lead": "Estilo directo e indirecto, sílabas y tildes.",
+ "vas_a_ver": [
+  "Estilo directo e indirecto",
+  "Palabras agudas, llanas y esdrújulas",
+  "Vocales abiertas y cerradas",
+  "Diptongos, triptongos y hiatos",
+  "La tilde diacrítica"
+ ],
+ "conceptos": [
+  {
+   "tipo": "comparacion",
+   "titulo": "Estilo directo e indirecto",
+   "items": [
+    {
+     "etiqueta": "Directo",
+     "texto": "Se mantienen las palabras originales.",
+     "ejemplo": "Cristina le dijo “trae el pan”."
+    },
+    {
+     "etiqueta": "Indirecto",
+     "texto": "Se cuenta lo que una persona ha dicho.",
+     "ejemplo": "Cristina le dijo a su hija que trajera el pan."
+    }
+   ]
+  },
+  {
+   "tipo": "definiciones",
+   "titulo": "Agudas, llanas y esdrújulas",
+   "items": [
+    {
+     "t": "Agudas",
+     "d": "La sílaba que suena más fuerte es la última.",
+     "regla": "Llevan tilde cuando terminan en vocal, N o S."
+    },
+    {
+     "t": "Llanas",
+     "d": "La sílaba que suena más fuerte es la penúltima.",
+     "regla": "Llevan tilde cuando no terminan en vocal, N o S."
+    },
+    {
+     "t": "Esdrújulas",
+     "d": "La sílaba que suena más fuerte es la antepenúltima.",
+     "regla": "Siempre llevan tilde."
+    }
+   ]
+  },
+  {
+   "tipo": "comparacion",
+   "titulo": "Vocales abiertas y cerradas",
+   "items": [
+    {
+     "etiqueta": "Abiertas",
+     "grande": "A · E · O"
+    },
+    {
+     "etiqueta": "Cerradas",
+     "grande": "I · U"
+    }
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Diptongos",
+   "enunciado": "Es la unión de 2 vocales en una misma sílaba.",
+   "puntos": [
+    "Vocal cerrada + vocal cerrada",
+    "Vocal abierta + vocal cerrada",
+    "Vocal cerrada + vocal abierta"
+   ],
+   "chips": [
+    "huésped",
+    "murciélago"
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Triptongos",
+   "enunciado": "Es la unión de 3 vocales en una misma sílaba.",
+   "puntos": [
+    "Vocal cerrada + vocal abierta + vocal cerrada"
+   ],
+   "chips": [
+    "fastidiéis"
+   ]
+  },
+  {
+   "tipo": "regla",
+   "titulo": "Hiatos",
+   "enunciado": "Es la separación en 2 sílabas distintas de 2 vocales que se escriben juntas.",
+   "puntos": [
+    "Vocal abierta + vocal abierta (teatro, leemos)",
+    "Vocal abierta + vocal cerrada"
+   ],
+   "nota": "Si la vocal tónica es la cerrada, siempre lleva tilde.",
+   "chips": [
+    "fría",
+    "río",
+    "reír"
+   ]
+  },
+  {
+   "tipo": "tabla",
+   "titulo": "La tilde diacrítica",
+   "enunciado": "Los monosílabos no llevan tilde. La tilde diacrítica distingue palabras homófonas de distinta categoría gramatical.",
+   "cab": [
+    "Con tilde",
+    "Sin tilde"
+   ],
+   "filas": [
+    [
+     "Él → pronombre personal",
+     "El → artículo"
+    ],
+    [
+     "Tú → pronombre personal",
+     "Tu → adjetivo"
+    ],
+    [
+     "Mí → pronombre personal",
+     "Mi → adjetivo"
+    ],
+    [
+     "Sí → adverbio",
+     "Si → conjunción"
+    ],
+    [
+     "Dé → verbo",
+     "De → preposición"
+    ]
+   ]
+  },
+  {
+   "tipo": "tabla",
+   "titulo": "La tilde diacrítica (2)",
+   "cab": [
+    "Con tilde",
+    "Sin tilde"
+   ],
+   "filas": [
+    [
+     "Sé → verbo",
+     "Se → pronombre"
+    ],
+    [
+     "Té → nombre",
+     "Te → pronombre"
+    ],
+    [
+     "Más → adverbio",
+     "Mas → conjunción"
+    ],
+    [
+     "Aún → adverbio",
+     "Aun → adverbio"
+    ]
+   ]
+  }
+ ],
+ "ejercicios": [
+  {
+   "tipo": "palabras",
+   "titulo": "Sílabas y tipo de palabra",
+   "enunciado": "Separa en sílabas y di si cada palabra es aguda, llana o esdrújula.",
+   "palabras": [
+    "Césped",
+    "Árbol",
+    "Cántaro",
+    "Imágenes",
+    "Cortés",
+    "Robot"
+   ],
+   "cab": [
+    "Palabra",
+    "Sílabas",
+    "Tipo"
+   ],
+   "filas": [
+    [
+     "Césped",
+     "cés-ped",
+     "Llana"
+    ],
+    [
+     "Árbol",
+     "ár-bol",
+     "Llana"
+    ],
+    [
+     "Cántaro",
+     "cán-ta-ro",
+     "Esdrújula"
+    ],
+    [
+     "Imágenes",
+     "i-má-ge-nes",
+     "Esdrújula"
+    ],
+    [
+     "Cortés",
+     "cor-tés",
+     "Aguda"
+    ],
+    [
+     "Robot",
+     "ro-bot",
+     "Aguda"
+    ]
+   ]
+  },
+  {
+   "tipo": "palabras",
+   "titulo": "Sílabas y tipo de palabra (2)",
+   "enunciado": "Separa en sílabas y di si cada palabra es aguda, llana o esdrújula.",
+   "palabras": [
+    "Gramática",
+    "Bíceps",
+    "Ámbar",
+    "Pésimo",
+    "Pantalón"
+   ],
+   "cab": [
+    "Palabra",
+    "Sílabas",
+    "Tipo"
+   ],
+   "filas": [
+    [
+     "Gramática",
+     "gra-má-ti-ca",
+     "Esdrújula"
+    ],
+    [
+     "Bíceps",
+     "bí-ceps",
+     "Llana"
+    ],
+    [
+     "Ámbar",
+     "ám-bar",
+     "Llana"
+    ],
+    [
+     "Pésimo",
+     "pé-si-mo",
+     "Esdrújula"
+    ],
+    [
+     "Pantalón",
+     "pan-ta-lón",
+     "Aguda"
+    ]
+   ]
+  },
+  {
+   "tipo": "palabras",
+   "titulo": "Diptongo o hiato",
+   "enunciado": "Separa por sílabas e indica si hay diptongo o hiato.",
+   "palabras": [
+    "Vencéis",
+    "Maíz",
+    "Biología",
+    "Reúne",
+    "Sonreímos"
+   ],
+   "cab": [
+    "Palabra",
+    "Sílabas",
+    "Diptongo o hiato"
+   ],
+   "filas": [
+    [
+     "Vencéis",
+     "ven-céis",
+     "Diptongo"
+    ],
+    [
+     "Maíz",
+     "ma-íz",
+     "Hiato"
+    ],
+    [
+     "Biología",
+     "bio-lo-gí-a",
+     "Hiato"
+    ],
+    [
+     "Reúne",
+     "re-ú-ne",
+     "Hiato"
+    ],
+    [
+     "Sonreímos",
+     "son-re-í-mos",
+     "Hiato"
+    ]
+   ]
+  },
+  {
+   "tipo": "palabras",
+   "titulo": "Diptongo o hiato (2)",
+   "enunciado": "Separa por sílabas e indica si hay diptongo o hiato.",
+   "palabras": [
+    "Ahorraréis",
+    "Efectúe",
+    "Ataúd",
+    "Resfriado",
+    "Homeopatía"
+   ],
+   "cab": [
+    "Palabra",
+    "Sílabas",
+    "Diptongo o hiato"
+   ],
+   "filas": [
+    [
+     "Ahorraréis",
+     "a-ho-rra-réis",
+     "Diptongo"
+    ],
+    [
+     "Efectúe",
+     "e-fec-tú-e",
+     "Hiato"
+    ],
+    [
+     "Ataúd",
+     "a-ta-úd",
+     "Hiato"
+    ],
+    [
+     "Resfriado",
+     "res-fria-do",
+     "Diptongo"
+    ],
+    [
+     "Homeopatía",
+     "ho-me-o-pa-tí-a",
+     "Hiato"
+    ]
+   ]
+  },
+  {
+   "tipo": "palabras",
+   "titulo": "Diptongo o hiato (3)",
+   "enunciado": "Separa por sílabas e indica si hay diptongo o hiato.",
+   "palabras": [
+    "Reuníais",
+    "Hablaríais",
+    "Huerto",
+    "Aseguráis",
+    "Suéltalo"
+   ],
+   "cab": [
+    "Palabra",
+    "Sílabas",
+    "Diptongo o hiato"
+   ],
+   "filas": [
+    [
+     "Reuníais",
+     "reu-ní-ais",
+     "Hiato"
+    ],
+    [
+     "Hablaríais",
+     "ha-bla-rí-ais",
+     "Hiato"
+    ],
+    [
+     "Huerto",
+     "huer-to",
+     "Diptongo"
+    ],
+    [
+     "Aseguráis",
+     "a-se-gu-ráis",
+     "Diptongo"
+    ],
+    [
+     "Suéltalo",
+     "suél-ta-lo",
+     "Diptongo"
+    ]
+   ]
+  },
+  {
+   "tipo": "palabras",
+   "titulo": "Diptongo o hiato (4)",
+   "enunciado": "Separa por sílabas e indica si hay diptongo o hiato.",
+   "palabras": [
+    "Baldío",
+    "Vocerío",
+    "Creído",
+    "Acentúo"
+   ],
+   "cab": [
+    "Palabra",
+    "Sílabas",
+    "Diptongo o hiato"
+   ],
+   "filas": [
+    [
+     "Baldío",
+     "bal-dí-o",
+     "Hiato"
+    ],
+    [
+     "Vocerío",
+     "vo-ce-rí-o",
+     "Hiato"
+    ],
+    [
+     "Creído",
+     "cre-í-do",
+     "Hiato"
+    ],
+    [
+     "Acentúo",
+     "a-cen-tú-o",
+     "Hiato"
+    ]
+   ]
+  }
+ ]
+}

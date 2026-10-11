@@ -23,9 +23,8 @@ const SITIO = {
     {
       id: "lengua",
       titulo: "Lengua",
-      resumen: "Apuntes y ejercicios de lengua para la prueba de acceso.",
-      icono: "i-edit",
-      proximamente: true
+      resumen: "Ortografía, comunicación y funciones del lenguaje, con apuntes en PDF y ejercicios resueltos.",
+      icono: "i-edit"
     }
   ]
 };
