@@ -12,11 +12,12 @@
       '<a class="ds-btn ds-btn--secondary ds-btn--sm" href="' + url + '" aria-label="Abrir el tema ' + esc(m.titulo) + '">Abrir</a></li>';
   }).join("");
 
+  const preguntas = Object.values(PREGUNTAS).reduce((n, lista) => n + lista.length, 0);
   const diapositivas = MODULOS_LENGUA.reduce((n, m) => n + (parseInt(m.paginas, 10) || 0), 0);
   DS.cifras("cifras", [
     { tipo: "grande marca", etiqueta: "Temario", valor: String(MODULOS_LENGUA.length), unidad: "temas", texto: MODULOS_LENGUA[0].titulo + " y " + MODULOS_LENGUA[1].titulo.toLowerCase() + ", cada uno con su presentación en PDF." },
-    { tipo: "oscura", etiqueta: "Banco de preguntas", valor: "—", texto: "Próximamente." },
+    { tipo: "oscura", etiqueta: "Banco de preguntas", valor: String(preguntas), unidad: "preguntas", texto: "Con solución explicada." },
     { etiqueta: "Presentaciones", valor: String(diapositivas), unidad: "diapositivas", texto: "Con ejercicios y sus soluciones." },
-    { tipo: "marca ancha", etiqueta: "Exámenes", valor: "—", texto: "Próximamente, cuando esté el banco de preguntas." }
+    { tipo: "marca ancha", etiqueta: "Exámenes", valor: "∞", texto: "A medida, con hoja de soluciones aparte." }
   ]);
 })();

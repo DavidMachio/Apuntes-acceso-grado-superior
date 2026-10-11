@@ -16,8 +16,11 @@ const CURSO = {
   ficha: [
     { etiqueta: "Nivel",       valor: "Acceso a grado superior" },
     { etiqueta: "Material",    valor: "2 temas en PDF" },
-    { etiqueta: "Ejercicios",  valor: "Con las soluciones al final" }
+    { etiqueta: "Ejercicios",  valor: "Con las soluciones al final" },
+    { etiqueta: "Exámenes",    valor: "Para imprimir y rellenar a mano" }
   ],
+
+  examenTitulo: "Examen de lengua",               // título que sale en la hoja del examen
 
   pie: "Última actualización: octubre de 2026. Contacto: dvmachio@gmail.com"
 };
