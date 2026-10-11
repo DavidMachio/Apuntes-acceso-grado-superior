@@ -340,16 +340,16 @@ pre code { background: none; padding: 0; }
 /* ===== 12. CIFRAS: tarjetas de datos clave (v2.1) =====
    Bloques redondeados claros / de color / oscuros con una cifra grande y la unidad en peso ligero.
    Cada página los pinta con el color de su variante (amarillo, matemáticas, lengua). */
-.ds-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); }
-.ds-stat { display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-6); min-height: 11rem; padding: var(--space-6); border-radius: var(--radius-xl); background: var(--color-bg-surface); color: var(--color-text-primary); }
+.ds-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); }
+.ds-stat { display: flex; flex-direction: column; justify-content: space-between; gap: var(--space-4); min-height: 8.5rem; padding: var(--space-5); border-radius: var(--radius-xl); background: var(--color-bg-surface); color: var(--color-text-primary); }
 .ds-stat > * { margin-block: 0; }
 .ds-stat--grande { grid-column: span 2; grid-row: span 2; }
 .ds-stat--ancha { grid-column: span 2; }
 .ds-stat--marca { background: var(--color-action-primary-bg); color: var(--color-action-primary-text); }
 .ds-stat--oscura { background: var(--color-action-dark-bg); color: var(--color-action-dark-text); }
 .ds-stat__etiqueta { align-self: flex-start; padding: var(--space-1) var(--space-3); border: var(--border-hairline) solid currentColor; border-radius: var(--radius-pill); font: var(--font-weight-semibold) var(--font-size-label)/1.2 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; }
-.ds-stat__valor { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: var(--space-2); font-family: var(--font-family-heading); font-weight: var(--font-weight-bold); font-size: clamp(2.75rem, 5vw, 3.75rem); line-height: 1; letter-spacing: var(--tracking-tight); }
-.ds-stat--grande .ds-stat__valor { font-size: clamp(5rem, 13vw, 9rem); }
+.ds-stat__valor { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: var(--space-2); font-family: var(--font-family-heading); font-weight: var(--font-weight-bold); font-size: clamp(2.25rem, 4vw, 3rem); line-height: 1; letter-spacing: var(--tracking-tight); }
+.ds-stat--grande .ds-stat__valor { font-size: clamp(4rem, 9vw, 6.5rem); }
 .ds-stat__unidad { font-size: .4em; font-weight: var(--font-weight-regular); opacity: .6; }
 .ds-stat__texto { font-size: var(--font-size-body); line-height: var(--line-height-body); }
 .ds-stat__barra { height: var(--space-2); border-radius: var(--radius-pill); background: color-mix(in srgb, currentColor 22%, transparent); overflow: hidden; }

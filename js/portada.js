@@ -8,8 +8,8 @@
   document.getElementById("materias").innerHTML = SITIO.materias.map(m => {
     const estado = m.proximamente ? '<span class="ds-badge ds-badge--accent">Próximamente</span>' : "";
     return '<article class="ds-card ds-card--dark ds-card--link materia" data-variante="' + esc(m.id) + '">' +
-      '<span class="ds-logo__mark">' + ic(m.icono) + "</span>" + estado +
-      '<h2 class="ds-card__title"><a href="' + esc(m.id) + '/index.html">' + esc(m.titulo) + "</a></h2>" +
+      '<div class="materia__cabecera"><span class="ds-logo__mark materia__icono">' + ic(m.icono) + "</span>" +
+      '<h2 class="ds-card__title"><a href="' + esc(m.id) + '/index.html">' + esc(m.titulo) + "</a></h2></div>" + estado +
       "<p>" + esc(m.resumen) + "</p>" +
       '<span class="ds-link-arrow">Entrar ' + ic("i-arrow-right") + "</span></article>";
   }).join("");
