@@ -1,0 +1,492 @@
+{
+ "numero": 7,
+ "materia": "Matemáticas",
+ "titulo": "Proporcionalidad",
+ "marca": "÷",
+ "lead": "Regla de tres directa e inversa, y la constante que las identifica.",
+ "vas_a_ver": [
+  "Regla de tres directa",
+  "Regla de tres inversa",
+  "Constante de proporcionalidad directa",
+  "Constante de proporcionalidad inversa"
+ ],
+ "formulas": [
+  {
+   "titulo": "Regla de tres directa",
+   "formulas": [
+    "\\dfrac{a}{b}=\\dfrac{c}{x}\\;\\Rightarrow\\;x=\\dfrac{b\\cdot c}{a}"
+   ],
+   "explicacion": "Si una magnitud sube, la otra sube en la misma proporción. Multiplica en cruz y divide entre el dato que queda solo."
+  },
+  {
+   "titulo": "Regla de tres inversa",
+   "formulas": [
+    "a\\cdot b=c\\cdot x\\;\\Rightarrow\\;x=\\dfrac{a\\cdot b}{c}"
+   ],
+   "explicacion": "Si una magnitud sube, la otra baja. El producto de cada pareja es el mismo: multiplica los datos conocidos y divide entre el tercero."
+  },
+  {
+   "titulo": "Constante en la directa",
+   "formulas": [
+    "k=\\dfrac{y}{x}"
+   ],
+   "explicacion": "En la proporcionalidad directa el cociente y/x es siempre el mismo. Ese valor es la constante de proporcionalidad."
+  },
+  {
+   "titulo": "Constante en la inversa",
+   "formulas": [
+    "k=x\\cdot y"
+   ],
+   "explicacion": "En la proporcionalidad inversa el producto x·y es siempre el mismo. Si no se mantiene, no es inversa."
+  }
+ ],
+ "ejemplos": [
+  {
+   "titulo": "Regla de tres directa",
+   "enunciado": "Si 3 azucarillos tienen 21 gramos de azúcar, ¿cuántos gramos tienen 5 azucarillos?",
+   "formula": [
+    "\\dfrac{a}{b}=\\dfrac{c}{x}\\;\\Rightarrow\\;x=\\dfrac{b\\cdot c}{a}"
+   ],
+   "desarrollo": [
+    "x=\\dfrac{21\\cdot5}{3}=\\dfrac{105}{3}=35\\text{ g}"
+   ],
+   "resultado": [
+    "Gramos de azúcar",
+    "35 g"
+   ],
+   "check": [
+    [
+     "21*5/3",
+     35.0
+    ]
+   ],
+   "datos": [
+    [
+     "Azucarillos",
+     "3"
+    ],
+    [
+     "Gramos",
+     "21 g"
+    ],
+    [
+     "Azucarillos pedidos",
+     "5"
+    ]
+   ]
+  },
+  {
+   "titulo": "Regla de tres inversa",
+   "enunciado": "2 pintores tardan 6 horas en pintar una pared. ¿Cuánto tardan 3 pintores?",
+   "formula": [
+    "a\\cdot b=c\\cdot x\\;\\Rightarrow\\;x=\\dfrac{a\\cdot b}{c}"
+   ],
+   "desarrollo": [
+    "2\\cdot6=3\\cdot x\\;\\Rightarrow\\;x=\\dfrac{12}{3}=4\\text{ horas}"
+   ],
+   "resultado": [
+    "Tiempo",
+    "4 horas"
+   ],
+   "check": [
+    [
+     "2*6/3",
+     4.0
+    ]
+   ],
+   "datos": [
+    [
+     "Pintores",
+     "2"
+    ],
+    [
+     "Horas",
+     "6 horas"
+    ],
+    [
+     "Pintores pedidos",
+     "3"
+    ]
+   ]
+  },
+  {
+   "titulo": "Constante de proporcionalidad",
+   "enunciado": "Un coche va a velocidad constante: recorre 120 km en 2 horas y 300 km en 5 horas. ¿Es proporcionalidad directa? ¿Cuál es la constante?",
+   "formula": [
+    "k=\\dfrac{y}{x}"
+   ],
+   "desarrollo": [
+    "\\dfrac{120}{2}=60",
+    "\\dfrac{300}{5}=60\\;\\Rightarrow\\;\\text{el cociente se mantiene}"
+   ],
+   "resultado": [
+    "Constante k",
+    "60 km/h"
+   ],
+   "check": [
+    [
+     "120/2",
+     60.0
+    ],
+    [
+     "300/5",
+     60.0
+    ]
+   ],
+   "datos": [
+    [
+     "Tras 2 horas",
+     "120 km"
+    ],
+    [
+     "Tras 5 horas",
+     "300 km"
+    ]
+   ]
+  }
+ ],
+ "ejercicios": [
+  {
+   "titulo": "Precio de la fruta",
+   "enunciado": "4 kg de manzanas cuestan 10 €. ¿Cuánto cuestan 7 kg?",
+   "formula": [
+    "\\dfrac{a}{b}=\\dfrac{c}{x}\\;\\Rightarrow\\;x=\\dfrac{b\\cdot c}{a}"
+   ],
+   "desarrollo": [
+    "x=\\dfrac{10\\cdot7}{4}=\\dfrac{70}{4}=17{,}5\\text{ €}"
+   ],
+   "resultado": [
+    "Precio",
+    "17,5 €"
+   ],
+   "check": [
+    [
+     "10*7/4",
+     17.5
+    ]
+   ],
+   "datos": [
+    [
+     "Kilos",
+     "4"
+    ],
+    [
+     "Precio",
+     "10 €"
+    ],
+    [
+     "Kilos pedidos",
+     "7"
+    ]
+   ]
+  },
+  {
+   "titulo": "Entradas de cine",
+   "enunciado": "5 entradas cuestan 60 €. ¿Cuánto cuestan 8 entradas?",
+   "formula": [
+    "\\dfrac{a}{b}=\\dfrac{c}{x}\\;\\Rightarrow\\;x=\\dfrac{b\\cdot c}{a}"
+   ],
+   "desarrollo": [
+    "x=\\dfrac{60\\cdot8}{5}=\\dfrac{480}{5}=96\\text{ €}"
+   ],
+   "resultado": [
+    "Precio",
+    "96 €"
+   ],
+   "check": [
+    [
+     "60*8/5",
+     96.0
+    ]
+   ],
+   "datos": [
+    [
+     "Entradas",
+     "5"
+    ],
+    [
+     "Precio",
+     "60 €"
+    ],
+    [
+     "Entradas pedidas",
+     "8"
+    ]
+   ]
+  },
+  {
+   "titulo": "Tortillas",
+   "enunciado": "Con 12 huevos se hacen 4 tortillas. ¿Cuántas tortillas se hacen con 30 huevos?",
+   "formula": [
+    "\\dfrac{a}{b}=\\dfrac{c}{x}\\;\\Rightarrow\\;x=\\dfrac{b\\cdot c}{a}"
+   ],
+   "desarrollo": [
+    "x=\\dfrac{4\\cdot30}{12}=\\dfrac{120}{12}=10\\text{ tortillas}"
+   ],
+   "resultado": [
+    "Tortillas",
+    "10 tortillas"
+   ],
+   "check": [
+    [
+     "4*30/12",
+     10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Huevos",
+     "12"
+    ],
+    [
+     "Tortillas",
+     "4 tortillas"
+    ],
+    [
+     "Huevos pedidos",
+     "30"
+    ]
+   ]
+  },
+  {
+   "titulo": "Consumo del coche",
+   "enunciado": "Un coche gasta 40 litros en 480 km. ¿Cuántos litros gasta en 300 km?",
+   "formula": [
+    "\\dfrac{a}{b}=\\dfrac{c}{x}\\;\\Rightarrow\\;x=\\dfrac{b\\cdot c}{a}"
+   ],
+   "desarrollo": [
+    "x=\\dfrac{40\\cdot300}{480}=\\dfrac{12\\,000}{480}=25\\text{ litros}"
+   ],
+   "resultado": [
+    "Gasto",
+    "25 litros"
+   ],
+   "check": [
+    [
+     "40*300/480",
+     25.0
+    ]
+   ],
+   "datos": [
+    [
+     "Kilómetros",
+     "480"
+    ],
+    [
+     "Litros",
+     "40 litros"
+    ],
+    [
+     "Kilómetros pedidos",
+     "300"
+    ]
+   ]
+  },
+  {
+   "titulo": "Obreros y días",
+   "enunciado": "4 obreros terminan una obra en 12 días. ¿Cuántos días tardan 6 obreros?",
+   "formula": [
+    "a\\cdot b=c\\cdot x\\;\\Rightarrow\\;x=\\dfrac{a\\cdot b}{c}"
+   ],
+   "desarrollo": [
+    "4\\cdot12=6\\cdot x\\;\\Rightarrow\\;x=\\dfrac{48}{6}=8\\text{ días}"
+   ],
+   "resultado": [
+    "Tiempo",
+    "8 días"
+   ],
+   "check": [
+    [
+     "4*12/6",
+     8.0
+    ]
+   ],
+   "datos": [
+    [
+     "Obreros",
+     "4"
+    ],
+    [
+     "Días",
+     "12 días"
+    ],
+    [
+     "Obreros pedidos",
+     "6"
+    ]
+   ]
+  },
+  {
+   "titulo": "Grifos y llenado",
+   "enunciado": "3 grifos llenan un depósito en 10 horas. ¿Cuántas horas tardan 5 grifos?",
+   "formula": [
+    "a\\cdot b=c\\cdot x\\;\\Rightarrow\\;x=\\dfrac{a\\cdot b}{c}"
+   ],
+   "desarrollo": [
+    "3\\cdot10=5\\cdot x\\;\\Rightarrow\\;x=\\dfrac{30}{5}=6\\text{ horas}"
+   ],
+   "resultado": [
+    "Tiempo",
+    "6 horas"
+   ],
+   "check": [
+    [
+     "3*10/5",
+     6.0
+    ]
+   ],
+   "datos": [
+    [
+     "Grifos",
+     "3"
+    ],
+    [
+     "Horas",
+     "10 horas"
+    ],
+    [
+     "Grifos pedidos",
+     "5"
+    ]
+   ]
+  },
+  {
+   "titulo": "Velocidad y tiempo",
+   "enunciado": "A 60 km/h un trayecto dura 5 horas. ¿Cuánto dura a 100 km/h?",
+   "formula": [
+    "a\\cdot b=c\\cdot x\\;\\Rightarrow\\;x=\\dfrac{a\\cdot b}{c}"
+   ],
+   "desarrollo": [
+    "60\\cdot5=100\\cdot x\\;\\Rightarrow\\;x=\\dfrac{300}{100}=3\\text{ horas}"
+   ],
+   "resultado": [
+    "Tiempo",
+    "3 horas"
+   ],
+   "check": [
+    [
+     "60*5/100",
+     3.0
+    ]
+   ],
+   "datos": [
+    [
+     "Velocidad",
+     "60"
+    ],
+    [
+     "Horas",
+     "5 horas"
+    ],
+    [
+     "Velocidad pedida",
+     "100"
+    ]
+   ]
+  },
+  {
+   "titulo": "Víveres de un grupo",
+   "enunciado": "Con 8 personas, la comida dura 15 días. ¿Cuántos días dura con 12 personas?",
+   "formula": [
+    "a\\cdot b=c\\cdot x\\;\\Rightarrow\\;x=\\dfrac{a\\cdot b}{c}"
+   ],
+   "desarrollo": [
+    "8\\cdot15=12\\cdot x\\;\\Rightarrow\\;x=\\dfrac{120}{12}=10\\text{ días}"
+   ],
+   "resultado": [
+    "Duración",
+    "10 días"
+   ],
+   "check": [
+    [
+     "8*15/12",
+     10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Personas",
+     "8"
+    ],
+    [
+     "Días",
+     "15 días"
+    ],
+    [
+     "Personas pedidas",
+     "12"
+    ]
+   ]
+  },
+  {
+   "titulo": "¿Directa? Los cuadernos",
+   "enunciado": "4 cuadernos cuestan 12 € y 10 cuadernos cuestan 30 €. ¿Es proporcionalidad directa? ¿Cuál es la constante?",
+   "formula": [
+    "k=\\dfrac{y}{x}"
+   ],
+   "desarrollo": [
+    "\\dfrac{12}{4}=3",
+    "\\dfrac{30}{10}=3\\;\\Rightarrow\\;\\text{el cociente se mantiene}"
+   ],
+   "resultado": [
+    "Constante k",
+    "3 €/cuaderno"
+   ],
+   "check": [
+    [
+     "12/4",
+     3.0
+    ],
+    [
+     "30/10",
+     3.0
+    ]
+   ],
+   "datos": [
+    [
+     "4 cuadernos",
+     "12 €"
+    ],
+    [
+     "10 cuadernos",
+     "30 €"
+    ]
+   ]
+  },
+  {
+   "titulo": "¿Inversa? Las personas",
+   "enunciado": "6 personas tardan 4 horas en una tarea y 8 personas tardan 3 horas. ¿Es proporcionalidad inversa? ¿Cuál es la constante?",
+   "formula": [
+    "k=x\\cdot y"
+   ],
+   "desarrollo": [
+    "6\\cdot4=24",
+    "8\\cdot3=24\\;\\Rightarrow\\;\\text{el producto se mantiene}"
+   ],
+   "resultado": [
+    "Constante k",
+    "24 personas·horas"
+   ],
+   "check": [
+    [
+     "6*4",
+     24
+    ],
+    [
+     "8*3",
+     24
+    ]
+   ],
+   "datos": [
+    [
+     "6 personas",
+     "4 horas"
+    ],
+    [
+     "8 personas",
+     "3 horas"
+    ]
+   ]
+  }
+ ]
+}

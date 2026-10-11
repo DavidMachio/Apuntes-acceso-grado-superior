@@ -57,7 +57,7 @@ const MODULOS = [
   {
     titulo: "Proporcionalidad",
     resumen: "Regla de tres, proporcionalidad directa e inversa.",
-    paginas: "28 diapositivas",
+    paginas: "35 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 7", detalle: "Proporcionalidad", archivo: "pdfs/tema-07-proporcionalidad.pdf" }
     ]
