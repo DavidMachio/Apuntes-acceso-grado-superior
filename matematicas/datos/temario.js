@@ -49,7 +49,7 @@ const MODULOS = [
   {
     titulo: "Interés compuesto",
     resumen: "Intereses que se reinvierten y vuelven a generar beneficio.",
-    paginas: "22 diapositivas",
+    paginas: "35 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 6", detalle: "Interés compuesto", archivo: "pdfs/tema-06-interes-compuesto.pdf" }
     ]

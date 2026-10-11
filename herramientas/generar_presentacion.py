@@ -36,7 +36,7 @@ def verificar(t):
     for seccion in ("ejemplos", "ejercicios"):
         for e in t[seccion]:
             for expr, esperado in e["check"]:
-                valor = eval(expr, {"__builtins__": {}}, {})  # solo operaciones numéricas escritas en el JSON
+                valor = eval(expr, {"__builtins__": {}, "round": round}, {})  # solo operaciones numéricas escritas en el JSON
                 if abs(valor - esperado) > 1e-9:
                     sys.exit(f"ERROR de cálculo en «{e['titulo']}»: {expr} = {valor}, esperado {esperado}")
                 n += 1
