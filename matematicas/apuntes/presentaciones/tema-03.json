@@ -1,0 +1,437 @@
+{
+ "numero": 3,
+ "materia": "Matemáticas",
+ "titulo": "Porcentaje de un total",
+ "marca": "÷",
+ "lead": "Qué porcentaje representa una cantidad del total.",
+ "vas_a_ver": [
+  "Qué porcentaje es una parte del total",
+  "Calcular la parte a partir del %",
+  "Calcular el total",
+  "Comprobar con regla de tres"
+ ],
+ "formulas": [
+  {
+   "titulo": "Qué porcentaje es una parte del total",
+   "formulas": [
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "explicacion": "Divide la cantidad (c) entre el total (t) y multiplica por 100. El resultado te dice qué parte del total es, expresada en %."
+  },
+  {
+   "titulo": "Calcular la parte a partir del %",
+   "formulas": [
+    "c=t\\cdot\\dfrac{p}{100}"
+   ],
+   "explicacion": "Si conoces el total y el porcentaje, multiplica el total por p/100 para obtener la parte."
+  },
+  {
+   "titulo": "Calcular el total",
+   "formulas": [
+    "t=\\dfrac{c\\cdot100}{p}"
+   ],
+   "explicacion": "Si conoces la parte y el porcentaje que representa, multiplica la parte por 100 y divide entre el porcentaje."
+  },
+  {
+   "titulo": "Con regla de tres",
+   "formulas": [
+    "\\dfrac{c}{t}=\\dfrac{p}{100}"
+   ],
+   "explicacion": "Las tres fórmulas salen de esta proporción. Recuerda: una parte nunca supera el total, así que el porcentaje no pasa del 100 %."
+  }
+ ],
+ "ejemplos": [
+  {
+   "titulo": "Qué porcentaje es una parte",
+   "enunciado": "Estudiamos 10 horas y 4 de ellas son de matemáticas. ¿Qué porcentaje del tiempo dedicamos a matemáticas?",
+   "formula": [
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "desarrollo": [
+    "\\dfrac{4}{10}\\times100=40\\,\\%"
+   ],
+   "resultado": [
+    "Tiempo de matemáticas",
+    "40 %"
+   ],
+   "check": [
+    [
+     "4/10*100",
+     40
+    ]
+   ],
+   "datos": [
+    [
+     "Horas totales",
+     "10 h"
+    ],
+    [
+     "Horas de matemáticas",
+     "4 h"
+    ]
+   ]
+  },
+  {
+   "titulo": "Calcular la parte",
+   "enunciado": "En una bolsa hay 250 bolas y el 20 % son rojas. ¿Cuántas bolas rojas hay?",
+   "formula": [
+    "c=t\\cdot\\dfrac{p}{100}"
+   ],
+   "desarrollo": [
+    "250\\cdot\\dfrac{20}{100}=250\\cdot0{,}2=50"
+   ],
+   "resultado": [
+    "Bolas rojas",
+    "50"
+   ],
+   "check": [
+    [
+     "250*20/100",
+     50
+    ]
+   ],
+   "datos": [
+    [
+     "Bolas en la bolsa",
+     "250"
+    ],
+    [
+     "Rojas",
+     "20 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Calcular el total",
+   "enunciado": "El 15 % de las frutas de un almacén son plátanos y hay 120 plátanos. ¿Cuántas frutas hay en total?",
+   "formula": [
+    "t=\\dfrac{c\\cdot100}{p}"
+   ],
+   "desarrollo": [
+    "\\dfrac{120\\cdot100}{15}=\\dfrac{12\\,000}{15}=800"
+   ],
+   "resultado": [
+    "Frutas en total",
+    "800"
+   ],
+   "check": [
+    [
+     "120*100/15",
+     800
+    ]
+   ],
+   "datos": [
+    [
+     "Plátanos",
+     "120"
+    ],
+    [
+     "Porcentaje",
+     "15 %"
+    ]
+   ]
+  }
+ ],
+ "ejercicios": [
+  {
+   "titulo": "Manzanas en un cesto",
+   "enunciado": "En un cesto hay 15 manzanas y tomamos 3. ¿Qué porcentaje de las manzanas hemos tomado?",
+   "formula": [
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "desarrollo": [
+    "\\dfrac{3}{15}\\times100=20\\,\\%"
+   ],
+   "resultado": [
+    "Manzanas tomadas",
+    "20 %"
+   ],
+   "check": [
+    [
+     "3/15*100",
+     20
+    ]
+   ],
+   "datos": [
+    [
+     "Total",
+     "15 manzanas"
+    ],
+    [
+     "Tomadas",
+     "3 manzanas"
+    ]
+   ]
+  },
+  {
+   "titulo": "Libros de matemáticas",
+   "enunciado": "En una biblioteca hay 800 libros y 200 son de matemáticas. ¿Qué porcentaje de los libros es de matemáticas?",
+   "formula": [
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "desarrollo": [
+    "\\dfrac{200}{800}\\times100=25\\,\\%"
+   ],
+   "resultado": [
+    "Libros de matemáticas",
+    "25 %"
+   ],
+   "check": [
+    [
+     "200/800*100",
+     25
+    ]
+   ],
+   "datos": [
+    [
+     "Libros en total",
+     "800"
+    ],
+    [
+     "De matemáticas",
+     "200"
+    ]
+   ]
+  },
+  {
+   "titulo": "Alumnos zurdos",
+   "enunciado": "En una clase de 20 alumnos, 5 son zurdos. ¿Qué porcentaje de la clase es zurdo?",
+   "formula": [
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "desarrollo": [
+    "\\dfrac{5}{20}\\times100=25\\,\\%"
+   ],
+   "resultado": [
+    "Alumnos zurdos",
+    "25 %"
+   ],
+   "check": [
+    [
+     "5/20*100",
+     25
+    ]
+   ],
+   "datos": [
+    [
+     "Alumnos en total",
+     "20"
+    ],
+    [
+     "Zurdos",
+     "5"
+    ]
+   ]
+  },
+  {
+   "titulo": "Aprobados del curso",
+   "enunciado": "En un curso de 40 alumnos aprueban 30. ¿Qué porcentaje ha aprobado?",
+   "formula": [
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "desarrollo": [
+    "\\dfrac{30}{40}\\times100=75\\,\\%"
+   ],
+   "resultado": [
+    "Aprobados",
+    "75 %"
+   ],
+   "check": [
+    [
+     "30/40*100",
+     75
+    ]
+   ],
+   "datos": [
+    [
+     "Alumnos en total",
+     "40"
+    ],
+    [
+     "Aprobados",
+     "30"
+    ]
+   ]
+  },
+  {
+   "titulo": "Butacas ocupadas",
+   "enunciado": "Un cine tiene 120 butacas y hoy se ha ocupado el 85 %. ¿Cuántas butacas están ocupadas?",
+   "formula": [
+    "c=t\\cdot\\dfrac{p}{100}"
+   ],
+   "desarrollo": [
+    "120\\cdot\\dfrac{85}{100}=120\\cdot0{,}85=102"
+   ],
+   "resultado": [
+    "Butacas ocupadas",
+    "102"
+   ],
+   "check": [
+    [
+     "120*85/100",
+     102
+    ]
+   ],
+   "datos": [
+    [
+     "Butacas del cine",
+     "120"
+    ],
+    [
+     "Ocupación",
+     "85 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Alumnos con gafas",
+   "enunciado": "En una clase de 25 alumnos, el 12 % lleva gafas. ¿Cuántos alumnos llevan gafas?",
+   "formula": [
+    "c=t\\cdot\\dfrac{p}{100}"
+   ],
+   "desarrollo": [
+    "25\\cdot\\dfrac{12}{100}=25\\cdot0{,}12=3"
+   ],
+   "resultado": [
+    "Alumnos con gafas",
+    "3"
+   ],
+   "check": [
+    [
+     "25*12/100",
+     3
+    ]
+   ],
+   "datos": [
+    [
+     "Alumnos en total",
+     "25"
+    ],
+    [
+     "Con gafas",
+     "12 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Votantes de una lista",
+   "enunciado": "En unas elecciones votan 2.000 personas y una lista obtiene el 45 % de los votos. ¿Cuántos votos recibe?",
+   "formula": [
+    "c=t\\cdot\\dfrac{p}{100}"
+   ],
+   "desarrollo": [
+    "2\\,000\\cdot\\dfrac{45}{100}=2\\,000\\cdot0{,}45=900"
+   ],
+   "resultado": [
+    "Votos de la lista",
+    "900"
+   ],
+   "check": [
+    [
+     "2000*45/100",
+     900
+    ]
+   ],
+   "datos": [
+    [
+     "Votantes",
+     "2.000"
+    ],
+    [
+     "Votos de la lista",
+     "45 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Ahorro mensual",
+   "enunciado": "Una persona ahorra 150 € al mes, que es el 10 % de su sueldo. ¿Cuál es su sueldo?",
+   "formula": [
+    "t=\\dfrac{c\\cdot100}{p}"
+   ],
+   "desarrollo": [
+    "\\dfrac{150\\cdot100}{10}=\\dfrac{15\\,000}{10}=1\\,500"
+   ],
+   "resultado": [
+    "Sueldo",
+    "1.500 €"
+   ],
+   "check": [
+    [
+     "150*100/10",
+     1500
+    ]
+   ],
+   "datos": [
+    [
+     "Ahorro mensual",
+     "150 €"
+    ],
+    [
+     "Porcentaje del sueldo",
+     "10 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Alumnos de una clase",
+   "enunciado": "En una clase, 9 alumnos son el 30 % del total. ¿Cuántos alumnos hay en la clase?",
+   "formula": [
+    "t=\\dfrac{c\\cdot100}{p}"
+   ],
+   "desarrollo": [
+    "\\dfrac{9\\cdot100}{30}=\\dfrac{900}{30}=30"
+   ],
+   "resultado": [
+    "Alumnos en la clase",
+    "30"
+   ],
+   "check": [
+    [
+     "9*100/30",
+     30
+    ]
+   ],
+   "datos": [
+    [
+     "Alumnos",
+     "9"
+    ],
+    [
+     "Porcentaje",
+     "30 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Entradas vendidas",
+   "enunciado": "Se han vendido 48 entradas, que son el 60 % del aforo. ¿Cuál es el aforo total?",
+   "formula": [
+    "t=\\dfrac{c\\cdot100}{p}"
+   ],
+   "desarrollo": [
+    "\\dfrac{48\\cdot100}{60}=\\dfrac{4\\,800}{60}=80"
+   ],
+   "resultado": [
+    "Aforo total",
+    "80"
+   ],
+   "check": [
+    [
+     "48*100/60",
+     80
+    ]
+   ],
+   "datos": [
+    [
+     "Entradas vendidas",
+     "48"
+    ],
+    [
+     "Del aforo",
+     "60 %"
+    ]
+   ]
+  }
+ ]
+}

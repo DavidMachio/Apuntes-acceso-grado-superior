@@ -25,7 +25,7 @@ const MODULOS = [
   {
     titulo: "Porcentaje de un total",
     resumen: "Qué porcentaje representa una cantidad del total.",
-    paginas: "16 diapositivas",
+    paginas: "35 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 3", detalle: "Porcentaje de un total", archivo: "pdfs/tema-03-porcentaje-de-un-total.pdf" }
     ]
