@@ -18,7 +18,7 @@ matematicas/            Materia de Matemáticas (color menta)
   datos/                curso.js (textos), temario.js (temas y PDFs), preguntas.js (examen)
   pdfs/                 PDFs de los temas (diapositivas generadas con herramientas/generar_diapositivas.py)
   apuntes/              Apuntes de origen (.md)
-lengua/                 Materia de Lengua (rosa rojizo; de momento, «Próximamente»)
+lengua/                 Materia de Lengua (rosa rojizo): temario, presentaciones y apuntes (sin banco de preguntas de momento)
 herramientas/           Scripts (generar PDFs a partir de los apuntes)
 ```
 

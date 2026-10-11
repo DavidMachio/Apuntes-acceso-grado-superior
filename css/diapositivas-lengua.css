@@ -1,0 +1,63 @@
+/* Design System · diapositivas de LENGUA (propuesta v2.2)
+   Se carga DESPUÉS de variables.css, componentes.css y diapositivas.css, solo en las presentaciones de Lengua.
+   Añade los componentes de texto que Matemáticas no necesita (definiciones, comparaciones, palabras, frases, tablas de respuestas).
+   Reutiliza las tarjetas de diapositivas.css (ds-slide__card2, --menta, --formula) y los tokens: no hay colores ni medidas a mano
+   salvo la escala de texto del formato diapositiva (1280 × 720 px) ya documentada en diapositivas.css. */
+
+/* ---- Definiciones: un término y su explicación ---- */
+.ds-slide__defs { display: grid; gap: var(--space-4); flex: 1; align-content: start; min-height: 0; }
+.ds-slide__defs--2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ds-slide__def { display: grid; grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr); gap: var(--space-4); align-items: stretch; }
+.ds-slide__defs--2 .ds-slide__def { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); align-content: start; }
+.ds-slide__termino { display: flex; align-items: center; font: var(--font-weight-bold) 40px/1.1 var(--font-family-heading); }
+.ds-slide__defs--2 .ds-slide__termino { font-size: 38px; }
+.ds-slide__texto { font-size: 30px; line-height: 1.3; }
+.ds-slide__defs--2 .ds-slide__texto { font-size: 28px; }
+.ds-slide__texto b { display: block; margin-top: var(--space-2); font-weight: var(--font-weight-bold); }
+.ds-slide__def > .ds-slide__card2 { display: flex; flex-direction: column; justify-content: center; }
+.ds-slide__defs--2 .ds-slide__def > .ds-slide__card2 { padding: var(--space-4) var(--space-6); }
+
+/* ---- Comparación: dos conceptos lado a lado (directo / indirecto, abiertas / cerradas, verbal / no verbal) ---- */
+.ds-slide__duo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-5); flex: 1; min-height: 0; }
+.ds-slide__duo > .ds-slide__card2 { display: flex; flex-direction: column; justify-content: center; gap: var(--space-3); padding: var(--space-8); }
+.ds-slide__duo .ds-slide__texto { font-size: 32px; }
+.ds-slide__duo .ds-slide__grande { font: var(--font-weight-bold) 72px/1 var(--font-family-heading); letter-spacing: var(--tracking-tight); }
+.ds-slide__duo .ds-slide__cita { font: var(--font-weight-semibold) 30px/1.3 var(--font-family-body); padding-top: var(--space-4); border-top: var(--border-strong) solid var(--slide-accent); }
+.ds-slide__duo .ds-slide__card2--formula .ds-slide__cita { color: var(--slide-accent-soft); }
+
+/* ---- Regla: enunciado + puntos + ejemplos ---- */
+.ds-slide__enun-regla { font-size: 40px; line-height: 1.3; }
+.ds-slide__puntos { display: grid; gap: var(--space-3); }
+.ds-slide__punto { padding: var(--space-4) var(--space-6); border-radius: var(--radius-lg); background: var(--color-neutral-0); border-left: var(--space-2) solid var(--slide-accent); font-size: 34px; line-height: 1.25; }
+.ds-slide__punto b { font-weight: var(--font-weight-bold); }
+.ds-slide__nota { font-size: 32px; line-height: 1.3; font-weight: var(--font-weight-semibold); padding: var(--space-3) var(--space-5); border-radius: var(--radius-lg); background: var(--color-neutral-900); color: var(--color-neutral-50); }
+.ds-slide__nota b { color: var(--slide-accent-soft); }
+
+/* ---- Palabras y frases (ejercicios y soluciones) ---- */
+.ds-slide__palabras { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; }
+.ds-slide__palabra { padding: var(--space-3) var(--space-8); border-radius: var(--radius-pill); background: var(--color-neutral-0); border: var(--border-strong) solid var(--slide-accent); font: var(--font-weight-bold) 48px/1.1 var(--font-family-heading); }
+.ds-slide__palabras--sm .ds-slide__palabra { padding: var(--space-2) var(--space-6); font-size: 38px; }
+.ds-slide__etq { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.ds-slide__etq .ds-slide__pildora { margin: 0; }
+
+.ds-slide__frases { display: grid; gap: var(--space-3); flex: 1; align-content: start; min-height: 0; }
+.ds-slide__frase { display: grid; grid-template-columns: var(--space-12) minmax(0, 1fr) auto; gap: var(--space-4); align-items: center; padding: var(--space-2) var(--space-5); border-radius: var(--radius-xl); background: var(--color-neutral-0); font-size: 27px; line-height: 1.2; }
+.ds-slide__frase > i { display: grid; place-items: center; width: var(--space-12); height: var(--space-12); border-radius: 50%; background: var(--color-neutral-900); color: var(--slide-accent); font: var(--font-weight-bold) 26px/1 var(--font-family-heading); font-style: normal; }
+.ds-slide__frase > b { padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); background: var(--slide-accent); color: var(--color-neutral-900); font: var(--font-weight-bold) 26px/1.1 var(--font-family-body); white-space: nowrap; }
+
+/* ---- Tabla de respuestas: sin resaltar la última fila (en Matemáticas esa fila es el total) ---- */
+.ds-slide__tabla--lista { font-size: 36px; }
+.ds-slide__tabla--lista th { font-size: 18px; padding: var(--space-2) var(--space-4); }
+.ds-slide__tabla--lista td { padding: var(--space-3) var(--space-5); }
+.ds-slide__tabla--lista tr:last-child td { background: color-mix(in srgb, var(--slide-accent) 12%, var(--color-neutral-0)); }
+.ds-slide__tabla--lista tbody tr td { font-weight: var(--font-weight-regular); }
+.ds-slide__tabla--lista tbody tr td:first-child { font-weight: var(--font-weight-bold); }
+.ds-slide__tabla--lista tbody tr td:nth-child(2) { font-weight: var(--font-weight-semibold); }
+.ds-slide__tabla--lista td { text-align: left; }
+.ds-slide__tabla--compacta { font-size: 30px; }
+.ds-slide__tabla--compacta td { padding: var(--space-2) var(--space-4); }
+
+/* Tarjeta de enunciado reducida: deja sitio a tablas y listas largas */
+.ds-slide__card2--sm { padding: var(--space-3) var(--space-6); }
+.ds-slide__card2--sm .ds-slide__enun-regla, .ds-slide__card2--sm .ds-slide__enun2 { font-size: 30px; line-height: 1.25; }
+.ds-slide__card2--sm .ds-slide__pildora { margin-bottom: var(--space-1); }

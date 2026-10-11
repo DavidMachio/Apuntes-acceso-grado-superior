@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" data-variante="lengua">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/componentes.css">
+<link rel="stylesheet" href="../styles.css">
+<title>Tema · Acceso a grado superior</title>
+<meta name="description" content="Presentaciones del tema en PDF: ver en pantalla o descargar.">
+</head>
+<body data-pagina="temario" data-materia="lengua" data-raiz="../">
+<a class="ds-skip" href="#contenido">Saltar al contenido</a>
+<div id="cabecera"></div>
+
+<main id="contenido">
+  <section class="ds-section ds-section--tight">
+    <div class="ds-container">
+      <ol class="ds-breadcrumb" aria-label="Ruta"><li><a href="../index.html">Inicio</a></li><li><a href="index.html">Lengua</a></li><li aria-current="page" id="migas-tema">Tema</li></ol>
+      <h1 class="ds-display" id="titulo" style="margin-top:var(--space-4)"></h1>
+      <p class="ds-lead" id="resumen"></p>
+      <div class="ds-row" id="acciones" style="margin-top:var(--space-5)"></div>
+    </div>
+  </section>
+
+  <section class="ds-section ds-section--surface" aria-labelledby="h-pres">
+    <div class="ds-container">
+      <div class="ds-section-head"><h2 id="h-pres">Presentaciones</h2></div>
+      <ol class="ds-index" id="presentaciones"></ol>
+      <nav class="tema-nav" id="vecinos" aria-label="Otros temas"></nav>
+    </div>
+  </section>
+</main>
+
+<div id="pie"></div>
+
+<script src="../datos/sitio.js"></script>
+<script src="datos/curso.js"></script>
+<script src="datos/temario.js"></script>
+<script src="../js/iconos.js"></script>
+<script src="../js/app.js"></script>
+<script src="js/tema.js"></script>
+</body>
+</html>
