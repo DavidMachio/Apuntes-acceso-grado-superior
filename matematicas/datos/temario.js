@@ -73,7 +73,7 @@ const MODULOS = [
   {
     titulo: "Tablas y frecuencias",
     resumen: "Frecuencia absoluta, frecuencia relativa y porcentaje.",
-    paginas: "13 diapositivas",
+    paginas: "35 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 9", detalle: "Tablas y frecuencias", archivo: "pdfs/tema-09-tablas-y-frecuencias.pdf" }
     ]

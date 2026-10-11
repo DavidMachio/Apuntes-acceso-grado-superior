@@ -1,0 +1,953 @@
+{
+ "numero": 9,
+ "materia": "Matemáticas",
+ "titulo": "Tablas y frecuencias",
+ "marca": "%",
+ "lead": "Cuenta, compara y expresa los datos en porcentajes.",
+ "vas_a_ver": [
+  "Frecuencia absoluta",
+  "Frecuencia relativa",
+  "Porcentaje",
+  "Comprobar las sumas"
+ ],
+ "formulas": [
+  {
+   "titulo": "Frecuencia absoluta",
+   "formulas": [
+    "FA=\\text{nº de veces que aparece el dato}"
+   ],
+   "explicacion": "Cuenta cuántas veces aparece cada dato. Las frecuencias absolutas suman el total de datos."
+  },
+  {
+   "titulo": "Frecuencia relativa",
+   "formulas": [
+    "FR=\\dfrac{FA}{n}"
+   ],
+   "explicacion": "Divide la frecuencia absoluta entre el número total de datos. Es un número entre 0 y 1."
+  },
+  {
+   "titulo": "Porcentaje",
+   "formulas": [
+    "P=FR\\times100"
+   ],
+   "explicacion": "Multiplica la frecuencia relativa por 100 para expresarla como porcentaje."
+  },
+  {
+   "titulo": "Comprobar las sumas",
+   "formulas": [
+    "\\sum FR=1\\qquad\\sum FA=n"
+   ],
+   "explicacion": "Si las frecuencias relativas no suman 1 (o los porcentajes 100 %), revisa tus cuentas."
+  }
+ ],
+ "ejemplos": [
+  {
+   "titulo": "Un dato",
+   "enunciado": "En una clase de 10 alumnos, 4 prefieren el fútbol. ¿Cuáles son su frecuencia absoluta, su relativa y su porcentaje?",
+   "formula": [
+    "FA=\\text{nº de veces que aparece el dato}",
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FA=4",
+    "FR=\\dfrac{4}{10}=0{,}4",
+    "P=0{,}4\\times100=40\\,\\%"
+   ],
+   "resultado": [
+    "FA 4",
+    "FR 0,4",
+    "Porcentaje 40 %"
+   ],
+   "check": [
+    [
+     "4/10",
+     0.4
+    ],
+    [
+     "4/10*100",
+     40.0
+    ]
+   ],
+   "datos": [
+    [
+     "Prefieren fútbol",
+     "4"
+    ],
+    [
+     "Total",
+     "10"
+    ]
+   ]
+  },
+  {
+   "titulo": "Tabla de deportes",
+   "enunciado": "En un grupo de 40 personas preguntamos por su deporte favorito: 16 fútbol, 10 baloncesto, 6 tenis y 8 natación. Completa la tabla de frecuencias.",
+   "formula": [
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FR=\\dfrac{16}{40}=0{,}4\\qquad P=0{,}4\\times100=40\\,\\%"
+   ],
+   "resultado": [
+    "Suma de FA 40",
+    "Suma de FR 1",
+    "Suma de % 100 %"
+   ],
+   "check": [
+    [
+     "16/40",
+     0.4
+    ],
+    [
+     "10/40",
+     0.25
+    ],
+    [
+     "6/40",
+     0.15
+    ],
+    [
+     "8/40",
+     0.2
+    ],
+    [
+     "16/40*100",
+     40.0
+    ],
+    [
+     "10/40*100",
+     25.0
+    ],
+    [
+     "6/40*100",
+     15.0
+    ],
+    [
+     "8/40*100",
+     20.0
+    ]
+   ],
+   "datos": [
+    [
+     "Fútbol",
+     "16"
+    ],
+    [
+     "Baloncesto",
+     "10"
+    ],
+    [
+     "Tenis",
+     "6"
+    ],
+    [
+     "Natación",
+     "8"
+    ]
+   ],
+   "tabla": {
+    "cab": [
+     "Dato",
+     "FA",
+     "FR",
+     "%"
+    ],
+    "filas": [
+     [
+      "Fútbol",
+      "16",
+      "0,4",
+      "40 %"
+     ],
+     [
+      "Baloncesto",
+      "10",
+      "0,25",
+      "25 %"
+     ],
+     [
+      "Tenis",
+      "6",
+      "0,15",
+      "15 %"
+     ],
+     [
+      "Natación",
+      "8",
+      "0,2",
+      "20 %"
+     ],
+     [
+      "Total",
+      "40",
+      "1",
+      "100 %"
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Construir una tabla",
+   "enunciado": "Las notas de 10 alumnos son: 5, 7, 5, 8, 7, 5, 9, 7, 5, 8. Construye la tabla con la frecuencia absoluta, la relativa y el porcentaje de cada nota.",
+   "formula": [
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FR=\\dfrac{4}{10}=0{,}4\\qquad P=0{,}4\\times100=40\\,\\%"
+   ],
+   "resultado": [
+    "Suma de FA 10",
+    "Suma de FR 1",
+    "Suma de % 100 %"
+   ],
+   "check": [
+    [
+     "4/10",
+     0.4
+    ],
+    [
+     "3/10",
+     0.3
+    ],
+    [
+     "2/10",
+     0.2
+    ],
+    [
+     "1/10",
+     0.1
+    ],
+    [
+     "4/10*100",
+     40.0
+    ],
+    [
+     "3/10*100",
+     30.0
+    ],
+    [
+     "2/10*100",
+     20.0
+    ],
+    [
+     "1/10*100",
+     10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Nota 5",
+     "4"
+    ],
+    [
+     "Nota 7",
+     "3"
+    ],
+    [
+     "Nota 8",
+     "2"
+    ],
+    [
+     "Nota 9",
+     "1"
+    ]
+   ],
+   "tabla": {
+    "cab": [
+     "Dato",
+     "FA",
+     "FR",
+     "%"
+    ],
+    "filas": [
+     [
+      "Nota 5",
+      "4",
+      "0,4",
+      "40 %"
+     ],
+     [
+      "Nota 7",
+      "3",
+      "0,3",
+      "30 %"
+     ],
+     [
+      "Nota 8",
+      "2",
+      "0,2",
+      "20 %"
+     ],
+     [
+      "Nota 9",
+      "1",
+      "0,1",
+      "10 %"
+     ],
+     [
+      "Total",
+      "10",
+      "1",
+      "100 %"
+     ]
+    ]
+   }
+  }
+ ],
+ "ejercicios": [
+  {
+   "titulo": "Alumnos ausentes",
+   "enunciado": "En una clase de 25 alumnos faltan 5. ¿Cuáles son la frecuencia absoluta, la relativa y el porcentaje de ausentes?",
+   "formula": [
+    "FA=\\text{nº de veces que aparece el dato}",
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FA=5",
+    "FR=\\dfrac{5}{25}=0{,}2",
+    "P=0{,}2\\times100=20\\,\\%"
+   ],
+   "resultado": [
+    "FA 5",
+    "FR 0,2",
+    "Porcentaje 20 %"
+   ],
+   "check": [
+    [
+     "5/25",
+     0.2
+    ],
+    [
+     "5/25*100",
+     20.0
+    ]
+   ],
+   "datos": [
+    [
+     "Ausentes",
+     "5"
+    ],
+    [
+     "Total",
+     "25"
+    ]
+   ]
+  },
+  {
+   "titulo": "Coches blancos",
+   "enunciado": "En un aparcamiento hay 30 coches y 12 son blancos. ¿Cuáles son la frecuencia absoluta, la relativa y el porcentaje de coches blancos?",
+   "formula": [
+    "FA=\\text{nº de veces que aparece el dato}",
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FA=12",
+    "FR=\\dfrac{12}{30}=0{,}4",
+    "P=0{,}4\\times100=40\\,\\%"
+   ],
+   "resultado": [
+    "FA 12",
+    "FR 0,4",
+    "Porcentaje 40 %"
+   ],
+   "check": [
+    [
+     "12/30",
+     0.4
+    ],
+    [
+     "12/30*100",
+     40.0
+    ]
+   ],
+   "datos": [
+    [
+     "Coches blancos",
+     "12"
+    ],
+    [
+     "Total",
+     "30"
+    ]
+   ]
+  },
+  {
+   "titulo": "Uso del móvil",
+   "enunciado": "De 50 personas encuestadas, 35 usan el móvil para leer la prensa. ¿Cuáles son la frecuencia absoluta, la relativa y el porcentaje?",
+   "formula": [
+    "FA=\\text{nº de veces que aparece el dato}",
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FA=35",
+    "FR=\\dfrac{35}{50}=0{,}7",
+    "P=0{,}7\\times100=70\\,\\%"
+   ],
+   "resultado": [
+    "FA 35",
+    "FR 0,7",
+    "Porcentaje 70 %"
+   ],
+   "check": [
+    [
+     "35/50",
+     0.7
+    ],
+    [
+     "35/50*100",
+     70.0
+    ]
+   ],
+   "datos": [
+    [
+     "Usan el móvil",
+     "35"
+    ],
+    [
+     "Total",
+     "50"
+    ]
+   ]
+  },
+  {
+   "titulo": "Zurdos",
+   "enunciado": "En un grupo de 8 personas, 2 son zurdas. ¿Cuáles son la frecuencia absoluta, la relativa y el porcentaje de zurdas?",
+   "formula": [
+    "FA=\\text{nº de veces que aparece el dato}",
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FA=2",
+    "FR=\\dfrac{2}{8}=0{,}25",
+    "P=0{,}25\\times100=25\\,\\%"
+   ],
+   "resultado": [
+    "FA 2",
+    "FR 0,25",
+    "Porcentaje 25 %"
+   ],
+   "check": [
+    [
+     "2/8",
+     0.25
+    ],
+    [
+     "2/8*100",
+     25.0
+    ]
+   ],
+   "datos": [
+    [
+     "Zurdas",
+     "2"
+    ],
+    [
+     "Total",
+     "8"
+    ]
+   ]
+  },
+  {
+   "titulo": "Transporte al trabajo",
+   "enunciado": "25 personas dicen cómo van al trabajo: 10 en coche, 5 en autobús, 5 en bicicleta y 5 a pie. Completa la tabla de frecuencias.",
+   "formula": [
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FR=\\dfrac{10}{25}=0{,}4\\qquad P=0{,}4\\times100=40\\,\\%"
+   ],
+   "resultado": [
+    "Suma de FA 25",
+    "Suma de FR 1",
+    "Suma de % 100 %"
+   ],
+   "check": [
+    [
+     "10/25",
+     0.4
+    ],
+    [
+     "5/25",
+     0.2
+    ],
+    [
+     "5/25",
+     0.2
+    ],
+    [
+     "5/25",
+     0.2
+    ],
+    [
+     "10/25*100",
+     40.0
+    ],
+    [
+     "5/25*100",
+     20.0
+    ],
+    [
+     "5/25*100",
+     20.0
+    ],
+    [
+     "5/25*100",
+     20.0
+    ]
+   ],
+   "datos": [
+    [
+     "Coche",
+     "10"
+    ],
+    [
+     "Autobús",
+     "5"
+    ],
+    [
+     "Bicicleta",
+     "5"
+    ],
+    [
+     "A pie",
+     "5"
+    ]
+   ],
+   "tabla": {
+    "cab": [
+     "Dato",
+     "FA",
+     "FR",
+     "%"
+    ],
+    "filas": [
+     [
+      "Coche",
+      "10",
+      "0,4",
+      "40 %"
+     ],
+     [
+      "Autobús",
+      "5",
+      "0,2",
+      "20 %"
+     ],
+     [
+      "Bicicleta",
+      "5",
+      "0,2",
+      "20 %"
+     ],
+     [
+      "A pie",
+      "5",
+      "0,2",
+      "20 %"
+     ],
+     [
+      "Total",
+      "25",
+      "1",
+      "100 %"
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Mascotas",
+   "enunciado": "En una clase de 20 alumnos hay 8 con perro, 6 con gato, 4 con pez y 2 con otras mascotas. Completa la tabla de frecuencias.",
+   "formula": [
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FR=\\dfrac{8}{20}=0{,}4\\qquad P=0{,}4\\times100=40\\,\\%"
+   ],
+   "resultado": [
+    "Suma de FA 20",
+    "Suma de FR 1",
+    "Suma de % 100 %"
+   ],
+   "check": [
+    [
+     "8/20",
+     0.4
+    ],
+    [
+     "6/20",
+     0.3
+    ],
+    [
+     "4/20",
+     0.2
+    ],
+    [
+     "2/20",
+     0.1
+    ],
+    [
+     "8/20*100",
+     40.0
+    ],
+    [
+     "6/20*100",
+     30.0
+    ],
+    [
+     "4/20*100",
+     20.0
+    ],
+    [
+     "2/20*100",
+     10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Perro",
+     "8"
+    ],
+    [
+     "Gato",
+     "6"
+    ],
+    [
+     "Pez",
+     "4"
+    ],
+    [
+     "Otras",
+     "2"
+    ]
+   ],
+   "tabla": {
+    "cab": [
+     "Dato",
+     "FA",
+     "FR",
+     "%"
+    ],
+    "filas": [
+     [
+      "Perro",
+      "8",
+      "0,4",
+      "40 %"
+     ],
+     [
+      "Gato",
+      "6",
+      "0,3",
+      "30 %"
+     ],
+     [
+      "Pez",
+      "4",
+      "0,2",
+      "20 %"
+     ],
+     [
+      "Otras",
+      "2",
+      "0,1",
+      "10 %"
+     ],
+     [
+      "Total",
+      "20",
+      "1",
+      "100 %"
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Calcular el total",
+   "enunciado": "En una encuesta, 6 personas eligieron la opción A y su frecuencia relativa es 0,15. ¿Cuántas personas fueron encuestadas?",
+   "formula": [
+    "FR=\\dfrac{FA}{n}"
+   ],
+   "desarrollo": [
+    "FR=\\dfrac{FA}{n}\\;\\Rightarrow\\;n=\\dfrac{FA}{FR}",
+    "n=\\dfrac{6}{0{,}15}=40"
+   ],
+   "resultado": [
+    "Total de datos n",
+    "40"
+   ],
+   "check": [
+    [
+     "6/0.15",
+     40.0
+    ]
+   ],
+   "datos": [
+    [
+     "Frecuencia absoluta",
+     "6"
+    ],
+    [
+     "Frecuencia relativa",
+     "0,15"
+    ]
+   ]
+  },
+  {
+   "titulo": "Total a partir del porcentaje",
+   "enunciado": "12 personas representan el 30 % de un grupo. ¿Cuántas personas tiene el grupo?",
+   "formula": [
+    "P=FR\\times100",
+    "FR=\\dfrac{FA}{n}"
+   ],
+   "desarrollo": [
+    "FR=\\dfrac{P}{100}=\\dfrac{30}{100}=0{,}3",
+    "n=\\dfrac{FA}{FR}=\\dfrac{12}{0{,}3}=40"
+   ],
+   "resultado": [
+    "Total de datos n",
+    "40"
+   ],
+   "check": [
+    [
+     "12/(30/100)",
+     40.0
+    ]
+   ],
+   "datos": [
+    [
+     "Frecuencia absoluta",
+     "12"
+    ],
+    [
+     "Porcentaje",
+     "30 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Notas de un examen",
+   "enunciado": "Las notas de 10 alumnos son: 4, 6, 6, 7, 4, 6, 8, 6, 7, 6. Construye la tabla con la frecuencia absoluta, la relativa y el porcentaje de cada nota.",
+   "formula": [
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FR=\\dfrac{2}{10}=0{,}2\\qquad P=0{,}2\\times100=20\\,\\%"
+   ],
+   "resultado": [
+    "Suma de FA 10",
+    "Suma de FR 1",
+    "Suma de % 100 %"
+   ],
+   "check": [
+    [
+     "2/10",
+     0.2
+    ],
+    [
+     "5/10",
+     0.5
+    ],
+    [
+     "2/10",
+     0.2
+    ],
+    [
+     "1/10",
+     0.1
+    ],
+    [
+     "2/10*100",
+     20.0
+    ],
+    [
+     "5/10*100",
+     50.0
+    ],
+    [
+     "2/10*100",
+     20.0
+    ],
+    [
+     "1/10*100",
+     10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Nota 4",
+     "2"
+    ],
+    [
+     "Nota 6",
+     "5"
+    ],
+    [
+     "Nota 7",
+     "2"
+    ],
+    [
+     "Nota 8",
+     "1"
+    ]
+   ],
+   "tabla": {
+    "cab": [
+     "Dato",
+     "FA",
+     "FR",
+     "%"
+    ],
+    "filas": [
+     [
+      "Nota 4",
+      "2",
+      "0,2",
+      "20 %"
+     ],
+     [
+      "Nota 6",
+      "5",
+      "0,5",
+      "50 %"
+     ],
+     [
+      "Nota 7",
+      "2",
+      "0,2",
+      "20 %"
+     ],
+     [
+      "Nota 8",
+      "1",
+      "0,1",
+      "10 %"
+     ],
+     [
+      "Total",
+      "10",
+      "1",
+      "100 %"
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Libros de una biblioteca",
+   "enunciado": "En un estante hay 40 libros: 18 novelas, 10 de ciencia, 8 de historia y 4 de poesía. Completa la tabla de frecuencias.",
+   "formula": [
+    "FR=\\dfrac{FA}{n}",
+    "P=FR\\times100"
+   ],
+   "desarrollo": [
+    "FR=\\dfrac{18}{40}=0{,}45\\qquad P=0{,}45\\times100=45\\,\\%"
+   ],
+   "resultado": [
+    "Suma de FA 40",
+    "Suma de FR 1",
+    "Suma de % 100 %"
+   ],
+   "check": [
+    [
+     "18/40",
+     0.45
+    ],
+    [
+     "10/40",
+     0.25
+    ],
+    [
+     "8/40",
+     0.2
+    ],
+    [
+     "4/40",
+     0.1
+    ],
+    [
+     "18/40*100",
+     45.0
+    ],
+    [
+     "10/40*100",
+     25.0
+    ],
+    [
+     "8/40*100",
+     20.0
+    ],
+    [
+     "4/40*100",
+     10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Novela",
+     "18"
+    ],
+    [
+     "Ciencia",
+     "10"
+    ],
+    [
+     "Historia",
+     "8"
+    ],
+    [
+     "Poesía",
+     "4"
+    ]
+   ],
+   "tabla": {
+    "cab": [
+     "Dato",
+     "FA",
+     "FR",
+     "%"
+    ],
+    "filas": [
+     [
+      "Novela",
+      "18",
+      "0,45",
+      "45 %"
+     ],
+     [
+      "Ciencia",
+      "10",
+      "0,25",
+      "25 %"
+     ],
+     [
+      "Historia",
+      "8",
+      "0,2",
+      "20 %"
+     ],
+     [
+      "Poesía",
+      "4",
+      "0,1",
+      "10 %"
+     ],
+     [
+      "Total",
+      "40",
+      "1",
+      "100 %"
+     ]
+    ]
+   }
+  }
+ ]
+}

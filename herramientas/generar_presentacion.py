@@ -144,9 +144,18 @@ def tarjeta_formula(e):
     return f'<div class="ds-slide__card2 ds-slide__card2--formula"><span class="ds-slide__pildora">Fórmula a aplicar</span>{formulas(e["formula"])}</div>'
 
 
+def tabla_html(tb):
+    """Tabla de frecuencias: cabecera en negro y filas con fondo claro; la última fila (si es de totales) en negrita."""
+    cab = "".join(f"<th>{escape(c)}</th>" for c in tb["cab"])
+    filas = "".join("<tr>" + "".join(f"<td>{escape(c)}</td>" for c in f) + "</tr>" for f in tb["filas"])
+    return f'<table class="ds-slide__tabla"><thead><tr>{cab}</tr></thead><tbody>{filas}</tbody></table>'
+
+
 def tarjeta_desarrollo(e):
-    return ('<div class="ds-slide__card2"><span class="ds-slide__pildora ds-slide__pildora--clara">Desarrollo</span><div class="ds-slide__pasos">' +
-            "".join(f'<div class="ds-slide__paso">{mate(p)}</div>' for p in e["desarrollo"]) + "</div></div>")
+    pasos = "".join(f'<div class="ds-slide__paso">{mate(p)}</div>' for p in e["desarrollo"])
+    tabla = tabla_html(e["tabla"]) if e.get("tabla") else ""
+    return ('<div class="ds-slide__card2"><span class="ds-slide__pildora ds-slide__pildora--clara">Desarrollo</span>'
+            f'<div class="ds-slide__pasos">{pasos}</div>{tabla}</div>')
 
 
 def construir(t):
@@ -170,14 +179,14 @@ def construir(t):
     for i, e in enumerate(t["ejemplos"], 1):
         add("", cabecera("Ejemplo · Planteamiento", e["titulo"], f"{sec_ej:02d}.{i}") + '<div class="ds-slide__body">' + par(e) + tarjeta_formula(e) + "</div>")
         add("", cabecera("Ejemplo · Desarrollo", e["titulo"], f"{sec_ej:02d}.{i}") + '<div class="ds-slide__body">' + datos(e["datos"], "ds-slide__datos--fila") +
-            '<div class="ds-slide__cols2">' + tarjeta_formula(e) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
+            '<div class="ds-slide__cols2">' + ("" if e.get("tabla") else tarjeta_formula(e)) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
     add("ds-slide--portada", marca("?") + etiquetas(t, "Ejercicios") + '<h1>A practicar</h1><p class="ds-slide__lead">Ahora te toca a ti. Resuelve los 10 ejercicios.</p><span class="ds-slide__rayas"></span>', True)
     for i, e in enumerate(t["ejercicios"], 1):
         add("", cabecera("Ejercicio", e["titulo"], f"{sec_ejer:02d}.{i}") + '<div class="ds-slide__body">' + par(e, True) + "</div>")
     add("ds-slide--negra", marca("✓") + etiquetas(t, "Soluciones") + '<h1>A continuación tienes las soluciones</h1><p class="ds-slide__lead">Intenta resolver los ejercicios antes de mirarlas.</p><span class="ds-slide__rayas"></span>', True)
     for i, e in enumerate(t["ejercicios"], 1):
         add("", cabecera("Solución · Ejercicio", e["titulo"], f"{sec_sol:02d}.{i}") + '<div class="ds-slide__body">' + datos(e["datos"], "ds-slide__datos--fila") +
-            '<div class="ds-slide__cols2">' + tarjeta_formula(e) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
+            '<div class="ds-slide__cols2">' + ("" if e.get("tabla") else tarjeta_formula(e)) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
     add("ds-slide--cierre", marca(t["marca"]) + etiquetas(t) + f'<h1>Tema completado</h1><p class="ds-slide__lead">Repasa la fórmula y vuelve a intentar los ejercicios.</p><span class="ds-slide__rayas"></span>', True)
     return S
 

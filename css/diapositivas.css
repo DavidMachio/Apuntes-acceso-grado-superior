@@ -350,3 +350,16 @@
 }
 /* Varias fórmulas en la tarjeta «Fórmula a aplicar»: en fila para ahorrar altura */
 .ds-slide__card2--formula .ds-slide__formulas--sm { display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center; gap: var(--space-2) var(--space-8); }
+
+/* Tabla de frecuencias dentro del desarrollo */
+.ds-slide__tabla { width: 100%; border-collapse: separate; border-spacing: 0 var(--space-1); font: var(--font-weight-regular) 24px/1.2 var(--font-family-body); margin-top: var(--space-2); }
+.ds-slide__tabla th { background: var(--color-neutral-900); color: var(--slide-accent-soft); font: var(--font-weight-semibold) 17px/1.2 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; padding: var(--space-2) var(--space-3); text-align: center; }
+.ds-slide__tabla th:first-child { border-radius: var(--radius-pill) 0 0 var(--radius-pill); } .ds-slide__tabla th:last-child { border-radius: 0 var(--radius-pill) var(--radius-pill) 0; }
+.ds-slide__tabla td { background: linear-gradient(135deg, var(--color-neutral-0), color-mix(in srgb, var(--slide-accent) 18%, var(--color-neutral-0))); padding: var(--space-1) var(--space-3); text-align: center; color: var(--color-neutral-900); }
+.ds-slide__tabla td:first-child { text-align: left; font-weight: var(--font-weight-semibold); border-radius: var(--radius-pill) 0 0 var(--radius-pill); } .ds-slide__tabla td:last-child { border-radius: 0 var(--radius-pill) var(--radius-pill) 0; }
+.ds-slide__tabla tr:last-child td { font-weight: var(--font-weight-bold); background: var(--slide-accent); }
+
+/* «Soluciones»: el título largo no debe pisar el símbolo */
+.ds-slide--negra h1 { font: var(--font-weight-bold) var(--slide-cover)/1.05 var(--font-family-heading); max-width: 11ch; }
+.ds-slide--negra .ds-slide__lead { font-size: 30px; max-width: 22ch; }
+.ds-slide__tabla td { background: color-mix(in srgb, var(--slide-accent) 12%, var(--color-neutral-0)); }
