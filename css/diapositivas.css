@@ -294,3 +294,22 @@
 .ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__valor b { font-size: 36px; } .ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__valor i { font-size: 24px; }
 .ds-slide .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__barra, .ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__barra { height: var(--space-2); }
 .ds-slide__fila--ej .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__valor b { font-size: 52px; }
+
+/* ===== v3.0 · Portadas estilo LED: degradado completo oscuro, número de tema y símbolo gigante con resplandor ===== */
+.ds-slide--portada, .ds-slide--cierre, .ds-slide--negra {
+  --color-text-primary: var(--color-neutral-50); --color-text-secondary: var(--color-neutral-300);
+  background:
+    radial-gradient(ellipse 60% 80% at 82% 50%, color-mix(in srgb, var(--slide-accent) 34%, transparent), transparent 70%),
+    linear-gradient(135deg, var(--color-neutral-900) 0%, color-mix(in srgb, var(--slide-accent) 24%, var(--color-neutral-900)) 100%);
+  color: var(--color-neutral-50); overflow: hidden;
+}
+.ds-slide--portada h1, .ds-slide--cierre h1, .ds-slide--negra h1 { color: var(--color-neutral-50); }
+.ds-slide--portada .ds-slide__lead, .ds-slide--cierre .ds-slide__lead, .ds-slide--negra .ds-slide__lead { color: var(--color-neutral-300); opacity: 1; }
+.ds-slide__etiquetas { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-8); }
+.ds-slide__etiquetas .ds-slide__tag { margin: 0; background: transparent; border: var(--border-strong) solid var(--slide-accent); color: var(--slide-accent-soft); }
+.ds-slide--portada .ds-slide__etiquetas .ds-slide__tag, .ds-slide--cierre .ds-slide__etiquetas .ds-slide__tag { background: transparent; color: var(--slide-accent-soft); border: var(--border-strong) solid var(--slide-accent); }
+.ds-slide__tema { padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); background: var(--slide-accent); color: var(--color-neutral-900); font: var(--font-weight-bold) 19px/1.4 var(--font-family-heading); }
+.ds-slide--portada .ds-slide__rayas, .ds-slide--cierre .ds-slide__rayas, .ds-slide--negra .ds-slide__rayas { background: var(--slide-accent); }
+.ds-slide--portada .ds-slide__marca, .ds-slide--cierre .ds-slide__marca, .ds-slide--negra .ds-slide__marca { right: calc(-1 * var(--space-12)); width: 760px; height: 760px; color: var(--slide-accent); opacity: 1; }
+.ds-slide__led-glow text { fill: var(--slide-accent); opacity: .75; }
+.ds-slide__led-trazo text { fill: none; stroke: var(--slide-accent-soft); stroke-width: 7; stroke-linejoin: round; }
