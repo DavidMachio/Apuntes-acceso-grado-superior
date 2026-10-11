@@ -318,3 +318,33 @@
 .ds-slide--negra .ds-slide__etiquetas .ds-slide__tag { display: inline-block; padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); font-size: 19px; background: transparent; border: var(--border-strong) solid var(--slide-accent); color: var(--slide-accent-soft); }
 .ds-slide--negra .ds-slide__etiquetas { align-self: flex-start; }
 .ds-slide--portada .ds-slide__capa, .ds-slide--cierre .ds-slide__capa, .ds-slide--negra .ds-slide__capa { justify-content: center; }
+
+/* ===== v3.1 · Interior estilo LED: tarjetas con degradado, numeración neón y etiqueta de sección arriba a la derecha ===== */
+.ds-slide__card2--menta, .ds-slide__formulas > .ds-slide__card2 {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 62%, var(--color-neutral-0)) 0%, var(--slide-accent) 55%, color-mix(in srgb, var(--slide-accent) 82%, var(--color-neutral-900)) 100%);
+  color: var(--color-neutral-900);
+}
+.ds-slide__card2--formula, .ds-slide__formulas > .ds-slide__card2:nth-child(2), .ds-slide__datos--col .ds-slide__minicard:nth-child(even) {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 16%, var(--color-neutral-800)) 0%, var(--color-neutral-900) 70%);
+  color: var(--color-neutral-50);
+}
+.ds-slide__minicard {
+  background: linear-gradient(135deg, var(--color-neutral-0) 0%, color-mix(in srgb, var(--slide-accent) 18%, var(--color-neutral-0)) 100%);
+}
+.ds-slide__datos--col .ds-slide__minicard:nth-child(even) { background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 16%, var(--color-neutral-800)) 0%, var(--color-neutral-900) 70%); }
+.ds-slide .ds-slide__resultado {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 62%, var(--color-neutral-0)) 0%, var(--slide-accent) 55%, color-mix(in srgb, var(--slide-accent) 82%, var(--color-neutral-900)) 100%);
+}
+/* Numeración con efecto neón */
+.ds-slide__num {
+  background: var(--color-neutral-900); color: var(--slide-accent-soft); border: var(--border-strong) solid var(--slide-accent);
+  text-shadow: 0 0 6px var(--slide-accent), 0 0 16px var(--slide-accent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--slide-accent) 60%, transparent), inset 0 0 10px color-mix(in srgb, var(--slide-accent) 35%, transparent);
+}
+/* Etiqueta de sección (La fórmula, Ejemplo, Ejercicio…) arriba a la derecha */
+.ds-slide__head { align-items: center; }
+.ds-slide__head .ds-slide__tag {
+  position: absolute; top: 0; right: 0; margin: 0; padding: var(--space-2) var(--space-5); font-size: 17px;
+  background: var(--color-neutral-900); color: var(--slide-accent-soft); border: var(--border-strong) solid var(--slide-accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--slide-accent) 40%, transparent);
+}
