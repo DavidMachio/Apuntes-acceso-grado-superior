@@ -364,12 +364,26 @@
 .ds-slide--negra .ds-slide__lead { font-size: 30px; max-width: 22ch; }
 .ds-slide__tabla td { background: color-mix(in srgb, var(--slide-accent) 12%, var(--color-neutral-0)); }
 
-/* Gráficos (barras, sectores y líneas) */
-.ds-slide__grafico { width: 100%; height: auto; max-height: 185px; margin-top: var(--space-1); }
-.ds-g-eje { stroke: var(--color-neutral-400); stroke-width: 2; }
-.ds-g-etiqueta { font: var(--font-weight-semibold) 18px var(--font-family-body); fill: var(--color-neutral-900); }
-.ds-g-valor { font: var(--font-weight-bold) 20px var(--font-family-body); fill: var(--color-neutral-900); }
-.ds-g-c0 { fill: var(--slide-accent); } .ds-g-c1 { fill: var(--color-neutral-900); } .ds-g-c2 { fill: color-mix(in srgb, var(--slide-accent) 45%, var(--color-neutral-0)); } .ds-g-c3 { fill: var(--color-neutral-500); }
-.ds-g-sector { stroke: var(--color-neutral-0); stroke-width: 3; }
-.ds-g-linea { fill: none; stroke: var(--color-neutral-900); stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
-.ds-g-punto { fill: var(--slide-accent); stroke: var(--color-neutral-900); stroke-width: 4; }
+/* Gráficos estilo LED: panel oscuro, marcas lima con brillo, etiquetas directas */
+.ds-slide__card2--grafico { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); grid-template-rows: auto 1fr; column-gap: var(--space-5); align-items: center; }
+.ds-slide__card2--grafico > .ds-slide__pildora { grid-column: 1 / -1; }
+.ds-slide__card2--grafico .ds-slide__paso { font-size: 28px; padding: var(--space-1) 0; }
+.ds-slide__graficowrap { border-radius: var(--radius-xl); background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 14%, var(--color-neutral-800)), var(--color-neutral-900) 75%); padding: var(--space-2); }
+.ds-slide__grafico { display: block; width: 100%; height: auto; max-height: 300px; }
+.ds-g-rejilla { stroke: var(--color-neutral-600); stroke-width: 1.5; stroke-dasharray: 3 7; opacity: .6; }
+.ds-g-etiqueta { font: var(--font-weight-semibold) 18px var(--font-family-body); fill: var(--color-neutral-200); }
+.ds-g-etiqueta--g { font-size: 24px; fill: var(--color-neutral-50); }
+.ds-g-valor { font: var(--font-weight-bold) 21px var(--font-family-body); fill: var(--color-neutral-50); }
+.ds-g-valor--g { font-size: 28px; fill: var(--slide-accent); }
+.ds-g-stop-a { stop-color: var(--slide-accent-soft); } .ds-g-stop-b { stop-color: var(--slide-accent); }
+.ds-g-area-a { stop-color: var(--slide-accent); stop-opacity: .45; } .ds-g-area-b { stop-color: var(--slide-accent); stop-opacity: 0; }
+.ds-g-barra--dest { fill: url(#gb); } .ds-g-barra--tenue { fill: url(#gb); opacity: .55; }
+.ds-g-c0 { fill: var(--slide-accent); } .ds-g-c1 { fill: var(--color-neutral-50); } .ds-g-c2 { fill: color-mix(in srgb, var(--slide-accent) 40%, var(--color-neutral-900)); } .ds-g-c3 { fill: var(--color-neutral-400); }
+.ds-g-sector { stroke: var(--color-neutral-900); stroke-width: 4; }
+.ds-g-centro { font: var(--font-weight-bold) 44px var(--font-family-heading); fill: var(--color-neutral-50); } .ds-g-centro-s { font: var(--font-weight-semibold) 16px var(--font-family-body); fill: var(--color-neutral-300); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.ds-g-area { fill: url(#ga); }
+.ds-g-linea { fill: none; stroke: var(--slide-accent); stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+.ds-g-punto { fill: var(--color-neutral-900); stroke: var(--slide-accent); stroke-width: 4; } .ds-g-punto--ext { fill: var(--slide-accent); stroke: var(--color-neutral-50); }
+.ds-g-pildora { fill: var(--slide-accent); } .ds-g-pildora-t { font: var(--font-weight-bold) 20px var(--font-family-body); fill: var(--color-neutral-900); }
+.ds-g-centro--p { font-size: 28px; }
+.ds-slide__card2--grafico > .ds-slide__pildora { justify-self: start; }

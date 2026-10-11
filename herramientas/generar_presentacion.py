@@ -161,56 +161,79 @@ def _num(x):
 
 
 def grafico_svg(g):
-    """Gráfico sencillo en SVG (barras, sectores o líneas) con las clases ds-g-*; los colores salen del design system."""
+    """Gráfico estilo LED sobre panel oscuro: barras con degradado, anillo de sectores o línea con área y brillo.
+    Los colores salen del design system (clases ds-g-*); cada gráfico lleva etiquetas directas y leyenda."""
     tipo, datos = g["tipo"], g["datos"]
-    W, H = 560, 230
+    W, H = 600, 270
+    defs = ('<defs><linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="ds-g-stop-a"/><stop offset="1" class="ds-g-stop-b"/></linearGradient>'
+            '<linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="ds-g-area-a"/><stop offset="1" class="ds-g-area-b"/></linearGradient>'
+            '<filter id="gl" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>')
+    partes = []
+    if tipo in ("barras", "lineas"):
+        base, alto = 215, 165
+        for k in range(4):  # cuadrícula tenue
+            y = base - alto * k / 3
+            partes.append(f'<line class="ds-g-rejilla" x1="30" y1="{y:.1f}" x2="{W - 30}" y2="{y:.1f}"/>')
     if tipo == "barras":
         mx = max(v for _, v in datos)
         n = len(datos)
-        paso = (W - 40) / n
-        ancho = paso * 0.58
-        partes = [f'<line class="ds-g-eje" x1="20" y1="180" x2="{W - 20}" y2="180"/>']
+        paso = (W - 60) / n
+        ancho = min(paso * 0.56, 110)
+        dest = g.get("destacado")
         for i, (nombre, v) in enumerate(datos):
-            alto = 140 * v / mx
-            x = 20 + paso * i + (paso - ancho) / 2
-            partes.append(f'<rect class="ds-g-barra ds-g-c{i % 4}" x="{x:.1f}" y="{180 - alto:.1f}" width="{ancho:.1f}" height="{alto:.1f}" rx="8"/>')
-            partes.append(f'<text class="ds-g-valor" x="{x + ancho / 2:.1f}" y="{172 - alto:.1f}" text-anchor="middle">{_num(v)}</text>')
-            partes.append(f'<text class="ds-g-etiqueta" x="{x + ancho / 2:.1f}" y="206" text-anchor="middle">{escape(nombre)}</text>')
+            h = alto * 0.88 * v / mx
+            x = 30 + paso * i + (paso - ancho) / 2
+            cls = "ds-g-barra ds-g-barra--dest" if dest in (None, i) else "ds-g-barra ds-g-barra--tenue"
+            filtro = ' filter="url(#gl)"' if dest == i else ""
+            partes.append(f'<rect class="{cls}" x="{x:.1f}" y="{base - h:.1f}" width="{ancho:.1f}" height="{h:.1f}" rx="10"{filtro}/>')
+            partes.append(f'<text class="ds-g-valor" x="{x + ancho / 2:.1f}" y="{base - h - 12:.1f}" text-anchor="middle">{_num(v)}</text>')
+            partes.append(f'<text class="ds-g-etiqueta" x="{x + ancho / 2:.1f}" y="{base + 28}" text-anchor="middle">{escape(nombre)}</text>')
     elif tipo == "sectores":
         tot = sum(v for _, v in datos)
-        cx, cy, r = 115, 115, 100
+        cx, cy, R, r = 130, 135, 112, 66
         ang = -math.pi / 2
-        partes = []
         for i, (nombre, v) in enumerate(datos):
             a2 = ang + 2 * math.pi * v / tot
-            x1, y1, x2, y2 = cx + r * math.cos(ang), cy + r * math.sin(ang), cx + r * math.cos(a2), cy + r * math.sin(a2)
-            grande = 1 if (a2 - ang) > math.pi else 0
-            partes.append(f'<path class="ds-g-sector ds-g-c{i % 4}" d="M{cx} {cy} L{x1:.1f} {y1:.1f} A{r} {r} 0 {grande} 1 {x2:.1f} {y2:.1f} Z"/>')
+            c, sn = math.cos, math.sin
+            g1 = 1 if (a2 - ang) > math.pi else 0
+            d = (f"M{cx + R * c(ang):.1f} {cy + R * sn(ang):.1f} A{R} {R} 0 {g1} 1 {cx + R * c(a2):.1f} {cy + R * sn(a2):.1f} "
+                 f"L{cx + r * c(a2):.1f} {cy + r * sn(a2):.1f} A{r} {r} 0 {g1} 0 {cx + r * c(ang):.1f} {cy + r * sn(ang):.1f} Z")
+            partes.append(f'<path class="ds-g-sector ds-g-c{i % 4}" d="{d}"/>')
             ang = a2
+        partes.append(f'<text class="ds-g-centro{" ds-g-centro--p" if len(g.get("centro", "")) > 4 else ""}" x="{cx}" y="{cy + 4}" text-anchor="middle">{escape(g.get("centro", _num(tot)))}</text>')
+        partes.append(f'<text class="ds-g-centro-s" x="{cx}" y="{cy + 30}" text-anchor="middle">{escape(g.get("centro_txt", "total"))}</text>')
         for i, (nombre, v) in enumerate(datos):
-            y = 40 + i * 44
-            partes.append(f'<rect class="ds-g-leyenda ds-g-c{i % 4}" x="270" y="{y - 18}" width="24" height="24" rx="6"/>')
-            partes.append(f'<text class="ds-g-etiqueta" x="306" y="{y}">{escape(nombre)} · {_num(100 * v / tot)} %</text>')
+            y = 70 + i * 56
+            partes.append(f'<rect class="ds-g-leyenda ds-g-c{i % 4}" x="290" y="{y - 20}" width="26" height="26" rx="8"/>')
+            partes.append(f'<text class="ds-g-etiqueta ds-g-etiqueta--g" x="330" y="{y}">{escape(nombre)}</text>')
+            partes.append(f'<text class="ds-g-valor ds-g-valor--g" x="{W - 30}" y="{y}" text-anchor="end">{_num(100 * v / tot)} %</text>')
     else:  # líneas
         vs = [v for _, v in datos]
         lo, hi = min(vs), max(vs)
-        lo -= (hi - lo) * 0.25 or 1
+        lo -= (hi - lo) * 0.3 or 1
+        hi += (hi - lo) * 0.08
         n = len(datos)
-        paso = (W - 80) / max(n - 1, 1)
-        pts = [(40 + paso * i, 170 - 130 * (v - lo) / (hi - lo)) for i, (_, v) in enumerate(datos)]
-        partes = [f'<line class="ds-g-eje" x1="20" y1="185" x2="{W - 20}" y2="185"/>',
-                  '<polyline class="ds-g-linea" points="' + " ".join(f"{x:.1f},{y:.1f}" for x, y in pts) + '"/>']
-        for (x, y), (nombre, v) in zip(pts, datos):
-            partes.append(f'<circle class="ds-g-punto" cx="{x:.1f}" cy="{y:.1f}" r="7"/>')
-            partes.append(f'<text class="ds-g-valor" x="{x:.1f}" y="{y - 14:.1f}" text-anchor="middle">{_num(v)}</text>')
-            partes.append(f'<text class="ds-g-etiqueta" x="{x:.1f}" y="212" text-anchor="middle">{escape(nombre)}</text>')
-    return f'<svg class="ds-slide__grafico" viewBox="0 0 {W} {H}" role="img" aria-label="Gráfico de {tipo}">{"".join(partes)}</svg>'
+        paso = (W - 100) / max(n - 1, 1)
+        pts = [(50 + paso * i, base - alto * (v - lo) / (hi - lo)) for i, (_, v) in enumerate(datos)]
+        linea = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
+        partes.append(f'<polygon class="ds-g-area" points="{pts[0][0]:.1f},{base} {linea} {pts[-1][0]:.1f},{base}"/>')
+        partes.append(f'<polyline class="ds-g-linea" points="{linea}" filter="url(#gl)"/>')
+        for k, ((x, y), (nombre, v)) in enumerate(zip(pts, datos)):
+            ult = k in (0, n - 1)
+            partes.append(f'<circle class="ds-g-punto{" ds-g-punto--ext" if ult else ""}" cx="{x:.1f}" cy="{y:.1f}" r="{9 if ult else 6}"/>')
+            partes.append(f'<text class="ds-g-valor" x="{x:.1f}" y="{y - 16:.1f}" text-anchor="middle">{_num(v)}</text>')
+            partes.append(f'<text class="ds-g-etiqueta" x="{x:.1f}" y="{base + 28}" text-anchor="middle">{escape(nombre)}</text>')
+        vp = (vs[-1] - vs[0]) / vs[0] * 100
+        txt = ("▲ +" if vp >= 0 else "▼ −") + _num(abs(round(vp, 2))) + " %"
+        partes.append(f'<rect class="ds-g-pildora" x="30" y="12" width="160" height="38" rx="19"/><text class="ds-g-pildora-t" x="110" y="38" text-anchor="middle">{txt}</text>')
+    return f'<div class="ds-slide__graficowrap"><svg class="ds-slide__grafico" viewBox="0 0 {W} {H}" role="img" aria-label="Gráfico de {tipo}">{defs}{"".join(partes)}</svg></div>'
 
 
 def tarjeta_desarrollo(e):
     pasos = "".join(f'<div class="ds-slide__paso">{mate(p)}</div>' for p in e["desarrollo"])
     extra = tabla_html(e["tabla"]) if e.get("tabla") else (grafico_svg(e["grafico"]) if e.get("grafico") else "")
-    return ('<div class="ds-slide__card2"><span class="ds-slide__pildora ds-slide__pildora--clara">Desarrollo</span>'
+    cls = " ds-slide__card2--grafico" if e.get("grafico") else ""
+    return (f'<div class="ds-slide__card2{cls}"><span class="ds-slide__pildora ds-slide__pildora--clara">Desarrollo</span>'
             f'<div class="ds-slide__pasos">{pasos}</div>{extra}</div>')
 
 
