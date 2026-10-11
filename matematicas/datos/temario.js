@@ -81,7 +81,7 @@ const MODULOS = [
   {
     titulo: "Representaciones gráficas",
     resumen: "Gráficas de barras, de sectores y de líneas.",
-    paginas: "16 diapositivas",
+    paginas: "35 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 10", detalle: "Representaciones gráficas", archivo: "pdfs/tema-10-representaciones-graficas.pdf" }
     ]

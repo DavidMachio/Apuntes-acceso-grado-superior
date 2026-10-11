@@ -13,6 +13,7 @@ Los estilos salen de css/variables.css y css/diapositivas.css (design system v2)
 Necesita pandoc y playwright (Chromium).
 """
 import json
+import math
 import random
 import re
 import subprocess
@@ -151,11 +152,66 @@ def tabla_html(tb):
     return f'<table class="ds-slide__tabla"><thead><tr>{cab}</tr></thead><tbody>{filas}</tbody></table>'
 
 
+def _num(x):
+    s = f"{x:.2f}".rstrip("0").rstrip(".") if abs(x - round(x)) > 1e-9 else str(int(round(x)))
+    ent, _, dec = s.partition(".")
+    if len(ent.lstrip("-")) >= 4:
+        ent = re.sub(r"(?<=\d)(?=(\d{3})+$)", ".", ent)
+    return ent + ("," + dec if dec else "")
+
+
+def grafico_svg(g):
+    """Gráfico sencillo en SVG (barras, sectores o líneas) con las clases ds-g-*; los colores salen del design system."""
+    tipo, datos = g["tipo"], g["datos"]
+    W, H = 560, 230
+    if tipo == "barras":
+        mx = max(v for _, v in datos)
+        n = len(datos)
+        paso = (W - 40) / n
+        ancho = paso * 0.58
+        partes = [f'<line class="ds-g-eje" x1="20" y1="180" x2="{W - 20}" y2="180"/>']
+        for i, (nombre, v) in enumerate(datos):
+            alto = 140 * v / mx
+            x = 20 + paso * i + (paso - ancho) / 2
+            partes.append(f'<rect class="ds-g-barra ds-g-c{i % 4}" x="{x:.1f}" y="{180 - alto:.1f}" width="{ancho:.1f}" height="{alto:.1f}" rx="8"/>')
+            partes.append(f'<text class="ds-g-valor" x="{x + ancho / 2:.1f}" y="{172 - alto:.1f}" text-anchor="middle">{_num(v)}</text>')
+            partes.append(f'<text class="ds-g-etiqueta" x="{x + ancho / 2:.1f}" y="206" text-anchor="middle">{escape(nombre)}</text>')
+    elif tipo == "sectores":
+        tot = sum(v for _, v in datos)
+        cx, cy, r = 115, 115, 100
+        ang = -math.pi / 2
+        partes = []
+        for i, (nombre, v) in enumerate(datos):
+            a2 = ang + 2 * math.pi * v / tot
+            x1, y1, x2, y2 = cx + r * math.cos(ang), cy + r * math.sin(ang), cx + r * math.cos(a2), cy + r * math.sin(a2)
+            grande = 1 if (a2 - ang) > math.pi else 0
+            partes.append(f'<path class="ds-g-sector ds-g-c{i % 4}" d="M{cx} {cy} L{x1:.1f} {y1:.1f} A{r} {r} 0 {grande} 1 {x2:.1f} {y2:.1f} Z"/>')
+            ang = a2
+        for i, (nombre, v) in enumerate(datos):
+            y = 40 + i * 44
+            partes.append(f'<rect class="ds-g-leyenda ds-g-c{i % 4}" x="270" y="{y - 18}" width="24" height="24" rx="6"/>')
+            partes.append(f'<text class="ds-g-etiqueta" x="306" y="{y}">{escape(nombre)} · {_num(100 * v / tot)} %</text>')
+    else:  # líneas
+        vs = [v for _, v in datos]
+        lo, hi = min(vs), max(vs)
+        lo -= (hi - lo) * 0.25 or 1
+        n = len(datos)
+        paso = (W - 80) / max(n - 1, 1)
+        pts = [(40 + paso * i, 170 - 130 * (v - lo) / (hi - lo)) for i, (_, v) in enumerate(datos)]
+        partes = [f'<line class="ds-g-eje" x1="20" y1="185" x2="{W - 20}" y2="185"/>',
+                  '<polyline class="ds-g-linea" points="' + " ".join(f"{x:.1f},{y:.1f}" for x, y in pts) + '"/>']
+        for (x, y), (nombre, v) in zip(pts, datos):
+            partes.append(f'<circle class="ds-g-punto" cx="{x:.1f}" cy="{y:.1f}" r="7"/>')
+            partes.append(f'<text class="ds-g-valor" x="{x:.1f}" y="{y - 14:.1f}" text-anchor="middle">{_num(v)}</text>')
+            partes.append(f'<text class="ds-g-etiqueta" x="{x:.1f}" y="212" text-anchor="middle">{escape(nombre)}</text>')
+    return f'<svg class="ds-slide__grafico" viewBox="0 0 {W} {H}" role="img" aria-label="Gráfico de {tipo}">{"".join(partes)}</svg>'
+
+
 def tarjeta_desarrollo(e):
     pasos = "".join(f'<div class="ds-slide__paso">{mate(p)}</div>' for p in e["desarrollo"])
-    tabla = tabla_html(e["tabla"]) if e.get("tabla") else ""
+    extra = tabla_html(e["tabla"]) if e.get("tabla") else (grafico_svg(e["grafico"]) if e.get("grafico") else "")
     return ('<div class="ds-slide__card2"><span class="ds-slide__pildora ds-slide__pildora--clara">Desarrollo</span>'
-            f'<div class="ds-slide__pasos">{pasos}</div>{tabla}</div>')
+            f'<div class="ds-slide__pasos">{pasos}</div>{extra}</div>')
 
 
 def construir(t):
@@ -179,14 +235,14 @@ def construir(t):
     for i, e in enumerate(t["ejemplos"], 1):
         add("", cabecera("Ejemplo · Planteamiento", e["titulo"], f"{sec_ej:02d}.{i}") + '<div class="ds-slide__body">' + par(e) + tarjeta_formula(e) + "</div>")
         add("", cabecera("Ejemplo · Desarrollo", e["titulo"], f"{sec_ej:02d}.{i}") + '<div class="ds-slide__body">' + datos(e["datos"], "ds-slide__datos--fila") +
-            '<div class="ds-slide__cols2">' + ("" if e.get("tabla") else tarjeta_formula(e)) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
+            '<div class="ds-slide__cols2">' + ("" if (e.get("tabla") or e.get("grafico")) else tarjeta_formula(e)) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
     add("ds-slide--portada", marca("?") + etiquetas(t, "Ejercicios") + '<h1>A practicar</h1><p class="ds-slide__lead">Ahora te toca a ti. Resuelve los 10 ejercicios.</p><span class="ds-slide__rayas"></span>', True)
     for i, e in enumerate(t["ejercicios"], 1):
         add("", cabecera("Ejercicio", e["titulo"], f"{sec_ejer:02d}.{i}") + '<div class="ds-slide__body">' + par(e, True) + "</div>")
     add("ds-slide--negra", marca("✓") + etiquetas(t, "Soluciones") + '<h1>A continuación tienes las soluciones</h1><p class="ds-slide__lead">Intenta resolver los ejercicios antes de mirarlas.</p><span class="ds-slide__rayas"></span>', True)
     for i, e in enumerate(t["ejercicios"], 1):
         add("", cabecera("Solución · Ejercicio", e["titulo"], f"{sec_sol:02d}.{i}") + '<div class="ds-slide__body">' + datos(e["datos"], "ds-slide__datos--fila") +
-            '<div class="ds-slide__cols2">' + ("" if e.get("tabla") else tarjeta_formula(e)) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
+            '<div class="ds-slide__cols2">' + ("" if (e.get("tabla") or e.get("grafico")) else tarjeta_formula(e)) + tarjeta_desarrollo(e) + "</div>" + resultado(e["resultado"]) + "</div>")
     add("ds-slide--cierre", marca(t["marca"]) + etiquetas(t) + f'<h1>Tema completado</h1><p class="ds-slide__lead">Repasa la fórmula y vuelve a intentar los ejercicios.</p><span class="ds-slide__rayas"></span>', True)
     return S
 

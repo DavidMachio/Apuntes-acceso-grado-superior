@@ -363,3 +363,13 @@
 .ds-slide--negra h1 { font: var(--font-weight-bold) var(--slide-cover)/1.05 var(--font-family-heading); max-width: 11ch; }
 .ds-slide--negra .ds-slide__lead { font-size: 30px; max-width: 22ch; }
 .ds-slide__tabla td { background: color-mix(in srgb, var(--slide-accent) 12%, var(--color-neutral-0)); }
+
+/* Gráficos (barras, sectores y líneas) */
+.ds-slide__grafico { width: 100%; height: auto; max-height: 185px; margin-top: var(--space-1); }
+.ds-g-eje { stroke: var(--color-neutral-400); stroke-width: 2; }
+.ds-g-etiqueta { font: var(--font-weight-semibold) 18px var(--font-family-body); fill: var(--color-neutral-900); }
+.ds-g-valor { font: var(--font-weight-bold) 20px var(--font-family-body); fill: var(--color-neutral-900); }
+.ds-g-c0 { fill: var(--slide-accent); } .ds-g-c1 { fill: var(--color-neutral-900); } .ds-g-c2 { fill: color-mix(in srgb, var(--slide-accent) 45%, var(--color-neutral-0)); } .ds-g-c3 { fill: var(--color-neutral-500); }
+.ds-g-sector { stroke: var(--color-neutral-0); stroke-width: 3; }
+.ds-g-linea { fill: none; stroke: var(--color-neutral-900); stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+.ds-g-punto { fill: var(--slide-accent); stroke: var(--color-neutral-900); stroke-width: 4; }
