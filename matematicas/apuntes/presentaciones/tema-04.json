@@ -1,0 +1,516 @@
+{
+ "numero": 4,
+ "materia": "Matemáticas",
+ "titulo": "Variación absoluta y porcentual",
+ "marca": "Δ",
+ "lead": "Cómo cambia una cantidad entre dos momentos.",
+ "vas_a_ver": [
+  "Variación absoluta",
+  "Variación porcentual",
+  "El signo: sube o baja",
+  "Siempre entre el valor de partida"
+ ],
+ "formulas": [
+  {
+   "titulo": "Variación absoluta",
+   "formulas": [
+    "V_A=C_f-C_i"
+   ],
+   "explicacion": "Cuánto ha cambiado una cantidad en unidades: valor final menos valor inicial. Es positiva si sube y negativa si baja."
+  },
+  {
+   "titulo": "Variación porcentual",
+   "formulas": [
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "explicacion": "Cuánto ha cambiado en proporción a lo que había al principio: divide la variación absoluta entre la cantidad inicial y multiplica por 100."
+  },
+  {
+   "titulo": "El signo indica si sube o baja",
+   "formulas": [
+    "C_f>C_i\\Rightarrow V>0",
+    "C_f<C_i\\Rightarrow V<0"
+   ],
+   "explicacion": "Si el valor final es mayor que el inicial, la variación es positiva. Si es menor, es negativa."
+  },
+  {
+   "titulo": "Siempre se divide entre el valor de partida",
+   "formulas": [
+    "V_P=\\dfrac{C_f-C_i}{C_i}\\times100"
+   ],
+   "explicacion": "El denominador es siempre la cantidad inicial, la de partida, nunca la final."
+  }
+ ],
+ "ejemplos": [
+  {
+   "titulo": "Variación de un sueldo",
+   "enunciado": "Un sueldo pasa de 1.000 € a 1.100 €. ¿Cuál es la variación absoluta y cuál la porcentual?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=1\\,100-1\\,000=100\\text{ €}",
+    "V_P=\\dfrac{100}{1\\,000}\\times100=10\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 100 €",
+    "Variación porcentual 10 %"
+   ],
+   "check": [
+    [
+     "1100-1000",
+     100
+    ],
+    [
+     "(1100-1000)/1000*100",
+     10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Sueldo inicial",
+     "1.000 €"
+    ],
+    [
+     "Sueldo final",
+     "1.100 €"
+    ]
+   ]
+  },
+  {
+   "titulo": "Un valor que baja",
+   "enunciado": "Un trabajador autónomo gana 2.000 € un mes y 1.800 € el siguiente. ¿Cuál es la variación absoluta y cuál la porcentual?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=1\\,800-2\\,000=-200\\text{ €}",
+    "V_P=\\dfrac{-200}{2\\,000}\\times100=-10\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta −200 €",
+    "Variación porcentual −10 %"
+   ],
+   "check": [
+    [
+     "1800-2000",
+     -200
+    ],
+    [
+     "(1800-2000)/2000*100",
+     -10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Ingresos del mes 1",
+     "2.000 €"
+    ],
+    [
+     "Ingresos del mes 2",
+     "1.800 €"
+    ]
+   ]
+  },
+  {
+   "titulo": "Camiones descargados",
+   "enunciado": "Una empresa descargó 100.000 camiones en 2019 y 125.000 en 2025. Calcula la variación absoluta y la porcentual.",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=125\\,000-100\\,000=25\\,000",
+    "V_P=\\dfrac{25\\,000}{100\\,000}\\times100=25\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 25.000",
+    "Variación porcentual 25 %"
+   ],
+   "check": [
+    [
+     "125000-100000",
+     25000
+    ],
+    [
+     "(125000-100000)/100000*100",
+     25.0
+    ]
+   ],
+   "datos": [
+    [
+     "Camiones en 2019",
+     "100.000"
+    ],
+    [
+     "Camiones en 2025",
+     "125.000"
+    ]
+   ]
+  }
+ ],
+ "ejercicios": [
+  {
+   "titulo": "Sueldo de un trabajador",
+   "enunciado": "El sueldo de un trabajador pasa de 1.200 € a 1.320 €. ¿Cuál es la variación absoluta y cuál la porcentual?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=1\\,320-1\\,200=120\\text{ €}",
+    "V_P=\\dfrac{120}{1\\,200}\\times100=10\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 120 €",
+    "Variación porcentual 10 %"
+   ],
+   "check": [
+    [
+     "1320-1200",
+     120
+    ],
+    [
+     "(1320-1200)/1200*100",
+     10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Sueldo inicial",
+     "1.200 €"
+    ],
+    [
+     "Sueldo final",
+     "1.320 €"
+    ]
+   ]
+  },
+  {
+   "titulo": "Ahorros de 2024 a 2025",
+   "enunciado": "Los ahorros de una persona fueron 2.500 € en 2024 y 2.000 € en 2025. Calcula la variación absoluta y la porcentual.",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=2\\,000-2\\,500=-500\\text{ €}",
+    "V_P=\\dfrac{-500}{2\\,500}\\times100=-20\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta −500 €",
+    "Variación porcentual −20 %"
+   ],
+   "check": [
+    [
+     "2000-2500",
+     -500
+    ],
+    [
+     "(2000-2500)/2500*100",
+     -20.0
+    ]
+   ],
+   "datos": [
+    [
+     "Ahorros en 2024",
+     "2.500 €"
+    ],
+    [
+     "Ahorros en 2025",
+     "2.000 €"
+    ]
+   ]
+  },
+  {
+   "titulo": "Ahorros de 2025 a 2026",
+   "enunciado": "Los ahorros pasan de 2.000 € en 2025 a 4.000 € en 2026. Calcula la variación absoluta y la porcentual.",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=4\\,000-2\\,000=2\\,000\\text{ €}",
+    "V_P=\\dfrac{2\\,000}{2\\,000}\\times100=100\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 2.000 €",
+    "Variación porcentual 100 %"
+   ],
+   "check": [
+    [
+     "4000-2000",
+     2000
+    ],
+    [
+     "(4000-2000)/2000*100",
+     100.0
+    ]
+   ],
+   "datos": [
+    [
+     "Ahorros en 2025",
+     "2.000 €"
+    ],
+    [
+     "Ahorros en 2026",
+     "4.000 €"
+    ]
+   ]
+  },
+  {
+   "titulo": "Precio del alquiler",
+   "enunciado": "Un alquiler pasa de costar 600 € a costar 690 € al mes. ¿Cuál es la variación absoluta y cuál la porcentual?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=690-600=90\\text{ €}",
+    "V_P=\\dfrac{90}{600}\\times100=15\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 90 €",
+    "Variación porcentual 15 %"
+   ],
+   "check": [
+    [
+     "690-600",
+     90
+    ],
+    [
+     "(690-600)/600*100",
+     15.0
+    ]
+   ],
+   "datos": [
+    [
+     "Alquiler antes",
+     "600 €"
+    ],
+    [
+     "Alquiler ahora",
+     "690 €"
+    ]
+   ]
+  },
+  {
+   "titulo": "Peso de una persona",
+   "enunciado": "Una persona pesaba 80 kg y ahora pesa 72 kg. Calcula la variación absoluta y la porcentual.",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=72-80=-8\\text{ kg}",
+    "V_P=\\dfrac{-8}{80}\\times100=-10\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta −8 kg",
+    "Variación porcentual −10 %"
+   ],
+   "check": [
+    [
+     "72-80",
+     -8
+    ],
+    [
+     "(72-80)/80*100",
+     -10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Peso inicial",
+     "80 kg"
+    ],
+    [
+     "Peso final",
+     "72 kg"
+    ]
+   ]
+  },
+  {
+   "titulo": "Visitas a una web",
+   "enunciado": "Una web tuvo 5.000 visitas un mes y 6.500 el siguiente. Calcula la variación absoluta y la porcentual.",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=6\\,500-5\\,000=1\\,500",
+    "V_P=\\dfrac{1\\,500}{5\\,000}\\times100=30\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 1.500",
+    "Variación porcentual 30 %"
+   ],
+   "check": [
+    [
+     "6500-5000",
+     1500
+    ],
+    [
+     "(6500-5000)/5000*100",
+     30.0
+    ]
+   ],
+   "datos": [
+    [
+     "Visitas del 1.er mes",
+     "5.000"
+    ],
+    [
+     "Visitas del 2.º mes",
+     "6.500"
+    ]
+   ]
+  },
+  {
+   "titulo": "Precio de la gasolina",
+   "enunciado": "El litro de gasolina pasa de 1,50 € a 1,80 €. ¿Cuál es la variación absoluta y cuál la porcentual?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=1{,}80-1{,}50=0{,}30\\text{ €}",
+    "V_P=\\dfrac{0{,}30}{1{,}50}\\times100=20\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 0,30 €",
+    "Variación porcentual 20 %"
+   ],
+   "check": [
+    [
+     "1.8-1.5",
+     0.30000000000000004
+    ],
+    [
+     "(1.8-1.5)/1.5*100",
+     20.000000000000004
+    ]
+   ],
+   "datos": [
+    [
+     "Precio inicial",
+     "1,50 €"
+    ],
+    [
+     "Precio final",
+     "1,80 €"
+    ]
+   ]
+  },
+  {
+   "titulo": "Factura de la luz",
+   "enunciado": "Una factura de la luz baja de 80 € a 60 €. Calcula la variación absoluta y la porcentual.",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=60-80=-20\\text{ €}",
+    "V_P=\\dfrac{-20}{80}\\times100=-25\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta −20 €",
+    "Variación porcentual −25 %"
+   ],
+   "check": [
+    [
+     "60-80",
+     -20
+    ],
+    [
+     "(60-80)/80*100",
+     -25.0
+    ]
+   ],
+   "datos": [
+    [
+     "Factura inicial",
+     "80 €"
+    ],
+    [
+     "Factura final",
+     "60 €"
+    ]
+   ]
+  },
+  {
+   "titulo": "Alumnos matriculados",
+   "enunciado": "Un centro pasa de 200 a 250 alumnos matriculados. ¿Cuál es la variación absoluta y cuál la porcentual?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=250-200=50",
+    "V_P=\\dfrac{50}{200}\\times100=25\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 50",
+    "Variación porcentual 25 %"
+   ],
+   "check": [
+    [
+     "250-200",
+     50
+    ],
+    [
+     "(250-200)/200*100",
+     25.0
+    ]
+   ],
+   "datos": [
+    [
+     "Alumnos antes",
+     "200"
+    ],
+    [
+     "Alumnos ahora",
+     "250"
+    ]
+   ]
+  },
+  {
+   "titulo": "Ventas de una tienda",
+   "enunciado": "Las ventas de una tienda bajan de 50.000 € a 40.000 €. Calcula la variación absoluta y la porcentual.",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=40\\,000-50\\,000=-10\\,000\\text{ €}",
+    "V_P=\\dfrac{-10\\,000}{50\\,000}\\times100=-20\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta −10.000 €",
+    "Variación porcentual −20 %"
+   ],
+   "check": [
+    [
+     "40000-50000",
+     -10000
+    ],
+    [
+     "(40000-50000)/50000*100",
+     -20.0
+    ]
+   ],
+   "datos": [
+    [
+     "Ventas antes",
+     "50.000 €"
+    ],
+    [
+     "Ventas ahora",
+     "40.000 €"
+    ]
+   ]
+  }
+ ]
+}

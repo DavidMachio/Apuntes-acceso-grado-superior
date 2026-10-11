@@ -1,0 +1,404 @@
+/* Design System · Acceso a grado superior · diapositivas PDF 16:9 (v2.0)
+   Usa los tokens de variables.css. Las medidas de este archivo son la escala propia del formato diapositiva (1280 × 720 px) y se documentan aquí:
+   texto 28 px, subtítulos 34 px, títulos 46 px, portada 76 px. Reglas del temario: sin pie de página y sin datos que cambien al añadir contenido ("tema 1 de 10"). */
+@page { size: 1280px 720px; margin: 0; }
+:root { --slide-accent: var(--color-primary-500); --slide-accent-soft: var(--color-primary-400); --slide-w: 1280px; --slide-h: 720px; --slide-pad: 72px; --slide-text: 28px; --slide-sub: 34px; --slide-title: 46px; --slide-cover: 76px; }
+
+.ds-slide, .ds-slide * { box-sizing: border-box; }
+.ds-slides { margin: 0; background: var(--color-neutral-200); }
+.ds-slide { position: relative; width: var(--slide-w); height: var(--slide-h); margin: 0 auto var(--space-8); padding: var(--space-12) var(--slide-pad) var(--space-12); overflow: hidden; display: flex; flex-direction: column; background: var(--color-bg-surface); color: var(--color-text-primary); font: var(--font-weight-regular) var(--slide-text)/1.4 var(--font-family-body); break-after: page; page-break-after: always; }
+.ds-slide > * { margin-block: 0; }
+.ds-slide__tag { font: var(--font-weight-semibold) 18px/1 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: var(--space-4); }
+.ds-slide__title { font: var(--font-weight-bold) var(--slide-title)/1.1 var(--font-family-heading); letter-spacing: var(--tracking-tight); margin-bottom: var(--space-8); max-width: 20ch; }
+.ds-slide__title::after { content: ""; display: block; width: var(--space-16); height: var(--space-2); margin-top: var(--space-4); border-radius: var(--radius-pill); background: var(--color-action-primary-bg); }
+.ds-slide__body { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: var(--space-6); }
+.ds-slide p { max-width: none; margin: 0; }
+.ds-slide__cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: start; }
+.ds-slide__big { font: var(--font-weight-bold) var(--slide-sub)/1.25 var(--font-family-heading); letter-spacing: var(--tracking-tight); }
+
+/* Portada y cierre: negro con marca de agua */
+.ds-slide--portada, .ds-slide--cierre, .ds-slide--negra { --color-bg-surface: var(--color-neutral-900); --color-bg-subtle: var(--color-neutral-800); --color-text-primary: var(--color-neutral-50); --color-text-secondary: var(--color-neutral-400); --color-border-default: var(--color-neutral-700); background: var(--color-neutral-900); color: var(--color-neutral-50); justify-content: center; }
+.ds-slide--portada .ds-slide__tag, .ds-slide--cierre .ds-slide__tag { display: inline-block; align-self: flex-start; padding: var(--space-2) var(--space-5); border: var(--border-strong) solid var(--slide-accent); border-radius: var(--radius-pill); color: var(--slide-accent-soft); font-size: 19px; margin-bottom: var(--space-8); }
+.ds-slide--portada h1, .ds-slide--cierre h1 { font: var(--font-weight-bold) var(--slide-cover)/1.05 var(--font-family-heading); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-6); max-width: 12ch; color: var(--color-neutral-50); }
+.ds-slide--portada .ds-slide__lead, .ds-slide--cierre .ds-slide__lead { font-size: 30px; line-height: 1.35; color: var(--color-neutral-400); max-width: 22ch; }
+.ds-slide__marca { position: absolute; right: calc(-1 * var(--space-10)); top: 50%; transform: translateY(-50%); width: 560px; height: 560px; color: var(--slide-accent); opacity: .9; }
+.ds-slide__marca text { fill: none; stroke: currentColor; stroke-width: 3; }
+.ds-slide__rayas { position: absolute; left: var(--slide-pad); bottom: var(--space-12); width: var(--space-20); height: var(--space-2); border-radius: var(--radius-pill); background: var(--slide-accent); }
+
+/* Tarjetas de contenido */
+.ds-slide__card { padding: var(--space-6) var(--space-8); border-radius: var(--radius-lg); background: var(--color-bg-accent-soft); }
+.ds-slide__card--crema { background: var(--color-neutral-100); }
+.ds-slide__card--negra { background: var(--color-neutral-900); color: var(--color-neutral-50); }
+.ds-slide__card--negra .ds-slide__cap { color: var(--slide-accent-soft); }
+.ds-slide__cap { display: block; font: var(--font-weight-semibold) 18px/1 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-secondary); margin-bottom: var(--space-3); }
+.ds-slide__formula { font: italic var(--font-weight-regular) 44px/1.2 var(--font-family-heading); }
+.ds-slide__formulas { display: grid; gap: var(--space-5); }
+.ds-slide__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4); counter-reset: punto; }
+.ds-slide__lista li { margin: 0; display: grid; grid-template-columns: var(--space-10) 1fr; gap: var(--space-4); align-items: start; counter-increment: punto; }
+.ds-slide__lista li::before { content: counter(punto); display: grid; place-items: center; width: var(--space-10); height: var(--space-10); border-radius: 50%; background: var(--slide-accent); color: var(--color-neutral-900); font: var(--font-weight-bold) 22px/1 var(--font-family-body); }
+.ds-slide__check { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4); }
+.ds-slide__check li { margin: 0; display: grid; grid-template-columns: var(--space-8) 1fr; gap: var(--space-4); }
+.ds-slide__check li::before { content: "✓"; color: var(--slide-accent); font-weight: var(--font-weight-bold); }
+.ds-slide__resultado { display: flex; align-items: baseline; gap: var(--space-5); padding: var(--space-5) var(--space-8); border-radius: var(--radius-lg); background: var(--color-neutral-900); color: var(--color-neutral-50); }
+.ds-slide__resultado b { font: var(--font-weight-bold) 44px/1 var(--font-family-heading); color: var(--slide-accent-soft); }
+.ds-slide .ds-table { font-size: 24px; line-height: 1.3; }
+.ds-slide .ds-table th, .ds-slide .ds-table td { padding: var(--space-3) var(--space-5); }
+.ds-slide .ds-callout { font-size: 26px; line-height: 1.35; }
+
+@media screen { .ds-slides { padding: var(--space-8) 0; } .ds-slide { box-shadow: var(--shadow-md); } }
+@media print {
+  .ds-slides { background: none; padding: 0; }
+  .ds-slide { margin: 0; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Color de la materia: se activa con data-variante en <html> (amarillo por defecto) */
+[data-variante="matematicas"] { --slide-accent: var(--color-menta-500); --slide-accent-soft: var(--color-menta-400); }
+[data-variante="lengua"] { --slide-accent: var(--color-rosa-500); --slide-accent-soft: var(--color-rosa-400); }
+
+/* Ejemplos, ejercicios y soluciones */
+.ds-slide__enun { padding: var(--space-5) var(--space-8); border-radius: var(--radius-lg); background: var(--color-bg-surface); border: var(--border-hairline) solid var(--color-border-default); border-left: var(--space-3) solid var(--slide-accent); font-size: 28px; line-height: 1.4; }
+.ds-slide--negra .ds-slide__enun { background: var(--color-neutral-800); }
+.ds-slide__cols--2 { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: var(--space-8); align-items: start; }
+.ds-slide__col { display: flex; flex-direction: column; gap: var(--space-4); }
+.ds-slide__formulas--sm { gap: var(--space-3); }
+.ds-slide__formula--sm { font-size: 38px; }
+.ds-slide__pasos { display: grid; gap: var(--space-4); }
+.ds-slide__paso { font: var(--font-weight-regular) 38px/1.25 var(--font-family-heading); padding: var(--space-3) 0; border-bottom: var(--border-hairline) solid var(--color-border-default); }
+.ds-slide__paso:last-child { border-bottom: 0; }
+.ds-slide__resultado { margin-top: auto; }
+.ds-slide__dato { color: var(--color-text-primary); font-weight: var(--font-weight-bold); background: color-mix(in srgb, var(--slide-accent) 35%, transparent); border-radius: var(--radius-sm); padding: 0 var(--space-2); }
+.ds-slide__lead--claro { font-size: 30px; line-height: 1.35; color: var(--color-text-secondary); max-width: 40ch; }
+.ds-slide math { font-family: "Latin Modern Math", "STIX Two Math", "DejaVu Math TeX Gyre", var(--font-family-heading); font-size: 1em; }
+.ds-slide__enun--grande { font-size: 44px; line-height: 1.35; padding: var(--space-10); }
+.ds-slide__paso math, .ds-slide__formula--sm math { display: inline math; }
+.ds-slide mtext { font-family: var(--font-family-body); }
+.ds-slide__pasos { justify-items: start; }
+.ds-slide__title { margin-bottom: var(--space-6); }
+.ds-slide__enun--compacta { font-size: 26px; padding: var(--space-4) var(--space-6); }
+.ds-slide .ds-slide__mn, .ds-slide mn { font-family: var(--font-family-body); }
+.ds-slide__body--centro { justify-content: center; }
+/* Diapositivas de ejemplo y solución: más compactas para que quepan fórmula y desarrollo */
+.ds-slide--dev { padding-block: var(--space-8); }
+.ds-slide--dev .ds-slide__tag { margin-bottom: var(--space-2); }
+.ds-slide--dev .ds-slide__title { font-size: 40px; margin-bottom: var(--space-4); }
+.ds-slide--dev .ds-slide__title::after { margin-top: var(--space-2); }
+.ds-slide--dev .ds-slide__body { gap: var(--space-4); }
+.ds-slide--dev .ds-slide__col { gap: var(--space-2); }
+.ds-slide--dev .ds-slide__cap { margin-bottom: 0; }
+.ds-slide--dev .ds-slide__paso { padding: var(--space-2) 0; font-size: 36px; }
+.ds-slide--dev .ds-slide__resultado { padding: var(--space-4) var(--space-8); gap: var(--space-8); flex-wrap: wrap; font-size: 30px; }
+.ds-slide--dev .ds-slide__resultado b { font-size: 44px; }
+.ds-slide--dev .ds-slide__col { min-width: 0; }
+.ds-slide--dev .ds-slide__formula--sm { font-size: 32px; }
+.ds-slide--dev .ds-slide__paso { font-size: 32px; padding: var(--space-1) 0; }
+.ds-slide--dev .ds-slide__enun { font-size: 28px; }
+.ds-slide__dato { white-space: nowrap; }
+.ds-slide--dev .ds-slide__formula--sm { font-size: 40px; }
+.ds-slide--dev .ds-slide__paso { font-size: 40px; padding: var(--space-2) 0; }
+.ds-slide--dev .ds-slide__enun { font-size: 32px; }
+.ds-slide--dev .ds-slide__resultado { font-size: 34px; }
+.ds-slide--dev .ds-slide__cols--2 { grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); gap: var(--space-6); }
+.ds-slide--dev .ds-slide__formula--sm, .ds-slide--dev .ds-slide__paso { font-size: 34px; }
+.ds-slide--dev .ds-slide__cols--2 { grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); }
+
+/* ===== v2.1 · Diseño visual: títulos numerados, tarjetas menta, marca de agua, infografías, minitarjetas ===== */
+.ds-slide__capa { position: relative; z-index: 1; display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.ds-slide__fondo { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.ds-slide__sim { font-family: var(--font-family-heading); font-weight: 800; fill: var(--slide-accent); opacity: .16; }
+.ds-slide__sim--trazo { fill: none; stroke: var(--slide-accent); stroke-width: 2.5; opacity: .35; }
+.ds-slide:not(.ds-slide--portada):not(.ds-slide--cierre):not(.ds-slide--negra) { background: var(--color-bg-subtle); padding-block: var(--space-8); }
+.ds-slide--portada .ds-slide__sim, .ds-slide--negra .ds-slide__sim, .ds-slide--cierre .ds-slide__sim { opacity: .10; }
+.ds-slide--portada .ds-slide__sim--trazo, .ds-slide--negra .ds-slide__sim--trazo, .ds-slide--cierre .ds-slide__sim--trazo { opacity: .28; }
+.ds-slide__head { display: flex; align-items: center; gap: var(--space-5); margin-bottom: var(--space-5); }
+.ds-slide__num { flex: none; display: grid; place-items: center; width: 76px; height: 76px; border-radius: var(--radius-lg); background: var(--slide-accent); color: var(--color-neutral-900); font: var(--font-weight-bold) 38px/1 var(--font-family-heading); }
+.ds-slide__head .ds-slide__tag { margin-bottom: var(--space-1); display: block; }
+.ds-slide__head .ds-slide__title { margin: 0; max-width: none; font-size: 42px; }
+.ds-slide__head .ds-slide__title::after { display: none; }
+.ds-slide__card2 { padding: var(--space-5) var(--space-6); border-radius: var(--radius-xl); background: var(--color-neutral-0); border: var(--border-hairline) solid var(--color-border-default); min-width: 0; }
+.ds-slide__card2--menta { background: color-mix(in srgb, var(--slide-accent) 38%, var(--color-neutral-0)); border-color: transparent; }
+.ds-slide__card2--negra { background: var(--color-neutral-900); color: var(--color-neutral-50); border-color: transparent; }
+.ds-slide__card2--negra .ds-slide__cap { color: var(--slide-accent); }
+.ds-slide__card2--info { display: grid; place-items: center; background: var(--color-neutral-900); border-color: transparent; padding: var(--space-4); }
+.ds-slide__card2--info .ds-slide__info { width: 100%; max-height: 100%; }
+.ds-slide__card2 .ds-slide__cap { margin-bottom: var(--space-2); }
+.ds-slide__cap--suelto { margin: var(--space-2) 0 0; }
+.ds-slide__enun2 { font-size: 30px; line-height: 1.35; }
+.ds-slide__enun2--grande { font-size: 40px; line-height: 1.3; }
+.ds-slide .ds-slide__dato { background: var(--color-neutral-900); color: var(--slide-accent); border-radius: var(--radius-sm); padding: 0 var(--space-2); white-space: nowrap; }
+.ds-slide__fila { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--space-5); align-items: stretch; }
+.ds-slide__fila--ej { flex: 1; }
+.ds-slide__izq { display: flex; flex-direction: column; gap: var(--space-3); justify-content: center; }
+.ds-slide__datos { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.ds-slide__minicard { display: grid; gap: var(--space-1); padding: var(--space-3) var(--space-5); border-radius: var(--radius-lg); background: var(--color-neutral-0); border: var(--border-strong) solid var(--slide-accent); }
+.ds-slide__minicard span { font: var(--font-weight-semibold) 15px/1.1 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-secondary); }
+.ds-slide__minicard b { font: var(--font-weight-bold) 38px/1.05 var(--font-family-heading); }
+.ds-slide__datos--fila .ds-slide__minicard { flex-direction: row; display: flex; align-items: baseline; gap: var(--space-3); padding: var(--space-2) var(--space-4); }
+.ds-slide__datos--fila .ds-slide__minicard b { font-size: 26px; }
+.ds-slide__cols2 { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--space-4); align-items: stretch; flex: 1; min-height: 0; }
+.ds-slide__card2 .ds-slide__formula--sm { font-size: 34px; }
+.ds-slide__card2 .ds-slide__paso { font-size: 36px; padding: var(--space-2) 0; }
+.ds-slide__card2 .ds-slide__pasos { gap: var(--space-2); }
+.ds-slide__card2--negra .ds-slide__formulas--sm { gap: var(--space-4); }
+.ds-slide__formulas > .ds-slide__card2 { padding: var(--space-6) var(--space-8); }
+.ds-slide__explica { font-size: 30px; line-height: 1.4; color: var(--color-text-secondary); max-width: 48ch; }
+.ds-slide .ds-slide__resultado { margin-top: 0; background: var(--slide-accent); color: var(--color-neutral-900); border-radius: var(--radius-xl); padding: var(--space-4) var(--space-8); gap: var(--space-8); flex-wrap: wrap; font-size: 32px; font-weight: var(--font-weight-semibold); }
+.ds-slide .ds-slide__resultado b { color: var(--color-neutral-900); font-size: 48px; }
+.ds-slide__lista { gap: var(--space-6); }
+.ds-slide__lista li { font-size: 38px; grid-template-columns: var(--space-12) 1fr; align-items: center; }
+.ds-slide__lista li::before { width: var(--space-12); height: var(--space-12); font-size: 28px; }
+.ds-slide__formulas > .ds-slide__card2 { padding: var(--space-10) var(--space-8); }
+.ds-slide__formulas .ds-slide__formula { font-size: 68px; text-align: center; }
+.ds-slide__explica { font-size: 32px; }
+.ds-slide__fila { flex: 1; }
+.ds-slide__enun2 { font-size: 34px; }
+.ds-slide__enun2--grande { font-size: 44px; }
+.ds-slide__minicard b { font-size: 46px; }
+.ds-slide__minicard span { font-size: 17px; }
+.ds-slide__card2--negra .ds-slide__formula--sm { font-size: 40px; }
+.ds-slide__cols2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--space-5); }
+.ds-slide__cols2 .ds-slide__paso { font-size: 34px; }
+.ds-slide__cols2 .ds-slide__formula--sm { font-size: 36px; }
+.ds-slide__body { gap: var(--space-5); }
+.ds-slide__card2--info { background: var(--color-neutral-0); border: var(--border-hairline) solid var(--color-border-default); }
+.ds-slide__cols2 { grid-template-columns: minmax(0, 1fr); flex: none; gap: var(--space-4); }
+.ds-slide__cols2 .ds-slide__card2 { padding: var(--space-4) var(--space-6); }
+.ds-slide__cols2 .ds-slide__paso { font-size: 36px; padding: var(--space-1) 0; }
+.ds-slide__cols2 .ds-slide__pasos { grid-auto-flow: row; }
+.ds-slide__formulas .ds-slide__formula { font-size: 60px; }
+.ds-slide__formulas > .ds-slide__card2 { padding: var(--space-8); }
+.ds-slide__cols2 .ds-slide__card2--negra .ds-slide__formula--sm { font-size: 32px; }
+.ds-slide__cols2 .ds-slide__card2--negra .ds-slide__formulas--sm { gap: var(--space-2); }
+.ds-slide__cols2 .ds-slide__paso { font-size: 34px; }
+.ds-slide .ds-slide__resultado { padding: var(--space-3) var(--space-8); }
+.ds-slide .ds-slide__resultado b { font-size: 42px; }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__enun2 { font-size: 30px; }
+.ds-slide__fila:not(.ds-slide__fila--ej) + .ds-slide__card2--negra .ds-slide__formula--sm { font-size: 34px; }
+.ds-slide__cols2 .ds-slide__card2--negra .ds-slide__formula--sm { font-size: 36px; }
+.ds-slide__cols2 .ds-slide__paso { font-size: 38px; }
+.ds-slide__cols2 .ds-slide__card2--negra .ds-slide__formula--sm { font-size: 34px; }
+.ds-slide__cols2 .ds-slide__paso { font-size: 36px; }
+.ds-slide__fila:not(.ds-slide__fila--ej) { grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr); }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__enun2 { font-size: 28px; }
+.ds-slide__card2--info .ds-slide__info { padding: var(--space-2); }
+.ds-slide__body { gap: var(--space-4); }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__minicard b { font-size: 38px; }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__card2 { padding-block: var(--space-4); }
+.ds-slide__cols2 .ds-slide__paso { font-size: 35px; }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__izq { gap: var(--space-2); } .ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__card2--info { padding: var(--space-2); }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__info { max-height: 190px; }
+
+/* ===== v2.2 · Más limpio: sin infografías ni tarjetas oscuras ===== */
+.ds-slide__card2--formula { background: var(--color-neutral-0); border: var(--border-strong) solid var(--slide-accent); color: var(--color-text-primary); }
+.ds-slide__card2--formula .ds-slide__cap { color: var(--color-text-secondary); }
+.ds-slide__card2--negra, .ds-slide__card2--info { display: none; }
+.ds-slide .ds-slide__dato { background: color-mix(in srgb, var(--slide-accent) 55%, var(--color-neutral-0)); color: var(--color-neutral-900); }
+.ds-slide .ds-slide__resultado { background: color-mix(in srgb, var(--slide-accent) 55%, var(--color-neutral-0)); }
+.ds-slide__fila, .ds-slide__fila:not(.ds-slide__fila--ej) { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+.ds-slide__fila--ej { align-content: center; }
+.ds-slide__fila--ej .ds-slide__enun2--grande { font-size: 46px; }
+.ds-slide__fila--ej .ds-slide__card2 { padding: var(--space-10); }
+.ds-slide__fila--ej .ds-slide__izq { flex-direction: column; align-items: flex-start; }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__enun2 { font-size: 32px; }
+.ds-slide__cols2 .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 36px; }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 38px; }
+.ds-slide__minicard { border-width: var(--border-hairline); border-left: var(--space-2) solid var(--slide-accent); }
+/* Variante horizontal (--horizontal): dos columnas */
+.ds-slides--horiz .ds-slide__fila, .ds-slides--horiz .ds-slide__fila:not(.ds-slide__fila--ej) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-6); align-items: stretch; }
+.ds-slides--horiz .ds-slide__fila--ej { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: center; }
+.ds-slides--horiz .ds-slide__fila--ej .ds-slide__datos { flex-direction: column; }
+.ds-slides--horiz .ds-slide__fila--ej .ds-slide__enun2--grande { font-size: 42px; }
+.ds-slides--horiz .ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__card2--formula { align-self: center; }
+.ds-slides--horiz .ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 32px; }
+.ds-slides--horiz .ds-slide__cols2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); flex: 1; align-items: stretch; }
+.ds-slides--horiz .ds-slide__cols2 .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 30px; }
+.ds-slides--horiz .ds-slide__cols2 .ds-slide__paso { font-size: 32px; }
+.ds-slides--horiz .ds-slide__cols2 .ds-slide__card2 { align-content: center; }
+.ds-slide__cols2 .ds-slide__card2 { padding-block: var(--space-3); } .ds-slide__cols2 .ds-slide__paso { padding-block: 0; }
+
+/* ===== v2.3 · Estilo de tarjetas «dashboard»: bloques redondeados blanco / negro / menta, cifras grandes con unidad ligera, etiquetas en píldora ===== */
+.ds-slide:not(.ds-slide--portada):not(.ds-slide--cierre):not(.ds-slide--negra) { background: var(--color-bg-subtle); }
+.ds-slide__card2 { border: 0; border-radius: var(--radius-xl); padding: var(--space-6) var(--space-8); }
+.ds-slide__card2--menta { background: var(--slide-accent); color: var(--color-neutral-900); }
+.ds-slide__card2--formula { background: var(--color-neutral-900); color: var(--color-neutral-50); border: 0; }
+.ds-slide__pildora { display: inline-block; align-self: flex-start; padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--color-neutral-900); color: var(--slide-accent); font: var(--font-weight-semibold) 15px/1.2 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; margin-bottom: var(--space-3); }
+.ds-slide__card2--menta .ds-slide__pildora { background: var(--color-neutral-900); color: var(--slide-accent); }
+.ds-slide__card2--formula .ds-slide__pildora { background: color-mix(in srgb, var(--slide-accent) 22%, var(--color-neutral-900)); }
+.ds-slide__pildora--clara { background: var(--color-bg-subtle); color: var(--color-text-secondary); }
+.ds-slide__head .ds-slide__tag { display: inline-block; padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--color-neutral-0); color: var(--color-text-secondary); margin-bottom: var(--space-2); }
+.ds-slide__num { border-radius: var(--radius-pill); background: var(--color-neutral-900); color: var(--slide-accent); }
+.ds-slide__valor { display: flex; align-items: baseline; gap: var(--space-2); }
+.ds-slide__valor b { font: var(--font-weight-bold) 64px/1 var(--font-family-heading); letter-spacing: var(--tracking-tight); }
+.ds-slide__valor i { font: var(--font-weight-regular) 38px/1 var(--font-family-heading); font-style: normal; opacity: .5; }
+.ds-slide__minicard { display: grid; gap: var(--space-2); align-content: space-between; padding: var(--space-5) var(--space-6); border: 0; border-radius: var(--radius-xl); background: var(--color-neutral-0); }
+.ds-slide__datos--col { display: grid; grid-auto-rows: 1fr; gap: var(--space-4); }
+.ds-slide__datos--col .ds-slide__minicard:nth-child(even) { background: var(--color-neutral-900); color: var(--color-neutral-50); }
+.ds-slide__datos--col .ds-slide__minicard:nth-child(even) span { color: var(--slide-accent); }
+.ds-slide__barra { height: var(--space-3); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--color-text-secondary) 25%, transparent); overflow: hidden; }
+.ds-slide__barra i { display: block; width: calc(var(--p) * 1%); height: 100%; border-radius: var(--radius-pill); background: var(--slide-accent); }
+.ds-slide__fila, .ds-slide__fila:not(.ds-slide__fila--ej) { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--space-4); align-items: stretch; }
+.ds-slide__fila--ej { flex: 1; }
+.ds-slide__fila .ds-slide__card2--menta { display: flex; flex-direction: column; justify-content: center; }
+.ds-slide__fila:not(.ds-slide__fila--ej) .ds-slide__enun2 { font-size: 32px; }
+.ds-slide__enun2--grande, .ds-slide__fila--ej .ds-slide__enun2--grande { font-size: 44px; }
+.ds-slide .ds-slide__dato { background: var(--color-neutral-900); color: var(--slide-accent); }
+.ds-slide__datos--fila .ds-slide__minicard { display: flex; align-items: baseline; gap: var(--space-3); padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); }
+.ds-slide__datos--fila .ds-slide__valor b { font-size: 28px; } .ds-slide__datos--fila .ds-slide__valor i { font-size: 22px; }
+.ds-slide__datos--fila .ds-slide__barra { display: none; }
+.ds-slide__card2--formula .ds-slide__formula--sm { font-size: 36px; }
+.ds-slide__fila:not(.ds-slide__fila--ej) + .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 36px; }
+.ds-slide .ds-slide__resultado { background: var(--slide-accent); color: var(--color-neutral-900); border-radius: var(--radius-xl); padding: var(--space-4) var(--space-8); align-items: center; justify-content: space-between; }
+.ds-slide__resultado span { font: var(--font-weight-semibold) 18px/1.2 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.ds-slide__resultado--uno .ds-slide__valor b { font-size: 60px; } .ds-slide__resultado--uno .ds-slide__valor i { font-size: 36px; }
+.ds-slide__cols2 .ds-slide__card2 { padding: var(--space-4) var(--space-8); }
+.ds-slide__explica { color: var(--color-text-primary); }
+.ds-slide__formulas > .ds-slide__card2 { background: var(--slide-accent); }
+.ds-slide__formulas > .ds-slide__card2:nth-child(2) { background: var(--color-neutral-900); color: var(--color-neutral-50); }
+.ds-slide .ds-slide__minicard .ds-slide__valor b { font-size: 64px; }
+.ds-slide .ds-slide__minicard .ds-slide__valor i { font-size: 36px; }
+.ds-slide .ds-slide__minicard span { font-size: 16px; color: var(--color-text-secondary); }
+.ds-slide .ds-slide__datos--col .ds-slide__minicard:nth-child(even) span { color: var(--slide-accent); }
+.ds-slide .ds-slide__datos--fila .ds-slide__minicard .ds-slide__valor b { font-size: 28px; }
+.ds-slide .ds-slide__datos--fila .ds-slide__minicard .ds-slide__valor i { font-size: 22px; }
+.ds-slide__resultado--varios { gap: var(--space-10); }
+.ds-slide__grupo { display: flex; align-items: center; gap: var(--space-4); }
+.ds-slide__resultado--varios .ds-slide__valor b { font-size: 44px; } .ds-slide__resultado--varios .ds-slide__valor i { font-size: 28px; }
+.ds-slide__datos--col .ds-slide__minicard { padding-block: var(--space-4); }
+.ds-slide .ds-slide__resultado--varios { padding-block: var(--space-2); }
+.ds-slide__resultado--varios .ds-slide__valor b { font-size: 38px; }
+.ds-slide .ds-slide__resultado--uno { padding-block: var(--space-2); }
+.ds-slide__cols2 .ds-slide__card2 { padding-block: var(--space-3); }
+.ds-slide__cols2 .ds-slide__paso { font-size: 34px; }
+.ds-slide__cols2 .ds-slide__card2--formula .ds-slide__formula--sm { font-size: 32px; } .ds-slide__datos--fila .ds-slide__minicard { padding-block: var(--space-1); }
+
+/* ===== v2.4 · Paleta de Matemáticas = referencia (lima #b0e57f, negro, blanco, gris verdoso), sin marcas de agua, portada y cierre en color ===== */
+.ds-slide:not(.ds-slide--portada):not(.ds-slide--cierre):not(.ds-slide--negra) { --color-bg-subtle: var(--color-neutral-lienzo); background: var(--color-neutral-lienzo); }
+.ds-slides { background: var(--color-neutral-300); }
+.ds-slide--portada, .ds-slide--cierre { --color-bg-surface: var(--slide-accent); --color-text-primary: var(--color-neutral-900); --color-text-secondary: var(--color-neutral-900); background: var(--slide-accent); color: var(--color-neutral-900); }
+.ds-slide--portada h1, .ds-slide--cierre h1 { color: var(--color-neutral-900); }
+.ds-slide--portada .ds-slide__lead, .ds-slide--cierre .ds-slide__lead { color: var(--color-neutral-900); opacity: .75; }
+.ds-slide--portada .ds-slide__tag, .ds-slide--cierre .ds-slide__tag { background: var(--color-neutral-900); border: 0; color: var(--slide-accent); }
+.ds-slide--portada .ds-slide__rayas, .ds-slide--cierre .ds-slide__rayas { background: var(--color-neutral-900); }
+.ds-slide--negra { background: var(--color-neutral-900); }
+
+/* ===== v2.5 · Marca de portada (infografía de contorno), numeración 04.1 / 05.1 y diapositivas de ejercicio en lima ===== */
+.ds-slide__marca { color: var(--slide-accent); }
+.ds-slide--portada .ds-slide__marca, .ds-slide--cierre .ds-slide__marca { color: var(--color-neutral-900); opacity: .9; }
+.ds-slide--negra .ds-slide__marca { color: var(--slide-accent); }
+.ds-slide__num { width: auto; min-width: 76px; padding-inline: var(--space-5); font-size: 30px; }
+.ds-slide--portada .ds-slide__lead, .ds-slide--cierre .ds-slide__lead { max-width: 26ch; }
+.ds-slide__cols2 .ds-slide__paso { line-height: 1.1; }
+/* Con 3 o 4 datos las minitarjetas se compactan para que quepan */
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__minicard { padding: var(--space-2) var(--space-5); gap: var(--space-1); }
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__valor b { font-size: 42px; } .ds-slide .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__valor i { font-size: 26px; }
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__minicard { padding: var(--space-2) var(--space-5); gap: var(--space-1); }
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__valor b { font-size: 36px; } .ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__valor i { font-size: 24px; }
+.ds-slide .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__barra, .ds-slide .ds-slide__datos--col.ds-slide__datos--n4 .ds-slide__barra { height: var(--space-2); }
+.ds-slide__fila--ej .ds-slide__datos--col.ds-slide__datos--n3 .ds-slide__valor b { font-size: 52px; }
+
+/* ===== v3.0 · Portadas estilo LED: degradado completo oscuro, número de tema y símbolo gigante con resplandor ===== */
+.ds-slide--portada, .ds-slide--cierre, .ds-slide--negra {
+  --color-text-primary: var(--color-neutral-50); --color-text-secondary: var(--color-neutral-300);
+  background:
+    radial-gradient(ellipse 60% 80% at 82% 50%, color-mix(in srgb, var(--slide-accent) 34%, transparent), transparent 70%),
+    linear-gradient(135deg, var(--color-neutral-900) 0%, color-mix(in srgb, var(--slide-accent) 24%, var(--color-neutral-900)) 100%);
+  color: var(--color-neutral-50); overflow: hidden;
+}
+.ds-slide--portada h1, .ds-slide--cierre h1, .ds-slide--negra h1 { color: var(--color-neutral-50); }
+.ds-slide--portada .ds-slide__lead, .ds-slide--cierre .ds-slide__lead, .ds-slide--negra .ds-slide__lead { color: var(--color-neutral-300); opacity: 1; }
+.ds-slide__etiquetas { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-8); }
+.ds-slide__etiquetas .ds-slide__tag { margin: 0; background: transparent; border: var(--border-strong) solid var(--slide-accent); color: var(--slide-accent-soft); }
+.ds-slide--portada .ds-slide__etiquetas .ds-slide__tag, .ds-slide--cierre .ds-slide__etiquetas .ds-slide__tag { background: transparent; color: var(--slide-accent-soft); border: var(--border-strong) solid var(--slide-accent); }
+.ds-slide__tema { padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); background: var(--slide-accent); color: var(--color-neutral-900); font: var(--font-weight-bold) 19px/1.4 var(--font-family-heading); }
+.ds-slide--portada .ds-slide__rayas, .ds-slide--cierre .ds-slide__rayas, .ds-slide--negra .ds-slide__rayas { background: var(--slide-accent); }
+.ds-slide--portada .ds-slide__marca, .ds-slide--cierre .ds-slide__marca, .ds-slide--negra .ds-slide__marca { right: calc(-1 * var(--space-12)); width: 760px; height: 760px; color: var(--slide-accent); opacity: 1; }
+.ds-slide__led-glow text { fill: var(--slide-accent); opacity: .75; }
+.ds-slide__led-trazo text { fill: none; stroke: var(--slide-accent-soft); stroke-width: 7; stroke-linejoin: round; }
+/* v3.0b · texto centrado en vertical y etiqueta de «Soluciones» igual que las demás */
+.ds-slide--portada, .ds-slide--cierre, .ds-slide--negra { justify-content: center; }
+.ds-slide--negra .ds-slide__etiquetas .ds-slide__tag { display: inline-block; padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); font-size: 19px; background: transparent; border: var(--border-strong) solid var(--slide-accent); color: var(--slide-accent-soft); }
+.ds-slide--negra .ds-slide__etiquetas { align-self: flex-start; }
+.ds-slide--portada .ds-slide__capa, .ds-slide--cierre .ds-slide__capa, .ds-slide--negra .ds-slide__capa { justify-content: center; }
+
+/* ===== v3.1 · Interior estilo LED: tarjetas con degradado, numeración neón y etiqueta de sección arriba a la derecha ===== */
+.ds-slide__card2--menta, .ds-slide__formulas > .ds-slide__card2 {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 62%, var(--color-neutral-0)) 0%, var(--slide-accent) 55%, color-mix(in srgb, var(--slide-accent) 82%, var(--color-neutral-900)) 100%);
+  color: var(--color-neutral-900);
+}
+.ds-slide__card2--formula, .ds-slide__formulas > .ds-slide__card2:nth-child(2), .ds-slide__datos--col .ds-slide__minicard:nth-child(even) {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 16%, var(--color-neutral-800)) 0%, var(--color-neutral-900) 70%);
+  color: var(--color-neutral-50);
+}
+.ds-slide__minicard {
+  background: linear-gradient(135deg, var(--color-neutral-0) 0%, color-mix(in srgb, var(--slide-accent) 18%, var(--color-neutral-0)) 100%);
+}
+.ds-slide__datos--col .ds-slide__minicard:nth-child(even) { background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 16%, var(--color-neutral-800)) 0%, var(--color-neutral-900) 70%); }
+.ds-slide .ds-slide__resultado {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 62%, var(--color-neutral-0)) 0%, var(--slide-accent) 55%, color-mix(in srgb, var(--slide-accent) 82%, var(--color-neutral-900)) 100%);
+}
+/* Numeración con efecto neón */
+.ds-slide__num {
+  background: var(--color-neutral-900); color: var(--slide-accent-soft); border: var(--border-strong) solid var(--slide-accent);
+  text-shadow: 0 0 6px var(--slide-accent), 0 0 16px var(--slide-accent);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--slide-accent) 60%, transparent), inset 0 0 10px color-mix(in srgb, var(--slide-accent) 35%, transparent);
+}
+/* Etiqueta de sección (La fórmula, Ejemplo, Ejercicio…) arriba a la derecha */
+.ds-slide__head { align-items: center; }
+.ds-slide__head .ds-slide__tag {
+  position: absolute; top: 0; right: 0; margin: 0; padding: var(--space-2) var(--space-5); font-size: 17px;
+  background: var(--color-neutral-900); color: var(--slide-accent-soft); border: var(--border-strong) solid var(--slide-accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--slide-accent) 40%, transparent);
+}
+/* Varias fórmulas en la tarjeta «Fórmula a aplicar»: en fila para ahorrar altura */
+.ds-slide__card2--formula .ds-slide__formulas--sm { display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center; gap: var(--space-2) var(--space-8); }
+
+/* Tabla de frecuencias dentro del desarrollo */
+.ds-slide__tabla { width: 100%; border-collapse: separate; border-spacing: 0 var(--space-1); font: var(--font-weight-regular) 24px/1.2 var(--font-family-body); margin-top: var(--space-2); }
+.ds-slide__tabla th { background: var(--color-neutral-900); color: var(--slide-accent-soft); font: var(--font-weight-semibold) 17px/1.2 var(--font-family-body); letter-spacing: var(--tracking-label); text-transform: uppercase; padding: var(--space-2) var(--space-3); text-align: center; }
+.ds-slide__tabla th:first-child { border-radius: var(--radius-pill) 0 0 var(--radius-pill); } .ds-slide__tabla th:last-child { border-radius: 0 var(--radius-pill) var(--radius-pill) 0; }
+.ds-slide__tabla td { background: linear-gradient(135deg, var(--color-neutral-0), color-mix(in srgb, var(--slide-accent) 18%, var(--color-neutral-0))); padding: var(--space-1) var(--space-3); text-align: center; color: var(--color-neutral-900); }
+.ds-slide__tabla td:first-child { text-align: left; font-weight: var(--font-weight-semibold); border-radius: var(--radius-pill) 0 0 var(--radius-pill); } .ds-slide__tabla td:last-child { border-radius: 0 var(--radius-pill) var(--radius-pill) 0; }
+.ds-slide__tabla tr:last-child td { font-weight: var(--font-weight-bold); background: var(--slide-accent); }
+
+/* «Soluciones»: el título largo no debe pisar el símbolo */
+.ds-slide--negra h1 { font: var(--font-weight-bold) var(--slide-cover)/1.05 var(--font-family-heading); max-width: 11ch; }
+.ds-slide--negra .ds-slide__lead { font-size: 30px; max-width: 22ch; }
+.ds-slide__tabla td { background: color-mix(in srgb, var(--slide-accent) 12%, var(--color-neutral-0)); }
+
+/* Gráficos estilo LED: panel oscuro, marcas lima con brillo, etiquetas directas */
+.ds-slide__card2--grafico { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); grid-template-rows: auto 1fr; column-gap: var(--space-5); align-items: center; }
+.ds-slide__card2--grafico > .ds-slide__pildora { grid-column: 1 / -1; }
+.ds-slide__card2--grafico .ds-slide__paso { font-size: 28px; padding: var(--space-1) 0; }
+.ds-slide__graficowrap { border-radius: var(--radius-xl); background: linear-gradient(135deg, color-mix(in srgb, var(--slide-accent) 14%, var(--color-neutral-800)), var(--color-neutral-900) 75%); padding: var(--space-2); }
+.ds-slide__grafico { display: block; width: 100%; height: auto; max-height: 300px; }
+.ds-g-rejilla { stroke: var(--color-neutral-600); stroke-width: 1.5; stroke-dasharray: 3 7; opacity: .6; }
+.ds-g-etiqueta { font: var(--font-weight-semibold) 18px var(--font-family-body); fill: var(--color-neutral-200); }
+.ds-g-etiqueta--g { font-size: 24px; fill: var(--color-neutral-50); }
+.ds-g-valor { font: var(--font-weight-bold) 21px var(--font-family-body); fill: var(--color-neutral-50); }
+.ds-g-valor--g { font-size: 28px; fill: var(--slide-accent); }
+.ds-g-stop-a { stop-color: var(--slide-accent-soft); } .ds-g-stop-b { stop-color: var(--slide-accent); }
+.ds-g-area-a { stop-color: var(--slide-accent); stop-opacity: .45; } .ds-g-area-b { stop-color: var(--slide-accent); stop-opacity: 0; }
+.ds-g-barra--dest { fill: url(#gb); } .ds-g-barra--tenue { fill: url(#gb); opacity: .55; }
+.ds-g-c0 { fill: var(--slide-accent); } .ds-g-c1 { fill: var(--color-neutral-50); } .ds-g-c2 { fill: color-mix(in srgb, var(--slide-accent) 40%, var(--color-neutral-900)); } .ds-g-c3 { fill: var(--color-neutral-400); }
+.ds-g-sector { stroke: var(--color-neutral-900); stroke-width: 4; }
+.ds-g-centro { font: var(--font-weight-bold) 44px var(--font-family-heading); fill: var(--color-neutral-50); } .ds-g-centro-s { font: var(--font-weight-semibold) 16px var(--font-family-body); fill: var(--color-neutral-300); letter-spacing: var(--tracking-label); text-transform: uppercase; }
+.ds-g-area { fill: url(#ga); }
+.ds-g-linea { fill: none; stroke: var(--slide-accent); stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
+.ds-g-punto { fill: var(--color-neutral-900); stroke: var(--slide-accent); stroke-width: 4; } .ds-g-punto--ext { fill: var(--slide-accent); stroke: var(--color-neutral-50); }
+.ds-g-pildora { fill: var(--slide-accent); } .ds-g-pildora-t { font: var(--font-weight-bold) 20px var(--font-family-body); fill: var(--color-neutral-900); }
+.ds-g-centro--p { font-size: 28px; }
+.ds-slide__card2--grafico > .ds-slide__pildora { justify-self: start; }
+/* Correcciones de desbordes: gráficos con pasos largos y tarjetas de fórmula con fracciones o 3 fórmulas */
+.ds-slide__card2--grafico { grid-template-columns: max-content minmax(0, 1fr); }
+.ds-slide__card2--grafico .ds-slide__paso { font-size: 26px; }
+.ds-slide__formulas .ds-slide__formula { line-height: 1.05; }
+.ds-slide__formulas:has(> :nth-child(3)) .ds-slide__formula { font-size: 44px; }
+.ds-slide__formulas .ds-slide__formula { font-size: 60px; }
+.ds-slide__formulas:has(> :nth-child(3)) .ds-slide__formula { font-size: 44px; }
+.ds-slide__cols2 .ds-slide__card2--formula { padding-block: var(--space-2); }
+.ds-slide__cols2 .ds-slide__card2--formula:has(.ds-slide__formula:nth-child(3)) .ds-slide__formula--sm { font-size: 28px; }
+.ds-slide__cols2 .ds-slide__card2 { padding-block: var(--space-2); }
+/* Un poco menos de margen vertical en las diapositivas de contenido para que quepan resultados y fracciones */
+.ds-slide:not(.ds-slide--portada):not(.ds-slide--cierre):not(.ds-slide--negra) { padding-block: var(--space-5) var(--space-6); }
+/* Las fórmulas y los pasos no se encogen por debajo de su contenido (fracciones) */
+.ds-slide__formulas, .ds-slide__formula, .ds-slide__pasos, .ds-slide__paso { flex-shrink: 0; min-height: min-content; }
+.ds-slide__cols2 .ds-slide__card2--formula { padding-block: var(--space-3); }
