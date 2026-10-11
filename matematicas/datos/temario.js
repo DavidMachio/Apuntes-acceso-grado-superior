@@ -41,7 +41,7 @@ const MODULOS = [
   {
     titulo: "Interés simple",
     resumen: "Interés que no se acumula: capital, tasa y años.",
-    paginas: "25 diapositivas",
+    paginas: "35 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 5", detalle: "Interés simple", archivo: "pdfs/tema-05-interes-simple.pdf" }
     ]
