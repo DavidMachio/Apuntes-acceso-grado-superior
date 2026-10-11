@@ -60,7 +60,7 @@ def formulas(lista, cls=""):
 
 def valor(txt):
     """Separa cifra y unidad (300 € → <b>300</b><i>€</i>) para darles distinto peso, como en las tarjetas de referencia."""
-    m = re.match(r"^([\d.,]+)\s*(.*)$", txt)
+    m = re.match(r"^([−+-]?[\d.,]+)\s*(.*)$", txt)
     return f"<b>{escape(m.group(1))}</b><i>{escape(m.group(2))}</i>" if m else f"<b>{escape(txt)}</b>"
 
 
@@ -68,7 +68,7 @@ def resultado(r):
     if any(ch.isdigit() for ch in r[0]):  # varias líneas de resultado: «Etiqueta 1.234 €»
         grupos = []
         for x in r:
-            m = re.match(r"^(.*?)\s*(\d[\d.,]*\s*.*)$", x)
+            m = re.match(r"^(.*?)\s*([−+-]?\d[\d.,]*\s*.*)$", x)
             grupos.append(f'<div class="ds-slide__grupo"><span>{escape(m.group(1))}</span><div class="ds-slide__valor">{valor(m.group(2))}</div></div>')
         return '<div class="ds-slide__resultado ds-slide__resultado--varios">' + "".join(grupos) + "</div>"
     return f'<div class="ds-slide__resultado ds-slide__resultado--uno"><span>{escape(r[0])}</span><div class="ds-slide__valor">{valor(r[1])}</div></div>'

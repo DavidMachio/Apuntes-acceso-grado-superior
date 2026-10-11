@@ -33,7 +33,7 @@ const MODULOS = [
   {
     titulo: "Variación absoluta y porcentual",
     resumen: "Cómo cambia una cantidad entre dos momentos.",
-    paginas: "17 diapositivas",
+    paginas: "35 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 4", detalle: "Variación absoluta y porcentual", archivo: "pdfs/tema-04-variacion-absoluta-y-porcentual.pdf" }
     ]
