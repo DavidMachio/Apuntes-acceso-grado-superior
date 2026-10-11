@@ -348,3 +348,5 @@
   background: var(--color-neutral-900); color: var(--slide-accent-soft); border: var(--border-strong) solid var(--slide-accent);
   box-shadow: 0 0 12px color-mix(in srgb, var(--slide-accent) 40%, transparent);
 }
+/* Varias fórmulas en la tarjeta «Fórmula a aplicar»: en fila para ahorrar altura */
+.ds-slide__card2--formula .ds-slide__formulas--sm { display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center; gap: var(--space-2) var(--space-8); }

@@ -65,7 +65,7 @@ const MODULOS = [
   {
     titulo: "Despejar incógnitas",
     resumen: "Aislar una variable en una fórmula o ecuación.",
-    paginas: "1 página",
+    paginas: "35 diapositivas",
     pdfs: [
       { nombre: "Apuntes del tema 8", detalle: "Despejar incógnitas", archivo: "pdfs/tema-08-despejar-incognitas.pdf" }
     ]
