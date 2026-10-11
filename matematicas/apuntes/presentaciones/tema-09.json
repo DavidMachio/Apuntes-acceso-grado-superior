@@ -14,7 +14,7 @@
   {
    "titulo": "Frecuencia absoluta",
    "formulas": [
-    "FA=\\text{nº de veces que aparece el dato}"
+    "FA=\\text{veces que aparece el dato}"
    ],
    "explicacion": "Cuenta cuántas veces aparece cada dato. Las frecuencias absolutas suman el total de datos."
   },
@@ -45,7 +45,7 @@
    "titulo": "Un dato",
    "enunciado": "En una clase de 10 alumnos, 4 prefieren el fútbol. ¿Cuáles son su frecuencia absoluta, su relativa y su porcentaje?",
    "formula": [
-    "FA=\\text{nº de veces que aparece el dato}",
+    "FA=\\text{veces que aparece el dato}",
     "FR=\\dfrac{FA}{n}",
     "P=FR\\times100"
    ],
@@ -302,7 +302,7 @@
    "titulo": "Alumnos ausentes",
    "enunciado": "En una clase de 25 alumnos faltan 5. ¿Cuáles son la frecuencia absoluta, la relativa y el porcentaje de ausentes?",
    "formula": [
-    "FA=\\text{nº de veces que aparece el dato}",
+    "FA=\\text{veces que aparece el dato}",
     "FR=\\dfrac{FA}{n}",
     "P=FR\\times100"
    ],
@@ -341,7 +341,7 @@
    "titulo": "Coches blancos",
    "enunciado": "En un aparcamiento hay 30 coches y 12 son blancos. ¿Cuáles son la frecuencia absoluta, la relativa y el porcentaje de coches blancos?",
    "formula": [
-    "FA=\\text{nº de veces que aparece el dato}",
+    "FA=\\text{veces que aparece el dato}",
     "FR=\\dfrac{FA}{n}",
     "P=FR\\times100"
    ],
@@ -380,7 +380,7 @@
    "titulo": "Uso del móvil",
    "enunciado": "De 50 personas encuestadas, 35 usan el móvil para leer la prensa. ¿Cuáles son la frecuencia absoluta, la relativa y el porcentaje?",
    "formula": [
-    "FA=\\text{nº de veces que aparece el dato}",
+    "FA=\\text{veces que aparece el dato}",
     "FR=\\dfrac{FA}{n}",
     "P=FR\\times100"
    ],
@@ -419,7 +419,7 @@
    "titulo": "Zurdos",
    "enunciado": "En un grupo de 8 personas, 2 son zurdas. ¿Cuáles son la frecuencia absoluta, la relativa y el porcentaje de zurdas?",
    "formula": [
-    "FA=\\text{nº de veces que aparece el dato}",
+    "FA=\\text{veces que aparece el dato}",
     "FR=\\dfrac{FA}{n}",
     "P=FR\\times100"
    ],

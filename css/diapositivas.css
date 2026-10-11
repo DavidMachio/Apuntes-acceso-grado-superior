@@ -387,3 +387,18 @@
 .ds-g-pildora { fill: var(--slide-accent); } .ds-g-pildora-t { font: var(--font-weight-bold) 20px var(--font-family-body); fill: var(--color-neutral-900); }
 .ds-g-centro--p { font-size: 28px; }
 .ds-slide__card2--grafico > .ds-slide__pildora { justify-self: start; }
+/* Correcciones de desbordes: gráficos con pasos largos y tarjetas de fórmula con fracciones o 3 fórmulas */
+.ds-slide__card2--grafico { grid-template-columns: max-content minmax(0, 1fr); }
+.ds-slide__card2--grafico .ds-slide__paso { font-size: 26px; }
+.ds-slide__formulas .ds-slide__formula { line-height: 1.05; }
+.ds-slide__formulas:has(> :nth-child(3)) .ds-slide__formula { font-size: 44px; }
+.ds-slide__formulas .ds-slide__formula { font-size: 60px; }
+.ds-slide__formulas:has(> :nth-child(3)) .ds-slide__formula { font-size: 44px; }
+.ds-slide__cols2 .ds-slide__card2--formula { padding-block: var(--space-2); }
+.ds-slide__cols2 .ds-slide__card2--formula:has(.ds-slide__formula:nth-child(3)) .ds-slide__formula--sm { font-size: 28px; }
+.ds-slide__cols2 .ds-slide__card2 { padding-block: var(--space-2); }
+/* Un poco menos de margen vertical en las diapositivas de contenido para que quepan resultados y fracciones */
+.ds-slide:not(.ds-slide--portada):not(.ds-slide--cierre):not(.ds-slide--negra) { padding-block: var(--space-5) var(--space-6); }
+/* Las fórmulas y los pasos no se encogen por debajo de su contenido (fracciones) */
+.ds-slide__formulas, .ds-slide__formula, .ds-slide__pasos, .ds-slide__paso { flex-shrink: 0; min-height: min-content; }
+.ds-slide__cols2 .ds-slide__card2--formula { padding-block: var(--space-3); }
