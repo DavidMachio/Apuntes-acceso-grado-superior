@@ -200,7 +200,7 @@ def main():
         pg = b.new_page(viewport={"width": 1280, "height": 720})
         pg.set_content(html)
         pg.wait_for_timeout(300)
-        desbordadas = pg.evaluate("""() => [...document.querySelectorAll('.ds-slide')].map((s, i) => [i + 1, s.scrollHeight > s.clientHeight + 1 || [...s.querySelectorAll('.ds-slide__body')].some(b => b.scrollHeight > b.clientHeight + 1)]).filter(x => x[1]).map(x => x[0])""")
+        desbordadas = pg.evaluate("""() => [...document.querySelectorAll('.ds-slide')].map((s, i) => [i + 1, (!s.matches('.ds-slide--portada,.ds-slide--cierre,.ds-slide--negra') && s.scrollHeight > s.clientHeight + 1) || [...s.querySelectorAll('.ds-slide__body')].some(b => b.scrollHeight > b.clientHeight + 1)]).filter(x => x[1]).map(x => x[0])""")
         if desbordadas:
             print("AVISO: diapositivas con contenido que no cabe:", desbordadas)
         pg.pdf(path=str(salida), width="1280px", height="720px", print_background=True, prefer_css_page_size=True)

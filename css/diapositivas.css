@@ -313,3 +313,8 @@
 .ds-slide--portada .ds-slide__marca, .ds-slide--cierre .ds-slide__marca, .ds-slide--negra .ds-slide__marca { right: calc(-1 * var(--space-12)); width: 760px; height: 760px; color: var(--slide-accent); opacity: 1; }
 .ds-slide__led-glow text { fill: var(--slide-accent); opacity: .75; }
 .ds-slide__led-trazo text { fill: none; stroke: var(--slide-accent-soft); stroke-width: 7; stroke-linejoin: round; }
+/* v3.0b · texto centrado en vertical y etiqueta de «Soluciones» igual que las demás */
+.ds-slide--portada, .ds-slide--cierre, .ds-slide--negra { justify-content: center; }
+.ds-slide--negra .ds-slide__etiquetas .ds-slide__tag { display: inline-block; padding: var(--space-2) var(--space-5); border-radius: var(--radius-pill); font-size: 19px; background: transparent; border: var(--border-strong) solid var(--slide-accent); color: var(--slide-accent-soft); }
+.ds-slide--negra .ds-slide__etiquetas { align-self: flex-start; }
+.ds-slide--portada .ds-slide__capa, .ds-slide--cierre .ds-slide__capa, .ds-slide--negra .ds-slide__capa { justify-content: center; }
