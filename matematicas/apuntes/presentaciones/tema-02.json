@@ -1,0 +1,486 @@
+{
+ "numero": 2,
+ "materia": "Matemáticas",
+ "titulo": "Cantidades iniciales y finales",
+ "marca": "±",
+ "lead": "Aumentos, disminuciones y variaciones encadenadas.",
+ "vas_a_ver": [
+  "Subir un porcentaje",
+  "Bajar un porcentaje",
+  "Calcular la cantidad inicial",
+  "Cambios encadenados"
+ ],
+ "formulas": [
+  {
+   "titulo": "Subir un porcentaje: multiplica",
+   "formulas": [
+    "C_f=C_i\\left(1+\\dfrac{p}{100}\\right)"
+   ],
+   "explicacion": "Para subir un porcentaje, multiplica la cantidad inicial por 1 + p/100."
+  },
+  {
+   "titulo": "Bajar un porcentaje: multiplica",
+   "formulas": [
+    "C_f=C_i\\left(1-\\dfrac{p}{100}\\right)"
+   ],
+   "explicacion": "Para bajar un porcentaje, multiplica la cantidad inicial por 1 − p/100."
+  },
+  {
+   "titulo": "Para volver atrás, divide",
+   "formulas": [
+    "C_i=\\dfrac{C_f}{1\\pm\\dfrac{p}{100}}"
+   ],
+   "explicacion": "Para volver a la cantidad inicial, divide la cantidad final entre ese mismo número."
+  },
+  {
+   "titulo": "Varios cambios seguidos: se multiplican los factores",
+   "formulas": [
+    "C_f=C_i\\cdot1{,}40\\cdot0{,}60"
+   ],
+   "explicacion": "Subir y bajar el mismo porcentaje no te deja donde estabas: 200 · 1,40 · 0,60 = 168, no 200."
+  }
+ ],
+ "ejemplos": [
+  {
+   "titulo": "Subir un porcentaje",
+   "enunciado": "Tienes 5.000 € invertidos en acciones y suben un 4 %. ¿Cuánto valen ahora?",
+   "formula": [
+    "C_f=C_i\\left(1+\\dfrac{p}{100}\\right)"
+   ],
+   "desarrollo": [
+    "5\\,000\\cdot\\left(1+\\dfrac{4}{100}\\right)=5\\,000\\cdot1{,}04=5\\,200"
+   ],
+   "resultado": [
+    "Valor ahora",
+    "5.200 €"
+   ],
+   "check": [
+    [
+     "5000*1.04",
+     5200
+    ]
+   ],
+   "datos": [
+    [
+     "Inversión inicial",
+     "5.000 €"
+    ],
+    [
+     "Subida",
+     "4 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Bajar un porcentaje",
+   "enunciado": "Un pantalón costaba 60 € y está rebajado un 5 %. ¿Cuánto cuesta ahora?",
+   "formula": [
+    "C_f=C_i\\left(1-\\dfrac{p}{100}\\right)"
+   ],
+   "desarrollo": [
+    "60\\cdot\\left(1-\\dfrac{5}{100}\\right)=60\\cdot0{,}95=57"
+   ],
+   "resultado": [
+    "Precio ahora",
+    "57 €"
+   ],
+   "check": [
+    [
+     "60*0.95",
+     57
+    ]
+   ],
+   "datos": [
+    [
+     "Precio inicial",
+     "60 €"
+    ],
+    [
+     "Rebaja",
+     "5 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Subir y bajar el mismo porcentaje",
+   "enunciado": "Un producto de 200 € sube un 40 % y después baja un 40 %. ¿Cuánto vale al final? ¿Queda como al principio?",
+   "formula": [
+    "C_f=C_i\\left(1+\\dfrac{p_1}{100}\\right)\\left(1-\\dfrac{p_2}{100}\\right)"
+   ],
+   "desarrollo": [
+    "200\\cdot1{,}40=280",
+    "280\\cdot0{,}60=168"
+   ],
+   "resultado": [
+    "Valor final",
+    "168 €"
+   ],
+   "check": [
+    [
+     "200*1.4",
+     280
+    ],
+    [
+     "280*0.6",
+     168
+    ]
+   ],
+   "datos": [
+    [
+     "Precio inicial",
+     "200 €"
+    ],
+    [
+     "Subida",
+     "40 %"
+    ],
+    [
+     "Bajada",
+     "40 %"
+    ]
+   ]
+  }
+ ],
+ "ejercicios": [
+  {
+   "titulo": "Inversión en acciones",
+   "enunciado": "Tienes 2.400 € invertidos en acciones y suben un 5 %. ¿Cuánto valen ahora?",
+   "formula": [
+    "C_f=C_i\\left(1+\\dfrac{p}{100}\\right)"
+   ],
+   "desarrollo": [
+    "2\\,400\\cdot1{,}05=2\\,520"
+   ],
+   "resultado": [
+    "Valor ahora",
+    "2.520 €"
+   ],
+   "check": [
+    [
+     "2400*1.05",
+     2520
+    ]
+   ],
+   "datos": [
+    [
+     "Inversión inicial",
+     "2.400 €"
+    ],
+    [
+     "Subida",
+     "5 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Acción en bolsa",
+   "enunciado": "Al inicio de la jornada una acción vale 500 €. Si baja un 6 %, ¿cuál será su nuevo precio?",
+   "formula": [
+    "C_f=C_i\\left(1-\\dfrac{p}{100}\\right)"
+   ],
+   "desarrollo": [
+    "500\\cdot\\left(1-\\dfrac{6}{100}\\right)=500\\cdot0{,}94=470"
+   ],
+   "resultado": [
+    "Precio nuevo",
+    "470 €"
+   ],
+   "check": [
+    [
+     "500*0.94",
+     470
+    ]
+   ],
+   "datos": [
+    [
+     "Valor inicial",
+     "500 €"
+    ],
+    [
+     "Bajada",
+     "6 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Rebajas de temporada",
+   "enunciado": "Un abrigo costaba 150 € y está rebajado un 30 %. ¿Cuánto cuesta ahora?",
+   "formula": [
+    "C_f=C_i\\left(1-\\dfrac{p}{100}\\right)"
+   ],
+   "desarrollo": [
+    "150\\cdot0{,}70=105"
+   ],
+   "resultado": [
+    "Precio ahora",
+    "105 €"
+   ],
+   "check": [
+    [
+     "150*0.7",
+     105
+    ]
+   ],
+   "datos": [
+    [
+     "Precio inicial",
+     "150 €"
+    ],
+    [
+     "Rebaja",
+     "30 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Subida de la luz",
+   "enunciado": "Una factura de la luz de 80 € sube un 15 %. ¿Cuánto pagarás ahora?",
+   "formula": [
+    "C_f=C_i\\left(1+\\dfrac{p}{100}\\right)"
+   ],
+   "desarrollo": [
+    "80\\cdot1{,}15=92"
+   ],
+   "resultado": [
+    "Factura nueva",
+    "92 €"
+   ],
+   "check": [
+    [
+     "80*1.15",
+     92
+    ]
+   ],
+   "datos": [
+    [
+     "Factura inicial",
+     "80 €"
+    ],
+    [
+     "Subida",
+     "15 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Precio antes del descuento",
+   "enunciado": "Después de aplicarle un descuento del 20 %, una chaqueta cuesta 72 €. ¿Cuánto costaba antes del descuento?",
+   "formula": [
+    "C_i=\\dfrac{C_f}{1-\\dfrac{p}{100}}"
+   ],
+   "desarrollo": [
+    "\\dfrac{72}{1-0{,}20}=\\dfrac{72}{0{,}80}=90"
+   ],
+   "resultado": [
+    "Precio inicial",
+    "90 €"
+   ],
+   "check": [
+    [
+     "72/0.8",
+     90
+    ]
+   ],
+   "datos": [
+    [
+     "Precio final",
+     "72 €"
+    ],
+    [
+     "Descuento",
+     "20 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Precio antes de la subida",
+   "enunciado": "Un alquiler cuesta ahora 880 € después de subir un 10 %. ¿Cuánto costaba antes?",
+   "formula": [
+    "C_i=\\dfrac{C_f}{1+\\dfrac{p}{100}}"
+   ],
+   "desarrollo": [
+    "\\dfrac{880}{1+0{,}10}=\\dfrac{880}{1{,}10}=800"
+   ],
+   "resultado": [
+    "Alquiler inicial",
+    "800 €"
+   ],
+   "check": [
+    [
+     "880/1.1",
+     800
+    ]
+   ],
+   "datos": [
+    [
+     "Alquiler ahora",
+     "880 €"
+    ],
+    [
+     "Subida",
+     "10 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Subir y bajar",
+   "enunciado": "Un producto de 100 € sube un 10 % y después baja un 10 %. ¿Cuánto vale al final?",
+   "formula": [
+    "C_f=C_i\\left(1+\\dfrac{p_1}{100}\\right)\\left(1-\\dfrac{p_2}{100}\\right)"
+   ],
+   "desarrollo": [
+    "100\\cdot1{,}10=110",
+    "110\\cdot0{,}90=99"
+   ],
+   "resultado": [
+    "Valor final",
+    "99 €"
+   ],
+   "check": [
+    [
+     "100*1.1",
+     110
+    ],
+    [
+     "110*0.9",
+     99
+    ]
+   ],
+   "datos": [
+    [
+     "Precio inicial",
+     "100 €"
+    ],
+    [
+     "Subida",
+     "10 %"
+    ],
+    [
+     "Bajada",
+     "10 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Tres subidas seguidas",
+   "enunciado": "Una acción subió un 20 %, luego un 30 % y finalmente un 25 %. Si vale 195 € ahora, ¿cuánto valía al principio?",
+   "formula": [
+    "C_i=\\dfrac{C_f}{\\left(1+\\frac{p_1}{100}\\right)\\left(1+\\frac{p_2}{100}\\right)\\left(1+\\frac{p_3}{100}\\right)}"
+   ],
+   "desarrollo": [
+    "1{,}20\\cdot1{,}30\\cdot1{,}25=1{,}95",
+    "\\dfrac{195}{1{,}95}=100"
+   ],
+   "resultado": [
+    "Valor inicial",
+    "100 €"
+   ],
+   "check": [
+    [
+     "1.2*1.3*1.25",
+     1.95
+    ],
+    [
+     "195/1.95",
+     100
+    ]
+   ],
+   "datos": [
+    [
+     "Valor ahora",
+     "195 €"
+    ],
+    [
+     "1.ª subida",
+     "20 %"
+    ],
+    [
+     "2.ª subida",
+     "30 %"
+    ],
+    [
+     "3.ª subida",
+     "25 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Juguete de Navidad",
+   "enunciado": "Un juguete subió un 25 % en Navidad y en la cuesta de enero se rebajó un 5 %. En enero cuesta 95 €. ¿Cuánto costaba antes de Navidad?",
+   "formula": [
+    "C_i=\\dfrac{C_f}{\\left(1+\\frac{p_1}{100}\\right)\\left(1-\\frac{p_2}{100}\\right)}"
+   ],
+   "desarrollo": [
+    "1{,}25\\cdot0{,}95=1{,}1875",
+    "\\dfrac{95}{1{,}1875}=80"
+   ],
+   "resultado": [
+    "Precio inicial",
+    "80 €"
+   ],
+   "check": [
+    [
+     "1.25*0.95",
+     1.1875
+    ],
+    [
+     "95/1.1875",
+     80
+    ]
+   ],
+   "datos": [
+    [
+     "Precio en enero",
+     "95 €"
+    ],
+    [
+     "Subida",
+     "25 %"
+    ],
+    [
+     "Rebaja",
+     "5 %"
+    ]
+   ]
+  },
+  {
+   "titulo": "Dos descuentos seguidos",
+   "enunciado": "Un artículo de 250 € se rebaja un 20 % y, después, otro 10 %. ¿Cuánto cuesta al final?",
+   "formula": [
+    "C_f=C_i\\left(1-\\dfrac{p_1}{100}\\right)\\left(1-\\dfrac{p_2}{100}\\right)"
+   ],
+   "desarrollo": [
+    "250\\cdot0{,}80=200",
+    "200\\cdot0{,}90=180"
+   ],
+   "resultado": [
+    "Precio final",
+    "180 €"
+   ],
+   "check": [
+    [
+     "250*0.8",
+     200
+    ],
+    [
+     "200*0.9",
+     180
+    ]
+   ],
+   "datos": [
+    [
+     "Precio inicial",
+     "250 €"
+    ],
+    [
+     "1.º descuento",
+     "20 %"
+    ],
+    [
+     "2.º descuento",
+     "10 %"
+    ]
+   ]
+  }
+ ]
+}

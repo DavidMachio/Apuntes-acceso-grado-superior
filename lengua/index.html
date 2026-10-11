@@ -23,6 +23,13 @@
     </div>
   </section>
 
+  <section class="ds-section" aria-labelledby="h-cifras">
+    <div class="ds-container">
+      <h2 class="ds-sr-only" id="h-cifras">Lengua en cifras</h2>
+      <div class="ds-stats" id="cifras"></div>
+    </div>
+  </section>
+
   <section class="ds-section ds-section--surface">
     <div class="ds-container">
       <div class="ds-empty">
@@ -40,5 +47,15 @@
 <script src="../datos/sitio.js"></script>
 <script src="../js/iconos.js"></script>
 <script src="../js/app.js"></script>
+<script src="../js/cifras.js"></script>
+<script>
+  /* Aún no hay contenido de Lengua: las cifras se rellenarán al cargar su temario y su banco de preguntas */
+  DS.cifras("cifras", [
+    { tipo: "grande marca", etiqueta: "Temario", valor: "—", unidad: "temas", texto: "En preparación." },
+    { tipo: "oscura", etiqueta: "Banco de preguntas", valor: "—", texto: "Próximamente." },
+    { etiqueta: "Presentaciones", valor: "—", texto: "Próximamente." },
+    { tipo: "marca ancha", etiqueta: "Exámenes", valor: "∞", texto: "A medida, cuando esté el temario." }
+  ]);
+</script>
 </body>
 </html>

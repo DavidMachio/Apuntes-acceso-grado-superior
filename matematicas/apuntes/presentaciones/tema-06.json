@@ -1,0 +1,543 @@
+{
+ "numero": 6,
+ "materia": "Matemáticas",
+ "titulo": "Interés compuesto",
+ "marca": "%",
+ "lead": "Intereses que generan más intereses: el capital crece cada año.",
+ "vas_a_ver": [
+  "Capital final con interés compuesto",
+  "Interés ganado",
+  "Despejar el capital inicial",
+  "Pasar meses a años"
+ ],
+ "formulas": [
+  {
+   "titulo": "Capital final con interés compuesto",
+   "formulas": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}"
+   ],
+   "explicacion": "Cada año se multiplica el capital por (1 + tasa), con la tasa en tanto por uno. Los intereses se suman al capital y el año siguiente también generan intereses."
+  },
+  {
+   "titulo": "Interés ganado",
+   "formulas": [
+    "I=C_f-C_i"
+   ],
+   "explicacion": "El interés total es lo que has ganado: capital final menos capital inicial."
+  },
+  {
+   "titulo": "Despejar el capital inicial",
+   "formulas": [
+    "C_i=\\dfrac{C_f}{(1+\\text{tasa})^{\\text{años}}}"
+   ],
+   "explicacion": "Si conoces el capital final, divídelo entre (1 + tasa) elevado a los años."
+  },
+  {
+   "titulo": "Pasar meses a años",
+   "formulas": [
+    "\\text{años}=\\dfrac{\\text{meses}}{12}"
+   ],
+   "explicacion": "Si el tiempo viene en meses, divide entre 12. Por ejemplo, 18 meses son 1,5 años."
+  }
+ ],
+ "ejemplos": [
+  {
+   "titulo": "Capital final e interés",
+   "enunciado": "Depositas 1.000 € al 5 % anual de interés compuesto durante 3 años. ¿Cuál es el capital final y cuánto interés has ganado?",
+   "formula": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}",
+    "I=C_f-C_i"
+   ],
+   "desarrollo": [
+    "C_f=1\\,000\\cdot(1+0{,}05)^3=1\\,000\\cdot1{,}157625=1\\,157{,}63\\text{ €}",
+    "I=1\\,157{,}63-1\\,000=157{,}63\\text{ €}"
+   ],
+   "resultado": [
+    "Capital final 1.157,63 €",
+    "Interés 157,63 €"
+   ],
+   "check": [
+    [
+     "round(1000*(1+5/100)**3,2)",
+     1157.63
+    ],
+    [
+     "round(round(1000*(1+5/100)**3,2)-1000,2)",
+     157.63
+    ]
+   ],
+   "datos": [
+    [
+     "Capital",
+     "1.000 €"
+    ],
+    [
+     "Tasa anual",
+     "5 %"
+    ],
+    [
+     "Tiempo",
+     "3 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Depósito a dos años",
+   "enunciado": "Un depósito de 2.000 € rinde un 4 % anual de interés compuesto durante 2 años. ¿Cuánto dinero habrá al final y qué interés se obtiene?",
+   "formula": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}",
+    "I=C_f-C_i"
+   ],
+   "desarrollo": [
+    "C_f=2\\,000\\cdot(1+0{,}04)^2=2\\,000\\cdot1{,}0816=2\\,163{,}20\\text{ €}",
+    "I=2\\,163{,}20-2\\,000=163{,}20\\text{ €}"
+   ],
+   "resultado": [
+    "Capital final 2.163,20 €",
+    "Interés 163,20 €"
+   ],
+   "check": [
+    [
+     "round(2000*(1+4/100)**2,2)",
+     2163.2
+    ],
+    [
+     "round(round(2000*(1+4/100)**2,2)-2000,2)",
+     163.2
+    ]
+   ],
+   "datos": [
+    [
+     "Capital",
+     "2.000 €"
+    ],
+    [
+     "Tasa anual",
+     "4 %"
+    ],
+    [
+     "Tiempo",
+     "2 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Calcular el capital inicial",
+   "enunciado": "Tras 2 años al 3 % anual de interés compuesto, una cuenta tiene 5.304,50 €. ¿Cuánto se depositó al principio?",
+   "formula": [
+    "C_i=\\dfrac{C_f}{(1+\\text{tasa})^{\\text{años}}}"
+   ],
+   "desarrollo": [
+    "C_i=\\dfrac{5\\,304{,}50}{(1+0{,}03)^2}=\\dfrac{5\\,304{,}50}{1{,}0609}=5\\,000\\text{ €}"
+   ],
+   "resultado": [
+    "Capital inicial",
+    "5.000 €"
+   ],
+   "check": [
+    [
+     "round(5304.5/(1+3/100)**2,2)",
+     5000
+    ]
+   ],
+   "datos": [
+    [
+     "Capital final",
+     "5.304,5 €"
+    ],
+    [
+     "Tasa anual",
+     "3 %"
+    ],
+    [
+     "Tiempo",
+     "2 años"
+    ]
+   ]
+  }
+ ],
+ "ejercicios": [
+  {
+   "titulo": "Ahorro a dos años",
+   "enunciado": "Se depositan 3.000 € al 2 % anual de interés compuesto durante 2 años. ¿Cuál es el capital final y el interés ganado?",
+   "formula": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}",
+    "I=C_f-C_i"
+   ],
+   "desarrollo": [
+    "C_f=3\\,000\\cdot(1+0{,}02)^2=3\\,000\\cdot1{,}0404=3\\,121{,}20\\text{ €}",
+    "I=3\\,121{,}20-3\\,000=121{,}20\\text{ €}"
+   ],
+   "resultado": [
+    "Capital final 3.121,20 €",
+    "Interés 121,20 €"
+   ],
+   "check": [
+    [
+     "round(3000*(1+2/100)**2,2)",
+     3121.2
+    ],
+    [
+     "round(round(3000*(1+2/100)**2,2)-3000,2)",
+     121.2
+    ]
+   ],
+   "datos": [
+    [
+     "Capital",
+     "3.000 €"
+    ],
+    [
+     "Tasa anual",
+     "2 %"
+    ],
+    [
+     "Tiempo",
+     "2 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Inversión a tres años",
+   "enunciado": "Se invierten 10.000 € al 3 % anual de interés compuesto durante 3 años. ¿Cuál es el capital final y el interés ganado?",
+   "formula": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}",
+    "I=C_f-C_i"
+   ],
+   "desarrollo": [
+    "C_f=10\\,000\\cdot(1+0{,}03)^3=10\\,000\\cdot1{,}092727=10\\,927{,}27\\text{ €}",
+    "I=10\\,927{,}27-10\\,000=927{,}27\\text{ €}"
+   ],
+   "resultado": [
+    "Capital final 10.927,27 €",
+    "Interés 927,27 €"
+   ],
+   "check": [
+    [
+     "round(10000*(1+3/100)**3,2)",
+     10927.27
+    ],
+    [
+     "round(round(10000*(1+3/100)**3,2)-10000,2)",
+     927.27
+    ]
+   ],
+   "datos": [
+    [
+     "Capital",
+     "10.000 €"
+    ],
+    [
+     "Tasa anual",
+     "3 %"
+    ],
+    [
+     "Tiempo",
+     "3 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Cuenta de ahorro",
+   "enunciado": "Una cuenta con 2.500 € ofrece un 4 % anual de interés compuesto. ¿Cuánto habrá tras 2 años y qué interés se habrá ganado?",
+   "formula": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}",
+    "I=C_f-C_i"
+   ],
+   "desarrollo": [
+    "C_f=2\\,500\\cdot(1+0{,}04)^2=2\\,500\\cdot1{,}0816=2\\,704\\text{ €}",
+    "I=2\\,704-2\\,500=204\\text{ €}"
+   ],
+   "resultado": [
+    "Capital final 2.704 €",
+    "Interés 204 €"
+   ],
+   "check": [
+    [
+     "round(2500*(1+4/100)**2,2)",
+     2704.0
+    ],
+    [
+     "round(round(2500*(1+4/100)**2,2)-2500,2)",
+     204.0
+    ]
+   ],
+   "datos": [
+    [
+     "Capital",
+     "2.500 €"
+    ],
+    [
+     "Tasa anual",
+     "4 %"
+    ],
+    [
+     "Tiempo",
+     "2 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Fondo de inversión",
+   "enunciado": "Un fondo de 8.000 € crece un 5 % anual de interés compuesto durante 3 años. ¿Cuál es el capital final y el interés ganado?",
+   "formula": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}",
+    "I=C_f-C_i"
+   ],
+   "desarrollo": [
+    "C_f=8\\,000\\cdot(1+0{,}05)^3=8\\,000\\cdot1{,}157625=9\\,261\\text{ €}",
+    "I=9\\,261-8\\,000=1\\,261\\text{ €}"
+   ],
+   "resultado": [
+    "Capital final 9.261 €",
+    "Interés 1.261 €"
+   ],
+   "check": [
+    [
+     "round(8000*(1+5/100)**3,2)",
+     9261.0
+    ],
+    [
+     "round(round(8000*(1+5/100)**3,2)-8000,2)",
+     1261.0
+    ]
+   ],
+   "datos": [
+    [
+     "Capital",
+     "8.000 €"
+    ],
+    [
+     "Tasa anual",
+     "5 %"
+    ],
+    [
+     "Tiempo",
+     "3 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Plan de ahorro",
+   "enunciado": "Se depositan 6.000 € al 10 % anual de interés compuesto durante 2 años. ¿Cuál es el capital final y el interés ganado?",
+   "formula": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}",
+    "I=C_f-C_i"
+   ],
+   "desarrollo": [
+    "C_f=6\\,000\\cdot(1+0{,}1)^2=6\\,000\\cdot1{,}21=7\\,260\\text{ €}",
+    "I=7\\,260-6\\,000=1\\,260\\text{ €}"
+   ],
+   "resultado": [
+    "Capital final 7.260 €",
+    "Interés 1.260 €"
+   ],
+   "check": [
+    [
+     "round(6000*(1+10/100)**2,2)",
+     7260.0
+    ],
+    [
+     "round(round(6000*(1+10/100)**2,2)-6000,2)",
+     1260.0
+    ]
+   ],
+   "datos": [
+    [
+     "Capital",
+     "6.000 €"
+    ],
+    [
+     "Tasa anual",
+     "10 %"
+    ],
+    [
+     "Tiempo",
+     "2 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Depósito pequeño",
+   "enunciado": "Un depósito de 1.500 € rinde un 2 % anual de interés compuesto durante 3 años. ¿Cuál es el capital final y el interés ganado?",
+   "formula": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}",
+    "I=C_f-C_i"
+   ],
+   "desarrollo": [
+    "C_f=1\\,500\\cdot(1+0{,}02)^3=1\\,500\\cdot1{,}061208=1\\,591{,}81\\text{ €}",
+    "I=1\\,591{,}81-1\\,500=91{,}81\\text{ €}"
+   ],
+   "resultado": [
+    "Capital final 1.591,81 €",
+    "Interés 91,81 €"
+   ],
+   "check": [
+    [
+     "round(1500*(1+2/100)**3,2)",
+     1591.81
+    ],
+    [
+     "round(round(1500*(1+2/100)**3,2)-1500,2)",
+     91.81
+    ]
+   ],
+   "datos": [
+    [
+     "Capital",
+     "1.500 €"
+    ],
+    [
+     "Tasa anual",
+     "2 %"
+    ],
+    [
+     "Tiempo",
+     "3 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Crecimiento de clientes",
+   "enunciado": "Una empresa tiene 4.000 clientes y crece un 5 % anual compuesto durante 2 años. ¿Cuántos clientes tendrá y cuántos habrá ganado?",
+   "formula": [
+    "C_f=C_i\\cdot(1+\\text{tasa})^{\\text{años}}",
+    "I=C_f-C_i"
+   ],
+   "desarrollo": [
+    "C_f=4\\,000\\cdot(1+0{,}05)^2=4\\,000\\cdot1{,}1025=4\\,410",
+    "I=4\\,410-4\\,000=410"
+   ],
+   "resultado": [
+    "Clientes al final 4.410",
+    "Clientes ganados 410"
+   ],
+   "check": [
+    [
+     "round(4000*(1+5/100)**2,2)",
+     4410.0
+    ],
+    [
+     "round(round(4000*(1+5/100)**2,2)-4000,2)",
+     410.0
+    ]
+   ],
+   "datos": [
+    [
+     "Clientes",
+     "4.000"
+    ],
+    [
+     "Crecimiento anual",
+     "5 %"
+    ],
+    [
+     "Tiempo",
+     "2 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Capital de un depósito",
+   "enunciado": "Tras 2 años al 8 % anual de interés compuesto, una cuenta tiene 5.832 €. ¿Cuánto se depositó al principio?",
+   "formula": [
+    "C_i=\\dfrac{C_f}{(1+\\text{tasa})^{\\text{años}}}"
+   ],
+   "desarrollo": [
+    "C_i=\\dfrac{5\\,832}{(1+0{,}08)^2}=\\dfrac{5\\,832}{1{,}1664}=5\\,000\\text{ €}"
+   ],
+   "resultado": [
+    "Capital inicial",
+    "5.000 €"
+   ],
+   "check": [
+    [
+     "round(5832/(1+8/100)**2,2)",
+     5000
+    ]
+   ],
+   "datos": [
+    [
+     "Capital final",
+     "5.832 €"
+    ],
+    [
+     "Tasa anual",
+     "8 %"
+    ],
+    [
+     "Tiempo",
+     "2 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Capital de una inversión",
+   "enunciado": "Una inversión al 10 % anual de interés compuesto vale 6.655 € tras 3 años. ¿Cuál fue el capital inicial?",
+   "formula": [
+    "C_i=\\dfrac{C_f}{(1+\\text{tasa})^{\\text{años}}}"
+   ],
+   "desarrollo": [
+    "C_i=\\dfrac{6\\,655}{(1+0{,}1)^3}=\\dfrac{6\\,655}{1{,}331}=5\\,000\\text{ €}"
+   ],
+   "resultado": [
+    "Capital inicial",
+    "5.000 €"
+   ],
+   "check": [
+    [
+     "round(6655/(1+10/100)**3,2)",
+     5000
+    ]
+   ],
+   "datos": [
+    [
+     "Capital final",
+     "6.655 €"
+    ],
+    [
+     "Tasa anual",
+     "10 %"
+    ],
+    [
+     "Tiempo",
+     "3 años"
+    ]
+   ]
+  },
+  {
+   "titulo": "Capital de un ahorro",
+   "enunciado": "Una cuenta al 4 % anual de interés compuesto tiene 2.704 € tras 2 años. ¿Cuánto se ingresó al principio?",
+   "formula": [
+    "C_i=\\dfrac{C_f}{(1+\\text{tasa})^{\\text{años}}}"
+   ],
+   "desarrollo": [
+    "C_i=\\dfrac{2\\,704}{(1+0{,}04)^2}=\\dfrac{2\\,704}{1{,}0816}=2\\,500\\text{ €}"
+   ],
+   "resultado": [
+    "Capital inicial",
+    "2.500 €"
+   ],
+   "check": [
+    [
+     "round(2704/(1+4/100)**2,2)",
+     2500
+    ]
+   ],
+   "datos": [
+    [
+     "Capital final",
+     "2.704 €"
+    ],
+    [
+     "Tasa anual",
+     "4 %"
+    ],
+    [
+     "Tiempo",
+     "2 años"
+    ]
+   ]
+  }
+ ]
+}

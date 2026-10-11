@@ -31,7 +31,10 @@ html { scroll-padding-top: var(--size-nav-offset); }
 /* Portada: las tarjetas negras de cada materia (el color de la materia llega por data-variante) */
 .materia { display: flex; flex-direction: column; gap: var(--space-5); padding: var(--space-10); }
 .materia p { margin: 0; color: var(--color-text-secondary); max-width: 44ch; }
-.materia .ds-card__title { margin: var(--space-3) 0 0; }
+.materia__cabecera { display: flex; align-items: center; gap: var(--space-5); }
+.materia__icono { flex: none; width: var(--space-16); height: var(--space-16); border-radius: var(--radius-lg); }
+.materia__icono .ds-icon { width: var(--space-8); height: var(--space-8); }
+.materia .ds-card__title { margin: 0; font-size: clamp(2rem, 5vw, var(--font-size-h1)); line-height: var(--line-height-h1); }
 .materia .ds-badge { align-self: flex-start; }
 .materia .ds-link-arrow { margin-top: auto; }
 @media (max-width: 720px) { .materia { padding: var(--space-6); } }

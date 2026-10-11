@@ -1,0 +1,480 @@
+{
+ "numero": 8,
+ "materia": "Matemáticas",
+ "titulo": "Despejar incógnitas",
+ "marca": "x",
+ "lead": "Deja la incógnita sola y resuelve ecuaciones y fórmulas.",
+ "vas_a_ver": [
+  "Lo que suma pasa restando",
+  "Lo que resta pasa sumando",
+  "Lo que multiplica pasa dividiendo",
+  "Lo que divide pasa multiplicando"
+ ],
+ "formulas": [
+  {
+   "titulo": "Lo que suma pasa restando",
+   "formulas": [
+    "x+a=b\\;\\Rightarrow\\;x=b-a"
+   ],
+   "explicacion": "Para dejar la incógnita sola, pasa al otro lado lo que está sumando, pero restando."
+  },
+  {
+   "titulo": "Lo que resta pasa sumando",
+   "formulas": [
+    "x-a=b\\;\\Rightarrow\\;x=b+a"
+   ],
+   "explicacion": "Lo que está restando pasa al otro lado sumando."
+  },
+  {
+   "titulo": "Lo que multiplica pasa dividiendo",
+   "formulas": [
+    "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}"
+   ],
+   "explicacion": "Lo que multiplica a la incógnita pasa al otro lado dividiendo."
+  },
+  {
+   "titulo": "Lo que divide pasa multiplicando",
+   "formulas": [
+    "\\dfrac{x}{a}=b\\;\\Rightarrow\\;x=a\\cdot b"
+   ],
+   "explicacion": "Lo que divide a la incógnita pasa al otro lado multiplicando. Empieza siempre por las sumas y las restas."
+  }
+ ],
+ "ejemplos": [
+  {
+   "titulo": "Ecuación de dos pasos",
+   "enunciado": "Despeja la x de la ecuación 3x + 1 = 4.",
+   "formula": [
+    "x+a=b\\;\\Rightarrow\\;x=b-a",
+    "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}"
+   ],
+   "desarrollo": [
+    "3x+1=4",
+    "3x=4-1=3",
+    "x=\\dfrac{3}{3}=1"
+   ],
+   "resultado": [
+    "Incógnita x",
+    "1"
+   ],
+   "check": [
+    [
+     "(4-1)/3",
+     1.0
+    ]
+   ],
+   "datos": [
+    [
+     "Multiplica a x",
+     "3"
+    ],
+    [
+     "Se suma",
+     "1"
+    ],
+    [
+     "Igual a",
+     "4"
+    ]
+   ]
+  },
+  {
+   "titulo": "Otra ecuación",
+   "enunciado": "Despeja la x de la ecuación 2x + 4 = 10.",
+   "formula": [
+    "x+a=b\\;\\Rightarrow\\;x=b-a",
+    "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}"
+   ],
+   "desarrollo": [
+    "2x+4=10",
+    "2x=10-4=6",
+    "x=\\dfrac{6}{2}=3"
+   ],
+   "resultado": [
+    "Incógnita x",
+    "3"
+   ],
+   "check": [
+    [
+     "(10-4)/2",
+     3.0
+    ]
+   ],
+   "datos": [
+    [
+     "Multiplica a x",
+     "2"
+    ],
+    [
+     "Se suma",
+     "4"
+    ],
+    [
+     "Igual a",
+     "10"
+    ]
+   ]
+  },
+  {
+   "titulo": "Despejar en una fórmula",
+   "enunciado": "En la ley de Ohm, I = V / R. Despeja la tensión V y calcúlala con I = 3 A y R = 40 Ω.",
+   "formula": [
+    "I=\\dfrac{V}{R}\\;\\Rightarrow\\;V=I\\cdot R"
+   ],
+   "desarrollo": [
+    "I=\\dfrac{V}{R}\\;\\Rightarrow\\;V=I\\cdot R",
+    "V=3\\cdot40=120\\text{ V}"
+   ],
+   "resultado": [
+    "Tensión V",
+    "120 V"
+   ],
+   "check": [
+    [
+     "3*40",
+     120
+    ]
+   ],
+   "datos": [
+    [
+     "Intensidad I",
+     "3 A"
+    ],
+    [
+     "Resistencia R",
+     "40 Ω"
+    ]
+   ]
+  }
+ ],
+ "ejercicios": [
+  {
+   "titulo": "Sumar y despejar",
+   "enunciado": "Despeja la x de la ecuación x + 7 = 15.",
+   "formula": [
+    "x+a=b\\;\\Rightarrow\\;x=b-a"
+   ],
+   "desarrollo": [
+    "x+7=15",
+    "x=15-7=8"
+   ],
+   "resultado": [
+    "Incógnita x",
+    "8"
+   ],
+   "check": [
+    [
+     "15-7",
+     8
+    ]
+   ],
+   "datos": [
+    [
+     "Se suma",
+     "7"
+    ],
+    [
+     "Igual a",
+     "15"
+    ]
+   ]
+  },
+  {
+   "titulo": "Restar y despejar",
+   "enunciado": "Despeja la x de la ecuación x − 5 = 9.",
+   "formula": [
+    "x-a=b\\;\\Rightarrow\\;x=b+a"
+   ],
+   "desarrollo": [
+    "x-5=9",
+    "x=9+5=14"
+   ],
+   "resultado": [
+    "Incógnita x",
+    "14"
+   ],
+   "check": [
+    [
+     "9+5",
+     14
+    ]
+   ],
+   "datos": [
+    [
+     "Se resta",
+     "5"
+    ],
+    [
+     "Igual a",
+     "9"
+    ]
+   ]
+  },
+  {
+   "titulo": "Multiplicación",
+   "enunciado": "Despeja la x de la ecuación 4x = 36.",
+   "formula": [
+    "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}"
+   ],
+   "desarrollo": [
+    "4x=36",
+    "x=\\dfrac{36}{4}=9"
+   ],
+   "resultado": [
+    "Incógnita x",
+    "9"
+   ],
+   "check": [
+    [
+     "36/4",
+     9.0
+    ]
+   ],
+   "datos": [
+    [
+     "Multiplica a x",
+     "4"
+    ],
+    [
+     "Igual a",
+     "36"
+    ]
+   ]
+  },
+  {
+   "titulo": "División",
+   "enunciado": "Despeja la x de la ecuación x / 6 = 5.",
+   "formula": [
+    "\\dfrac{x}{a}=b\\;\\Rightarrow\\;x=a\\cdot b"
+   ],
+   "desarrollo": [
+    "\\dfrac{x}{6}=5",
+    "x=6\\cdot5=30"
+   ],
+   "resultado": [
+    "Incógnita x",
+    "30"
+   ],
+   "check": [
+    [
+     "6*5",
+     30
+    ]
+   ],
+   "datos": [
+    [
+     "Divide a x",
+     "6"
+    ],
+    [
+     "Igual a",
+     "5"
+    ]
+   ]
+  },
+  {
+   "titulo": "Dos pasos con suma",
+   "enunciado": "Despeja la x de la ecuación 5x + 3 = 28.",
+   "formula": [
+    "x+a=b\\;\\Rightarrow\\;x=b-a",
+    "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}"
+   ],
+   "desarrollo": [
+    "5x+3=28",
+    "5x=28-3=25",
+    "x=\\dfrac{25}{5}=5"
+   ],
+   "resultado": [
+    "Incógnita x",
+    "5"
+   ],
+   "check": [
+    [
+     "(28-3)/5",
+     5.0
+    ]
+   ],
+   "datos": [
+    [
+     "Multiplica a x",
+     "5"
+    ],
+    [
+     "Se suma",
+     "3"
+    ],
+    [
+     "Igual a",
+     "28"
+    ]
+   ]
+  },
+  {
+   "titulo": "Dos pasos con resta",
+   "enunciado": "Despeja la x de la ecuación 3x − 4 = 17.",
+   "formula": [
+    "x-a=b\\;\\Rightarrow\\;x=b+a",
+    "a\\cdot x=b\\;\\Rightarrow\\;x=\\dfrac{b}{a}"
+   ],
+   "desarrollo": [
+    "3x-4=17",
+    "3x=17+4=21",
+    "x=\\dfrac{21}{3}=7"
+   ],
+   "resultado": [
+    "Incógnita x",
+    "7"
+   ],
+   "check": [
+    [
+     "(17+4)/3",
+     7.0
+    ]
+   ],
+   "datos": [
+    [
+     "Multiplica a x",
+     "3"
+    ],
+    [
+     "Se resta",
+     "4"
+    ],
+    [
+     "Igual a",
+     "17"
+    ]
+   ]
+  },
+  {
+   "titulo": "División y suma",
+   "enunciado": "Despeja la x de la ecuación x / 4 + 2 = 6.",
+   "formula": [
+    "x+a=b\\;\\Rightarrow\\;x=b-a",
+    "\\dfrac{x}{a}=b\\;\\Rightarrow\\;x=a\\cdot b"
+   ],
+   "desarrollo": [
+    "\\dfrac{x}{4}+2=6",
+    "\\dfrac{x}{4}=6-2=4",
+    "x=4\\cdot4=16"
+   ],
+   "resultado": [
+    "Incógnita x",
+    "16"
+   ],
+   "check": [
+    [
+     "(6-2)*4",
+     16
+    ]
+   ],
+   "datos": [
+    [
+     "Divide a x",
+     "4"
+    ],
+    [
+     "Se suma",
+     "2"
+    ],
+    [
+     "Igual a",
+     "6"
+    ]
+   ]
+  },
+  {
+   "titulo": "Velocidad",
+   "enunciado": "En el movimiento, E = V · t. Despeja la velocidad V y calcúlala con E = 240 km y t = 4 h.",
+   "formula": [
+    "E=V\\cdot t\\;\\Rightarrow\\;V=\\dfrac{E}{t}"
+   ],
+   "desarrollo": [
+    "E=V\\cdot t\\;\\Rightarrow\\;V=\\dfrac{E}{t}",
+    "V=\\dfrac{240}{4}=60\\text{ km/h}"
+   ],
+   "resultado": [
+    "Velocidad V",
+    "60 km/h"
+   ],
+   "check": [
+    [
+     "240/4",
+     60
+    ]
+   ],
+   "datos": [
+    [
+     "Espacio E",
+     "240 km"
+    ],
+    [
+     "Tiempo t",
+     "4 h"
+    ]
+   ]
+  },
+  {
+   "titulo": "Tensión",
+   "enunciado": "En la ley de Ohm, I = V / R. Despeja la tensión V y calcúlala con I = 5 A y R = 20 Ω.",
+   "formula": [
+    "I=\\dfrac{V}{R}\\;\\Rightarrow\\;V=I\\cdot R"
+   ],
+   "desarrollo": [
+    "I=\\dfrac{V}{R}\\;\\Rightarrow\\;V=I\\cdot R",
+    "V=5\\cdot20=100\\text{ V}"
+   ],
+   "resultado": [
+    "Tensión V",
+    "100 V"
+   ],
+   "check": [
+    [
+     "5*20",
+     100
+    ]
+   ],
+   "datos": [
+    [
+     "Intensidad I",
+     "5 A"
+    ],
+    [
+     "Resistencia R",
+     "20 Ω"
+    ]
+   ]
+  },
+  {
+   "titulo": "Altura de un rectángulo",
+   "enunciado": "El área de un rectángulo es A = b · h. Despeja la altura h y calcúlala con A = 48 m² y b = 8 m.",
+   "formula": [
+    "A=b\\cdot h\\;\\Rightarrow\\;h=\\dfrac{A}{b}"
+   ],
+   "desarrollo": [
+    "A=b\\cdot h\\;\\Rightarrow\\;h=\\dfrac{A}{b}",
+    "h=\\dfrac{48}{8}=6\\text{ m}"
+   ],
+   "resultado": [
+    "Altura h",
+    "6 m"
+   ],
+   "check": [
+    [
+     "48/8",
+     6
+    ]
+   ],
+   "datos": [
+    [
+     "Área A",
+     "48 m²"
+    ],
+    [
+     "Base b",
+     "8 m"
+    ]
+   ]
+  }
+ ]
+}

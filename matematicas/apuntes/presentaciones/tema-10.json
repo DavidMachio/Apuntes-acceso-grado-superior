@@ -1,0 +1,853 @@
+{
+ "numero": 10,
+ "materia": "Matemáticas",
+ "titulo": "Representaciones gráficas",
+ "marca": "%",
+ "lead": "Barras, sectores y líneas: elige el gráfico y calcula con él.",
+ "vas_a_ver": [
+  "Gráfica de barras",
+  "Gráfica de sectores",
+  "Gráfica de líneas",
+  "Elegir el gráfico adecuado"
+ ],
+ "formulas": [
+  {
+   "titulo": "Gráfica de barras",
+   "formulas": [
+    "\\text{Total}=\\text{suma de todos los datos}",
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "explicacion": "Sirve para comparar categorías: la altura de cada barra es la cantidad. Para saber qué parte del total es una barra, divide entre el total."
+  },
+  {
+   "titulo": "Gráfica de sectores",
+   "formulas": [
+    "p=\\dfrac{c}{t}\\times100",
+    "\\sum p_i=100\\,\\%"
+   ],
+   "explicacion": "Muestra las partes de un total. Los porcentajes de todos los sectores deben sumar el 100 %."
+  },
+  {
+   "titulo": "Gráfica de líneas",
+   "formulas": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "explicacion": "Muestra cómo evoluciona una cantidad en el tiempo. La variación absoluta es la diferencia y la porcentual la compara con el valor inicial."
+  },
+  {
+   "titulo": "Elegir el gráfico adecuado",
+   "formulas": [
+    "\\text{comparar}\\to\\text{barras}",
+    "\\text{partes de un total}\\to\\text{sectores}",
+    "\\text{evolución}\\to\\text{líneas}"
+   ],
+   "explicacion": "Elige el gráfico según lo que quieras mostrar."
+  }
+ ],
+ "ejemplos": [
+  {
+   "titulo": "Barras: coches por marca",
+   "enunciado": "En un aparcamiento se cuentan los coches estacionados por marca: 7 SEAT, 4 Renault, 1 Opel y 5 Ford. ¿Cuántos coches hay en total y qué porcentaje son SEAT?",
+   "formula": [
+    "\\text{Total}=\\text{suma de todos los datos}",
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "desarrollo": [
+    "\\text{Total}=7+4+1+5=17",
+    "p=\\dfrac{7}{17}\\times100=41{,}18\\,\\%"
+   ],
+   "resultado": [
+    "Total 17",
+    "SEAT 41,18 %"
+   ],
+   "check": [
+    [
+     "7+4+1+5",
+     17
+    ],
+    [
+     "round(7/17*100,2)",
+     41.18
+    ]
+   ],
+   "datos": [
+    [
+     "SEAT",
+     "7"
+    ],
+    [
+     "Renault",
+     "4"
+    ],
+    [
+     "Opel",
+     "1"
+    ],
+    [
+     "Ford",
+     "5"
+    ]
+   ],
+   "grafico": {
+    "tipo": "barras",
+    "datos": [
+     [
+      "SEAT",
+      7
+     ],
+     [
+      "Renault",
+      4
+     ],
+     [
+      "Opel",
+      1
+     ],
+     [
+      "Ford",
+      5
+     ]
+    ],
+    "destacado": 0
+   }
+  },
+  {
+   "titulo": "Sectores: frutería",
+   "enunciado": "En una frutería hay 10 manzanas, 6 peras y 4 naranjas. ¿Qué porcentaje es cada fruta para un gráfico de sectores?",
+   "formula": [
+    "p=\\dfrac{c}{t}\\times100",
+    "\\sum p_i=100\\,\\%"
+   ],
+   "desarrollo": [
+    "\\text{Total}=10+6+4=20",
+    "10/20=50\\,\\%",
+    "6/20=30\\,\\%",
+    "4/20=20\\,\\%"
+   ],
+   "resultado": [
+    "Manzanas 50 %",
+    "Peras 30 %",
+    "Naranjas 20 %"
+   ],
+   "check": [
+    [
+     "round(10/20*100,2)",
+     50.0
+    ],
+    [
+     "round(6/20*100,2)",
+     30.0
+    ],
+    [
+     "round(4/20*100,2)",
+     20.0
+    ]
+   ],
+   "datos": [
+    [
+     "Manzanas",
+     "10"
+    ],
+    [
+     "Peras",
+     "6"
+    ],
+    [
+     "Naranjas",
+     "4"
+    ]
+   ],
+   "grafico": {
+    "tipo": "sectores",
+    "datos": [
+     [
+      "Manzanas",
+      10
+     ],
+     [
+      "Peras",
+      6
+     ],
+     [
+      "Naranjas",
+      4
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Líneas: alquiler",
+   "enunciado": "El precio medio del alquiler de un piso fue 650 € en 2021 y 820 € en 2025, pasando por 680, 750 y 790 €. ¿Cuál es la variación absoluta y la porcentual?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=820-650=170",
+    "V_P=\\dfrac{170}{650}\\times100=26{,}15\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 170 €",
+    "Variación porcentual 26,15 %"
+   ],
+   "check": [
+    [
+     "820-650",
+     170
+    ],
+    [
+     "round(170/650*100,2)",
+     26.15
+    ]
+   ],
+   "datos": [
+    [
+     "Año 2021",
+     "650 €"
+    ],
+    [
+     "Año 2025",
+     "820 €"
+    ]
+   ],
+   "grafico": {
+    "tipo": "lineas",
+    "datos": [
+     [
+      "2021",
+      650
+     ],
+     [
+      "2022",
+      680
+     ],
+     [
+      "2023",
+      750
+     ],
+     [
+      "2024",
+      790
+     ],
+     [
+      "2025",
+      820
+     ]
+    ]
+   }
+  }
+ ],
+ "ejercicios": [
+  {
+   "titulo": "Vehículos de un parque",
+   "enunciado": "En un parque hay 12 bicicletas, 8 patinetes y 5 motos. ¿Cuántos vehículos hay en total y qué porcentaje son bicicletas?",
+   "formula": [
+    "\\text{Total}=\\text{suma de todos los datos}",
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "desarrollo": [
+    "\\text{Total}=12+8+5=25",
+    "p=\\dfrac{12}{25}\\times100=48\\,\\%"
+   ],
+   "resultado": [
+    "Total 25",
+    "Bicis 48 %"
+   ],
+   "check": [
+    [
+     "12+8+5",
+     25
+    ],
+    [
+     "round(12/25*100,2)",
+     48.0
+    ]
+   ],
+   "datos": [
+    [
+     "Bicis",
+     "12"
+    ],
+    [
+     "Patinetes",
+     "8"
+    ],
+    [
+     "Motos",
+     "5"
+    ]
+   ],
+   "grafico": {
+    "tipo": "barras",
+    "datos": [
+     [
+      "Bicis",
+      12
+     ],
+     [
+      "Patinetes",
+      8
+     ],
+     [
+      "Motos",
+      5
+     ]
+    ],
+    "destacado": 0
+   }
+  },
+  {
+   "titulo": "Préstamos de una biblioteca",
+   "enunciado": "Una biblioteca presta 20 libros el lunes, 15 el martes, 25 el miércoles y 10 el jueves. ¿Cuántos presta en total y qué porcentaje es del miércoles?",
+   "formula": [
+    "\\text{Total}=\\text{suma de todos los datos}",
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "desarrollo": [
+    "\\text{Total}=20+15+25+10=70",
+    "p=\\dfrac{25}{70}\\times100=35{,}71\\,\\%"
+   ],
+   "resultado": [
+    "Total 70",
+    "Mié 35,71 %"
+   ],
+   "check": [
+    [
+     "20+15+25+10",
+     70
+    ],
+    [
+     "round(25/70*100,2)",
+     35.71
+    ]
+   ],
+   "datos": [
+    [
+     "Lun",
+     "20"
+    ],
+    [
+     "Mar",
+     "15"
+    ],
+    [
+     "Mié",
+     "25"
+    ],
+    [
+     "Jue",
+     "10"
+    ]
+   ],
+   "grafico": {
+    "tipo": "barras",
+    "datos": [
+     [
+      "Lun",
+      20
+     ],
+     [
+      "Mar",
+      15
+     ],
+     [
+      "Mié",
+      25
+     ],
+     [
+      "Jue",
+      10
+     ]
+    ],
+    "destacado": 2
+   }
+  },
+  {
+   "titulo": "Una floristería",
+   "enunciado": "En una floristería hay 500 tulipanes, 1.500 gardenias y 2.000 rosas. ¿Cuántas flores hay en total y qué porcentaje son rosas?",
+   "formula": [
+    "\\text{Total}=\\text{suma de todos los datos}",
+    "p=\\dfrac{c}{t}\\times100"
+   ],
+   "desarrollo": [
+    "\\text{Total}=500+1\\,500+2\\,000=4\\,000",
+    "p=\\dfrac{2\\,000}{4\\,000}\\times100=50\\,\\%"
+   ],
+   "resultado": [
+    "Total 4.000",
+    "Rosas 50 %"
+   ],
+   "check": [
+    [
+     "500+1500+2000",
+     4000
+    ],
+    [
+     "round(2000/4000*100,2)",
+     50.0
+    ]
+   ],
+   "datos": [
+    [
+     "Tulipanes",
+     "500"
+    ],
+    [
+     "Gardenias",
+     "1.500"
+    ],
+    [
+     "Rosas",
+     "2.000"
+    ]
+   ],
+   "grafico": {
+    "tipo": "barras",
+    "datos": [
+     [
+      "Tulipanes",
+      500
+     ],
+     [
+      "Gardenias",
+      1500
+     ],
+     [
+      "Rosas",
+      2000
+     ]
+    ],
+    "destacado": 2
+   }
+  },
+  {
+   "titulo": "Coches por color",
+   "enunciado": "Hay 5 coches negros, 10 blancos y 5 verdes. ¿Qué porcentaje representa cada color en un gráfico de sectores?",
+   "formula": [
+    "p=\\dfrac{c}{t}\\times100",
+    "\\sum p_i=100\\,\\%"
+   ],
+   "desarrollo": [
+    "\\text{Total}=5+10+5=20",
+    "5/20=25\\,\\%",
+    "10/20=50\\,\\%",
+    "5/20=25\\,\\%"
+   ],
+   "resultado": [
+    "Negros 25 %",
+    "Blancos 50 %",
+    "Verdes 25 %"
+   ],
+   "check": [
+    [
+     "round(5/20*100,2)",
+     25.0
+    ],
+    [
+     "round(10/20*100,2)",
+     50.0
+    ],
+    [
+     "round(5/20*100,2)",
+     25.0
+    ]
+   ],
+   "datos": [
+    [
+     "Negros",
+     "5"
+    ],
+    [
+     "Blancos",
+     "10"
+    ],
+    [
+     "Verdes",
+     "5"
+    ]
+   ],
+   "grafico": {
+    "tipo": "sectores",
+    "datos": [
+     [
+      "Negros",
+      5
+     ],
+     [
+      "Blancos",
+      10
+     ],
+     [
+      "Verdes",
+      5
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Bebida favorita",
+   "enunciado": "De 40 personas, 18 prefieren café, 12 té y 10 zumo. ¿Qué porcentaje representa cada bebida en un gráfico de sectores?",
+   "formula": [
+    "p=\\dfrac{c}{t}\\times100",
+    "\\sum p_i=100\\,\\%"
+   ],
+   "desarrollo": [
+    "\\text{Total}=18+12+10=40",
+    "18/40=45\\,\\%",
+    "12/40=30\\,\\%",
+    "10/40=25\\,\\%"
+   ],
+   "resultado": [
+    "Café 45 %",
+    "Té 30 %",
+    "Zumo 25 %"
+   ],
+   "check": [
+    [
+     "round(18/40*100,2)",
+     45.0
+    ],
+    [
+     "round(12/40*100,2)",
+     30.0
+    ],
+    [
+     "round(10/40*100,2)",
+     25.0
+    ]
+   ],
+   "datos": [
+    [
+     "Café",
+     "18"
+    ],
+    [
+     "Té",
+     "12"
+    ],
+    [
+     "Zumo",
+     "10"
+    ]
+   ],
+   "grafico": {
+    "tipo": "sectores",
+    "datos": [
+     [
+      "Café",
+      18
+     ],
+     [
+      "Té",
+      12
+     ],
+     [
+      "Zumo",
+      10
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Reparto de un presupuesto",
+   "enunciado": "Un presupuesto de 2.000 € se reparte: 50 % alquiler, 30 % comida y 20 % ocio. ¿Cuántos euros corresponden a cada parte?",
+   "formula": [
+    "c=\\dfrac{p}{100}\\cdot t"
+   ],
+   "desarrollo": [
+    "50/100\\cdot2\\,000=1\\,000\\text{ €}",
+    "30/100\\cdot2\\,000=600\\text{ €}",
+    "20/100\\cdot2\\,000=400\\text{ €}"
+   ],
+   "resultado": [
+    "Alquiler 1.000 €",
+    "Comida 600 €",
+    "Ocio 400 €"
+   ],
+   "check": [
+    [
+     "50/100*2000",
+     1000.0
+    ],
+    [
+     "30/100*2000",
+     600.0
+    ],
+    [
+     "20/100*2000",
+     400.0
+    ]
+   ],
+   "datos": [
+    [
+     "Presupuesto",
+     "2.000 €"
+    ],
+    [
+     "Alquiler",
+     "50 %"
+    ],
+    [
+     "Comida",
+     "30 %"
+    ],
+    [
+     "Ocio",
+     "20 %"
+    ]
+   ],
+   "grafico": {
+    "tipo": "sectores",
+    "datos": [
+     [
+      "Alquiler",
+      50
+     ],
+     [
+      "Comida",
+      30
+     ],
+     [
+      "Ocio",
+      20
+     ]
+    ],
+    "centro": "2.000 €",
+    "centro_txt": "presupuesto"
+   }
+  },
+  {
+   "titulo": "Evolución del peso",
+   "enunciado": "El peso de una persona fue 80 kg en 2022, 78 en 2023, 75 en 2024 y 72 en 2025. ¿Cuál es la variación absoluta y la porcentual entre 2022 y 2025?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=72-80=-8",
+    "V_P=\\dfrac{-8}{80}\\times100=-10\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta −8 kg",
+    "Variación porcentual −10 %"
+   ],
+   "check": [
+    [
+     "72-80",
+     -8
+    ],
+    [
+     "round(-8/80*100,2)",
+     -10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Año 2022",
+     "80 kg"
+    ],
+    [
+     "Año 2025",
+     "72 kg"
+    ]
+   ],
+   "grafico": {
+    "tipo": "lineas",
+    "datos": [
+     [
+      "2022",
+      80
+     ],
+     [
+      "2023",
+      78
+     ],
+     [
+      "2024",
+      75
+     ],
+     [
+      "2025",
+      72
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Alquiler de un local",
+   "enunciado": "El alquiler mensual de un local fue 900 € en 2020, 950 en 2021, 1.000 en 2022, 1.050 en 2023 y 1.125 en 2024. ¿Cuál es la variación absoluta y la porcentual?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=1\\,125-900=225",
+    "V_P=\\dfrac{225}{900}\\times100=25\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 225 €",
+    "Variación porcentual 25 %"
+   ],
+   "check": [
+    [
+     "1125-900",
+     225
+    ],
+    [
+     "round(225/900*100,2)",
+     25.0
+    ]
+   ],
+   "datos": [
+    [
+     "Año 2020",
+     "900 €"
+    ],
+    [
+     "Año 2024",
+     "1.125 €"
+    ]
+   ],
+   "grafico": {
+    "tipo": "lineas",
+    "datos": [
+     [
+      "2020",
+      900
+     ],
+     [
+      "2021",
+      950
+     ],
+     [
+      "2022",
+      1000
+     ],
+     [
+      "2023",
+      1050
+     ],
+     [
+      "2024",
+      1125
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Camiones en un puerto",
+   "enunciado": "Camiones descargados en un puerto: 100.000 en 2019, 95.000 en 2021, 110.000 en 2023 y 125.000 en 2025. ¿Cuál es la variación absoluta y la porcentual entre 2019 y 2025?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=125\\,000-100\\,000=25\\,000",
+    "V_P=\\dfrac{25\\,000}{100\\,000}\\times100=25\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta 25.000",
+    "Variación porcentual 25 %"
+   ],
+   "check": [
+    [
+     "125000-100000",
+     25000
+    ],
+    [
+     "round(25000/100000*100,2)",
+     25.0
+    ]
+   ],
+   "datos": [
+    [
+     "Camiones en 2019",
+     "100.000"
+    ],
+    [
+     "Camiones en 2025",
+     "125.000"
+    ]
+   ],
+   "grafico": {
+    "tipo": "lineas",
+    "datos": [
+     [
+      "2019",
+      100000
+     ],
+     [
+      "2021",
+      95000
+     ],
+     [
+      "2023",
+      110000
+     ],
+     [
+      "2025",
+      125000
+     ]
+    ]
+   }
+  },
+  {
+   "titulo": "Ventas de una tienda",
+   "enunciado": "Las ventas anuales fueron 200 unidades en 2020, 240 en 2021, 210 en 2022 y 180 en 2023. ¿Cuál es la variación absoluta y la porcentual entre 2020 y 2023?",
+   "formula": [
+    "V_A=C_f-C_i",
+    "V_P=\\dfrac{V_A}{C_i}\\times100"
+   ],
+   "desarrollo": [
+    "V_A=180-200=-20",
+    "V_P=\\dfrac{-20}{200}\\times100=-10\\,\\%"
+   ],
+   "resultado": [
+    "Variación absoluta −20 unidades",
+    "Variación porcentual −10 %"
+   ],
+   "check": [
+    [
+     "180-200",
+     -20
+    ],
+    [
+     "round(-20/200*100,2)",
+     -10.0
+    ]
+   ],
+   "datos": [
+    [
+     "Año 2020",
+     "200 unidades"
+    ],
+    [
+     "Año 2023",
+     "180 unidades"
+    ]
+   ],
+   "grafico": {
+    "tipo": "lineas",
+    "datos": [
+     [
+      "2020",
+      200
+     ],
+     [
+      "2021",
+      240
+     ],
+     [
+      "2022",
+      210
+     ],
+     [
+      "2023",
+      180
+     ]
+    ]
+   }
+  }
+ ]
+}
